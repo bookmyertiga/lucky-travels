@@ -78,14 +78,14 @@ export default function Hero() {
         </div>
 
         <div className="hero-car-enter relative z-10 h-[270px] self-end lg:h-full">
-          <div className="hero-road-shadow absolute bottom-[22px] left-[7%] h-[44px] w-[88%] rounded-[50%] lg:bottom-[38px]" />
+          <div className="hero-road-shadow absolute bottom-[8px] left-[7%] h-[44px] w-[88%] rounded-[50%] lg:bottom-[14px]" />
           <Image
-            src="/images/hero/ertiga-cutout-v2.png"
+            src="/images/hero/ertiga-grounded.png"
             alt="Lucky Travels white Premium Ertiga with branded number plate"
             fill
             priority
             sizes="(max-width: 1023px) 100vw, 58vw"
-            className="scale-[1.3] translate-y-[5%] object-contain object-bottom drop-shadow-[0_24px_24px_rgba(6,10,30,.30)] lg:scale-[1.13] lg:translate-x-[2%] lg:translate-y-[2%]"
+            className="scale-[1.3] object-contain object-bottom drop-shadow-[0_24px_24px_rgba(6,10,30,.30)] lg:scale-[1.13] lg:translate-x-[2%]"
           />
         </div>
       </div>
