@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #090f2f;
+  --muted: #5d647b;
+  --purple: #5b16d9;
+  --purple-deep: #35107f;
+  --violet: #8a2cf1;
+  --gold: #f2aa18;
+  --surface: #f6f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Segoe UI", Aptos, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(91, 22, 217, 0.35);
+  outline-offset: 3px;
+}
+
+.page-shell {
+  width: min(1640px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.shadow-premium {
+  box-shadow: 0 22px 60px rgba(9, 15, 47, 0.13);
+}
+
+.shadow-soft {
+  box-shadow: 0 12px 34px rgba(9, 15, 47, 0.09);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+}
+
+.section-kicker {
+  color: var(--purple);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(105deg, var(--purple), var(--violet));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero-road-shadow {
+  background: radial-gradient(ellipse at center, rgba(7, 10, 26, 0.48), rgba(7, 10, 26, 0) 69%);
+  filter: blur(5px);
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-car-in {
+  from {
+    opacity: 0;
+    transform: translateX(70px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes loader-slide {
+  0% {
+    transform: translateX(-105%);
+  }
+  55%,
+  100% {
+    transform: translateX(105%);
+  }
+}
+
+@keyframes loader-away {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy-enter {
+    animation: hero-copy-in 0.7s ease-out both;
+  }
+
+  .hero-car-enter {
+    animation: hero-car-in 0.9s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 28px, 1640px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
