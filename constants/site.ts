@@ -12,6 +12,7 @@ export const SITE = {
   region: "Karnataka",
   postalCode: "560017",
   country: "IN",
+  googleReviewUrl: "https://g.page/r/Cb6NbUJDpbi2EAE/review",
 };
 
 export type Service = {

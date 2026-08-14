@@ -1,4 +1,5 @@
-import { BriefcaseBusiness, Luggage, UsersRound } from "lucide-react";
+import { BriefcaseBusiness, Luggage, UsersRound, Star } from "lucide-react";
+import { SITE } from "@/constants/site";
 
 const travellerBenefits = [
   [Luggage, "Airport-ready comfort", "Practical seating and luggage room for arrivals and departures."],
@@ -14,7 +15,19 @@ export default function Testimonials() {
           <p className="section-kicker">Designed around travellers</p>
           <h2 className="mt-1.5 text-2xl font-black tracking-[-0.025em]">A simpler way to Go Bengaluru</h2>
         </div>
-        <p className="max-w-lg text-xs leading-5 text-slate-600">Premium Ertiga comfort, clear coordination and one dependable point of contact.</p>
+        <div className="flex w-full flex-col items-start sm:items-end">
+          <p className="max-w-lg text-xs leading-5 text-slate-600">Premium Ertiga comfort, clear coordination and one dependable point of contact.</p>
+          <a
+            href={SITE.googleReviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Review Lucky Travels on Google"
+            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md border border-amber-400 bg-white px-3 py-2 text-sm font-semibold text-amber-400 hover:bg-amber-50 sm:w-auto"
+          >
+            <Star size={16} className="text-amber-400" />
+            Review us on Google
+          </a>
+        </div>
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-3">
         {travellerBenefits.map(([Icon, title, text]) => (

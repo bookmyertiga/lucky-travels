@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, Star } from "lucide-react";
 import BrandLogo from "@/components/shared/BrandLogo";
 import { SITE } from "@/constants/site";
 
@@ -23,6 +23,9 @@ export default function Footer() {
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2.5 text-xs font-black text-white">
                 <MessageCircle size={16} /> WhatsApp
+              </a>
+              <a href={SITE.googleReviewUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-xl border border-amber-400 px-3 py-2.5 text-xs font-black text-amber-400 bg-transparent">
+                <Star size={16} className="text-amber-400" /> Google Review
               </a>
             </div>
           </div>
