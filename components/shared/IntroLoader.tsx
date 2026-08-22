@@ -7,9 +7,13 @@ export default function IntroLoader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem("lucky-travels-intro")) {
-      setVisible(false);
+    if (typeof window === "undefined") {
       return;
+    }
+
+    if (window.sessionStorage.getItem("lucky-travels-intro")) {
+      const timer = window.setTimeout(() => setVisible(false), 0);
+      return () => window.clearTimeout(timer);
     }
 
     window.sessionStorage.setItem("lucky-travels-intro", "seen");

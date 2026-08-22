@@ -41,6 +41,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     .filter((item) => item.slug !== slug)
     .map((item) => ({ href: `/services/${item.slug}`, label: item.name }));
 
+  if (slug === "airport-transfers") {
+    related.unshift({ href: "/blog/premium-ertiga-for-bengaluru-airport-transfer", label: "Bengaluru airport cab pre-booking guide" });
+  }
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
