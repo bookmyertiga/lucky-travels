@@ -154,6 +154,7 @@ export const services: Service[] = [
     paragraphs: [
       "Lucky Travels provides Premium Ertiga outstation taxi packages from Bengaluru for travellers planning one-way trips, return journeys or multi-day travel. The service is well suited to families, small groups, business passengers and guests carrying luggage.",
       "Popular travel requirements include journeys from Bengaluru to Mysuru, Coorg, Chikkamagaluru, Ooty, Wayanad, Tirupati and other destinations in Karnataka and neighbouring states. Availability and trip terms are confirmed for each route individually.",
+      "For a focused route enquiry, see the Bangalore to Mysore Premium Ertiga cab service page and share your complete itinerary before confirmation.",
       "Before confirming an outstation booking, share the destination, travel dates, number of passengers, pickup location and whether the journey is one-way or round trip. Lucky Travels will explain the applicable package, kilometre limits and trip-related charges.",
       "Every confirmed outstation ride is served in a Premium Maruti Suzuki Ertiga, providing consistent vehicle quality, air-conditioned comfort and useful luggage capacity for longer road journeys.",
     ],

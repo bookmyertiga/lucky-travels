@@ -9,7 +9,11 @@ export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
@@ -32,7 +36,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
@@ -42,7 +50,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     .map((item) => ({ href: `/services/${item.slug}`, label: item.name }));
 
   if (slug === "airport-transfers") {
-    related.unshift({ href: "/blog/premium-ertiga-for-bengaluru-airport-transfer", label: "Bengaluru airport cab pre-booking guide" });
+    related.unshift({
+      href: "/blog/premium-ertiga-for-bengaluru-airport-transfer",
+      label: "Bengaluru airport cab pre-booking guide",
+    });
+  }
+
+  if (slug === "outstation-packages") {
+    related.unshift({
+      href: "/bangalore-to-mysore-cab",
+      label: "Bangalore to Mysore Premium Ertiga cab",
+    });
   }
 
   const serviceSchema = {
