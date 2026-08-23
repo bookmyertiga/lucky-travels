@@ -1,4 +1,67 @@
-import type { Metadata } from "next";import SiteShell from "@/components/shared/SiteShell";import FAQ from "@/components/home/FAQ";import JsonLd from "@/components/seo/JsonLd";
-const items=[{q:"Do you provide only Ertiga vehicles?",a:"Yes. Lucky Travels specialises exclusively in Premium Maruti Suzuki Ertiga service."},{q:"Do you provide airport pickup and drop?",a:"Yes. Airport pickup and airport drop services are available across Bengaluru."},{q:"Can I book by WhatsApp?",a:"Yes. Send your pickup, destination, date and time by WhatsApp for direct confirmation."},{q:"Do you provide hourly and outstation travel?",a:"Yes. Hourly city travel and outstation enquiries are accepted, subject to availability."}];
-export const metadata: Metadata={title:"Premium Ertiga Taxi FAQs",description:"Answers about Lucky Travels Premium Ertiga airport taxi, booking, hourly rental and outstation service.",alternates:{canonical:"/faq"}};
-export default function FaqPage(){return <SiteShell><JsonLd data={{"@context":"https://schema.org","@type":"FAQPage",mainEntity:items.map(i=>({"@type":"Question",name:i.q,acceptedAnswer:{"@type":"Answer",text:i.a}}))}}/><section className="mx-auto max-w-3xl px-5 py-16"><h1 className="text-5xl font-black">Frequently asked questions</h1><p className="mt-4 text-lg text-slate-600">Helpful information before you book your Premium Ertiga.</p><div className="mt-8"><FAQ/></div></section></SiteShell>}
+import type { Metadata } from "next";
+import SiteShell from "@/components/shared/SiteShell";
+import FAQ from "@/components/home/FAQ";
+import JsonLd from "@/components/seo/JsonLd";
+const items = [
+  {
+    q: "Do you provide only Ertiga vehicles?",
+    a: "Yes. Lucky Travels specialises exclusively in Premium Maruti Suzuki Ertiga service.",
+  },
+  {
+    q: "Do you provide airport pickup and drop?",
+    a: "Yes. Airport pickup and airport drop services are available across Bengaluru.",
+  },
+  {
+    q: "Can I book by WhatsApp?",
+    a: "Yes. Send your pickup, destination, date and time by WhatsApp for direct confirmation.",
+  },
+  {
+    q: "Do you provide hourly and outstation travel?",
+    a: "Yes. Hourly city travel and outstation enquiries are accepted, subject to availability.",
+  },
+];
+export const metadata: Metadata = {
+  title: "Premium Ertiga Taxi FAQs",
+  description:
+    "Answers about Lucky Travels Premium Ertiga airport taxi, booking, hourly rental and outstation service.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "Premium Ertiga Taxi FAQs",
+    description:
+      "Answers about Lucky Travels Premium Ertiga airport taxi, booking, hourly rental and outstation service.",
+    url: "/faq",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Premium Ertiga Taxi FAQs",
+    description:
+      "Answers about Lucky Travels Premium Ertiga airport taxi, booking, hourly rental and outstation service.",
+  },
+};
+export default function FaqPage() {
+  return (
+    <SiteShell>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: items.map((i) => ({
+            "@type": "Question",
+            name: i.q,
+            acceptedAnswer: { "@type": "Answer", text: i.a },
+          })),
+        }}
+      />
+      <section className="mx-auto max-w-3xl px-5 py-16">
+        <h1 className="text-5xl font-black">Frequently asked questions</h1>
+        <p className="mt-4 text-lg text-slate-600">
+          Helpful information before you book your Premium Ertiga.
+        </p>
+        <div className="mt-8">
+          <FAQ />
+        </div>
+      </section>
+    </SiteShell>
+  );
+}

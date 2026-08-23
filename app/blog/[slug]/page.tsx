@@ -213,9 +213,11 @@ export default async function BlogPost({
           <Image
             src={post.image}
             alt={post.imageAlt}
-            fill
+            width={post.imageWidth}
+            height={post.imageHeight}
             priority
-            className="object-cover"
+            sizes="(max-width: 640px) 100vw, 896px"
+            className="h-full w-full object-cover"
           />
         </Link>
 

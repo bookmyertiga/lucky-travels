@@ -25,7 +25,18 @@ export default function Home() {
         url: SITE.url,
         telephone: `+91${SITE.phone}`,
         email: SITE.email,
-        description: "Premium Ertiga airport transfers, hourly and daily rentals, and outstation service in Bengaluru.",
+        description:
+          "Premium Ertiga airport transfers, hourly and daily rentals, and outstation service in Bengaluru.",
+        logo: `${SITE.url}/images/logo/favicon.png`,
+        image: `${SITE.url}/images/hero/ertiga-grounded.png`,
+        foundingDate: "2026-08-03",
+        founder: {
+          "@type": "Person",
+          name: "Bharath K S",
+          url: `${SITE.url}/about`,
+        },
+        slogan: SITE.specialisationSlogan,
+        sameAs: [SITE.instagramUrl, SITE.facebookUrl],
         address: {
           "@type": "PostalAddress",
           streetAddress: SITE.address,

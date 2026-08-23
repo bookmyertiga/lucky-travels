@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteShell from "@/components/shared/SiteShell";
 import SeoPage from "@/components/shared/SeoPage";
-import { services } from "@/constants/site";
+import { SITE, services } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: "About Lucky Travels",
-  description: "Learn why Lucky Travels focuses exclusively on Premium Ertiga airport taxi and travel services in Bengaluru.",
+  description:
+    "Learn why Lucky Travels focuses exclusively on Premium Ertiga airport taxi and travel services in Bengaluru.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Lucky Travels",
+    description:
+      "Learn why Lucky Travels focuses exclusively on Premium Ertiga airport taxi and travel services in Bengaluru.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Lucky Travels",
+    description:
+      "Learn why Lucky Travels focuses exclusively on Premium Ertiga airport taxi and travel services in Bengaluru.",
+  },
 };
 
 export default function About() {
@@ -29,8 +44,26 @@ export default function About() {
           "Family and business friendly",
           "Direct booking support",
         ]}
-        related={services.map((service) => ({ href: `/services/${service.slug}`, label: service.name }))}
+        related={services.map((service) => ({
+          href: `/services/${service.slug}`,
+          label: service.name,
+        }))}
       />
+      <section className="mx-auto max-w-6xl px-5 pb-14">
+        <p className="max-w-3xl text-lg font-bold leading-8 text-purple-800">
+          {SITE.specialisationSlogan}
+        </p>
+        <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+          Read{" "}
+          <Link
+            href="/blog/why-lucky-travels-specialises-in-premium-ertiga"
+            className="font-semibold text-purple-700 underline"
+          >
+            Bharath K S&apos;s founder story
+          </Link>{" "}
+          to learn why Lucky Travels chose one focused vehicle category.
+        </p>
+      </section>
     </SiteShell>
   );
 }

@@ -9,7 +9,10 @@ export default function Hero() {
   )}`;
 
   return (
-    <section id="home" className="relative isolate overflow-hidden bg-[#f3efe9]">
+    <section
+      id="home"
+      className="relative isolate overflow-hidden bg-[#f3efe9]"
+    >
       <Image
         src="/images/hero/hero-bg.jpg"
         alt="Bengaluru heritage landmark and airport road"
@@ -32,19 +35,26 @@ export default function Hero() {
             <span className="block whitespace-nowrap">
               Go <span className="gradient-text">Bengaluru</span>
             </span>
-            <span className="mt-1 block">Airport Taxi</span>
+            <span className="mt-1 block"> Airport Taxi</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-sm font-semibold leading-6 text-slate-700 sm:text-base sm:leading-7">
-            Arrive in Bengaluru with a clean, spacious Premium Ertiga ready for your airport pickup, city rental or outstation journey.
+            Arrive in Bengaluru with a clean, spacious Premium Ertiga ready for
+            your airport pickup, city rental or outstation journey.
           </p>
 
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[11px] font-extrabold text-[#1b2348] sm:text-xs">
-            {['Only Premium Ertiga', 'Direct booking', '24/7 enquiries'].map((item) => (
-              <span key={item} className="flex items-center gap-1.5">
-                <Check size={15} className="rounded-full bg-purple-700 p-0.5 text-white" /> {item}
-              </span>
-            ))}
+            {["Only Premium Ertiga", "Direct booking", "24/7 enquiries"].map(
+              (item) => (
+                <span key={item} className="flex items-center gap-1.5">
+                  <Check
+                    size={15}
+                    className="rounded-full bg-purple-700 p-0.5 text-white"
+                  />{" "}
+                  {item}
+                </span>
+              ),
+            )}
           </div>
 
           <div className="mt-5 max-w-[620px]">
@@ -58,7 +68,9 @@ export default function Hero() {
             >
               <Phone size={21} />
               <span className="leading-tight">
-                <small className="block text-[9px] tracking-[0.15em] text-white/70">CALL NOW</small>
+                <small className="block text-[9px] tracking-[0.15em] text-white/70">
+                  CALL NOW
+                </small>
                 <span className="text-sm sm:text-base">{SITE.phone}</span>
               </span>
             </a>
@@ -70,8 +82,13 @@ export default function Hero() {
             >
               <MessageCircle size={23} className="text-green-600" />
               <span className="leading-tight">
-                <small className="block text-[9px] tracking-[0.12em] text-slate-500">QUICK BOOKING</small>
-                <span className="text-xs sm:text-sm"><span className="sm:hidden">Request Quote</span><span className="hidden sm:inline">Request on WhatsApp</span></span>
+                <small className="block text-[9px] tracking-[0.12em] text-slate-500">
+                  QUICK BOOKING
+                </small>
+                <span className="text-xs sm:text-sm">
+                  <span className="sm:hidden">Request Quote</span>
+                  <span className="hidden sm:inline">Request on WhatsApp</span>
+                </span>
               </span>
             </a>
           </div>
