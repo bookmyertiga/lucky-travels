@@ -82,12 +82,14 @@ function RouteImage({
   alt,
   caption,
   loading = "lazy",
+  featured = false,
 }: {
   href: string;
   src: string;
   alt: string;
   caption: string;
   loading?: "eager" | "lazy";
+  featured?: boolean;
 }) {
   return (
     <figure className="mx-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
@@ -98,7 +100,11 @@ function RouteImage({
           width={1536}
           height={1024}
           loading={loading}
-          className="h-auto w-full object-cover"
+          className={
+            featured
+              ? "h-[220px] w-full object-cover sm:h-[260px] lg:h-[285px]"
+              : "h-auto w-full object-cover"
+          }
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </Link>
@@ -268,33 +274,33 @@ export default function OutstationCabsBangalorePage() {
 
         <section
           aria-labelledby="outstation-heading"
-          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
+          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-6 text-white"
         >
-          <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.15fr_.85fr]">
+          <div className="mx-auto grid max-w-6xl items-center gap-4 lg:grid-cols-[1.15fr_.85fr]">
             <div>
               <p className="text-sm font-black uppercase tracking-[.18em] text-amber-400">
                 BANGALORE OUTSTATION TAXI ENQUIRIES
               </p>
               <h1
                 id="outstation-heading"
-                className="mt-4 max-w-3xl text-3xl font-black leading-tight sm:text-4xl lg:text-[2.75rem]"
+                className="mt-3 max-w-3xl text-[1.75rem] font-black leading-tight sm:text-4xl lg:text-[2.4rem] lg:leading-[1.12]"
               >
                 Outstation Cabs from Bangalore in a Premium Ertiga
               </h1>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8 lg:mt-4 lg:text-base lg:leading-7">
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-white/85 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
                 Plan a one-way drop, round trip or multi-day journey from
                 Bangalore with Go Bengaluru by Lucky Travels. Travel in a clean,
                 air-conditioned Premium Ertiga and receive a trip-specific quote
                 after the complete route, passenger and luggage details are
                 reviewed.
               </p>
-              <p className="mt-4 text-lg font-black text-amber-300 lg:text-base">
+              <p className="mt-2 text-base font-black leading-6 text-amber-300 sm:text-lg lg:text-base">
                 {SITE.specialisationSlogan}
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 lg:mt-5">
+              <div className="mt-3 flex flex-wrap gap-3">
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800 lg:text-sm"
+                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-black text-purple-800 lg:py-3 lg:text-sm"
                 >
                   <Phone size={19} /> Call Now: +91 {SITE.phone}
                 </a>
@@ -302,24 +308,22 @@ export default function OutstationCabsBangalorePage() {
                   href={outstationWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white lg:text-sm"
+                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-2.5 font-black text-white lg:py-3 lg:text-sm"
                 >
                   <MessageCircle size={19} /> Get an Outstation Quote
                 </a>
               </div>
-              <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
-                <p className="text-sm leading-6 text-white/70">
-                  24/7 enquiries. Every journey is subject to date, route,
-                  vehicle and driver availability confirmation.
-                </p>
-                <a
-                  href="#journey-options"
-                  className="inline-flex items-center gap-2 text-sm font-black text-amber-300 underline decoration-amber-300/60 underline-offset-4 hover:text-white"
-                >
-                  Explore journey options
-                  <ArrowDown size={17} aria-hidden="true" />
-                </a>
-              </div>
+              <a
+                href="#journey-options"
+                className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-300/70 px-4 py-2 text-sm font-black text-amber-300 hover:border-white hover:text-white"
+              >
+                Explore Journey Options Below
+                <ArrowDown size={17} aria-hidden="true" />
+              </a>
+              <p className="mt-2 text-xs leading-5 text-white/70">
+                24/7 enquiries. Every journey is subject to date, route, vehicle
+                and driver availability confirmation.
+              </p>
             </div>
             <RouteImage
               href="/"
@@ -327,6 +331,7 @@ export default function OutstationCabsBangalorePage() {
               alt="Go Bengaluru Lucky Travels Premium Ertiga for an outstation cab journey from Bangalore"
               caption="Premium Ertiga outstation journeys planned directly with Go Bengaluru by Lucky Travels."
               loading="eager"
+              featured
             />
           </div>
         </section>
