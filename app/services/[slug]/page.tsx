@@ -51,6 +51,10 @@ export default async function ServicePage({
 
   if (slug === "airport-transfers") {
     related.unshift({
+      href: "/airport-taxi-bangalore",
+      label: "Bangalore Airport Premium Ertiga taxi",
+    });
+    related.unshift({
       href: "/blog/premium-ertiga-for-bengaluru-airport-transfer",
       label: "Bengaluru airport cab pre-booking guide",
     });

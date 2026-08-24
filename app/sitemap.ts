@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.85,
     },
+    {
+      url: `${SITE.url}/airport-taxi-bangalore`,
+      lastModified: new Date("2026-08-23T00:00:00+05:30"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     { url: `${SITE.url}/about`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/contact`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/faq`, changeFrequency: "monthly", priority: 0.6 },
