@@ -60,6 +60,13 @@ export default async function ServicePage({
     });
   }
 
+  if (slug === "rental-packages") {
+    related.unshift({
+      href: "/car-rental-bangalore",
+      label: "Car rental in Bangalore for hourly and full-day travel",
+    });
+  }
+
   if (slug === "outstation-packages") {
     related.unshift({
       href: "/outstation-cabs-bangalore",
