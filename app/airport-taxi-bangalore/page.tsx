@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -74,6 +74,7 @@ function RouteImage({
   caption,
   width,
   height,
+  loading = "lazy",
 }: {
   href: string;
   src: string;
@@ -81,6 +82,7 @@ function RouteImage({
   caption: string;
   width: number;
   height: number;
+  loading?: "eager" | "lazy";
 }) {
   return (
     <figure className="mx-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
@@ -90,6 +92,7 @@ function RouteImage({
           alt={alt}
           width={width}
           height={height}
+          loading={loading}
           className="h-auto w-full object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -239,36 +242,36 @@ export default function AirportTaxiBangalorePage() {
 
         <section
           aria-labelledby="airport-taxi-heading"
-          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-20"
+          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
         >
-          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
+          <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.2fr_.8fr]">
             <div>
               <p className="text-sm font-black uppercase tracking-[.18em] text-amber-400">
                 BANGALORE AIRPORT PICKUP AND DROP ENQUIRIES
               </p>
               <h1
                 id="airport-taxi-heading"
-                className="mt-4 max-w-2xl text-3xl font-black leading-tight sm:text-5xl lg:text-[3.25rem]"
+                className="mt-4 max-w-2xl text-3xl font-black leading-tight sm:text-4xl lg:text-[2.75rem]"
               >
                 Bangalore Airport Taxi Service in a Premium Ertiga
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">
+              <p className="mt-5 max-w-3xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8 lg:mt-4 lg:text-base lg:leading-7">
                 Plan a pickup from Kempegowda International Airport Bengaluru or
                 an airport drop from Bangalore in a clean, air-conditioned
                 Premium Ertiga. Share your flight, terminal, passenger, luggage
                 and address details directly with Lucky Travels for a
                 trip-specific quote and clear confirmation.
               </p>
-              <p className="mt-5 text-lg font-black text-amber-300">
+              <p className="mt-4 text-lg font-black text-amber-300 lg:text-base">
                 {SITE.specialisationSlogan}
               </p>
               <div
-                className="mt-8 flex flex-wrap gap-3"
+                className="mt-6 flex flex-wrap gap-3 lg:mt-5 lg:flex-nowrap"
                 aria-label="Direct enquiry options"
               >
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="flex items-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-purple-800"
+                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800 lg:text-sm"
                 >
                   <Phone size={19} /> Call Now: +91 {SITE.phone}
                 </a>
@@ -276,16 +279,26 @@ export default function AirportTaxiBangalorePage() {
                   href={airportWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
+                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white lg:text-sm"
                 >
                   <MessageCircle size={19} /> Request an Airport Quote on
                   WhatsApp
                 </a>
               </div>
-              <p className="mt-5 text-sm leading-6 text-white/70">
-                24/7 enquiries. Every journey is subject to direct confirmation
-                of the date, time, route, vehicle and driver availability.
-              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <p className="text-sm leading-6 text-white/70">
+                  24/7 enquiries. Every journey is subject to direct
+                  confirmation of the date, time, route, vehicle and driver
+                  availability.
+                </p>
+                <a
+                  href="#airport-service-details"
+                  className="inline-flex items-center gap-2 text-sm font-black text-amber-300 underline decoration-amber-300/60 underline-offset-4 hover:text-white"
+                >
+                  Explore the airport service details
+                  <ArrowDown size={17} aria-hidden="true" />
+                </a>
+              </div>
             </div>
             <RouteImage
               href="/"
@@ -294,11 +307,13 @@ export default function AirportTaxiBangalorePage() {
               caption="Premium Ertiga airport pickup and drop enquiries planned directly with Lucky Travels."
               width={1672}
               height={941}
+              loading="eager"
             />
           </div>
         </section>
 
         <section
+          id="airport-service-details"
           className="bg-white px-5 py-10"
           aria-label="Quick planning summary"
         >
@@ -330,7 +345,7 @@ export default function AirportTaxiBangalorePage() {
         </section>
 
         <section
-          className="page-shell py-14 sm:py-20"
+          className="page-shell py-12 sm:py-16"
           aria-labelledby="direct-planning-heading"
         >
           <SectionHeading
@@ -339,41 +354,51 @@ export default function AirportTaxiBangalorePage() {
           >
             Plan a Bangalore Airport Pickup or Drop Directly
           </SectionHeading>
-          <div className="mt-6 max-w-4xl space-y-5 leading-8 text-slate-700">
-            <p>
-              Airport journeys are easier when the driver and traveller
-              understand the complete plan before travel. For a pickup, share
-              the flight number, expected arrival time, terminal if known,
-              passenger count, luggage and full destination. For a drop, share
-              the exact Bangalore pickup point, preferred reporting time,
-              terminal and airline details.
-            </p>
-            <p>
-              Kempegowda International Airport Bengaluru operates Terminal 1 and
-              Terminal 2. The terminal used can depend on the airline and flight
-              operation. Check the latest ticket or airline message and share
-              the confirmed terminal before travel. Airport access and meeting
-              arrangements can change, so the final pickup point should be
-              reconfirmed on the day of the journey.
-            </p>
-            <p>
-              Lucky Travels accepts enquiries at any time, but the journey is
-              confirmed only after the date, timing, route, vehicle and driver
-              availability have been checked.
-            </p>
-            <p>
-              <Link
-                href="/blog/premium-ertiga-for-bengaluru-airport-transfer"
-                className="font-bold text-purple-700 underline"
-              >
-                Read the complete Bengaluru Airport cab pre-booking guide
-              </Link>
-            </p>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,.85fr)] lg:items-start">
+            <div className="space-y-5 leading-8 text-slate-700">
+              <p>
+                Airport journeys are easier when the driver and traveller
+                understand the complete plan before travel. For a pickup, share
+                the flight number, expected arrival time, terminal if known,
+                passenger count, luggage and full destination. For a drop, share
+                the exact Bangalore pickup point, preferred reporting time,
+                terminal and airline details.
+              </p>
+              <p>
+                Kempegowda International Airport Bengaluru operates Terminal 1
+                and Terminal 2. The terminal used can depend on the airline and
+                flight operation. Check the latest ticket or airline message and
+                share the confirmed terminal before travel. Airport access and
+                meeting arrangements can change, so the final pickup point
+                should be reconfirmed on the day of the journey.
+              </p>
+              <p>
+                Lucky Travels accepts enquiries at any time, but the journey is
+                confirmed only after the date, timing, route, vehicle and driver
+                availability have been checked.
+              </p>
+              <p>
+                <Link
+                  href="/blog/premium-ertiga-for-bengaluru-airport-transfer"
+                  className="font-bold text-purple-700 underline"
+                >
+                  Read the complete Bengaluru Airport cab pre-booking guide
+                </Link>
+              </p>
+            </div>
+            <RouteImage
+              href="/"
+              src="/images/vehicle/front-seats.jpg"
+              alt="Clean Premium Ertiga front seats prepared for a Bangalore Airport taxi journey"
+              caption="A clean, air-conditioned Premium Ertiga prepared for a directly planned Bangalore Airport pickup or drop."
+              width={1536}
+              height={1024}
+            />
           </div>
         </section>
 
         <section
-          className="bg-slate-100 px-5 py-14 sm:py-20"
+          className="bg-slate-100 px-5 py-12 sm:py-16"
           aria-labelledby="enquiry-details-heading"
         >
           <div className="page-shell">
@@ -383,52 +408,59 @@ export default function AirportTaxiBangalorePage() {
             >
               Details to Send for Your BLR Airport Cab Enquiry
             </SectionHeading>
-            <p className="mt-6 max-w-3xl leading-8 text-slate-700">
+            <p className="mt-6 leading-8 text-slate-700">
               Send the following information in one WhatsApp message so the
               journey can be assessed accurately:
             </p>
-            <ol className="mt-6 grid max-w-5xl gap-3 sm:grid-cols-2">
-              {planningDetails.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700"
+            <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,.85fr)] lg:items-start">
+              <ol className="grid gap-3 sm:grid-cols-2">
+                {planningDetails.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ol>
+              <aside className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft sm:p-6">
+                <h3 className="text-xl font-black text-[#090f2f]">
+                  Copy this airport enquiry format
+                </h3>
+                <blockquote className="mt-4 text-sm leading-7 text-slate-700">
+                  Hello Lucky Travels, I need a Bangalore Airport pickup/drop.
+                  <br />
+                  Date:
+                  <br />
+                  Pickup time:
+                  <br />
+                  Flight number:
+                  <br />
+                  Terminal, if known:
+                  <br />
+                  Pickup and destination:
+                  <br />
+                  Adults and children:
+                  <br />
+                  Large suitcases and cabin bags:
+                  <br />
+                  Additional stops or assistance required:
+                </blockquote>
+                <a
+                  href={detailedWhatsAppUrl.trim()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
                 >
-                  {item}
-                </li>
-              ))}
-            </ol>
-            <blockquote className="mt-8 max-w-2xl rounded-xl border border-slate-200 bg-white p-5 text-sm leading-7 text-slate-700">
-              Hello Lucky Travels, I need a Bangalore Airport pickup/drop.
-              <br />
-              Date:
-              <br />
-              Pickup time:
-              <br />
-              Flight number:
-              <br />
-              Terminal, if known:
-              <br />
-              Pickup and destination:
-              <br />
-              Adults and children:
-              <br />
-              Large suitcases and cabin bags:
-              <br />
-              Additional stops or assistance required:
-            </blockquote>
-            <a
-              href={detailedWhatsAppUrl.trim()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
-            >
-              <MessageCircle size={18} /> Send This Enquiry on WhatsApp
-            </a>
+                  <MessageCircle size={18} /> Send This Enquiry on WhatsApp
+                </a>
+              </aside>
+            </div>
           </div>
         </section>
 
         <section
-          className="page-shell py-14 sm:py-20"
+          className="page-shell py-12 sm:py-16"
           aria-labelledby="comfort-heading"
         >
           <SectionHeading
@@ -476,7 +508,7 @@ export default function AirportTaxiBangalorePage() {
               the available space honestly.
             </p>
           </aside>
-          <div className="mt-10">
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <RouteImage
               href="/blog/why-lucky-travels-specialises-in-premium-ertiga"
               src="/images/vehicle/middle-row.jpg"
@@ -485,8 +517,6 @@ export default function AirportTaxiBangalorePage() {
               width={1536}
               height={1024}
             />
-          </div>
-          <div className="mt-8">
             <RouteImage
               href="/blog/premium-ertiga-for-bengaluru-airport-transfer"
               src="/images/vehicle/boot-space.jpg"
@@ -499,7 +529,7 @@ export default function AirportTaxiBangalorePage() {
         </section>
 
         <section
-          className="bg-white px-5 py-14 sm:py-20"
+          className="bg-white px-5 py-12 sm:py-16"
           aria-labelledby="coordination-heading"
         >
           <div className="page-shell">
@@ -538,7 +568,7 @@ export default function AirportTaxiBangalorePage() {
         </section>
 
         <section
-          className="page-shell py-14 sm:py-20"
+          className="page-shell py-12 sm:py-16"
           aria-labelledby="areas-heading"
         >
           <SectionHeading
@@ -547,25 +577,46 @@ export default function AirportTaxiBangalorePage() {
           >
             Bangalore Airport Cab Enquiries Across the City
           </SectionHeading>
-          <div className="mt-6 max-w-4xl space-y-5 leading-8 text-slate-700">
-            <p>
-              Airport pickup and drop enquiries can be discussed for Whitefield,
-              Electronic City, Indiranagar, HSR Layout, Koramangala, central
-              Bangalore and other localities. The reporting time and quote
-              depend on the exact address, traffic conditions, route, terminal
-              and trip timing.
-            </p>
-            <p>
-              Send a complete address or Google Maps location instead of only
-              the locality name. This helps Lucky Travels review the practical
-              route and suggest an appropriate pickup time for the airport
-              journey.
-            </p>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,.9fr)] lg:items-start">
+            <div className="space-y-5 leading-8 text-slate-700">
+              <p>
+                Airport pickup and drop enquiries can be discussed for
+                Whitefield, Electronic City, Indiranagar, HSR Layout,
+                Koramangala, central Bangalore and other localities. The
+                reporting time and quote depend on the exact address, traffic
+                conditions, route, terminal and trip timing.
+              </p>
+              <p>
+                Send a complete address or Google Maps location instead of only
+                the locality name. This helps Lucky Travels review the practical
+                route and suggest an appropriate pickup time for the airport
+                journey.
+              </p>
+            </div>
+            <aside className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <h3 className="text-xl font-black text-[#090f2f]">
+                Bangalore pickup areas include
+              </h3>
+              <ul className="mt-5 grid grid-cols-2 gap-3 text-sm font-bold text-slate-700">
+                {[
+                  "Whitefield",
+                  "Electronic City",
+                  "Indiranagar",
+                  "HSR Layout",
+                  "Koramangala",
+                  "Central Bangalore",
+                ].map((area) => (
+                  <li key={area} className="rounded-xl bg-slate-100 px-4 py-3">
+                    {area}
+                  </li>
+                ))}
+              </ul>
+            </aside>
           </div>
         </section>
 
         <section
-          className="bg-slate-100 px-5 py-14 sm:py-20"
+          className="bg-slate-100 px-5 py-12 sm:py-16"
           aria-labelledby="terms-heading"
         >
           <div className="page-shell">
@@ -575,56 +626,69 @@ export default function AirportTaxiBangalorePage() {
             >
               Get a Direct Bangalore Airport Taxi Quote
             </SectionHeading>
-            <p className="mt-6 max-w-4xl leading-8 text-slate-700">
-              Lucky Travels does not publish a fixed airport fare because the
-              quote depends on the exact Bangalore address, pickup time, airport
-              direction, route and journey requirements. Before confirmation,
-              ask for the complete trip terms in writing.
-            </p>
-            <p className="mt-6 font-bold text-slate-800">
-              The confirmation should explain, where applicable:
-            </p>
-            <ul className="mt-4 grid max-w-4xl gap-3 sm:grid-cols-2">
-              {confirmationDetails.map((item) => (
-                <li
-                  key={item}
-                  className="list-inside list-disc leading-7 text-slate-700"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 max-w-4xl leading-8 text-slate-700">
-              Keep the final confirmation on WhatsApp so both the customer and
-              driver can refer to the same journey details.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={`tel:+91${SITE.phone}`}
-                className="flex items-center gap-2 rounded-xl bg-[#080d2b] px-5 py-3.5 font-black text-white"
-              >
-                <Phone size={18} /> Call +91 {SITE.phone}
-              </a>
-              <a
-                href={airportWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
-              >
-                <MessageCircle size={18} /> Get an Airport Quote on WhatsApp
-              </a>
-              <a
-                href={emailUrl}
-                className="rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f]"
-              >
-                Email {SITE.email}
-              </a>
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,.85fr)] lg:items-start">
+              <div>
+                <p className="leading-8 text-slate-700">
+                  Lucky Travels does not publish a fixed airport fare because
+                  the quote depends on the exact Bangalore address, pickup time,
+                  airport direction, route and journey requirements. Before
+                  confirmation, ask for the complete trip terms in writing.
+                </p>
+                <p className="mt-6 font-bold text-slate-800">
+                  The confirmation should explain, where applicable:
+                </p>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {confirmationDetails.map((item) => (
+                    <li
+                      key={item}
+                      className="list-inside list-disc leading-7 text-slate-700"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 leading-8 text-slate-700">
+                  Keep the final confirmation on WhatsApp so both the customer
+                  and driver can refer to the same journey details.
+                </p>
+              </div>
+              <aside className="rounded-2xl bg-white p-6 shadow-soft">
+                <h3 className="text-xl font-black text-[#090f2f]">
+                  Request a trip-specific airport quote
+                </h3>
+                <p className="mt-3 leading-7 text-slate-700">
+                  Share the exact address, journey direction, date, time,
+                  passenger count and luggage details for an accurate response.
+                </p>
+                <div className="mt-6 grid gap-3">
+                  <a
+                    href={`tel:+91${SITE.phone}`}
+                    className="flex items-center justify-center gap-2 rounded-xl bg-[#080d2b] px-5 py-3.5 font-black text-white"
+                  >
+                    <Phone size={18} /> Call +91 {SITE.phone}
+                  </a>
+                  <a
+                    href={airportWhatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 text-center font-black text-white"
+                  >
+                    <MessageCircle size={18} /> Get a Quote on WhatsApp
+                  </a>
+                  <a
+                    href={emailUrl}
+                    className="rounded-xl border border-slate-200 px-5 py-3.5 text-center font-black text-[#090f2f]"
+                  >
+                    Email {SITE.email}
+                  </a>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
 
         <section
-          className="page-shell py-14 sm:py-20"
+          className="page-shell py-12 sm:py-16"
           aria-labelledby="resources-heading"
         >
           <SectionHeading id="resources-heading" eyebrow="PLAN BEFORE TRAVEL">
@@ -666,7 +730,7 @@ export default function AirportTaxiBangalorePage() {
         </section>
 
         <section
-          className="bg-white px-5 py-14 sm:py-20"
+          className="bg-white px-5 py-12 sm:py-16"
           aria-labelledby="faq-heading"
         >
           <div className="page-shell">
@@ -688,22 +752,29 @@ export default function AirportTaxiBangalorePage() {
         </section>
 
         <section
-          className="bg-[#080d2b] px-5 py-14 text-white sm:py-20"
+          className="bg-[#080d2b] px-5 py-12 text-white sm:py-16"
           aria-labelledby="final-enquiry-heading"
         >
-          <div className="page-shell">
-            <SectionHeading id="final-enquiry-heading" eyebrow="" dark>
-              Enquire for Your Bangalore Airport Taxi
-            </SectionHeading>
-            <p className="mt-6 max-w-3xl leading-8 text-white/75">
-              Send your flight, terminal, address, passenger and luggage details
-              directly to Lucky Travels. You will receive a trip-specific
-              response after the route and availability have been checked.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+          <div className="page-shell grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,.85fr)] lg:items-center">
+            <div>
+              <SectionHeading id="final-enquiry-heading" eyebrow="" dark>
+                Enquire for Your Bangalore Airport Taxi
+              </SectionHeading>
+              <p className="mt-6 leading-8 text-white/75">
+                Send your flight, terminal, address, passenger and luggage
+                details directly to Lucky Travels. You will receive a
+                trip-specific response after the route and availability have
+                been checked.
+              </p>
+              <p className="mt-6 text-sm leading-6 text-white/70">
+                24/7 enquiries. Service is subject to vehicle, driver, date,
+                time and route confirmation.
+              </p>
+            </div>
+            <div className="grid gap-3">
               <a
                 href={`tel:+91${SITE.phone}`}
-                className="flex items-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f]"
               >
                 <Phone size={18} /> Call Now
               </a>
@@ -711,21 +782,17 @@ export default function AirportTaxiBangalorePage() {
                 href={airportWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
+                className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
               >
                 <MessageCircle size={18} /> Send Details on WhatsApp
               </a>
               <a
                 href={emailUrl}
-                className="rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f]"
+                className="rounded-xl bg-white px-5 py-3.5 text-center font-black text-[#090f2f]"
               >
                 Email Your Enquiry
               </a>
             </div>
-            <p className="mt-6 text-sm leading-6 text-white/70">
-              24/7 enquiries. Service is subject to vehicle, driver, date, time
-              and route confirmation.
-            </p>
           </div>
         </section>
       </main>
