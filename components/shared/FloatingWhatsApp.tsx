@@ -12,7 +12,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       href={whatsappUrl}
-      className="group fixed bottom-[74px] right-4 z-[70] flex items-center rounded-full border-[3px] border-white bg-green-500 p-1.5 text-white shadow-2xl transition hover:-translate-y-1 lg:bottom-24 lg:right-7"
+      className="group fixed bottom-24 right-7 z-[70] hidden items-center rounded-full border-[3px] border-white bg-green-500 p-1.5 text-white shadow-2xl transition hover:-translate-y-1 lg:flex"
     >
       <span className="hidden pl-3 pr-2 text-xs font-black 2xl:block">
         Book on WhatsApp
