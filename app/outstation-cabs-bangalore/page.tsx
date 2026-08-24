@@ -278,26 +278,26 @@ export default function OutstationCabsBangalorePage() {
         >
           <div className="mx-auto grid max-w-6xl items-center gap-4 lg:grid-cols-[1.15fr_.85fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[.18em] text-amber-400">
+              <p className="text-xs font-black uppercase leading-5 tracking-[.18em] text-amber-400 sm:text-sm sm:leading-normal">
                 BANGALORE OUTSTATION TAXI ENQUIRIES
               </p>
               <h1
                 id="outstation-heading"
-                className="mt-3 max-w-3xl text-[1.75rem] font-black leading-tight sm:text-4xl lg:text-[2.4rem] lg:leading-[1.12]"
+                className="mt-2 max-w-3xl text-[1.6rem] font-black leading-tight sm:mt-3 sm:text-4xl lg:text-[2.4rem] lg:leading-[1.12]"
               >
                 Outstation Cabs from Bangalore in a Premium Ertiga
               </h1>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-white/85 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
+              <p className="mt-2 max-w-3xl text-[13px] leading-5 text-white/85 sm:mt-3 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
                 Plan a one-way drop, round trip or multi-day journey from
                 Bangalore with Go Bengaluru by Lucky Travels. Travel in a clean,
                 air-conditioned Premium Ertiga and receive a trip-specific quote
                 after the complete route, passenger and luggage details are
                 reviewed.
               </p>
-              <p className="mt-2 text-base font-black leading-6 text-amber-300 sm:text-lg lg:text-base">
+              <p className="mt-1 text-sm font-black leading-5 text-amber-300 sm:mt-2 sm:text-lg sm:leading-6 lg:text-base">
                 {SITE.specialisationSlogan}
               </p>
-              <div className="mt-3 flex flex-wrap gap-3">
+              <div className="mt-2 flex flex-wrap gap-3 sm:mt-3">
                 <a
                   href={`tel:+91${SITE.phone}`}
                   className="flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-black text-purple-800 lg:py-3 lg:text-sm"
@@ -313,10 +313,21 @@ export default function OutstationCabsBangalorePage() {
                   <MessageCircle size={19} /> Get an Outstation Quote
                 </a>
               </div>
-              <p className="mt-2 text-xs leading-5 text-white/70">
+              <p className="mt-1 text-xs leading-5 text-white/70 sm:mt-2">
                 24/7 enquiries. Every journey is subject to date, route, vehicle
                 and driver availability confirmation.
               </p>
+              <a
+                href="#journey-options"
+                className="mt-3 flex min-h-11 w-full max-w-max items-center justify-center gap-2 rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg motion-safe:animate-pulse focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden sm:px-5"
+              >
+                Explore Journey Options Below
+                <ArrowDown
+                  size={17}
+                  aria-hidden="true"
+                  className="motion-safe:animate-bounce"
+                />
+              </a>
             </div>
             <RouteImage
               href="/"
@@ -327,13 +338,19 @@ export default function OutstationCabsBangalorePage() {
               featured
             />
           </div>
-          <a
-            href="#journey-options"
-            className="absolute bottom-0 left-1/2 z-20 flex w-[calc(100%-2rem)] max-w-max -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg hover:border-purple-700 sm:w-auto sm:px-5"
-          >
-            Explore Journey Options Below
-            <ArrowDown size={17} aria-hidden="true" />
-          </a>
+          <div className="absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 translate-y-1/2 lg:flex">
+            <a
+              href="#journey-options"
+              className="flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg motion-safe:animate-pulse focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white hover:border-purple-700 sm:px-5"
+            >
+              Explore Journey Options Below
+              <ArrowDown
+                size={17}
+                aria-hidden="true"
+                className="motion-safe:animate-bounce"
+              />
+            </a>
+          </div>
         </section>
 
         <section id="journey-options" className="bg-white px-5 pb-10 pt-16">
