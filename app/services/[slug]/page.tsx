@@ -62,6 +62,10 @@ export default async function ServicePage({
 
   if (slug === "outstation-packages") {
     related.unshift({
+      href: "/outstation-cabs-bangalore",
+      label: "Outstation cabs from Bangalore in a Premium Ertiga",
+    });
+    related.unshift({
       href: "/bangalore-to-mysore-cab",
       label: "Bangalore to Mysore Premium Ertiga cab",
     });
