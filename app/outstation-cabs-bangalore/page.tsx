@@ -274,7 +274,7 @@ export default function OutstationCabsBangalorePage() {
 
         <section
           aria-labelledby="outstation-heading"
-          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-6 text-white"
+          className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-6 text-white"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-4 lg:grid-cols-[1.15fr_.85fr]">
             <div>
@@ -313,13 +313,6 @@ export default function OutstationCabsBangalorePage() {
                   <MessageCircle size={19} /> Get an Outstation Quote
                 </a>
               </div>
-              <a
-                href="#journey-options"
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-300/70 px-4 py-2 text-sm font-black text-amber-300 hover:border-white hover:text-white"
-              >
-                Explore Journey Options Below
-                <ArrowDown size={17} aria-hidden="true" />
-              </a>
               <p className="mt-2 text-xs leading-5 text-white/70">
                 24/7 enquiries. Every journey is subject to date, route, vehicle
                 and driver availability confirmation.
@@ -334,9 +327,16 @@ export default function OutstationCabsBangalorePage() {
               featured
             />
           </div>
+          <a
+            href="#journey-options"
+            className="absolute bottom-0 left-1/2 z-20 flex w-[calc(100%-2rem)] max-w-max -translate-x-1/2 translate-y-1/2 items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg hover:border-purple-700 sm:w-auto sm:px-5"
+          >
+            Explore Journey Options Below
+            <ArrowDown size={17} aria-hidden="true" />
+          </a>
         </section>
 
-        <section id="journey-options" className="bg-white px-5 py-10">
+        <section id="journey-options" className="bg-white px-5 pb-10 pt-16">
           <div className="page-shell">
             <SectionHeading
               id="journey-options-heading"
