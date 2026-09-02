@@ -235,11 +235,33 @@ export default function OutstationCabsBangalorePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    "@id": `${SITE.url}/outstation-cabs-bangalore#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Does Lucky Travels provide one-way drops and round-trip outstation cabs from Bangalore?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, Go Bengaluru by Lucky Travels offers both direct one-way outstation drops and multi-day round-trip family vacation packages in clean Premium Ertiga cabs.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which outstation destinations are most popular from Bangalore?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We frequently operate trips to Mysore via the Expressway, Coorg (Madikeri), Ooty, Wayanad, Chikmagalur, and Tirupati with experienced highway drivers.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can we customize stops, meal breaks, and sightseeing along the route?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Every outstation trip itinerary is discussed before confirmation so suitable rest stops, highway restaurant halts, and sightseeing detours can be planned comfortably.",
+        },
+      },
+    ],
   };
 
   return (

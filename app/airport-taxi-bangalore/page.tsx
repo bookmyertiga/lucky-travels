@@ -202,11 +202,33 @@ export default function AirportTaxiBangalorePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    "@id": `${SITE.url}/airport-taxi-bangalore#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "How do I book a Bangalore Airport taxi with Go Bengaluru by Lucky Travels?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Call +91 9886814344 or message on WhatsApp with your pickup address, flight schedule, terminal (T1/T2), passenger count, and bag count. We assess space honestly and provide a transparent, trip-specific quote.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens if my flight arrives late at Kempegowda Airport?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Lucky Travels monitors flight arrival times directly. Chauffeurs adjust reporting time at T1 or T2 arrival pick-up lanes so you don't face cancellation issues or unnecessary stress.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much luggage can your Premium Ertiga accommodate?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "With the 3rd row folded, our Ertiga comfortably fits 4 passengers with up to 4 large check-in suitcases. For 5 to 6 passengers, it is ideal with compact cabin luggage.",
+        },
+      },
+    ],
   };
 
   return (

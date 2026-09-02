@@ -252,11 +252,33 @@ export default function CarRentalBangalorePage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
-    })),
+    "@id": `${SITE.url}/car-rental-bangalore#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What hourly car rental packages does Lucky Travels offer in Bangalore?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We provide customized chauffeur-driven Ertiga packages including 4 Hours / 40 KM (short errands, appointments), 8 Hours / 80 KM (business meetings, shopping), and full-day 12-hour city rentals.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I hire a cab for multi-stop city travel and local sightseeing?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Our owner-driver-led service accommodates multi-stop corporate schedules, wedding shopping, family visits, and Bengaluru sightseeing with flexible waiting terms.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are tolls and parking included in the hourly rental quote?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "All quotes outline base package coverage clearly. Any toll charges or actual mall/corporate parking fees are transparently confirmed in writing before the trip.",
+        },
+      },
+    ],
   };
 
   return (
