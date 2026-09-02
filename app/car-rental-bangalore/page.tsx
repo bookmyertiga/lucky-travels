@@ -26,9 +26,9 @@ Planned activities or assistance required:`)}`;
 const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent("Car Rental Bangalore Enquiry")}`;
 
 const pageTitle =
-  "Car Rental in Bangalore with Driver | Hourly & Full Day Cab Packages";
+  "Car Rental in Bangalore with Driver | 4hr, 8hr & Full-Day Ertiga Hire";
 const pageDescription =
-  "Rent a Premium Ertiga with driver in Bangalore for business meetings, shopping, family events, local sightseeing and city travel. Flexible hourly and full-day enquiries with direct booking. Call +91 9886814344.";
+  "Hire a chauffeur-driven 6+1 Ertiga for local Bangalore city travel, family events, hospital visits, & shopping trips. Flexible 4-hr, 8-hr, & full-day rental options.";
 
 export const metadata: Metadata = {
   title: pageTitle,

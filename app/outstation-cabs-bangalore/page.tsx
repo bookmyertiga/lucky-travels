@@ -25,9 +25,10 @@ Suitcases and cabin bags:
 Planned stops or assistance required:`)}`;
 const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent("Outstation Cab from Bangalore Enquiry")}`;
 
-const pageTitle = "Outstation Cabs from Bangalore | Go Bengaluru";
+const pageTitle =
+  "Outstation Cabs from Bangalore | One-Way Drops & Round Trips";
 const pageDescription =
-  "Enquire with Go Bengaluru by Lucky Travels for outstation cabs from Bangalore in a Premium Ertiga. Plan one-way, round-trip and multi-day journeys.";
+  "Comfortable outstation cabs from Bangalore to Mysore, Coorg, Ooty, Chikmagalur, & Tirupati. Experienced highway drivers and clean Ertiga fleet. Enquire now.";
 
 export const metadata: Metadata = {
   title: pageTitle,

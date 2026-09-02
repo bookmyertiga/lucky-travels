@@ -20,15 +20,15 @@ Additional stops or assistance required:`)} `;
 const emailUrl = `mailto:${SITE.email}?subject=Bangalore%20Airport%20Taxi%20Enquiry`;
 
 export const metadata: Metadata = {
-  title: "Bangalore Airport Taxi (BLR) | Premium Ertiga",
+  title: "Bangalore Airport Taxi (BLR) | Kempegowda Airport T1 & T2 Transfers",
   description:
-    "Enquire directly for a Bangalore Airport taxi in a clean Premium Ertiga. Plan a BLR pickup or drop with luggage details and clear trip terms.",
+    "Reliable BLR airport taxi pickups and drops in spacious 6+1 Ertiga cabs. 24/7 flight tracking, zero cancellation worries, and transparent trip quotes.",
   alternates: { canonical: routeUrl },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Bangalore Airport Taxi (BLR) | Premium Ertiga",
+    title: "Bangalore Airport Taxi (BLR) | Kempegowda Airport T1 & T2 Transfers",
     description:
-      "Enquire directly for a Bangalore Airport taxi in a clean Premium Ertiga. Plan a BLR pickup or drop with luggage details and clear trip terms.",
+      "Reliable BLR airport taxi pickups and drops in spacious 6+1 Ertiga cabs. 24/7 flight tracking, zero cancellation worries, and transparent trip quotes.",
     url: routeUrl,
     type: "website",
     images: [
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bangalore Airport Taxi (BLR) | Premium Ertiga",
+    title: "Bangalore Airport Taxi (BLR) | Kempegowda Airport T1 & T2 Transfers",
     description:
-      "Enquire directly for a Bangalore Airport taxi in a clean Premium Ertiga. Plan a BLR pickup or drop with luggage details and clear trip terms.",
+      "Reliable BLR airport taxi pickups and drops in spacious 6+1 Ertiga cabs. 24/7 flight tracking, zero cancellation worries, and transparent trip quotes.",
     images: [`${SITE.url}/images/services/airport.jpg`],
   },
 };

@@ -13,9 +13,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { SITE } from "@/constants/site";
 
 const homepageTitle =
-  "Best Cab Service in Bangalore | Airport, Outstation & City Cabs - Go Bengaluru";
+  "Go Bengaluru | Premium Ertiga Airport Taxi, Hourly Rental & Outstation Cabs";
 const homepageDescription =
-  "Book reliable 24/7 cabs in Bangalore. Enjoy comfortable, spacious 6/7-seater vehicles for airport transfers, outstation getaways, and city rentals with transparent billing. Call +91 9886814344.";
+  "Book reliable Bangalore airport transfers, hourly city rentals, & outstation cabs in a clean 6+1 Ertiga. Punctual owner-driver service. Call or WhatsApp for a direct quote.";
 
 export const metadata: Metadata = {
   title: { absolute: homepageTitle },
