@@ -268,33 +268,6 @@ export default function OutstationCabsBangalorePage() {
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden">
-        <nav
-          aria-label="Breadcrumb"
-          className="page-shell py-5 text-sm text-slate-600"
-        >
-          <ol className="flex flex-wrap gap-2">
-            <li>
-              <Link
-                href="/"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link
-                href="/services/outstation-packages"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Outstation Packages
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">Outstation Cabs from Bangalore</li>
-          </ol>
-        </nav>
-
         <section
           aria-labelledby="outstation-heading"
           className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-6 text-white"
@@ -342,13 +315,13 @@ export default function OutstationCabsBangalorePage() {
               </p>
               <a
                 href="#journey-options"
-                className="mt-3 flex min-h-11 w-full max-w-max items-center justify-center gap-2 rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg motion-safe:animate-pulse focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden sm:px-5"
+                className="service-scroll-prompt mt-3 flex min-h-11 w-full max-w-max items-center justify-center gap-2 rounded-full border border-purple-200 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-premium focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden sm:px-5"
               >
-                Explore Journey Options Below
+                Explore Outstation Routes & Tour Packages Below
                 <ArrowDown
                   size={17}
                   aria-hidden="true"
-                  className="motion-safe:animate-bounce"
+                  className="service-scroll-arrow"
                 />
               </a>
             </div>
@@ -364,13 +337,13 @@ export default function OutstationCabsBangalorePage() {
           <div className="absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 translate-y-1/2 lg:flex">
             <a
               href="#journey-options"
-              className="flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-amber-400 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-lg motion-safe:animate-pulse focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white hover:border-purple-700 sm:px-5"
+              className="service-scroll-prompt flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-premium focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white hover:border-purple-700 sm:px-5"
             >
-              Explore Journey Options Below
+              Explore Outstation Routes & Tour Packages Below
               <ArrowDown
                 size={17}
                 aria-hidden="true"
-                className="motion-safe:animate-bounce"
+                className="service-scroll-arrow"
               />
             </a>
           </div>

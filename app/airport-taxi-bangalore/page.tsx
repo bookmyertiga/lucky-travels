@@ -235,36 +235,9 @@ export default function AirportTaxiBangalorePage() {
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden">
-        <nav
-          aria-label="Breadcrumb"
-          className="page-shell py-5 text-sm text-slate-600"
-        >
-          <ol className="flex flex-wrap gap-2">
-            <li>
-              <Link
-                href="/"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link
-                href="/services/airport-transfers"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Airport Transfers
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">Bangalore Airport Taxi</li>
-          </ol>
-        </nav>
-
         <section
           aria-labelledby="airport-taxi-heading"
-          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
+          className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.2fr_.8fr]">
             <div>
@@ -332,6 +305,13 @@ export default function AirportTaxiBangalorePage() {
               loading="eager"
             />
           </div>
+          <a
+            href="#airport-service-details"
+            className="service-scroll-prompt absolute bottom-0 left-1/2 z-30 flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-4 py-2.5 text-[10px] font-black tracking-[0.08em] text-purple-800 shadow-premium sm:px-5 sm:text-xs"
+          >
+            Explore Airport Transfers & Terminal Guide Below
+            <ArrowDown size={16} className="service-scroll-arrow" />
+          </a>
         </section>
 
         <section
@@ -706,6 +686,36 @@ export default function AirportTaxiBangalorePage() {
                 </div>
               </aside>
             </div>
+          </div>
+        </section>
+
+        <section
+          className="bg-white px-5 py-12 sm:py-16"
+          aria-labelledby="popular-routes-heading"
+        >
+          <div className="page-shell">
+            <SectionHeading
+              id="popular-routes-heading"
+              eyebrow="POPULAR AIRPORT ROUTES"
+            >
+              Airport Transfers from Bengaluru Neighbourhoods
+            </SectionHeading>
+            <p className="mt-6 max-w-3xl leading-8 text-slate-700">
+              Explore a route-specific airport transfer page for practical
+              pickup timing, terminal planning, luggage guidance and direct
+              trip-specific quotes.
+            </p>
+            <nav
+              aria-label="Popular airport routes"
+              className="mt-7 grid gap-3 sm:grid-cols-2"
+            >
+              <Link
+                href="/airport-taxi-whitefield"
+                className="rounded-xl bg-slate-100 p-4 font-bold text-purple-700 shadow-soft"
+              >
+                Whitefield to Bangalore Airport taxi
+              </Link>
+            </nav>
           </div>
         </section>
 

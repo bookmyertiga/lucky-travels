@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -210,36 +210,9 @@ export default function BangaloreToMysoreCabPage() {
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden [&>section]:pb-32 lg:[&>section]:pb-40">
-        <nav
-          aria-label="Breadcrumb"
-          className="page-shell py-5 text-sm text-slate-600"
-        >
-          <ol className="flex flex-wrap gap-2">
-            <li>
-              <Link
-                href="/"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link
-                href="/services/outstation-packages"
-                className="font-bold text-purple-700 hover:underline"
-              >
-                Outstation Packages
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">Bangalore to Mysore Cab</li>
-          </ol>
-        </nav>
-
         <section
           aria-labelledby="mysore-cab-heading"
-          className="bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-20"
+          className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-20"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
             <div>
@@ -296,6 +269,13 @@ export default function BangaloreToMysoreCabPage() {
               className="lg:-translate-y-8"
             />
           </div>
+          <a
+            href="#route-overview-heading"
+            className="service-scroll-prompt absolute bottom-0 left-1/2 z-30 flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-4 py-2.5 text-[10px] font-black tracking-[0.08em] text-purple-800 shadow-premium sm:px-5 sm:text-xs"
+          >
+            Explore Mysore Route, Tolls & Package Details Below
+            <ArrowDown size={16} className="service-scroll-arrow" />
+          </a>
         </section>
 
         <section
