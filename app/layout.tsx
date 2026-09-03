@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import JsonLd from "@/components/seo/JsonLd";
+import ConversionTracking from "@/components/shared/ConversionTracking";
 import { SITE } from "@/constants/site";
 import "./globals.css";
 
@@ -74,5 +75,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     },
   };
 
-  return <html lang="en-IN"><body><JsonLd data={businessSchema} />{children}</body></html>;
+  return <html lang="en-IN"><body><JsonLd data={businessSchema} /><ConversionTracking />{children}</body></html>;
 }

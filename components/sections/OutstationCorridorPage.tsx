@@ -73,13 +73,24 @@ Destination hotel, homestay or landmark:`)}`;
   const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(corridor.emailSubject)}`;
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": ["TaxiService", "Service"],
     name: `${corridor.pageName} in a Premium Ertiga`,
     serviceType: `${corridor.pageName} outstation taxi service`,
     provider: { "@type": "TaxiService", name: SITE.name, brand: { "@type": "Brand", name: SITE.brand }, url: SITE.url, telephone: `+91${SITE.phone}`, email: SITE.email },
     areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: corridor.pageName }],
     url: routeUrl,
     image: `${SITE.url}/images/services/outstation.jpg`,
+    logo: `${SITE.url}/images/logo/favicon.png`,
+    priceRange: "₹₹",
+    telephone: "+919886814344",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Konena Agrahara, HAL",
+      addressLocality: "Bengaluru",
+      postalCode: "560017",
+      addressRegion: "Karnataka",
+      addressCountry: "IN",
+    },
     description: corridor.description,
   };
   const breadcrumbSchema = {
