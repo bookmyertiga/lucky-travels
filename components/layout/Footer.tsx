@@ -65,7 +65,7 @@ export default function Footer() {
               Services
             </h2>
             <nav className="mt-4 grid gap-2.5 text-sm text-white/64">
-              <Link href="/services/airport-transfers">Airport Transfers</Link>
+              <Link href="/airport-taxi-bangalore">Airport Transfers</Link>
               <Link href="/services/rental-packages">
                 Hourly / Daily Rentals
               </Link>

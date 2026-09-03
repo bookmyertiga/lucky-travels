@@ -8,7 +8,7 @@ import { SITE } from "@/constants/site";
 
 const links = [
   ["Home", "/"],
-  ["Airport Transfers", "/services/airport-transfers"],
+  ["Airport Transfers", "/airport-taxi-bangalore"],
   ["Rental Packages", "/services/rental-packages"],
   ["Corporate Packages", "/corporate-car-rental-bangalore"],
   ["Outstation Packages", "/services/outstation-packages"],
