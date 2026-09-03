@@ -325,7 +325,7 @@ export default function CorporateCarRentalBangalorePage() {
             Why Businesses Choose the Premium Ertiga Standard
           </SectionHeading>
           <div className="mt-6 grid items-stretch gap-5 lg:grid-cols-[1.1fr_.9fr]">
-            <article className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <article className="flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
               <h3 className="text-xl font-black">
                 {SITE.specialisationSlogan}
               </h3>
@@ -355,16 +355,36 @@ export default function CorporateCarRentalBangalorePage() {
                 </li>
               </ul>
             </article>
-            <aside className="h-full rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6">
-              <h3 className="text-xl font-black text-amber-950">
-                Guaranteed allocation policy
-              </h3>
-              <p className="mt-3 leading-7 text-slate-700">
-                Mandatory 6 to 12 hours advance notice is required for corporate
-                car allocation, chauffeur assignment and vehicle preparation.
-                Recurring employee movement, executive arrivals and event
-                transport benefit from earlier scheduling.
-              </p>
+            <aside className="flex h-full flex-col justify-between rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6">
+              <div>
+                <h3 className="text-xl font-black text-amber-950">
+                  Guaranteed allocation policy
+                </h3>
+                <p className="mt-3 leading-7 text-slate-700">
+                  Mandatory 6 to 12 hours advance notice is required for corporate
+                  car allocation, chauffeur assignment and vehicle preparation.
+                  Recurring employee movement, executive arrivals and event
+                  transport benefit from earlier scheduling.
+                </p>
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl bg-slate-100 p-4 leading-6 text-slate-700">
+                  <strong className="block text-[#090f2f]">100% GST Invoicing</strong>
+                  <span className="mt-1 block text-sm">Standard B2B tax invoices with digital trip sheets provided for every completed schedule.</span>
+                </div>
+                <div className="rounded-xl bg-slate-100 p-4 leading-6 text-slate-700">
+                  <strong className="block text-[#090f2f]">Zero Peak Surge</strong>
+                  <span className="mt-1 block text-sm">Transparent, flat commercial tariff with zero surge pricing during rain or peak traffic.</span>
+                </div>
+                <div className="rounded-xl bg-slate-100 p-4 leading-6 text-slate-700">
+                  <strong className="block text-[#090f2f]">Chauffeur Punctuality</strong>
+                  <span className="mt-1 block text-sm">Assigned vehicle and driver reporting on-site 15 minutes prior to scheduled dispatch.</span>
+                </div>
+                <div className="rounded-xl bg-slate-100 p-4 leading-6 text-slate-700">
+                  <strong className="block text-[#090f2f]">Dedicated Desk Support</strong>
+                  <span className="mt-1 block text-sm">Direct route coordination via phone &amp; WhatsApp with no bot delays or call centers.</span>
+                </div>
+              </div>
             </aside>
           </div>
         </section>
