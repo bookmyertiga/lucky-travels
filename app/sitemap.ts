@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE.url, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE.url}/car-rental-bangalore`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE.url}/corporate-car-rental-bangalore`, lastModified, changeFrequency: "weekly", priority: 0.85 },
     { url: `${SITE.url}/airport-taxi-bangalore`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE.url}/services/outstation-packages`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE.url}/outstation-cabs-bangalore`, lastModified, changeFrequency: "weekly", priority: 0.8 },

@@ -166,6 +166,7 @@ a {
   .service-scroll-arrow {
     animation: service-arrow-nudge 1.1s ease-in-out infinite;
   }
+
 }
 
 @media (max-width: 760px) {
