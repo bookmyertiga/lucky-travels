@@ -41,6 +41,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@id": `${SITE.url}/#business`,
     name: "Go Bengaluru | Lucky Travels",
     url: SITE.url,
+    image: `${SITE.url}/images/logo/favicon.png`,
+    logo: `${SITE.url}/images/logo/favicon.png`,
     telephone: "+919886814344",
     priceRange: "₹₹",
     description: "Premium chauffeur-driven 6+1 Maruti Suzuki Ertiga car rental, airport taxi, and outstation cab services across Bangalore.",
