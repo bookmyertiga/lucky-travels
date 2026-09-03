@@ -38,9 +38,9 @@ export const services: Service[] = [
   {
     slug: "airport-transfers",
     name: "Bengaluru Airport Transfers",
-    seoTitle: "Bengaluru Airport Taxi, Pickup & Drop | Premium Ertiga",
+    seoTitle: "Bangalore Airport Taxi Service | Premium Ertiga 6+1 | Lucky Travels",
     description:
-      "Book a Premium Ertiga for Bengaluru airport taxi, Kempegowda Airport pickup or airport drop. Direct call and WhatsApp booking with Lucky Travels.",
+      "Punctual Kempegowda Bangalore Airport (BLR) transfers in dedicated 6+1 Maruti Ertigas. Zero surge pricing, T1 & T2 meet-and-greet, and flight tracking.",
     short: "Premium Ertiga airport pickup and drop across Bengaluru.",
     intent:
       "Bengaluru airport taxi, Bangalore airport cab, airport pickup and airport drop",
@@ -65,24 +65,24 @@ export const services: Service[] = [
     ],
     faq: [
       {
-        question: "Do you provide both airport pickup and airport drop?",
+        question: "How do pickups work for Terminal 1 versus Terminal 2 at BLR?",
         answer:
-          "Yes. Lucky Travels provides Premium Ertiga pickup from Kempegowda International Airport and airport drops from locations across Bengaluru.",
+          "For Terminal 1 domestic and selected flights, the driver coordinates pickup at dedicated arrival lanes or designated taxi pickup zones. For Terminal 2, the Garden Terminal for international and premium domestic flights, the driver confirms the meeting point and coordinates luggage-cart assistance. Follow current airport instructions.",
       },
       {
-        question: "Which Bengaluru areas do you serve for airport transfers?",
+        question: "What happens if my flight to Bangalore is delayed?",
         answer:
-          "We serve major Bengaluru areas including Whitefield, Electronic City, HSR Layout, Koramangala, Indiranagar, Marathahalli, Bellandur, Hebbal, Yelahanka and surrounding localities.",
+          "Real-time flight tracking allows the driver to adjust the pickup time for a delayed landing. Keep the booking phone reachable and send an update after collecting bags so the final meeting point can be coordinated.",
       },
       {
-        question: "Can I share my flight number for an airport pickup?",
+        question: "What luggage fits in a 6+1 Ertiga airport cab?",
         answer:
-          "Yes. Share the flight number, arrival time and passenger details on WhatsApp so the pickup can be planned appropriately.",
+          "For 4-5 passengers, folding the third row accommodates up to 4 large check-in bags plus cabin strollers. With 6 passengers and the third row upright, carry compact cabin baggage; larger luggage requires advance review.",
       },
       {
-        question: "Which vehicle will be provided?",
+        question: "How early should I book an Ertiga for a Bangalore Airport transfer?",
         answer:
-          "Lucky Travels exclusively provides a Premium Maruti Suzuki Ertiga for confirmed bookings.",
+          "A minimum of 6 to 12 hours advance booking is required for guaranteed on-time dispatch and vehicle allocation. Share the flight, terminal, address, passenger and luggage details as early as possible.",
       },
     ],
   },

@@ -11,9 +11,11 @@ type Props = {
   related: { href: string; label: string }[];
   faq?: { question: string; answer: string }[];
   compact?: boolean;
+  callout?: React.ReactNode;
+  whatsappLabel?: string;
 };
 
-export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, related, faq = [], compact = false }: Props) {
+export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, related, faq = [], compact = false, callout, whatsappLabel = "WhatsApp" }: Props) {
   const whatsappMessage = encodeURIComponent(`Hello Lucky Travels, I want to enquire about ${title}.`);
 
   return (
@@ -24,11 +26,11 @@ export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, re
           <h1 className={`mt-3 max-w-4xl font-bold tracking-tight text-white leading-tight ${compact ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl" : "text-4xl sm:text-6xl"}`}>{title}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">{intro}</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href={`tel:${SITE.phone}`} className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-black text-purple-800">
-              <Phone size={20} /> Call {SITE.phone}
+            <a href={`tel:+91${SITE.phone}`} className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100">
+              <Phone size={20} className="text-slate-900" /> Call +91 {SITE.phone}
             </a>
             <a href={`https://wa.me/${SITE.whatsapp}?text=${whatsappMessage}`} className="flex items-center gap-2 rounded-lg bg-green-600 px-5 py-3 font-black text-white">
-              <MessageCircle size={20} /> WhatsApp
+              <MessageCircle size={20} /> {whatsappLabel}
             </a>
           </div>
         </div>
@@ -40,6 +42,7 @@ export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, re
           {paragraphs.map((paragraph) => (
             <p key={paragraph} className="mt-5 leading-8 text-slate-700">{paragraph}</p>
           ))}
+          {callout}
 
           <h2 className="mt-9 text-2xl font-black">What you can expect</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">

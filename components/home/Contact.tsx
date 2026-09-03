@@ -35,9 +35,9 @@ export default function Contact() {
           <div className="flex flex-col gap-3 pt-4 sm:flex-row">
             <a
               href={`tel:+91${SITE.phone}`}
-              className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-2.5 text-center text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100 whitespace-nowrap"
             >
-              <Phone size={19} /> Call Now
+              <Phone size={19} className="text-slate-900" /> Call Now
             </a>
             <a
               href={whatsappUrl}
