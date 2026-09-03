@@ -1,0 +1,16 @@
+import type { Metadata } from "next";
+import OutstationCorridorPage, { type OutstationCorridor } from "@/components/sections/OutstationCorridorPage";
+import { SITE } from "@/constants/site";
+
+const corridor: OutstationCorridor = {
+  heroCaption: "An experienced highway chauffeur and dedicated 6+1 Ertiga navigating the Nilgiri Ghat routes to Ooty.",
+  slug: "bangalore-to-ooty-cab", pageName: "Bangalore to Ooty Cab", title: "Bangalore to Ooty Cab | Chauffeur-Driven 6+1 Ertiga - Go Bengaluru", description: "Reliable Bangalore to Ooty Nilgiri road trip taxi by Lucky Travels. Experienced Ghat road chauffeur, 6+1 Ertiga, 6-12 hr advance booking. Transparent pricing.", eyebrow: "BANGALORE TO OOTY NILGIRI ROAD TRIP", intro: "Book an experienced Ghat-road chauffeur and dedicated 6+1 Premium Ertiga for a comfortable Bangalore to Ooty journey through Mysore, Gundlupet and the Bandipur forest corridor.", distanceTime: "Around 280 km, 6-7.5 hours", route: "Mysore, Gundlupet, Bandipur forest corridor and Nilgiri Ghat roads", routeDetails: "The journey passes through Mysore, Gundlupet and the Bandipur forest corridor before the Nilgiri Ghat roads. Forest entry timings and traffic restrictions can affect the departure plan, so share your preferred arrival and departure window. Live Google Maps traffic is checked at departure for the fastest practical exits and bypasses.", destinationDetails: "Travel directly to an Ooty hotel, homestay, resort or landmark selected by the customer. The service covers transport only and does not include a packaged tour or stay booking.", permitDetails: "Any Tamil Nadu state tourist permit or route documentation requirement is discussed transparently before confirmation. The customer receives the applicable trip terms rather than an unexplained last-minute charge.", emailSubject: "Bangalore to Ooty Cab Enquiry",
+  faqs: [
+    { question: "How early should I book an Ooty cab?", answer: "Book 6 to 12 hours in advance at minimum for chauffeur allocation and vehicle preparation. Earlier notice is strongly recommended around holidays, forest-corridor timing windows and weekends." },
+    { question: "Are Bandipur and Nilgiri road timings considered?", answer: "Yes. The departure plan considers Bandipur forest-corridor timing awareness, traffic and current access conditions. The chauffeur checks live Google Maps traffic and selects the fastest practical route at departure." },
+    { question: "Is the Tamil Nadu tourist permit handled transparently?", answer: "Applicable Tamil Nadu state tourist permit or route documentation requirements are discussed before confirmation, along with any related trip terms. There are no hidden or fixed assumptions." },
+    { question: "How much luggage can the Ertiga carry to Ooty?", answer: "Four to five passengers can travel with up to four large trolley suitcases with the 3rd row folded. Six passengers should carry compact cabin bags." },
+  ],
+};
+export const metadata: Metadata = { title: corridor.title, description: corridor.description, alternates: { canonical: `${SITE.url}/${corridor.slug}` }, robots: { index: true, follow: true } };
+export default function BangaloreToOotyCabPage() { return <OutstationCorridorPage corridor={corridor} />; }

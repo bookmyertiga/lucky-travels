@@ -9,6 +9,7 @@ import {
   Phone,
   ShieldCheck,
 } from "lucide-react";
+import { PopularOutstationRoutes } from "@/components/sections/OutstationCorridorPage";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -310,14 +311,14 @@ export default function OutstationCabsBangalorePage() {
                 </a>
               </div>
               <p className="mt-1 text-xs leading-5 text-white/70 sm:mt-2">
-                24/7 enquiries. Every journey is subject to date, route, vehicle
-                and driver availability confirmation.
+                24/7 enquiries. Book 6 to 12 hours ahead for chauffeur allocation,
+                vehicle preparation and confirmed dispatch.
               </p>
               <a
                 href="#journey-options"
                 className="service-scroll-prompt mt-3 flex min-h-11 w-full max-w-max items-center justify-center gap-2 rounded-full border border-purple-200 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-premium focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden sm:px-5"
               >
-                Explore Outstation Routes & Tour Packages Below
+                Explore Outstation Routes & Direct Transport Below
                 <ArrowDown
                   size={17}
                   aria-hidden="true"
@@ -329,7 +330,7 @@ export default function OutstationCabsBangalorePage() {
               href="/"
               src="/images/services/outstation.jpg"
               alt="Go Bengaluru Lucky Travels Premium Ertiga for an outstation cab journey from Bangalore"
-              caption="Premium Ertiga outstation journeys planned directly with Go Bengaluru by Lucky Travels."
+              caption="Chauffeur-driven 6+1 Premium Ertiga cabs for comfortable one-way, round-trip, and multi-day Karnataka outstation travel."
               loading="eager"
               featured
             />
@@ -339,7 +340,7 @@ export default function OutstationCabsBangalorePage() {
               href="#journey-options"
               className="service-scroll-prompt flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-4 py-2.5 text-center text-sm font-black text-purple-800 shadow-premium focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white hover:border-purple-700 sm:px-5"
             >
-              Explore Outstation Routes & Tour Packages Below
+              Explore Outstation Routes & Direct Transport Below
               <ArrowDown
                 size={17}
                 aria-hidden="true"
@@ -441,6 +442,13 @@ export default function OutstationCabsBangalorePage() {
               })}
             </div>
             <p className="mt-7 leading-8 text-slate-700">
+              {SITE.specialisationSlogan} Every confirmed journey uses a dedicated
+              chauffeur-driven 6+1 Maruti Suzuki Ertiga; we do not operate
+              hatchbacks or sedans. Ideal luggage planning is 4 to 5 passengers
+              with up to 4 large trolley suitcases with the 3rd row folded, or 6
+              passengers with compact cabin bags.
+            </p>
+            <p className="mt-5 leading-8 text-slate-700">
               Whether you know the brand as <strong>Go Bengaluru</strong>, type
               <strong> GoBengaluru</strong> as the website name or search for
               <strong> Go Bangalore</strong>, the service is operated by Lucky
@@ -464,8 +472,9 @@ export default function OutstationCabsBangalorePage() {
               <p>
                 Enquiries can be discussed for Mysore, Coorg, Chikmagalur, Ooty,
                 Wayanad, Tirupati and other destinations across Karnataka and
-                South India. Each journey is planned according to the actual
-                pickup point, destination, duration and intended stops.
+                South India. Each journey is direct door-to-door transport to a
+                customer-chosen hotel, homestay or landmark, not a packaged tour
+                or stay booking.
               </p>
               <p>
                 Planning Mysore first? Read the dedicated
@@ -486,8 +495,8 @@ export default function OutstationCabsBangalorePage() {
               </p>
               <p>
                 Share the complete itinerary rather than only the destination.
-                This helps with pickup timing, route selection, rest breaks,
-                overnight stays and an accurate trip-specific quote.
+                This helps with pickup timing, live Google Maps route selection,
+                rest breaks, overnight stays and an accurate trip-specific quote.
               </p>
             </div>
             <RouteImage
@@ -578,6 +587,8 @@ export default function OutstationCabsBangalorePage() {
             ))}
           </div>
         </section>
+
+        <PopularOutstationRoutes />
 
         <section className="bg-slate-100 px-5 py-12 text-center sm:py-16">
           <div className="page-shell max-w-3xl">

@@ -11,6 +11,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.85,
     },
+    ...[
+      "bangalore-to-coorg-cab",
+      "bangalore-to-ooty-cab",
+      "bangalore-to-chikmagalur-cab",
+      "bangalore-to-tirupati-cab",
+    ].map((slug) => ({
+      url: `${SITE.url}/${slug}`,
+      lastModified: new Date("2026-09-03T00:00:00+05:30"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
     {
       url: `${SITE.url}/airport-taxi-bangalore`,
       lastModified: new Date("2026-08-23T00:00:00+05:30"),
