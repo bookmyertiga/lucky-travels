@@ -10,17 +10,18 @@ type Props = {
   bullets: string[];
   related: { href: string; label: string }[];
   faq?: { question: string; answer: string }[];
+  compact?: boolean;
 };
 
-export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, related, faq = [] }: Props) {
+export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, related, faq = [], compact = false }: Props) {
   const whatsappMessage = encodeURIComponent(`Hello Lucky Travels, I want to enquire about ${title}.`);
 
   return (
     <>
-      <section className="bg-gradient-to-br from-[#08122c] via-[#24105f] to-[#6817d4] px-5 py-16 text-white">
-        <div className="mx-auto max-w-5xl">
+      <section className={`bg-gradient-to-br from-[#08122c] via-[#24105f] to-[#6817d4] px-5 text-white ${compact ? "py-12 md:py-16" : "py-16"}`}>
+        <div className={`mx-auto w-full px-4 sm:px-6 lg:px-8 ${compact ? "max-w-6xl" : "max-w-5xl"}`}>
           <p className="text-sm font-black uppercase tracking-[.18em] text-amber-400">{eyebrow}</p>
-          <h1 className="mt-3 max-w-4xl text-4xl font-black leading-tight sm:text-6xl">{title}</h1>
+          <h1 className={`mt-3 max-w-4xl font-bold tracking-tight text-white leading-tight ${compact ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl" : "text-4xl sm:text-6xl"}`}>{title}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">{intro}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={`tel:${SITE.phone}`} className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 font-black text-purple-800">
@@ -33,7 +34,7 @@ export default function SeoPage({ eyebrow, title, intro, paragraphs, bullets, re
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-5 py-12 lg:grid-cols-[1fr_340px]">
+      <section className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_340px] lg:px-8">
         <article className="rounded-2xl border bg-white p-7 shadow-sm">
           <h2 className="text-3xl font-black">Go Bengaluru in a Premium Ertiga</h2>
           {paragraphs.map((paragraph) => (

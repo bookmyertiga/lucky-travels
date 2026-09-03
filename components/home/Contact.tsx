@@ -32,10 +32,10 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid gap-2.5 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+          <div className="flex flex-col gap-3 pt-4 sm:flex-row">
             <a
               href={`tel:+91${SITE.phone}`}
-              className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3.5 text-sm font-black text-[#101943] transition hover:-translate-y-0.5"
+              className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition hover:-translate-y-0.5"
             >
               <Phone size={19} /> Call Now
             </a>
@@ -43,13 +43,13 @@ export default function Contact() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3.5 text-sm font-black text-white transition hover:-translate-y-0.5"
+              className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition hover:-translate-y-0.5"
             >
               <MessageCircle size={19} /> WhatsApp
             </a>
             <a
               href={`mailto:${SITE.email}?subject=Premium%20Ertiga%20Cab%20Enquiry`}
-              className="flex items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-4 py-3.5 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-white/15"
+              className="flex items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/10 px-4 py-2.5 text-center text-sm font-medium whitespace-nowrap transition hover:-translate-y-0.5 hover:bg-white/15"
             >
               <Mail size={19} /> Email
             </a>
