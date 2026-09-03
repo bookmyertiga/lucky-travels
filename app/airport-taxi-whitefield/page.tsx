@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, MessageCircle, Phone } from "lucide-react";
+import { PopularAirportCorridors } from "@/components/sections/AirportCorridorPage";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -291,6 +292,8 @@ export default function WhitefieldAirportTaxiPage() {
             </div>
           </div>
         </section>
+
+        <PopularAirportCorridors />
 
         <section className="page-shell py-12 sm:py-16" aria-labelledby="related-heading">
           <SectionHeading id="related-heading" eyebrow="MORE BENGALURU AIRPORT HELP">Plan the Rest of Your Journey</SectionHeading>

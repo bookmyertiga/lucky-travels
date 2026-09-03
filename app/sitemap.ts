@@ -17,6 +17,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...[
+      "airport-taxi-whitefield",
+      "airport-taxi-electronic-city",
+      "airport-taxi-hsr-layout",
+      "airport-taxi-indiranagar",
+      "airport-taxi-sarjapur-road",
+      "airport-taxi-marathahalli",
+      "airport-taxi-jp-nagar",
+    ].map((slug) => ({
+      url: `${SITE.url}/${slug}`,
+      lastModified: new Date("2026-09-03T00:00:00+05:30"),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
     {
       url: `${SITE.url}/outstation-cabs-bangalore`,
       lastModified: new Date("2026-08-24T00:00:00+05:30"),

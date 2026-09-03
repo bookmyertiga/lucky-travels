@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, MessageCircle, Phone } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
+import { PopularAirportCorridors } from "@/components/sections/AirportCorridorPage";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
 
@@ -313,6 +314,8 @@ export default function AirportTaxiBangalorePage() {
             <ArrowDown size={16} className="service-scroll-arrow" />
           </a>
         </section>
+
+        <PopularAirportCorridors />
 
         <section
           id="airport-service-details"
