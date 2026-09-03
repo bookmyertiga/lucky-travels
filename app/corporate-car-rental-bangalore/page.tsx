@@ -136,6 +136,14 @@ export default function CorporateCarRentalBangalorePage() {
     description: pageDescription,
     url: routeUrl,
     image: `${SITE.url}/images/services/hourly.jpg`,
+    priceRange: "₹₹",
+    telephone: "+919886814344",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bengaluru",
+      addressRegion: "Karnataka",
+      addressCountry: "IN",
+    },
     provider: {
       "@type": "TaxiService",
       name: SITE.name,
