@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { MessageCircle, Phone } from "lucide-react";
 import SiteShell from "@/components/shared/SiteShell";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { SITE } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: "Book a Premium Ertiga",
   description:
     "Call or WhatsApp Lucky Travels to enquire about a Premium Ertiga in Bengaluru.",
-  alternates: { canonical: "/book" },
+  alternates: { canonical: `${SITE.url}/book` },
   robots: { index: false, follow: true },
 };
 
@@ -18,6 +19,7 @@ export default function BookPage() {
 
   return (
     <SiteShell>
+      <BreadcrumbJsonLd name="Book a Premium Ertiga" path="/book" />
       <section className="mx-auto max-w-3xl px-5 py-16 text-center">
         <p className="section-kicker">Direct booking</p>
         <h1 className="mt-3 text-4xl font-black tracking-[-0.035em] sm:text-6xl">

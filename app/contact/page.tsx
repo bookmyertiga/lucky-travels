@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import SiteShell from "@/components/shared/SiteShell";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { SITE } from "@/constants/site";
 export const metadata: Metadata = {
   title: "Contact Lucky Travels",
   description: `Call or WhatsApp Lucky Travels on ${SITE.phone} to enquire about a Premium Ertiga in Bengaluru.`,
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: `${SITE.url}/contact` },
   openGraph: {
     title: "Contact Lucky Travels",
     description: `Call or WhatsApp Lucky Travels on ${SITE.phone} to enquire about a Premium Ertiga in Bengaluru.`,
@@ -22,6 +23,7 @@ export default function ContactPage() {
   const wa = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Lucky Travels, I would like to enquire about a cab booking.")}`;
   return (
     <SiteShell>
+      <BreadcrumbJsonLd name="Contact Lucky Travels" path="/contact" />
       <section className="w-full max-w-6xl mx-auto px-4 py-10 sm:px-6 md:py-14 lg:px-8">
         <p className="text-xs font-bold uppercase tracking-widest text-purple-700">DIRECT ENQUIRIES</p>
         <h1 className="mt-2 text-2xl font-extrabold text-slate-900 sm:text-3xl md:text-4xl">Contact Lucky Travels</h1>

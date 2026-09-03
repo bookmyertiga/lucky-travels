@@ -47,8 +47,9 @@ export default function OutstationPackagesPage() {
     "@context": "https://schema.org", "@type": ["LocalBusiness", "Service"], name: "Bangalore Outstation Packages in a Premium Ertiga", serviceType: "Chauffeur-driven outstation taxi packages from Bangalore", provider: { "@type": "TaxiService", name: SITE.name, brand: { "@type": "Brand", name: SITE.brand }, url: SITE.url, telephone: `+91${SITE.phone}`, email: SITE.email }, areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "AdministrativeArea", name: "Karnataka" }], url: routeUrl, image: `${SITE.url}/images/services/outstation.jpg`, logo: `${SITE.url}/images/logo/favicon.png`, priceRange: "₹₹", telephone: "+919886814344", address: { "@type": "PostalAddress", streetAddress: "Konena Agrahara, HAL", addressLocality: "Bengaluru", postalCode: "560017", addressRegion: "Karnataka", addressCountry: "IN" }, description: pageDescription,
   };
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${routeUrl}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) };
+  const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: SITE.url }, { "@type": "ListItem", position: 2, name: "Outstation Packages", item: routeUrl }] };
 
-  return <SiteShell><JsonLd data={[serviceSchema, faqSchema]} /><main className="overflow-x-hidden">
+  return <SiteShell><JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} /><main className="overflow-x-hidden">
     <section aria-labelledby="outstation-hub-heading" className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-6 text-white">
       <div className="mx-auto grid max-w-6xl items-center gap-4 lg:grid-cols-[1.2fr_.8fr]"><div>
         <p className="text-xs font-black uppercase leading-5 tracking-[.18em] text-amber-400 sm:text-sm sm:leading-normal">BANGALORE OUTSTATION PACKAGES</p>

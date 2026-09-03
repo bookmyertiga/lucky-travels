@@ -203,10 +203,18 @@ export default function CorporateCarRentalBangalorePage() {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Corporate Car Rental", item: routeUrl },
+    ],
+  };
 
   return (
     <SiteShell>
-      <JsonLd data={[serviceSchema, faqSchema]} />
+      <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden">
         <section
           aria-labelledby="corporate-heading"
@@ -529,7 +537,7 @@ export default function CorporateCarRentalBangalorePage() {
                   View Hourly Rental Packages
                 </Link>
                 <Link
-                  href="/airport-taxi-bangalore"
+                  href="/services/airport-transfers"
                   className="rounded-xl border border-slate-200 px-5 py-3.5 text-center font-black text-[#090f2f]"
                 >
                   View Airport Transfer Service

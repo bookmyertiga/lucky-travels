@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import BlogContent from "@/components/shared/BlogContent";
 import FloatingWhatsApp from "@/components/shared/FloatingWhatsApp";
 import { blogPosts } from "@/data/blog";
@@ -37,7 +38,7 @@ export async function generateMetadata({
   return {
     title: post.seoTitle ?? post.title,
     description,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: `${SITE.url}/blog/${post.slug}` },
     openGraph: {
       title: post.seoTitle ?? post.title,
       description,
@@ -119,6 +120,7 @@ export default async function BlogPost({
     <>
       <Navbar />
       <article className="page-shell max-w-4xl py-10">
+        <BreadcrumbJsonLd name={post.title} path={`/blog/${post.slug}`} />
         <JsonLd
           data={{
             "@context": "https://schema.org",

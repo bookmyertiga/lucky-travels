@@ -3,14 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FloatingWhatsApp from "@/components/shared/FloatingWhatsApp";
 import { blogPosts } from "@/data/blog";
+import { SITE } from "@/constants/site";
 
 export const metadata: Metadata = {
   title: "Bengaluru Travel Blog",
   description:
     "Useful guides for Bengaluru airport travel, Premium Ertiga planning, city-rental tips and outstation journeys.",
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: `${SITE.url}/blog` },
   openGraph: {
     title: "Bengaluru Travel Blog",
     description:
@@ -28,6 +30,8 @@ export const metadata: Metadata = {
 
 export default function Blog() {
   return (
+    <>
+      <BreadcrumbJsonLd name="Bengaluru Travel Blog" path="/blog" />
     <>
       <Navbar />
       <main className="page-shell py-12">
@@ -74,6 +78,7 @@ export default function Blog() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+    </>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteShell from "@/components/shared/SiteShell";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import SeoPage from "@/components/shared/SeoPage";
 import { SITE, services } from "@/constants/site";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "About Lucky Travels",
   description:
     "Learn why Lucky Travels focuses exclusively on Premium Ertiga airport taxi and travel services in Bengaluru.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: `${SITE.url}/about` },
   openGraph: {
     title: "About Lucky Travels",
     description:
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <SiteShell>
+      <BreadcrumbJsonLd name="About Lucky Travels" path="/about" />
       <SeoPage
         eyebrow="About Lucky Travels"
         title="One focused promise: Premium Ertiga travel in Bengaluru"

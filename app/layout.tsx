@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     icon: [{ url: "/icon.png", type: "image/png", sizes: "1254x1254" }],
     apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "1254x1254" }],
   },
-  alternates: { canonical: "/" },
+  alternates: { canonical: SITE.url },
   openGraph: {
     type: "website", locale: "en_IN", url: SITE.url, siteName: `${SITE.brand} by ${SITE.name}`,
     title: "Go Bengaluru with Lucky Travels",

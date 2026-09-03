@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import SiteShell from "@/components/shared/SiteShell";
 import SeoPage from "@/components/shared/SeoPage";
 import JsonLd from "@/components/seo/JsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { services, SITE } from "@/constants/site";
 
 export function generateStaticParams() {
@@ -21,7 +22,7 @@ export async function generateMetadata({
   return {
     title: service.seoTitle,
     description: service.description,
-    alternates: { canonical: `/services/${service.slug}` },
+    alternates: { canonical: `${SITE.url}/services/${service.slug}` },
     openGraph: {
       title: service.seoTitle,
       description: service.description,
@@ -110,6 +111,7 @@ export default async function ServicePage({
 
   return (
     <SiteShell>
+      <BreadcrumbJsonLd name={service.name} path={`/services/${service.slug}`} />
       <JsonLd data={[serviceSchema, faqSchema]} />
       <SeoPage
         eyebrow={service.eyebrow}

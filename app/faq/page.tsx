@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import SiteShell from "@/components/shared/SiteShell";
 import FAQ from "@/components/home/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { SITE } from "@/constants/site";
 const items = [
   {
     q: "Do you provide only Ertiga vehicles?",
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   title: "Premium Ertiga Taxi FAQs",
   description:
     "Answers about Lucky Travels Premium Ertiga airport taxi, booking, hourly rental and outstation service.",
-  alternates: { canonical: "/faq" },
+  alternates: { canonical: `${SITE.url}/faq` },
   openGraph: {
     title: "Premium Ertiga Taxi FAQs",
     description:
@@ -42,6 +44,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <SiteShell>
+      <BreadcrumbJsonLd name="Premium Ertiga Taxi FAQs" path="/faq" />
       <JsonLd
         data={{
           "@context": "https://schema.org",
