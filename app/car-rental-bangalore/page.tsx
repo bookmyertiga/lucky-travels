@@ -26,9 +26,9 @@ Planned activities or assistance required:`)}`;
 const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent("Car Rental Bangalore Enquiry")}`;
 
 const pageTitle =
-  "Car Rental in Bangalore with Driver | 4hr, 8hr & Full-Day Ertiga Hire";
+  "Car Rental in Bangalore with Driver | 8h, 10h & 12h Ertiga - Go Bengaluru";
 const pageDescription =
-  "Hire a chauffeur-driven 6+1 Ertiga for local Bangalore city travel, family events, hospital visits, & shopping trips. Flexible 4-hr, 8-hr, & full-day rental options.";
+  "Chauffeur-driven 6+1 Ertiga car rental in Bangalore. Transparent 8h/80km, 10h/100km & 12h full-day packages. Extra km ₹28, extra hour ₹280. Book 6-12 hrs ahead.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -58,70 +58,63 @@ export const metadata: Metadata = {
   },
 };
 
-const rentalOptions = [
+const rentalPackages = [
   {
-    title: "Business meetings and corporate travel",
-    text: "Attend multiple meetings across Bangalore in a Premium Ertiga with a professional driver, allowing you to focus on your schedule.",
+    title: "8 Hours / 80 Kilometers",
+    label: "Standard Day Package",
+    text: "Ideal for corporate meetings, multi-stop office visits, family city errands and shopping trips.",
   },
   {
-    title: "Shopping and city stops",
-    text: "Visit multiple retail locations, malls and shops with convenient waiting and luggage space for purchases.",
+    title: "10 Hours / 100 Kilometers",
+    label: "Extended City Package",
+    text: "Ideal for cross-city journeys such as Whitefield to Electronic City or North Bangalore, and comprehensive multi-point itineraries.",
   },
   {
-    title: "Family events and personal occasions",
-    text: "Travel comfortably for weddings, celebrations, family functions and multi-location events across the city.",
+    title: "12 Hours / 120 Kilometers",
+    label: "Full-Day Disposal Package",
+    text: "Ideal for weddings, VIP hospitality, full-day medical consultations and family day outings.",
   },
   {
-    title: "Hospital visits and patient assistance",
-    text: "Arrange reliable, punctual transport for medical appointments, hospital visits and elderly traveller assistance.",
-  },
-  {
-    title: "Local sightseeing",
-    text: "Explore Bangalore attractions with flexible timing, professional driving and comfortable seating for the entire family.",
-  },
-  {
-    title: "Flexible short, half-day and full-day rentals",
-    text: "Choose the duration that suits your needs—from a few hours to a complete day of city exploration and travel.",
+    title: "4 Hours / 40 Kilometers",
+    label: "Selective Short-Duration Option",
+    text: "Offered conditionally based on pickup location, schedule and route viability. Confirm strictly through direct Call or WhatsApp review.",
   },
 ];
 
 const serviceBenefits = [
   "Clean, air-conditioned Premium Maruti Suzuki Ertiga dedicated to your rental.",
-  "Experienced driver familiar with Bangalore traffic patterns and locality navigation.",
-  "Flexible 6/7-seater category suitable for families and small groups, subject to passenger and luggage suitability.",
+  "Dedicated chauffeur-driven 6+1 Maruti Suzuki Ertiga only; no hatchbacks or sedans.",
+  "Chauffeurs check real-time Google Maps traffic at trip start and throughout the day.",
   "Direct communication with the owner-driver or assigned trusted driver for real-time changes.",
   "Practical luggage space for shopping, personal items and travel requirements.",
   "Family-friendly and elderly-friendly assistance with professional pickup and drop planning.",
 ];
 
-const bangaloreAreas = [
-  "Whitefield",
-  "Electronic City",
-  "Indiranagar",
-  "HSR Layout",
-  "Koramangala",
-  "Marathahalli",
-  "Hebbal",
-  "Yelahanka",
-  "Jayanagar",
-  "JP Nagar",
-];
-
 const faqItems = [
   {
-    question: "How do I book a car rental in Bangalore with Lucky Travels?",
+    question: "What hourly rental packages are available for an Ertiga in Bangalore?",
     answer:
-      "Call +91 9886814344, send your travel details on WhatsApp, or email bookmyertiga@gmail.com. Share your date, reporting time, pickup location, planned stops, duration and passenger details. A trip-specific quote and written confirmation will be provided before the journey.",
+      "Lucky Travels offers 8 Hours / 80 Kilometers, 10 Hours / 100 Kilometers and 12 Hours / 120 Kilometers packages. A 4 Hours / 40 Kilometers option is offered conditionally after direct Call or WhatsApp review of the pickup location, schedule and route viability.",
   },
   {
-    question: "Is the Premium Ertiga suitable for a family or small group?",
+    question: "What are the charges for extra kilometers and extra hours?",
     answer:
-      "Yes. The Premium Ertiga offers flexible seating for many family and small-group journeys, subject to passenger count and luggage requirements. The number of occupied seats and the size of bags affect the final arrangement, so share these details before confirmation.",
+      "Extra distance is charged at ₹28 per kilometer beyond the selected package limit. Extra time is charged at ₹280 per hour beyond the package duration. Parking, tolls and interstate permit costs are billed at actuals.",
   },
   {
-    question: "Can I hire the vehicle for multiple stops or a full day?",
+    question: "How does the 30-minute grace window and package upgrade rule work?",
     answer:
-      "Yes. Hourly, half-day and full-day packages can be discussed based on your itinerary, planned stops and duration. The final package terms, including additional charges for waiting time, parking and tolls, are confirmed in writing before the journey.",
+      "If a journey exceeds the selected package duration by more than 30 minutes, it transitions to the next package tier: an 8-hour booking exceeding 8 hours 30 minutes upgrades to the 10-hour package, and a 10-hour booking exceeding 10 hours 30 minutes upgrades to the 12-hour package.",
+  },
+  {
+    question: "How many hours in advance must I book?",
+    answer:
+      "A minimum of 6 to 12 hours advance booking is required for guaranteed vehicle dispatch, chauffeur allocation and vehicle preparation. Earlier notice is recommended for weekends and busy schedules.",
+  },
+  {
+    question: "Does the chauffeur navigate using real-time traffic maps?",
+    answer:
+      "Yes. Chauffeurs check real-time Google Maps traffic at trip start and throughout the day to avoid or bypass congestion hotspots such as Silk Board, Hebbal, Outer Ring Road and Tin Factory.",
   },
 ];
 
@@ -254,30 +247,11 @@ export default function CarRentalBangalorePage() {
     "@type": "FAQPage",
     "@id": `${SITE.url}/car-rental-bangalore#faq`,
     mainEntity: [
-      {
+      ...faqItems.map((item) => ({
         "@type": "Question",
-        name: "What hourly car rental packages does Lucky Travels offer in Bangalore?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We provide customized chauffeur-driven Ertiga packages including 4 Hours / 40 KM (short errands, appointments), 8 Hours / 80 KM (business meetings, shopping), and full-day 12-hour city rentals.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I hire a cab for multi-stop city travel and local sightseeing?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Our owner-driver-led service accommodates multi-stop corporate schedules, wedding shopping, family visits, and Bengaluru sightseeing with flexible waiting terms.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are tolls and parking included in the hourly rental quote?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "All quotes outline base package coverage clearly. Any toll charges or actual mall/corporate parking fees are transparently confirmed in writing before the trip.",
-        },
-      },
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
     ],
   };
 
@@ -303,10 +277,10 @@ export default function CarRentalBangalorePage() {
               </h1>
               <p className="mt-2 max-w-3xl text-[13px] leading-5 text-white/85 sm:mt-3 sm:text-lg sm:leading-8 lg:text-base lg:leading-7">
                 Enquire with Go Bengaluru by Lucky Travels for chauffeur-driven
-                car rental in Bangalore. Use our Premium Ertiga for local
-                travel, hourly packages, multi-stop journeys and full-day city
-                trips. Receive a transparent, trip-specific quote after
-                discussing your itinerary and needs.
+                car rental in Bangalore. Use our dedicated 6+1 Premium Ertiga
+                for local travel, structured hourly packages, multi-stop
+                journeys and full-day city trips. Receive a transparent,
+                trip-specific quote after discussing your itinerary and needs.
               </p>
               <p className="mt-1 text-sm font-black leading-5 text-amber-300 sm:mt-2 sm:text-lg sm:leading-6 lg:text-base">
                 {SITE.specialisationSlogan}
@@ -328,8 +302,9 @@ export default function CarRentalBangalorePage() {
                 </a>
               </div>
               <p className="mt-1 text-xs leading-5 text-white/70 sm:mt-2">
-                24/7 enquiries. Every rental is subject to date, time, route,
-                vehicle and driver availability confirmation.
+                24/7 enquiries. Minimum 6 to 12 hours advance booking is required
+                for guaranteed vehicle dispatch, chauffeur allocation and vehicle
+                preparation.
               </p>
               <a
                 href="#rental-options"
@@ -378,17 +353,38 @@ export default function CarRentalBangalorePage() {
               Bangalore Car-Rental Options
             </SectionHeading>
             <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {rentalOptions.map((option) => (
+              {rentalPackages.slice(0, 3).map((option) => (
                 <article
                   key={option.title}
                   className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
                 >
-                  <h3 className="text-lg font-black text-[#090f2f]">
+                  <h3 className="text-xl font-black text-[#090f2f]">
                     {option.title}
                   </h3>
+                  <p className="mt-1 text-sm font-black uppercase tracking-[.12em] text-purple-700">
+                    {option.label}
+                  </p>
                   <p className="mt-2 leading-7 text-slate-600">{option.text}</p>
                 </article>
               ))}
+              <article className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <h3 className="text-xl font-black text-[#090f2f]">
+                  {rentalPackages[3].title}
+                </h3>
+                <p className="mt-1 text-sm font-black uppercase tracking-[.12em] text-purple-700">
+                  {rentalPackages[3].label}
+                </p>
+                <p className="mt-2 leading-7 text-slate-600">{rentalPackages[3].text}</p>
+              </article>
+              <article className="rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6 lg:col-span-2">
+                <h3 className="text-xl font-black text-amber-950">Billing &amp; Usage Rules</h3>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <p className="rounded-xl bg-white p-4 leading-7 text-slate-700"><strong>Extra Distance:</strong> ₹28 / km beyond the package limit.</p>
+                  <p className="rounded-xl bg-white p-4 leading-7 text-slate-700"><strong>Extra Duration:</strong> ₹280 / hour beyond the package duration.</p>
+                </div>
+                <p className="mt-4 leading-7 text-amber-950"><strong>30-Minute Grace Auto-Upgrade:</strong> journeys exceeding 8h 30m transition to the 10h tier; exceeding 10h 30m transition to the 12h tier.</p>
+                <p className="mt-2 leading-7 text-amber-950"><strong>Note:</strong> Parking and tolls are charged at actuals.</p>
+              </article>
             </div>
           </div>
         </section>
@@ -423,6 +419,11 @@ export default function CarRentalBangalorePage() {
                   dedicated experience instead of an uncertain vehicle
                   assignment at the last minute.
                 </p>
+                <p>
+                  Chauffeurs check real-time Google Maps traffic at trip start
+                  and throughout the day, adjusting around Silk Board, Hebbal,
+                  Outer Ring Road and Tin Factory when traffic conditions change.
+                </p>
                 <p className="font-black text-amber-600">
                   {SITE.specialisationSlogan}
                 </p>
@@ -440,9 +441,10 @@ export default function CarRentalBangalorePage() {
           <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6 lg:p-7">
             <h3 className="font-black text-amber-900">Luggage note</h3>
             <p className="mt-2 leading-7 text-amber-800">
-              Luggage capacity is not unlimited. Suitability depends on the
-              passenger count, seats required, suitcase sizes and other travel
-              requirements. Please share these details before confirmation.
+              Ideal luggage planning is 4 to 5 passengers with up to 4 large
+              trolley suitcases when the 3rd row is folded, or 6 passengers with
+              compact cabin bags. Please share passenger and bag details before
+              confirmation.
             </p>
           </div>
         </section>
@@ -551,25 +553,49 @@ export default function CarRentalBangalorePage() {
           className="bg-[#090f2f] px-5 py-12 text-white sm:py-16"
           aria-labelledby="areas-heading"
         >
-          <div className="page-shell">
-            <SectionHeading
-              id="areas-heading"
-              eyebrow="SERVICE AVAILABILITY"
-              dark
-            >
-              Bangalore Areas Served
-            </SectionHeading>
-            <p className="mt-6 max-w-3xl leading-8 text-white/80">
+          <div className="page-shell grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <SectionHeading id="areas-heading" eyebrow="SERVICE AVAILABILITY" dark>
+                Bangalore Areas Served
+              </SectionHeading>
+              <p className="mt-6 max-w-3xl leading-8 text-white/80">
               Lucky Travels provides car rental in major Bangalore localities
-              including {bangaloreAreas.join(", ")} and other Bengaluru
-              neighbourhoods. Service availability depends on the date, time,
-              route, vehicle and driver confirmation.
-            </p>
-            <p className="mt-4 leading-8 text-white/70">
+              across the city and other Bengaluru neighbourhoods. Service
+              availability depends on the date, time, route, vehicle and driver
+              confirmation.
+              </p>
+              <p className="mt-4 leading-8 text-white/70">
               Share your exact pickup location and itinerary for availability
               confirmation. Even if your area is not listed, enquire directly to
               discuss your specific journey requirements.
-            </p>
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href={carRentalWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3 font-black text-white"><MessageCircle size={18} /> WhatsApp for Availability</a>
+                <a href={`tel:+91${SITE.phone}`} className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-black text-[#090f2f]"><Phone size={18} /> Call +91 {SITE.phone}</a>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-xl backdrop-blur-sm lg:col-span-6">
+              <h3 className="text-lg font-black text-white">Primary Chauffeur Reporting Zones</h3>
+              <p className="mt-1 text-sm text-white/60">Guaranteed doorstep reporting with 6–12 hr advance reservation</p>
+              <nav className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2" aria-label="Bangalore rental service corridors">
+                {[
+                  { area: "Whitefield (ITPL & Kadugodi)", messageArea: "Whitefield" },
+                  { area: "Electronic City (Phases 1 & 2)", messageArea: "Electronic City" },
+                  { area: "HSR Layout (Sectors 1-7)", messageArea: "HSR Layout" },
+                  { area: "Sarjapur Road & Bellandur", messageArea: "Sarjapur Road & Bellandur" },
+                  { area: "Indiranagar & HAL", messageArea: "Indiranagar & HAL" },
+                  { area: "Marathahalli & KR Puram", messageArea: "Marathahalli & KR Puram" },
+                  { area: "JP Nagar & Jayanagar", messageArea: "JP Nagar & Jayanagar" },
+                  { area: "Hebbal & Manyata Tech Park", messageArea: "Hebbal & Manyata" },
+                  { area: "Koramangala", messageArea: "Koramangala" },
+                  { area: "Yelahanka & North Bengaluru", messageArea: "Yelahanka" },
+                ].map(({ area, messageArea }) => {
+                  const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(`Hi Lucky Travels, I would like to check Ertiga hourly car rental availability from ${messageArea}.`)}`;
+                  const rowClassName = "flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.05] px-3.5 py-2.5 text-sm text-gray-200 transition-colors hover:bg-white/[0.12]";
+                  return <a key={area} href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={rowClassName}><span className="flex min-w-0 items-center gap-2"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" aria-hidden="true" />{area}</span><span className="ml-2 shrink-0 text-xs font-bold text-emerald-300">Enquire ↗</span></a>;
+                })}
+              </nav>
+            </div>
           </div>
         </section>
 
@@ -638,17 +664,17 @@ export default function CarRentalBangalorePage() {
           </div>
         </section>
 
-        <section className="bg-slate-100 px-5 py-12 text-center sm:py-16">
+        <section className="bg-slate-100 px-5 py-8 text-center sm:py-10">
           <div className="page-shell max-w-3xl">
-            <h2 className="text-3xl font-black text-[#090f2f] sm:text-4xl">
+            <h2 className="mb-2 text-3xl font-black text-[#090f2f] sm:text-4xl">
               Start Your Bangalore Car Rental Enquiry Today
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-700">
+            <p className="mx-auto mb-4 max-w-2xl leading-8 text-slate-700">
               Call, WhatsApp or email Go Bengaluru by Lucky Travels with your
               rental requirements. You will receive a direct response after the
               date, itinerary and vehicle availability are reviewed.
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <a
                 href={`tel:+91${SITE.phone}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-[#090f2f] px-5 py-3 font-black text-white"
