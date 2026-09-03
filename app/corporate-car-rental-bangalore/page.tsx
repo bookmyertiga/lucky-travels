@@ -140,7 +140,9 @@ export default function CorporateCarRentalBangalorePage() {
     telephone: "+919886814344",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Konena Agrahara, HAL",
       addressLocality: "Bengaluru",
+      postalCode: "560017",
       addressRegion: "Karnataka",
       addressCountry: "IN",
     },
