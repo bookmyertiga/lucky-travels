@@ -10,6 +10,7 @@ const links = [
   ["Home", "/"],
   ["Airport Transfers", "/services/airport-transfers"],
   ["Rental Packages", "/services/rental-packages"],
+  ["Corporate Packages", "/corporate-car-rental-bangalore"],
   ["Outstation Packages", "/services/outstation-packages"],
   ["Blog", "/blog"],
   ["About", "/about"],
@@ -50,18 +51,20 @@ export default function Navbar() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
-        <div className="page-shell flex h-[76px] items-center justify-between gap-4">
-          <BrandLogo />
+        <div className="mx-auto flex h-[76px] w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="shrink-0">
+            <BrandLogo />
+          </div>
 
-          <nav aria-label="Primary navigation" className="hidden items-center gap-6 text-[13px] font-extrabold xl:flex">
+          <nav aria-label="Primary navigation" className="hidden min-w-0 flex-1 items-center justify-center gap-2 xl:gap-4 2xl:gap-5 xl:flex">
             {links.map(([label, href]) => (
-              <Link key={label} href={href} className="relative py-7 transition hover:text-purple-700">
+              <Link key={label} href={href} className="relative whitespace-nowrap py-7 text-xs font-medium leading-none transition hover:text-purple-700 xl:text-sm">
                 {label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2.5 lg:flex">
+          <div className="hidden shrink-0 items-center gap-2.5 lg:flex">
             <a
               href={`tel:${SITE.phone}`}
               className="flex items-center gap-2 rounded-xl bg-[#0c143e] px-4 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5"
@@ -97,7 +100,7 @@ export default function Navbar() {
                   key={label}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3.5 font-extrabold text-[#11183b] hover:bg-purple-50 hover:text-purple-700"
+                  className="whitespace-nowrap rounded-xl px-4 py-3.5 font-extrabold text-[#11183b] hover:bg-purple-50 hover:text-purple-700"
                 >
                   {label}
                 </Link>

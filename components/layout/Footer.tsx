@@ -69,6 +69,9 @@ export default function Footer() {
               <Link href="/services/rental-packages">
                 Hourly / Daily Rentals
               </Link>
+              <Link href="/corporate-car-rental-bangalore">
+                Corporate Car Rental
+              </Link>
               <Link href="/services/outstation-packages">
                 Outstation Packages
               </Link>
