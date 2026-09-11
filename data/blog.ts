@@ -49,6 +49,353 @@ const link = (href: string, label: string): RichTextNode[] => [
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis",
+    title: "Bengaluru Airport Cab Guide: Timing, Luggage & Why We Beat App Taxis",
+    excerpt:
+      "Discover why Go Bengaluru by Lucky Travels offers dedicated 6+1 Premium Ertiga airport transfers with clean cars, transparent pricing, and zero surge shocks for BLR T1 & T2.",
+    seoDescription:
+      "Book your Bengaluru airport cab with Go Bengaluru by Lucky Travels. Transparent pricing, spotless 6+1 Maruti Ertiga cabs, and zero surge shocks for BLR T1 & T2.",
+    date: "2026-09-11",
+    dateModified: "2026-09-11",
+    image: "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt:
+      "Go Bengaluru Maruti Ertiga airport cab parked at Kempegowda International Airport BLR departure curbside with luggage",
+    seoTitle:
+      "Bengaluru Airport Cab Guide | Why Choose Go Bengaluru Over App Taxis",
+    author: "Bharath K S",
+    authorUrl: "/about",
+    authorType: "Person",
+    authorRole: "Founder and owner-driver",
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Heading to ",
+          },
+          ...bold("Kempegowda International Airport Bengaluru (BLR)"),
+          {
+            type: "text",
+            text: " shouldn’t feel like an unpredictable gamble. Whether you are catching an early-morning domestic flight from Terminal 1 or an international connection from Terminal 2, a smooth trip across Bengaluru demands two essentials: absolute punctuality and a ",
+          },
+          ...bold("clean, comfortable vehicle"),
+          {
+            type: "text",
+            text: ".",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "At ",
+          },
+          ...bold("Go Bengaluru by Lucky Travels"),
+          {
+            type: "text",
+            text: ", we frequently get asked how our fares compare to rideshare aggregator apps. Our answer is straightforward: ",
+          },
+          ...bold("we do not operate on an app-based aggregator model"),
+          {
+            type: "text",
+            text: ", and we respectfully ask our guests not to compare our pricing or service standard with app-based taxis.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "If an app estimates ₹1,800 and our dedicated service is ₹2,000, that modest difference represents two completely different travel experiences. Here is why discerning travellers choose ",
+          },
+          ...bold("Go Bengaluru by Lucky Travels"),
+          {
+            type: "text",
+            text: " for their ",
+          },
+          ...bold("Kempegowda International Airport transfers"),
+          {
+            type: "text",
+            text: ".",
+          },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg",
+        alt: "Go Bengaluru Maruti Ertiga airport cab parked at Kempegowda International Airport BLR departure curbside with luggage",
+        caption:
+          "Dedicated 6+1 Maruti Suzuki Ertiga airport transfer at Kempegowda International Airport (BLR) by Go Bengaluru.",
+        href: "/services/airport-transfers",
+      },
+      {
+        type: "h2",
+        content: text("1. The App Lottery vs. The Lucky Travels Standard"),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "When you book an app-based cab in Bengaluru, you enter a daily lottery:",
+        ),
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("The App Reality: "),
+            {
+              type: "text",
+              text: "You have no idea who the driver is, whether the cab has an unpleasant odor, how worn-out the suspension is, or whether the AC is functional until it pulls up to your gate—or worse, cancels abruptly after making you wait 15 minutes.",
+            },
+          ],
+          [
+            ...bold("The Go Bengaluru Difference: "),
+            {
+              type: "text",
+              text: "Every Lucky Travels trip is operated with a clean, impeccably maintained Maruti Suzuki Ertiga (6+1 seater). Our vehicles undergo regular mechanical inspections, cabins are sanitized and fresh, and our chauffeurs are neat, professional, and courteous. You always know exactly what vehicle and driver are arriving at your doorstep.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text(
+          "2. Dedicated Doorstep Service (No Hidden Distance Surcharges)",
+        ),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Aggregator algorithms assign rides to whichever random driver happens to be idling within a 1 to 2 km radius. If no driver accepts, your ride gets abandoned.",
+        ),
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("We Come to You: "),
+            {
+              type: "text",
+              text: "Even if our operating base in Konena Agrahara (HAL) is 15–20 km away from your pickup point in Whitefield, Electronic City, Sarjapur, or HSR Layout, we come to your doorstep on time at no extra pickup charge.",
+            },
+          ],
+          [
+            ...bold("Committed Deadhead Returns: "),
+            {
+              type: "text",
+              text: "App drivers rely on immediate return bookings from the airport queue. If we drop you at BLR Airport and do not have a scheduled return client, we absorb the empty return drive back to the city ourselves. Our transparent quote covers dedicated, personalized service reserved exclusively for your schedule.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/clean-interior-ertiga-cab-bangalore.jpg",
+        alt: "Clean, hygienic interior and spacious leatherette seats of Lucky Travels Ertiga 6+1 seater cab Bengaluru",
+        caption:
+          "Spotless, air-conditioned interior with spacious seating and ample legroom for family and business travel.",
+        href: "/about",
+      },
+      {
+        type: "h2",
+        content: text(
+          "3. Traffic & Weather Route Protection: Zero Surge Pricing Surprises",
+        ),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Bengaluru’s weather and traffic conditions can shift in minutes. Sudden downpours, waterlogging, or severe bottlenecks along Bellary Road, Hebbal Flyover, or the Outer Ring Road often force drivers to take alternate interior routes or bypass roads.",
+        ),
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("App-Based Taxis: "),
+            {
+              type: "text",
+              text: "If your driver is forced to reroute or sits idling in standstill traffic for an extra 45 minutes, app algorithms automatically inflate your final bill with surprise time and distance surcharges.",
+            },
+          ],
+          [
+            ...bold("The Go Bengaluru Guarantee: "),
+            {
+              type: "text",
+              text: "If unpredictable weather or severe traffic forces an alternate route to ensure you do not miss your flight, we do not slap extra charges on you (with the exception of official toll expressways, which are always transparently disclosed upfront). Your agreed quote remains honored.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text("4. Luggage & Space Planning: The Premium Ertiga Advantage"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "One of the most common airport travel frustrations in Bengaluru is having a small hatchback or compact sedan show up with a bulky CNG cylinder consuming the entire boot, forcing luggage onto passengers' laps. Through ",
+          },
+          ...bold("Go Bengaluru"),
+          {
+            type: "text",
+            text: ", Lucky Travels provides spacious 6+1 Maruti Suzuki Ertiga vehicles tailored to your exact load:",
+          },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("3 to 4 Passengers + Heavy Flight Luggage: "),
+            {
+              type: "text",
+              text: "The 3rd-row seats fold down completely flat, creating a cavernous cargo deck that easily accommodates 3 to 4 large check-in trolley suitcases plus multiple cabin bags.",
+            },
+          ],
+          [
+            ...bold("5 to 6 Passengers + Cabin Bags: "),
+            {
+              type: "text",
+              text: "Generous seating for the entire family with independent roof-mounted AC vents for all rows, keeping everyone relaxed on the highway to Devanahalli.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "blockquote",
+        content: [
+          ...bold("The Go Bengaluru Space Promise: "),
+          {
+            type: "text",
+            text: "We evaluate your exact passenger count and suitcase sizes before confirming your booking. If your luggage exceeds what can fit comfortably, we let you know honestly upfront.",
+          },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/highway-travel-ertiga-lucky-travels.jpg",
+        alt: "Lucky Travels Go Bengaluru Ertiga cab travelling smoothly on Bengaluru highway for outstation and airport transfer",
+        caption:
+          "Punctual, smooth rides across Bengaluru highways and outstation routes.",
+        href: "/services/outstation-packages",
+      },
+      {
+        type: "h2",
+        content: text("5. Timing Your Pickup for BLR Terminal 1 and Terminal 2"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "To ensure a stress-free departure at ",
+          },
+          ...bold("Kempegowda International Airport"),
+          {
+            type: "text",
+            text: ":",
+          },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("Domestic Flights (T1 & T2): "),
+            {
+              type: "text",
+              text: "Arrive at the departure gates at least 2 hours before departure. During peak Bengaluru traffic windows (8:00 AM – 11:30 AM and 5:00 PM – 9:00 PM), schedule your cab pickup 3.5 to 4 hours prior.",
+            },
+          ],
+          [
+            ...bold("International Flights (T2): "),
+            {
+              type: "text",
+              text: "Arrive at the terminal 3 to 3.5 hours before boarding. Schedule your pickup 5 to 5.5 hours before flight departure.",
+            },
+          ],
+          [
+            ...bold("Early Morning Flights (3:00 AM – 6:00 AM): "),
+            {
+              type: "text",
+              text: "Avoid the midnight app cancellation panic. Pre-book a guaranteed Ertiga cab the previous evening for assured, on-time doorstep arrival.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text(
+          "Experience Personalised Travel: Book Go Bengaluru by Lucky Travels",
+        ),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "When your flight, family comfort, and peace of mind are on the line, choose genuine reliability over an app algorithm.",
+        ),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "To reserve your Kempegowda Airport transfer, visit ",
+          },
+          ...link("/", "Go Bengaluru by Lucky Travels"),
+          { type: "text", text: ", call " },
+          {
+            type: "link",
+            href: "tel:9886814344",
+            text: "9886814344",
+            children: text("9886814344"),
+          },
+          { type: "text", text: ", message directly on " },
+          ...link(
+            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Bengaluru%20airport%20cab.%20Please%20check%20availability.",
+            "WhatsApp",
+          ),
+          { type: "text", text: ", or email " },
+          ...link("mailto:bookmyertiga@gmail.com", "bookmyertiga@gmail.com"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Follow " },
+          ...bold("@gobengaluruwithlucky"),
+          { type: "text", text: " on " },
+          ...link(
+            "https://www.instagram.com/gobengaluruwithlucky/",
+            "Instagram",
+          ),
+          { type: "text", text: " and " },
+          ...link("https://www.facebook.com/gobengaluruwithlucky/", "Facebook"),
+          {
+            type: "text",
+            text: " for Bengaluru travel updates, fleet news, and tips from the road.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Specialising in 6+1 Premium Ertiga airport transfers and outstation journeys across Karnataka.",
+        ),
+      },
+    ],
+  },
+  {
     slug: "why-lucky-travels-specialises-in-premium-ertiga",
     title:
       "Why I Started Lucky Travels—and Why We Specialise Only in Premium Ertiga",
