@@ -81,7 +81,7 @@ export const blogPosts: BlogPost[] = [
     imageWidth: 1536,
     imageHeight: 1024,
     imageAlt:
-      "Go Bengaluru white Maruti Suzuki Ertiga KA 03 AP 8285 parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
+      "Go Bengaluru white Maruti Suzuki Ertiga parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
     seoTitle:
       "Bangalore to Adiyogi Chikkaballapura Cab Guide | Routes, Timings & Ertiga Fare",
     author: "Bharath K S",
@@ -163,7 +163,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "image",
         src: "/images/gallery/adiyogi-chikkaballapura-sadhguru-sannidhi-ertiga-cab-drop.jpg",
-        alt: "Go Bengaluru white Maruti Suzuki Ertiga KA 03 AP 8285 parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
+        alt: "Go Bengaluru white Maruti Suzuki Ertiga parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
         caption:
           "Doorstep-to-destination family day trip at Sadhguru Sannidhi, Adiyogi Chikkaballapura in our spotless 6+1 Premium Ertiga.",
         href: "/services/outstation-packages",
@@ -424,9 +424,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: [
-          { type: "text", text: "To check date availability and reserve your spotless 6+1 Premium Ertiga (" },
-          ...bold("KA 03 AP 8285"),
-          { type: "text", text: ") for your Adiyogi visit, call " },
+          { type: "text", text: "To check date availability and reserve your spotless 6+1 Premium Ertiga for your Adiyogi visit, call " },
           {
             type: "link",
             href: "tel:9886814344",
@@ -1809,7 +1807,7 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "The pickup point depends on the terminal and current airport operating rules. As checked in August 2026, guidance published for BLR Airport directs commercial vehicles serving Terminal 1 to the P3 and P4 parking zones and vehicles serving Terminal 2 to P2. Reconfirm on the travel day because airport procedures can change.",
+            text: "The pickup point depends on the terminal and current airport operating rules. As checked in August 2026, commercial vehicles are directed to designated parking zones: P3/P4 for Terminal 1 and P2 for Terminal 2. Reconfirm on the travel day because airport procedures can change.",
           },
         ],
       },
@@ -1899,10 +1897,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "To enquire about a Bengaluru airport pickup or drop, visit our ",
-          },
+          { type: "text", text: "To enquire about a Bengaluru airport pickup or drop, visit our " },
           ...link("/airport-taxi-bangalore", "Bangalore Airport Taxi service"),
           { type: "text", text: ", call " },
           {
