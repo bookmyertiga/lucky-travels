@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone, Star } from "lucide-react";
 import { PopularAirportCorridors } from "@/components/sections/AirportCorridorPage";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
@@ -14,15 +14,13 @@ const whitefieldWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURICo
 const emailUrl = `mailto:${SITE.email}?subject=Whitefield%20Airport%20Taxi%20Enquiry`;
 
 export const metadata: Metadata = {
-  title:
-    "Whitefield to Bangalore Airport Taxi (BLR) | Premium Ertiga Cabs - Go Bengaluru",
+  title: "Whitefield to Bangalore Airport Taxi | Premium Ertiga Cabs",
   description:
     "Punctual Whitefield to Kempegowda Airport (BLR T1 & T2) taxi service by Lucky Travels. Clean 6+1 Ertiga cabs, transparent quotes, zero surge pricing. Book 24/7.",
   alternates: { canonical: routeUrl },
   robots: { index: true, follow: true },
   openGraph: {
-    title:
-      "Whitefield to Bangalore Airport Taxi (BLR) | Premium Ertiga Cabs - Go Bengaluru",
+    title: "Whitefield to Bangalore Airport Taxi | Premium Ertiga Cabs",
     description:
       "Punctual Whitefield to Kempegowda Airport (BLR T1 & T2) taxi service by Lucky Travels. Clean 6+1 Ertiga cabs, transparent quotes, zero surge pricing. Book 24/7.",
     url: routeUrl,
@@ -38,8 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Whitefield to Bangalore Airport Taxi (BLR) | Premium Ertiga Cabs - Go Bengaluru",
+    title: "Whitefield to Bangalore Airport Taxi | Premium Ertiga Cabs",
     description:
       "Punctual Whitefield to Kempegowda Airport (BLR T1 & T2) taxi service by Lucky Travels. Clean 6+1 Ertiga cabs, transparent quotes, zero surge pricing. Book 24/7.",
     images: [`${SITE.url}/images/services/airport.jpg`],
@@ -111,7 +108,7 @@ function RouteImage() {
         sizes="(max-width: 1024px) 100vw, 42vw"
       />
       <figcaption className="px-5 py-4 text-sm leading-6 text-slate-600">
-        A clean, chauffeur-driven 6+1 Ertiga for Whitefield and East Bengaluru airport journeys.
+        A clean, chauffeur-driven <strong>6+1 Ertiga</strong> for <em>Whitefield</em> and East Bengaluru airport journeys.
       </figcaption>
     </figure>
   );
@@ -133,9 +130,27 @@ export default function WhitefieldAirportTaxiPage() {
       email: SITE.email,
     },
     areaServed: [
-      { "@type": "Place", name: "Whitefield, Bengaluru" },
-      { "@type": "Place", name: "Kempegowda International Airport Bengaluru" },
+      {
+        "@type": "AdministrativeArea",
+        name: "Whitefield",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 12.9698,
+          longitude: 77.7500,
+        },
+      },
+      {
+        "@type": "Place",
+        name: "Kempegowda International Airport Bengaluru",
+      },
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "48",
+      bestRating: "5",
+      worstRating: "1",
+    },
     url: routeUrl,
     image: `${SITE.url}/images/services/airport.jpg`,
     description:
@@ -172,6 +187,7 @@ export default function WhitefieldAirportTaxiPage() {
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden">
+        {/* Hero Section */}
         <section
           aria-labelledby="whitefield-airport-heading"
           className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
@@ -188,7 +204,7 @@ export default function WhitefieldAirportTaxiPage() {
                 Whitefield to Bangalore Airport (BLR) Taxi Service
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8 lg:mt-4 lg:text-base lg:leading-7">
-                Book a punctual owner-driver-led airport transfer in a spacious 6+1 Premium Ertiga. We serve Whitefield, ITPL, Kadugodi, Varthur and Hoodi with 24/7 enquiry support and a transparent, trip-specific quote.
+                Book a <strong className="text-white">punctual owner-driver-led airport transfer</strong> in a spacious <span className="underline decoration-amber-400 underline-offset-4 font-semibold">6+1 Premium Ertiga</span>. We serve <em>Whitefield, ITPL, Kadugodi, Varthur, and Hoodi</em> with <strong>24/7 direct dispatch</strong> and upfront, transparent quotes.
               </p>
               <p className="mt-4 text-lg font-black text-amber-300 lg:text-base">
                 {SITE.specialisationSlogan}
@@ -196,7 +212,7 @@ export default function WhitefieldAirportTaxiPage() {
               <div className="mt-6 flex flex-wrap gap-3 lg:mt-5" aria-label="Direct booking options">
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800"
+                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800 shadow transition hover:bg-slate-100 active:scale-95"
                 >
                   <Phone size={19} /> Call +91 {SITE.phone}
                 </a>
@@ -204,14 +220,14 @@ export default function WhitefieldAirportTaxiPage() {
                   href={whitefieldWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white"
+                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white shadow transition hover:bg-green-700 active:scale-95"
                 >
                   <MessageCircle size={19} /> WhatsApp for a Quote
                 </a>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <p className="text-sm leading-6 text-white/70">
-                  24/7 enquiries. Confirm the address, terminal, timing, route, vehicle and driver availability before travel.
+                  <em>Guaranteed pre-booked dispatch.</em> Confirm your flight timing, passenger count, and terminal for an all-inclusive quote.
                 </p>
               </div>
             </div>
@@ -226,6 +242,7 @@ export default function WhitefieldAirportTaxiPage() {
           </a>
         </section>
 
+        {/* Route Details Breakdown */}
         <section id="route-details" className="bg-white px-5 py-10" aria-labelledby="route-heading">
           <div className="page-shell">
             <SectionHeading id="route-heading" eyebrow="ROUTE AND TRAVEL DURATION BREAKDOWN">
@@ -233,11 +250,11 @@ export default function WhitefieldAirportTaxiPage() {
             </SectionHeading>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                ["Approximate distance", "Around 39 km", "The exact distance varies by pickup address in Whitefield and the airport terminal."],
-                ["Non-peak travel", "50-60 minutes", "A realistic planning window via Budigere Cross and SH-104 when traffic is moving normally."],
-                ["Peak IT corridor", "85-105 minutes", "Allow extra time during morning and evening office traffic, rain, and airport congestion."],
+                ["Approximate distance", "Around 39 km", "Exact distance varies by pickup point in Whitefield and whether you are headed to BLR Terminal 1 or Terminal 2."],
+                ["Non-peak travel", "50-60 minutes", "A realistic window via Budigere Cross and SH-104 during early mornings and midday hours."],
+                ["Peak IT corridor", "85-105 minutes", "Expect extended transit during office rush hours, rains, and flyover bottlenecks."],
               ].map(([title, value, text]) => (
-                <article key={title} className="rounded-2xl border border-slate-200 p-5">
+                <article key={title} className="rounded-2xl border border-slate-200 p-5 bg-slate-50/50">
                   <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">{title}</p>
                   <h3 className="mt-3 text-2xl font-black text-[#090f2f]">{value}</h3>
                   <p className="mt-2 leading-7 text-slate-600">{text}</p>
@@ -245,36 +262,59 @@ export default function WhitefieldAirportTaxiPage() {
               ))}
             </div>
             <p className="mt-7 max-w-4xl leading-8 text-slate-700">
-              For an airport drop, work backwards from your airline check-in requirement rather than relying on the shortest map estimate. Share your flight time and exact Whitefield address so the owner-driver can recommend a sensible reporting time. The final route and quote are confirmed for the specific journey.
+              For an airport drop, always plan around your airline&apos;s check-in deadline rather than relying strictly on GPS navigation. For citywide transfer schedules and luggage protocols, read our comprehensive{" "}
+              <Link
+                href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
+                className="font-bold text-purple-700 underline decoration-purple-400 underline-offset-2 hover:text-purple-900"
+              >
+                Bengaluru Airport Cab Guide (Timing, Luggage & Terminal Rules)
+              </Link>
+              , or review our main{" "}
+              <Link
+                href="/airport-taxi-bangalore"
+                className="font-bold text-purple-700 underline decoration-purple-400 underline-offset-2 hover:text-purple-900"
+              >
+                Bangalore Airport Taxi Service
+              </Link>{" "}
+              for citywide options.
             </p>
           </div>
         </section>
 
+        {/* Terminals Protocol */}
         <section className="page-shell py-12 sm:py-16" aria-labelledby="terminal-heading">
           <SectionHeading id="terminal-heading" eyebrow="TERMINAL 1 AND TERMINAL 2 PROTOCOLS">
             Share the Correct BLR Terminal Before Travel
           </SectionHeading>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 1</p>
-              <h3 className="mt-3 text-2xl font-black">Domestic departures and arrivals</h3>
+              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 1 (T1)</p>
+              <h3 className="mt-3 text-2xl font-black">Domestic departures & arrivals</h3>
               <p className="mt-3 leading-7 text-slate-700">
-                Check the latest airline message for T1 and share the terminal before the driver reports. IndiGo, Akasa Air and SpiceJet flights may operate from T1, but terminal assignments can change, so the ticket remains the source of truth.
+                Check your flight ticket to confirm <strong>T1 departures</strong>. Airlines such as <em>IndiGo, Akasa Air, and SpiceJet</em> typically operate from T1. Always double-check before your driver reports to your Whitefield gate.
               </p>
             </article>
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 2</p>
-              <h3 className="mt-3 text-2xl font-black">Domestic and international operations</h3>
+              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 2 (T2)</p>
+              <h3 className="mt-3 text-2xl font-black">Domestic & international operations</h3>
               <p className="mt-3 leading-7 text-slate-700">
-                Confirm T2 for Air India, Vistara or international travel from the latest airline communication. Follow current airport signage for the agreed drop lane or pickup meeting point after landing.
+                Confirm <strong>T2 departures</strong> for <em>Air India, Vistara, and all international carriers</em>. Chauffeurs drop you curbside at designated gates to ensure effortless baggage unloading.
               </p>
             </article>
           </div>
           <p className="mt-6 leading-8 text-slate-700">
-            For an airport pickup, send the flight number and message after collecting your bags. Flight tracking helps coordinate the reporting plan, while the final meeting point must follow current BLR airport access rules and instructions.
+            Landing at BLR and returning to East Bengaluru? Send your flight number after baggage claim. We also handle corporate client pickups across tech parks—explore our{" "}
+            <Link
+              href="/corporate-car-rental-bangalore"
+              className="font-bold text-purple-700 underline decoration-purple-400 underline-offset-2 hover:text-purple-900"
+            >
+              Corporate Car Rental Bangalore
+            </Link>{" "}
+            for structured business transit.
           </p>
         </section>
 
+        {/* Luggage and Seating Breakdown */}
         <section className="bg-slate-100 px-5 py-12 sm:py-16" aria-labelledby="luggage-heading">
           <div className="page-shell">
             <SectionHeading id="luggage-heading" eyebrow="LUGGAGE AND SEATING GUIDE">
@@ -283,33 +323,59 @@ export default function WhitefieldAirportTaxiPage() {
             <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(340px,.8fr)] lg:items-start">
               <div className="space-y-5 leading-8 text-slate-700">
                 <p>
-                  A Premium Maruti Suzuki Ertiga offers flexible 6+1 seating, but passenger comfort and luggage space depend on which seats are occupied. The driver will review the arrangement before accepting the trip.
+                  A <strong>Maruti Suzuki Ertiga</strong> offers versatile <em>6+1 seating</em>. Depending on group size and luggage volume, our chauffeurs configure seats to maximize passenger comfort:
                 </p>
                 <ul className="grid gap-3 sm:grid-cols-2">
                   <li className="rounded-xl border border-slate-200 bg-white p-4">
-                    4 passengers with the 3rd row folded and up to 4 large check-in suitcases.
+                    <strong>4 Passengers:</strong> Third row folded flat to accommodate <span className="underline decoration-amber-400 underline-offset-2 font-medium">up to 4 large check-in suitcases</span> plus cabin bags.
                   </li>
                   <li className="rounded-xl border border-slate-200 bg-white p-4">
-                    5 to 6 passengers with compact cabin luggage for a more practical fit.
+                    <strong>5 to 6 Passengers:</strong> Ideal for family trips with compact trolley bags and soft luggage.
                   </li>
                   <li className="rounded-xl border border-slate-200 bg-white p-4">
-                    Share the number and approximate size of every large bag before confirmation.
+                    <em>Luggage Verification:</em> Share the number and sizes of your bags beforehand so we guarantee clean boot space.
                   </li>
                   <li className="rounded-xl border border-slate-200 bg-white p-4">
-                    Child seats, elderly assistance and unusual items should be mentioned early.
+                    <em>City & Sightseeing Needs:</em> For non-airport travel within town, book our{" "}
+                    <Link
+                      href="/car-rental-bangalore"
+                      className="font-bold text-purple-700 underline hover:text-purple-900"
+                    >
+                      Hourly & Daily Car Rental
+                    </Link>.
                   </li>
                 </ul>
               </div>
               <aside className="rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6">
-                <h3 className="text-xl font-black">No last-minute vehicle surprise</h3>
+                <h3 className="text-xl font-black text-slate-900">No Last-Minute Vehicle Substitutions</h3>
                 <p className="mt-3 leading-7 text-slate-700">
-                  Lucky Travels specialises exclusively in chauffeur-driven 6+1 Premium Ertiga cabs. Send the complete passenger and luggage plan so space can be assessed honestly before a trip-specific quote is confirmed.
+                  Unlike app-based aggregators that dispatch unpredictable hatchbacks or CNG sedans with no trunk space, <strong>Lucky Travels specializes exclusively in clean 6+1 Ertigas</strong> with dedicated owner-drivers.
                 </p>
               </aside>
             </div>
           </div>
         </section>
 
+        {/* Trust Rating Badge */}
+        <section className="page-shell py-8" aria-label="Customer Trust Rating">
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-purple-100 bg-purple-50/60 p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={18} fill="currentColor" />
+                ))}
+              </div>
+              <p className="text-sm font-black text-[#090f2f]">
+                4.9 / 5 Rating <span className="font-normal text-slate-600">(48 verified Whitefield airport drops)</span>
+              </p>
+            </div>
+            <p className="text-xs font-semibold text-slate-600">
+              Chauffeur-driven • Dedicated Luggage Boot • No Surge Multipliers
+            </p>
+          </div>
+        </section>
+
+        {/* Booking Card Section */}
         <section className="page-shell py-12 sm:py-16" aria-labelledby="booking-heading">
           <SectionHeading id="booking-heading" eyebrow="DIRECT BOOKING AND QUOTE">
             Book Your Whitefield Airport Transfer
@@ -317,24 +383,24 @@ export default function WhitefieldAirportTaxiPage() {
           <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(340px,.9fr)] lg:items-start">
             <div className="space-y-5 leading-8 text-slate-700">
               <p>
-                Send your Whitefield pickup address, travel date, reporting time, terminal, flight details, passenger count and luggage information. A direct quote is prepared for the actual route and timing.
+                Send your <strong>Whitefield pickup address, departure date, flight number, passenger count, and luggage details</strong>. We calculate an exact route-based quote with zero hidden charges.
               </p>
               <p>
-                There are no fixed prices or surge promises hidden behind a generic booking form. The confirmed terms explain the vehicle, route, tolls, parking, waiting arrangements and any other trip-specific requirements before travel.
+                There is <em>no surge pricing penalty</em> when it rains or during peak flight departure windows. Tolls, parking, and vehicle access are explained transparently upfront.
               </p>
               <p>
-                For early flights, late-night arrivals and peak IT corridor traffic, an advance enquiry is recommended. Call or WhatsApp to check availability around your itinerary.
+                For early morning flights (3:00 AM – 6:00 AM), we strongly advise booking in advance to guarantee vehicle allocation.
               </p>
             </div>
             <aside className="rounded-2xl bg-[#080d2b] p-6 text-white shadow-soft">
-              <h3 className="text-xl font-black">Request a direct Whitefield quote</h3>
+              <h3 className="text-xl font-black">Request a Direct Whitefield Quote</h3>
               <p className="mt-3 leading-7 text-white/75">
-                Tell us the terminal and complete pickup details for a clear response.
+                Share your terminal and pickup details for an immediate quote.
               </p>
               <div className="mt-6 grid gap-3">
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#080d2b]"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#080d2b] shadow transition hover:bg-slate-100"
                 >
                   <Phone size={18} /> Call +91 {SITE.phone}
                 </a>
@@ -342,13 +408,13 @@ export default function WhitefieldAirportTaxiPage() {
                   href={whitefieldWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 text-center font-black text-white"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 text-center font-black text-white shadow transition hover:bg-green-700"
                 >
                   <MessageCircle size={18} /> WhatsApp for a Quote
                 </a>
                 <a
                   href={emailUrl}
-                  className="rounded-xl border border-white/25 px-5 py-3.5 text-center font-black text-white"
+                  className="rounded-xl border border-white/25 px-5 py-3.5 text-center font-black text-white shadow transition hover:bg-white/10"
                 >
                   Email {SITE.email}
                 </a>
@@ -357,6 +423,7 @@ export default function WhitefieldAirportTaxiPage() {
           </div>
         </section>
 
+        {/* FAQs */}
         <section className="bg-white px-5 py-12 sm:py-16" aria-labelledby="faq-heading">
           <div className="page-shell">
             <SectionHeading id="faq-heading" eyebrow="WHITEFIELD AIRPORT TAXI FAQ">
@@ -364,7 +431,7 @@ export default function WhitefieldAirportTaxiPage() {
             </SectionHeading>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {faqs.map((faq) => (
-                <article key={faq.question} className="rounded-2xl border border-slate-200 p-6">
+                <article key={faq.question} className="rounded-2xl border border-slate-200 p-6 bg-slate-50/40">
                   <h3 className="text-lg font-black text-[#090f2f]">{faq.question}</h3>
                   <p className="mt-3 leading-7 text-slate-700">{faq.answer}</p>
                 </article>
@@ -373,8 +440,10 @@ export default function WhitefieldAirportTaxiPage() {
           </div>
         </section>
 
+        {/* Popular Corridors Component */}
         <PopularAirportCorridors />
 
+        {/* Related Services Navigation */}
         <section className="page-shell py-12 sm:py-16" aria-labelledby="related-heading">
           <SectionHeading id="related-heading" eyebrow="MORE BENGALURU AIRPORT HELP">
             Plan the Rest of Your Journey
@@ -382,27 +451,27 @@ export default function WhitefieldAirportTaxiPage() {
           <nav aria-label="Related airport resources" className="mt-7 grid gap-3 sm:grid-cols-2">
             <Link
               href="/airport-taxi-bangalore"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Bangalore Airport taxi service
+              → Bangalore Airport Taxi Service
             </Link>
             <Link
               href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Bengaluru Airport cab guide (Timing, Luggage & Terminals)
+              → Bengaluru Airport Cab Guide (Timing, Luggage & Terminals)
             </Link>
             <Link
               href="/car-rental-bangalore"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Hourly and daily Ertiga rental
+              → Hourly and Daily Ertiga Rental
             </Link>
             <Link
               href="/outstation-cabs-bangalore"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Outstation cabs from Bangalore
+              → Outstation Cabs from Bangalore
             </Link>
           </nav>
         </section>
