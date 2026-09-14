@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
 
 const routeUrl = `${SITE.url}/airport-taxi-bangalore`;
-const airportWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Bangalore%20Airport%20taxi.%20My%20travel%20details%20are%3A`;
+const airportWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+  "Hello Lucky Travels, I need a Bangalore Airport taxi.\nDate:\nPickup time:\nTerminal (T1/T2):\nPickup address / Destination:\nPassengers and luggage:"
+)}`;
 const detailedWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(`Hello Lucky Travels, I need a Bangalore Airport pickup/drop.
 Date:
 Pickup time:
 Flight number:
-Terminal, if known:
+Terminal (T1/T2):
 Pickup and destination:
 Adults and children:
 Large suitcases and cabin bags:
-Additional stops or assistance required:`)} `;
+Additional stops or assistance required:`)}`;
 const emailUrl = `mailto:${SITE.email}?subject=Bangalore%20Airport%20Taxi%20Enquiry`;
 
 export const metadata: Metadata = {
@@ -53,22 +55,22 @@ const faqItems = [
   {
     question: "How early should I book an Ertiga for a Bangalore Airport transfer?",
     answer:
-      "A minimum of 6 to 12 hours advance booking is required for guaranteed on-time dispatch and vehicle allocation. Share the flight, terminal, address, passenger and luggage details as early as possible.",
+      "A minimum of 4 to 12 hours advance booking is recommended for guaranteed on-time dispatch and dedicated vehicle allocation. Share your flight timing, terminal, address, passenger count, and luggage details early.",
   },
   {
     question: "How do pickups work for Terminal 1 versus Terminal 2 at BLR?",
     answer:
-      "For Terminal 1 domestic and selected flights, the driver coordinates pickup at the dedicated arrival lanes or designated taxi pickup zones. For Terminal 2, the Garden Terminal for international and premium domestic flights, the driver confirms the meeting point and coordinates luggage-cart assistance. Follow current airport instructions.",
+      "For Terminal 1 (domestic departures), the chauffeur coordinates curbside pickup at designated arrival lanes. For Terminal 2 (Garden Terminal for international and premium domestic flights), the driver confirms the exact pillar meeting point after baggage clearance.",
   },
   {
     question: "What happens if my flight to Bangalore is delayed?",
     answer:
-      "Real-time flight tracking allows the driver to adjust the pickup time for a delayed landing. Keep the booking phone reachable and send an update after collecting bags so the final meeting point can be coordinated.",
+      "Real-time flight tracking allows your dedicated chauffeur to adjust pickup timing automatically for delayed landings. Keep your phone accessible and message us once baggage retrieval is complete.",
   },
   {
     question: "What luggage fits in a 6+1 Ertiga airport cab?",
     answer:
-      "For 4 to 5 passengers, folding the third row accommodates up to 4 large check-in bags plus cabin strollers. With 6 passengers and the third row upright, carry compact cabin baggage; larger luggage requires advance review.",
+      "For 4 to 5 passengers, folding the third row flat accommodates up to 4 large international check-in bags plus cabin trolleys. With 6 passengers seated, the boot space fits compact cabin luggage.",
   },
 ];
 
@@ -98,7 +100,7 @@ function RouteImage({
           width={width}
           height={height}
           loading={loading}
-          className="h-auto w-full object-cover"
+          className="h-auto w-full object-cover transition duration-300 hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </Link>
@@ -145,21 +147,20 @@ const planningDetails = [
   "Pickup or drop requirement",
   "Travel date and required pickup time",
   "Flight number and scheduled arrival or departure time",
-  "Terminal, if already confirmed by the airline",
-  "Exact Bangalore pickup address or airport-to-city destination",
+  "Terminal (T1 or T2), confirmed by the airline",
+  "Exact Bangalore pickup address or city drop destination",
   "Number of adults and children",
   "Number and approximate size of suitcases and cabin bags",
-  "Child seat, elderly assistance or other special requirements, if any",
-  "Planned stops or onward travel after the airport transfer",
+  "Child seat, elderly assistance, or flight delay updates",
+  "Planned stops or onward outstation travel after airport transfer",
 ];
 
 const confirmationDetails = [
-  "The confirmed pickup, destination, date and time.",
-  "Premium Ertiga vehicle category.",
-  "The agreed trip quote or kilometre terms.",
-  "Toll, airport parking and waiting terms.",
-  "Additional stops or changes to the original itinerary.",
-  "Passenger and luggage suitability.",
+  "The confirmed pickup, destination, date, and reporting time.",
+  "Guaranteed 6+1 Premium Ertiga category (no hatchback/sedan swaps).",
+  "Transparent, agreed trip quote with zero surge multipliers.",
+  "Toll, airport parking, and flight-delay waiting terms.",
+  "Baggage verification and passenger comfort arrangement.",
 ];
 
 export default function AirportTaxiBangalorePage() {
@@ -167,24 +168,33 @@ export default function AirportTaxiBangalorePage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Bangalore Airport Taxi Service in a Premium Ertiga",
-    serviceType: "Bangalore Airport taxi pickup and drop enquiry service",
+    serviceType: "Kempegowda International Airport Taxi Pickup and Drop",
     provider: {
       "@type": "TaxiService",
-      name: SITE.name,
+      name: "Go Bengaluru by Lucky Travels",
+      legalName: "Lucky Travels",
+      brand: { "@type": "Brand", name: "Go Bengaluru" },
       url: SITE.url,
       telephone: `+91${SITE.phone}`,
       email: SITE.email,
     },
-    areaServed: {
-      "@type": "City",
-      name: "Bangalore",
-      containedInPlace: { "@type": "State", name: "Karnataka" },
-    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Bangalore",
+        containedInPlace: { "@type": "State", name: "Karnataka" },
+      },
+      {
+        "@type": "Place",
+        name: "Kempegowda International Airport Bengaluru (BLR)",
+      },
+    ],
     url: routeUrl,
     image: `${SITE.url}/images/services/airport.jpg`,
     description:
-      "Direct Premium Ertiga enquiries for Bangalore Airport pickup and drop journeys.",
+      "Direct Premium Ertiga airport transfers across Kempegowda International Airport (BLR T1 & T2) with verified chauffeurs and zero surge pricing.",
   };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -193,17 +203,12 @@ export default function AirportTaxiBangalorePage() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Airport Transfers",
-        item: routeUrl,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Bangalore Airport Taxi",
+        name: "Airport Taxi Bangalore",
         item: routeUrl,
       },
     ],
   };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -219,15 +224,16 @@ export default function AirportTaxiBangalorePage() {
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
       <main className="overflow-x-hidden">
+        {/* Hero Section */}
         <section
           aria-labelledby="airport-taxi-heading"
           className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10 lg:py-8"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.2fr_.8fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[.18em] text-amber-400">
-                BANGALORE AIRPORT PICKUP AND DROP ENQUIRIES
-              </p>
+              <div className="inline-flex items-center gap-2 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-bold text-amber-300">
+                <ShieldCheck size={14} /> Punctual Chauffeur-Driven Airport Drops
+              </div>
               <h1
                 id="airport-taxi-heading"
                 className="mt-4 max-w-2xl text-3xl font-black leading-tight sm:text-4xl lg:text-[2.75rem]"
@@ -235,11 +241,7 @@ export default function AirportTaxiBangalorePage() {
                 Bangalore Airport Taxi Service in a Premium Ertiga
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8 lg:mt-4 lg:text-base lg:leading-7">
-                Plan a pickup from Kempegowda International Airport Bengaluru or
-                an airport drop from Bangalore in a clean, air-conditioned
-                Premium Ertiga. Share your flight, terminal, passenger, luggage
-                and address details directly with Lucky Travels for a
-                trip-specific quote and clear confirmation.
+                Schedule a seamless pickup from <strong className="text-white">Kempegowda International Airport (BLR)</strong> or a punctual airport drop across Bangalore in a spotless <span className="underline decoration-amber-400 underline-offset-4 font-semibold">6+1 Maruti Suzuki Ertiga</span>. Enjoy <em>zero surge pricing</em>, flight-delay buffers, and ample luggage space for <strong>Terminal 1 and Terminal 2</strong>.
               </p>
               <p className="mt-4 text-lg font-black text-amber-300 lg:text-base">
                 {SITE.specialisationSlogan}
@@ -250,7 +252,7 @@ export default function AirportTaxiBangalorePage() {
               >
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800 lg:text-sm"
+                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-purple-800 shadow transition hover:bg-slate-100 lg:text-sm"
                 >
                   <Phone size={19} /> Call Now: +91 {SITE.phone}
                 </a>
@@ -258,23 +260,20 @@ export default function AirportTaxiBangalorePage() {
                   href={airportWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white lg:text-sm"
+                  className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white shadow transition hover:bg-green-700 lg:text-sm"
                 >
                   <MessageCircle size={19} /> Request an Airport Quote on WhatsApp
                 </a>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <p className="text-sm leading-6 text-white/70">
-                  24/7 enquiries. A minimum of 6 to 12 hours advance booking is
-                  required for guaranteed on-time dispatch and vehicle allocation.
-                  Chauffeurs proactively monitor Google Maps at departure to
-                  bypass Hebbal, ORR and Bellary Road bottlenecks.
+                  <em>Advance scheduled dispatch.</em> Chauffeurs monitor live traffic maps to bypass Hebbal, Outer Ring Road, and Bellary Road bottlenecks.
                 </p>
                 <a
                   href="#airport-service-details"
                   className="inline-flex items-center gap-2 text-sm font-black text-amber-300 underline decoration-amber-300/60 underline-offset-4 hover:text-white"
                 >
-                  Explore the airport service details
+                  Explore airport transfer details
                   <ArrowDown size={17} aria-hidden="true" />
                 </a>
               </div>
@@ -283,7 +282,7 @@ export default function AirportTaxiBangalorePage() {
               href="/"
               src="/images/services/airport.jpg"
               alt="Lucky Travels Premium Ertiga prepared for a Bangalore Airport taxi journey"
-              caption="Premium Ertiga airport pickup and drop enquiries planned directly with Lucky Travels."
+              caption="Clean 6+1 Ertiga airport pickup and drop transfers coordinated directly with Lucky Travels."
               width={1672}
               height={941}
               loading="eager"
@@ -298,6 +297,7 @@ export default function AirportTaxiBangalorePage() {
           </a>
         </section>
 
+        {/* Planning Summary Cards */}
         <section
           id="airport-service-details"
           className="bg-white px-5 py-10"
@@ -306,30 +306,31 @@ export default function AirportTaxiBangalorePage() {
           <div className="page-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               [
-                "Airport service",
-                "BLR Airport pickup and drop enquiries, subject to confirmation.",
+                "Airport Service",
+                "BLR Airport transfers across all Bangalore localities, scheduled in advance.",
               ],
               [
-                "Vehicle category",
-                "Dedicated chauffeur-driven 6+1 Maruti Suzuki Ertiga only. No vehicle downsizing.",
+                "Fleet Category",
+                "Chauffeur-driven 6+1 Maruti Suzuki Ertiga only. Zero hatchback or sedan downgrades.",
               ],
-              ["Booking method", "Direct enquiry by phone, WhatsApp or email."],
+              ["Transparent Booking", "Direct booking confirmation via WhatsApp or phone with no hidden surcharges."],
               [
-                "Before confirmation",
-                "Flight, terminal, passenger, luggage, address and timing details are reviewed.",
+                "Baggage Assured",
+                "Fold-flat 3rd row fits up to 4 international suitcases with ease.",
               ],
             ].map(([title, text]) => (
               <article
                 key={title}
-                className="rounded-2xl border border-slate-200 p-5"
+                className="rounded-2xl border border-slate-200 p-5 bg-slate-50/50"
               >
-                <h2 className="text-lg font-black">{title}</h2>
+                <h2 className="text-lg font-black text-[#090f2f]">{title}</h2>
                 <p className="mt-2 leading-7 text-slate-600">{text}</p>
               </article>
             ))}
           </div>
         </section>
 
+        {/* Terminal Guidelines */}
         <section
           className="page-shell py-12 sm:py-16"
           aria-labelledby="terminal-guidelines-heading"
@@ -342,33 +343,40 @@ export default function AirportTaxiBangalorePage() {
           </SectionHeading>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 1</p>
-              <h3 className="mt-3 text-xl font-black">Domestic &amp; selected flights</h3>
-              <p className="mt-3 leading-7 text-slate-700">The driver coordinates pickup at dedicated arrival lanes or designated taxi pickup zones. Share the terminal and flight number before dispatch, then follow current BLR signage.</p>
+              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 1 (T1)</p>
+              <h3 className="mt-3 text-xl font-black">Domestic & Selected Flights</h3>
+              <p className="mt-3 leading-7 text-slate-700">
+                Coordinated pickup at designated curbside arrival lanes. Share flight details early so the driver is positioned before baggage exit.
+              </p>
             </article>
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 2</p>
-              <h3 className="mt-3 text-xl font-black">Garden Terminal</h3>
-              <p className="mt-3 leading-7 text-slate-700">For international and premium domestic flights, the driver confirms the meeting-point instructions and coordinates luggage-cart assistance after you collect your bags.</p>
+              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Terminal 2 (T2)</p>
+              <h3 className="mt-3 text-xl font-black">Garden Terminal Operations</h3>
+              <p className="mt-3 leading-7 text-slate-700">
+                Dedicated pickups for international routes and premium domestic carriers. Meet your driver at designated passenger pickup points with luggage-cart support.
+              </p>
             </article>
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Flight delays</p>
-              <h3 className="mt-3 text-xl font-black">Flexible arrival coordination</h3>
-              <p className="mt-3 leading-7 text-slate-700">Real-time flight tracking lets the driver adjust the pickup time automatically for delayed landings. Keep your booking phone reachable and message after collecting baggage.</p>
+              <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Flight Delays</p>
+              <h3 className="mt-3 text-xl font-black">Automated Schedule Buffer</h3>
+              <p className="mt-3 leading-7 text-slate-700">
+                Real-time airline tracking allows your chauffeur to calibrate reporting times to flight delays without penalty fees.
+              </p>
             </article>
           </div>
           <p className="mt-6 leading-8 text-slate-700">
-            Share the flight number, confirmed terminal, passenger count and full destination before travel. Read our comprehensive{" "}
+            For departure drops, check our complete advice in the{" "}
             <Link
               href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
-              className="font-bold text-purple-700 underline"
+              className="font-bold text-purple-700 underline decoration-purple-400 underline-offset-2 hover:text-purple-900"
             >
-              Bengaluru Airport Cab Guide (Timing, Luggage &amp; Terminal Rules)
+              Bengaluru Airport Cab Guide (Timing, Luggage & Terminal Rules)
             </Link>{" "}
-            for full transit advice.
+            to determine exact buffer times.
           </p>
         </section>
 
+        {/* Enquiry Checklist */}
         <section
           className="bg-slate-100 px-5 py-12 sm:py-16"
           aria-labelledby="enquiry-details-heading"
@@ -381,8 +389,7 @@ export default function AirportTaxiBangalorePage() {
               Details to Send for Your BLR Airport Cab Enquiry
             </SectionHeading>
             <p className="mt-6 leading-8 text-slate-700">
-              Send the following information in one WhatsApp message so the
-              journey can be assessed accurately:
+              Send your journey specifics in a single message for a swift, all-inclusive quote:
             </p>
             <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,.85fr)] lg:items-start">
               <ol className="grid gap-3 sm:grid-cols-2">
@@ -399,7 +406,7 @@ export default function AirportTaxiBangalorePage() {
                 <h3 className="text-xl font-black text-[#090f2f]">
                   Copy this airport enquiry format
                 </h3>
-                <blockquote className="mt-4 text-sm leading-7 text-slate-700">
+                <blockquote className="mt-4 text-sm leading-7 text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
                   Hello Lucky Travels, I need a Bangalore Airport pickup/drop.
                   <br />
                   Date:
@@ -408,7 +415,7 @@ export default function AirportTaxiBangalorePage() {
                   <br />
                   Flight number:
                   <br />
-                  Terminal, if known:
+                  Terminal (T1/T2):
                   <br />
                   Pickup and destination:
                   <br />
@@ -422,7 +429,7 @@ export default function AirportTaxiBangalorePage() {
                   href={detailedWhatsAppUrl.trim()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white shadow transition hover:bg-green-700"
                 >
                   <MessageCircle size={18} /> Send This Enquiry on WhatsApp
                 </a>
@@ -431,6 +438,7 @@ export default function AirportTaxiBangalorePage() {
           </div>
         </section>
 
+        {/* Vehicle Advantage */}
         <section
           className="page-shell py-12 sm:py-16"
           aria-labelledby="comfort-heading"
@@ -442,25 +450,21 @@ export default function AirportTaxiBangalorePage() {
             Why Choose a Premium Ertiga for a Bangalore Airport Transfer?
           </SectionHeading>
           <p className="mt-6 max-w-4xl leading-8 text-slate-700">
-            A family airport journey can require more flexibility than a compact
-            hatchback or sedan provides. Lucky Travels concentrates on the
-            Premium Ertiga category so passenger seating, air-conditioned
-            comfort and luggage requirements can be discussed before
-            confirmation.
+            Family journeys require more space and reliability than standard sedans or app-based cabs can guarantee. By specializing exclusively in the <strong>Maruti Suzuki Ertiga 6+1</strong>, we ensure every ride offers clean AC ventilation, polite owner-drivers, and sufficient luggage capacity.
           </p>
           <ul className="mt-7 grid gap-3 md:grid-cols-2">
             {[
-              "Flexible 6+1 seating, including the driver, for suitable families and small groups.",
-              "Dedicated chauffeur-driven 6+1 Maruti Suzuki Ertiga only, with no vehicle downsizing, hatchbacks or sedans.",
-              "Air-conditioned cabin for Bangalore Airport pickups and drops.",
-              "Direct discussion of passengers, seats and luggage before confirmation.",
-              "Vehicle cleaning before confirmed journeys.",
-              "Luggage assistance and patient support for older travellers.",
-              "Direct communication for timing, meeting-point and route coordination.",
+              "Spacious 6+1 seating suitable for families and travel groups.",
+              "Dedicated chauffeur-driven Ertigas only—no last-minute vehicle downgrades.",
+              "Clean, air-conditioned cabin with individual rear-row AC vents.",
+              "Clear discussions regarding bags and seat arrangements before departure.",
+              "Sanitized cabins and punctual arrivals for all pre-booked slots.",
+              "Courteous baggage handling and assistance for seniors.",
+              "Direct communication with your driver without intermediary call centers.",
             ].map((item) => (
               <li
                 key={item}
-                className="rounded-xl bg-white p-4 font-semibold leading-7 shadow-soft"
+                className="rounded-xl bg-white p-4 font-semibold leading-7 shadow-soft border border-slate-100"
               >
                 {item}
               </li>
@@ -470,14 +474,11 @@ export default function AirportTaxiBangalorePage() {
             className="mt-8 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6"
             aria-labelledby="luggage-heading"
           >
-            <h3 id="luggage-heading" className="text-xl font-black">
-              Important luggage note
+            <h3 id="luggage-heading" className="text-xl font-black text-slate-900">
+              Luggage Arrangement Guidelines
             </h3>
             <p className="mt-3 leading-7 text-slate-700">
-              For 4-5 passengers, fold the third row to accommodate up to 4
-              large check-in bags plus cabin strollers. With 6 passengers, keep
-              the third row upright for compact cabin baggage; larger luggage
-              requires advance review.
+              For <strong>4–5 passengers</strong>, folding the third row flat provides trunk space for <strong>up to 4 large check-in suitcases</strong> plus cabin bags. With <strong>6 passengers</strong>, the upright third row is best suited for compact cabin strollers.
             </p>
           </aside>
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
@@ -485,7 +486,7 @@ export default function AirportTaxiBangalorePage() {
               href="/blog/why-lucky-travels-specialises-in-premium-ertiga"
               src="/images/vehicle/middle-row.jpg"
               alt="Clean Premium Ertiga interior for a Bangalore Airport taxi journey"
-              caption="Share passenger and seating requirements before confirming the airport journey."
+              caption="Individual AC vents and comfortable legroom for family transfers."
               width={1536}
               height={1024}
             />
@@ -493,125 +494,14 @@ export default function AirportTaxiBangalorePage() {
               href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
               src="/images/vehicle/boot-space.jpg"
               alt="Premium Ertiga boot area used to assess airport luggage suitability"
-              caption="Bag count, bag sizes and occupied seats determine the suitable luggage arrangement."
+              caption="Fold-flat 3rd-row boot configurations accommodate international luggage."
               width={1536}
               height={1024}
             />
           </div>
         </section>
 
-        <section
-          className="bg-white px-5 py-12 sm:py-16"
-          aria-labelledby="coordination-heading"
-        >
-          <div className="page-shell">
-            <SectionHeading
-              id="coordination-heading"
-              eyebrow="AFTER THE FLIGHT LANDS"
-            >
-              How a Bangalore Airport Pickup Is Coordinated
-            </SectionHeading>
-            <ol className="mt-8 grid gap-4 md:grid-cols-2">
-              {[
-                "Check the latest terminal information through the airline before departure.",
-                "Keep the phone used for booking switched on after landing.",
-                "Complete immigration, baggage collection and customs where applicable.",
-                "Confirm that every bag has arrived before walking towards the meeting area.",
-                "Send a short WhatsApp update when ready to leave the terminal.",
-                "Follow current airport signage and the meeting instructions confirmed by the driver.",
-              ].map((item, index) => (
-                <li
-                  key={item}
-                  className="flex gap-4 rounded-2xl border border-slate-200 p-5"
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-purple-700 font-black text-white">
-                    {index + 1}
-                  </span>
-                  <span className="leading-7 text-slate-700">{item}</span>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-7 max-w-4xl leading-8 text-slate-700">
-              If the flight is delayed or diverted, send an update as soon as
-              practical. Any waiting or parking terms should be discussed before
-              the journey is confirmed.
-            </p>
-          </div>
-        </section>
-
-        <section
-          className="bg-slate-100 px-5 py-12 sm:py-16"
-          aria-labelledby="terms-heading"
-        >
-          <div className="page-shell">
-            <SectionHeading
-              id="terms-heading"
-              eyebrow="NO UNCLEAR LAST-MINUTE TERMS"
-            >
-              Get a Direct Bangalore Airport Taxi Quote
-            </SectionHeading>
-            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,.85fr)] lg:items-start">
-              <div>
-                <p className="leading-8 text-slate-700">
-                  Lucky Travels does not publish a fixed airport fare because
-                  the quote depends on the exact Bangalore address, pickup time,
-                  airport direction, route and journey requirements. Before
-                  confirmation, ask for the complete trip terms in writing.
-                </p>
-                <p className="mt-6 font-bold text-slate-800">
-                  The confirmation should explain, where applicable:
-                </p>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {confirmationDetails.map((item) => (
-                    <li
-                      key={item}
-                      className="list-inside list-disc leading-7 text-slate-700"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 leading-8 text-slate-700">
-                  Keep the final confirmation on WhatsApp so both the customer
-                  and driver can refer to the same journey details.
-                </p>
-              </div>
-              <aside className="rounded-2xl bg-white p-6 shadow-soft">
-                <h3 className="text-xl font-black text-[#090f2f]">
-                  Request a trip-specific airport quote
-                </h3>
-                <p className="mt-3 leading-7 text-slate-700">
-                  Share the exact address, journey direction, date, time,
-                  passenger count and luggage details for an accurate response.
-                </p>
-                <div className="mt-6 grid gap-3">
-                  <a
-                    href={`tel:+91${SITE.phone}`}
-                    className="flex items-center justify-center gap-2 rounded-xl bg-[#080d2b] px-5 py-3.5 font-black text-white"
-                  >
-                    <Phone size={18} /> Call +91 {SITE.phone}
-                  </a>
-                  <a
-                    href={airportWhatsAppUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 text-center font-black text-white"
-                  >
-                    <MessageCircle size={18} /> Get a Quote on WhatsApp
-                  </a>
-                  <a
-                    href={emailUrl}
-                    className="rounded-xl border border-slate-200 px-5 py-3.5 text-center font-black text-[#090f2f]"
-                  >
-                    Email {SITE.email}
-                  </a>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        {/* Popular Routes Section with Whitefield Featured Card */}
+        {/* Airport Neighborhood Corridors Section */}
         <section
           className="bg-white px-5 py-12 sm:py-16"
           aria-labelledby="popular-routes-heading"
@@ -624,23 +514,21 @@ export default function AirportTaxiBangalorePage() {
               Airport Transfers from Bangalore Neighbourhoods
             </SectionHeading>
             <p className="mt-6 max-w-3xl leading-8 text-slate-700">
-              Explore a route-specific airport transfer page for practical
-              pickup timing, terminal planning, luggage guidance and direct
-              trip-specific quotes.
+              Explore our corridor-specific airport transfer guides for route timings, bypass options, and luggage details.
             </p>
 
-            {/* Featured High-Demand Whitefield Corridor Callout */}
+            {/* Featured Whitefield Callout */}
             <div className="mt-8 rounded-3xl border-2 border-purple-200 bg-gradient-to-r from-purple-50 via-white to-amber-50/50 p-6 sm:p-8 shadow-sm">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div className="max-w-2xl">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-700/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-purple-800">
-                    <Sparkles size={14} className="text-amber-500" /> High Demand Tech Corridor
+                    <Sparkles size={14} className="text-amber-500" /> High-Demand Tech Corridor
                   </span>
                   <h3 className="mt-3 text-xl font-black text-[#090f2f] sm:text-2xl">
                     Whitefield to Bangalore Airport (BLR) Transfers
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    Pre-booked <strong>6+1 Premium Ertiga</strong> airport drops via the <em>Budigere Cross / SH-104 bypass route</em>. Punctual 3:00 AM – 6:00 AM departures with full boot space for up to 4 international suitcases.
+                    Pre-booked <strong>6+1 Premium Ertiga</strong> airport transfers via the <em>Budigere Cross / SH-104 bypass route</em>. Guaranteed on-time early morning departures with boot space for up to 4 international bags.
                   </p>
                 </div>
                 <Link
@@ -652,7 +540,7 @@ export default function AirportTaxiBangalorePage() {
               </div>
             </div>
 
-            {/* Grid of Other Hubs */}
+            {/* Corridors Grid */}
             <nav
               aria-label="Popular airport routes"
               className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
@@ -681,6 +569,7 @@ export default function AirportTaxiBangalorePage() {
           </div>
         </section>
 
+        {/* Resources & Guides */}
         <section
           className="page-shell py-12 sm:py-16"
           aria-labelledby="resources-heading"
@@ -689,8 +578,7 @@ export default function AirportTaxiBangalorePage() {
             More Help for Your Bengaluru Airport Journey
           </SectionHeading>
           <p className="mt-6 max-w-3xl leading-8 text-slate-700">
-            Read the practical airport guide for a detailed booking checklist,
-            terminal reminders, luggage planning and pickup coordination.
+            Read our practical airport guides for pre-booking checklists, terminal procedures, luggage management, and timing buffers.
           </p>
           <nav
             aria-label="Airport journey resources"
@@ -700,29 +588,30 @@ export default function AirportTaxiBangalorePage() {
               href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
               className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Bengaluru Airport Cab Guide (Timing, Luggage &amp; Terminals)
+              → Bengaluru Airport Cab Guide (Timing, Luggage &amp; Terminals)
             </Link>
             <Link
               href="/blog/why-lucky-travels-specialises-in-premium-ertiga"
               className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Why Lucky Travels specialises only in Premium Ertiga
+              → Why Lucky Travels specialises only in Premium Ertiga
             </Link>
             <Link
               href="/about"
               className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Learn about Lucky Travels
+              → Learn about Lucky Travels
             </Link>
             <Link
               href="/services/outstation-packages"
               className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Explore outstation packages
+              → Explore Outstation Ertiga Packages
             </Link>
           </nav>
         </section>
 
+        {/* FAQs */}
         <section
           className="bg-white px-5 py-12 sm:py-16"
           aria-labelledby="faq-heading"
@@ -737,7 +626,7 @@ export default function AirportTaxiBangalorePage() {
             <div className="mt-8 divide-y rounded-2xl border border-slate-200 bg-white px-5">
               {faqItems.map((item) => (
                 <article key={item.question} className="py-5">
-                  <h3 className="text-lg font-black">{item.question}</h3>
+                  <h3 className="text-lg font-black text-[#090f2f]">{item.question}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.answer}</p>
                 </article>
               ))}
@@ -745,6 +634,7 @@ export default function AirportTaxiBangalorePage() {
           </div>
         </section>
 
+        {/* Final CTA Section */}
         <section
           className="bg-[#080d2b] px-5 py-12 text-white sm:py-16"
           aria-labelledby="final-enquiry-heading"
@@ -755,20 +645,16 @@ export default function AirportTaxiBangalorePage() {
                 Enquire for Your Bangalore Airport Taxi
               </SectionHeading>
               <p className="mt-6 leading-8 text-white/75">
-                Send your flight, terminal, address, passenger and luggage
-                details directly to Lucky Travels. You will receive a
-                trip-specific response after the route and availability have
-                been checked.
+                Send your flight number, terminal, pickup address, passenger count, and luggage requirements directly to Lucky Travels. We confirm transparent trip terms with no surge surprises.
               </p>
               <p className="mt-6 text-sm leading-6 text-white/70">
-                24/7 enquiries. Service is subject to vehicle, driver, date,
-                time and route confirmation.
+                24/7 enquiries. Pre-scheduled transfers ensure prompt vehicle dispatch.
               </p>
             </div>
             <div className="grid gap-3">
               <a
                 href={`tel:+91${SITE.phone}`}
-                className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#090f2f] shadow transition hover:bg-slate-100"
               >
                 <Phone size={18} /> Call Now
               </a>
@@ -776,13 +662,13 @@ export default function AirportTaxiBangalorePage() {
                 href={airportWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"
+                className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white shadow transition hover:bg-green-700"
               >
                 <MessageCircle size={18} /> Send Details on WhatsApp
               </a>
               <a
                 href={emailUrl}
-                className="rounded-xl bg-white px-5 py-3.5 text-center font-black text-[#090f2f]"
+                className="rounded-xl bg-white px-5 py-3.5 text-center font-black text-[#090f2f] shadow transition hover:bg-slate-100"
               >
                 Email Your Enquiry
               </a>
