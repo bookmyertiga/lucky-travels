@@ -1,6 +1,8 @@
 export type RichTextNode =
   | { type: "text"; text: string }
   | { type: "bold"; children: RichTextNode[] }
+  | { type: "italic"; children: RichTextNode[] }
+  | { type: "underline"; children: RichTextNode[] }
   | { type: "link"; href: string; text?: string; children: RichTextNode[] };
 
 export type BlogInlineImage = {
@@ -9,6 +11,11 @@ export type BlogInlineImage = {
   alt: string;
   caption?: string;
   href?: string;
+};
+
+export type BlogFaqItem = {
+  question: string;
+  answer: string;
 };
 
 export type BlogBlock =
@@ -36,6 +43,7 @@ export type BlogPost = {
   authorUrl?: string;
   authorType?: "Person" | "Organization";
   authorRole?: string;
+  faqs?: BlogFaqItem[];
   content: BlogBlock[];
 };
 
@@ -43,11 +51,421 @@ const text = (value: string): RichTextNode[] => [{ type: "text", text: value }];
 const bold = (value: string): RichTextNode[] => [
   { type: "bold", children: text(value) },
 ];
+const italic = (value: string): RichTextNode[] => [
+  { type: "italic", children: text(value) },
+];
+const underline = (value: string): RichTextNode[] => [
+  { type: "underline", children: text(value) },
+];
+const boldUnderline = (value: string): RichTextNode[] => [
+  { type: "bold", children: [{ type: "underline", children: text(value) }] },
+];
+const boldItalic = (value: string): RichTextNode[] => [
+  { type: "bold", children: [{ type: "italic", children: text(value) }] },
+];
 const link = (href: string, label: string): RichTextNode[] => [
   { type: "link", href, text: label, children: text(label) },
 ];
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide",
+    title: "Bangalore to Adiyogi Chikkaballapura: Route, Timings & Ertiga Cab Guide",
+    excerpt:
+      "Plan your family evening trip from Bangalore to Adiyogi (Sadhguru Sannidhi, Chikkaballapura). Complete guide on NH 44 routes, the 7 PM Divya Darshanam light show, darshan timings, and spacious 6+1 Ertiga outstation fares.",
+    seoDescription:
+      "Book an evening cab from Bangalore to Adiyogi Chikkaballapur. Complete route guide via NH 44, 7 PM Divya Darshanam light show timings, and 6+1 Ertiga family taxi fares with Lucky Travels.",
+    date: "2026-09-14",
+    dateModified: "2026-09-14",
+    image: "/images/gallery/adiyogi-chikkaballapura-sadhguru-sannidhi-ertiga-cab-drop.jpg",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt:
+      "Go Bengaluru white Maruti Suzuki Ertiga KA 03 AP 8285 parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
+    seoTitle:
+      "Bangalore to Adiyogi Chikkaballapura Cab Guide | Routes, Timings & Ertiga Fare",
+    author: "Bharath K S",
+    authorUrl: "/about",
+    authorType: "Person",
+    authorRole: "Founder and owner-driver",
+    faqs: [
+      {
+        question: "What is the best time to start from Bangalore for Adiyogi Chikkaballapura?",
+        answer:
+          "The ideal departure time from Bangalore is around 3:30 PM to 4:00 PM. This lets you cruise along NH 44 in pleasant evening light, reach Sadhguru Sannidhi by 5:30 PM for peaceful daylight darshan and photography, and comfortably settle down for the 7:00 PM Divya Darshanam 3D laser projection show before returning by 10:00 PM.",
+      },
+      {
+        question: "What time does the Adiyogi Divya Darshanam 3D laser show start?",
+        answer:
+          "The Adiyogi Divya Darshanam 3D laser projection mapping show takes place daily at 7:00 PM on the 112-foot Adiyogi statue, immediately followed by the sacred Yogeshwar Linga Aarti. The entire spectacle concludes by approximately 7:45 PM.",
+      },
+      {
+        question: "Is boot luggage space required for an Adiyogi evening day trip?",
+        answer:
+          "No. Because this is a 5 to 6-hour same-evening return trip (starting at 4:00 PM and returning by 10:00 PM), passengers do not carry heavy flight bags. This allows all 6 passenger seats in our Maruti Suzuki Ertiga to be fully utilised with maximum legroom and personal comfort.",
+      },
+      {
+        question: "Why should I book a dedicated outstation Ertiga cab instead of an app taxi?",
+        answer:
+          "Aggregator app drivers frequently refuse trips beyond the BBMP boundary or decline to wait for the 7:00 PM light show. Sourcing a return cab from Chikkaballapura back to Bengaluru late at night is notoriously difficult. With Go Bengaluru by Lucky Travels, your dedicated chauffeur and sanitized Ertiga remain stationed in the parking area for the entire duration with transparent, upfront pricing.",
+      },
+      {
+        question: "How far is Adiyogi Chikkaballapura from Kempegowda International Airport (BLR)?",
+        answer:
+          "Sadhguru Sannidhi in Avalagurki is approximately 45 kilometres north of Bangalore Airport along NH 44. Travellers landing at BLR can easily book a direct terminal pickup to Adiyogi before heading into central Bangalore.",
+      },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "A scenic evening day trip from Bengaluru to " },
+          ...boldUnderline("Adiyogi at Sadhguru Sannidhi, Chikkaballapura"),
+          {
+            type: "text",
+            text: " has quickly evolved into one of Southern Karnataka’s most revered spiritual and cultural escapes. Featuring the consecrated Yogeshwar Linga, the tranquil Naga shrine, and the world-renowned ",
+          },
+          ...bold("112-foot statue of Adiyogi Shiva"),
+          {
+            type: "text",
+            text: ", the picturesque mountain sanctuary attracts families, corporate professionals, and spiritual seekers daily. The undisputed pinnacle of the visit is the mesmerizing ",
+          },
+          ...boldItalic("Adiyogi Divya Darshanam 3D laser projection show at 7:00 PM"),
+          {
+            type: "text",
+            text: ", followed by the serene temple aarti under the night sky.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Situated approximately " },
+          ...bold("65 to 75 kilometres north of central Bengaluru"),
+          {
+            type: "text",
+            text: " in Avalagurki (just past Devanahalli and Kempegowda International Airport), this leisurely ",
+          },
+          ...italic("5 to 6-hour round trip"),
+          {
+            type: "text",
+            text: " does not involve cumbersome airport baggage constraints. Instead, the focus is entirely on ",
+          },
+          ...boldUnderline("spacious, air-conditioned family comfort"),
+          {
+            type: "text",
+            text: "—allowing parents, seniors, and children to travel together seamlessly. Below is your definitive travel guide covering highway routes, ideal schedules, temple protocols, and how to reserve our dedicated ",
+          },
+          ...link("/services/outstation-packages", "6+1 Premium Ertiga outstation package"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/adiyogi-chikkaballapura-sadhguru-sannidhi-ertiga-cab-drop.jpg",
+        alt: "Go Bengaluru white Maruti Suzuki Ertiga KA 03 AP 8285 parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
+        caption:
+          "Doorstep-to-destination family day trip at Sadhguru Sannidhi, Adiyogi Chikkaballapura in our spotless 6+1 Premium Ertiga.",
+        href: "/services/outstation-packages",
+      },
+      {
+        type: "h2",
+        content: text("1. Distance, Highway Routes & Real-Time Driving Estimates"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Reaching Chikkaballapura from Bengaluru is swift and effortless thanks to the national highway network. Depending on your pickup locality, expect an average travel duration of ",
+          },
+          ...bold("80 to 110 minutes"),
+          { type: "text", text: " each way:" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...boldUnderline("The Arterial Highway Expressway (NH 44): "),
+            {
+              type: "text",
+              text: "From central and northern parts of the city (Hebbal, Yelahanka, Sahakar Nagar, RT Nagar), the route proceeds seamlessly via the ",
+            },
+            ...bold("Hebbal Flyover onto NH 44 (Bellary Road)"),
+            {
+              type: "text",
+              text: ". Pass the airport trumpet interchange, continue straight past Devanahalli town on the 6-lane toll expressway, and follow signs toward Chikkaballapur outskirts before turning right onto the dedicated Avalagurki / Isha Foundation access road.",
+            },
+          ],
+          [
+            ...boldUnderline("The East Bengaluru Bypass (Budigere Cross / SH-104): "),
+            {
+              type: "text",
+              text: "If departing from Whitefield, Kadugodi, Hoodi, or ITPL, bypassing the congested KR Puram and Hebbal intersections is crucial. Drivers utilize the ",
+            },
+            ...boldItalic("Budigere Cross / SH-104 bypass road"),
+            {
+              type: "text",
+              text: ", skirting past the airport perimeter and merging directly into NH 44 northbound. Explore our specialized ",
+            },
+            ...link("/airport-taxi-whitefield", "Whitefield corridor transit guide"),
+            { type: "text", text: " for route navigation specifics." },
+          ],
+          [
+            ...boldUnderline("South Bengaluru Connectivity (NICE Road & Elevated Highway): "),
+            {
+              type: "text",
+              text: "For guests originating in Electronic City, BTM Layout, Bannerghatta Road, or JP Nagar, taking the ",
+            },
+            ...italic("NICE Road expressway or the Hosur Road Elevated Highway"),
+            {
+              type: "text",
+              text: " connects into the airport corridor with minimal city surface gridlock.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/bangalore-to-adiyogi-chikkaballapur-highway-ertiga-cab.jpg",
+        alt: "Lucky Travels white Maruti Ertiga taxi travelling smoothly on NH-44 highway towards Chikkaballapura",
+        caption:
+          "Cruising smoothly along the 6-lane NH-44 expressway toward the scenic Nandi Hills mountain range.",
+        href: "/services/outstation-packages",
+      },
+      {
+        type: "h2",
+        content: text("2. Golden Timing Strategy: Start at 4:00 PM, Return Comfortably by 10:00 PM"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "While Sadhguru Sannidhi welcomes visitors throughout the day starting at 6:00 AM, visiting during midday exposes travellers to harsh direct sunlight and radiating heat from the extensive stone courtyards. The seasoned recommendation for an unforgettable family outing is an ",
+          },
+          ...boldUnderline("afternoon departure tailored around the 7:00 PM laser show"),
+          { type: "text", text: ":" },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("4:00 PM — Punctual Doorstep Chauffeur Pickup: "),
+            {
+              type: "text",
+              text: "Your dedicated driver arrives in your clean, air-conditioned Ertiga. Leaving between 3:30 PM and 4:00 PM allows you to cruise along NH 44 under pleasant late-afternoon skies, arriving at the ashram gates by ",
+            },
+            ...bold("5:30 PM to 5:45 PM"),
+            { type: "text", text: "." },
+          ],
+          [
+            ...bold("5:45 PM to 6:45 PM — Sacred Darshan & Daylight Portraits: "),
+            {
+              type: "text",
+              text: "Take advantage of golden-hour natural light to photograph your family before the monument. Make offerings at the consecrated ",
+            },
+            ...italic("Yogeshwar Linga"),
+            {
+              type: "text",
+              text: ", walk around the peaceful Naga shrine, and take in the majestic backdrop of the surrounding granite peaks.",
+            },
+          ],
+          [
+            ...bold("6:45 PM to 7:45 PM — Divya Darshanam Laser Spectacle & Aarti: "),
+            {
+              type: "text",
+              text: "Take seats in the expansive stone courtyard. At ",
+            },
+            ...boldUnderline("precisely 7:00 PM"),
+            {
+              type: "text",
+              text: ", the 14-minute 3D laser mapping projection illuminates Adiyogi’s face, portraying the profound story of the first yogi. This is immediately followed by the captivating temple aarti.",
+            },
+          ],
+          [
+            ...bold("8:00 PM to 10:00 PM — Unrushed Return & Highway Dinner: "),
+            {
+              type: "text",
+              text: "Rejoin your awaiting chauffeur in the private parking bay by 8:00 PM. Enjoy an optional stop at authentic South Indian highway eateries or coffee stops along NH 44, returning smoothly to your doorstep in Bengaluru by ",
+            },
+            ...bold("9:30 PM to 10:00 PM"),
+            { type: "text", text: "." },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text("3. Zero Luggage Constraints: Maximum 6+1 Passenger Luxury"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "When travellers book an airport run, luggage management is always a critical variable. An evening excursion to Adiyogi, however, presents a distinct operational advantage: ",
+          },
+          ...boldUnderline("there is zero need to sacrifice seating for heavy suitcases"),
+          {
+            type: "text",
+            text: ". Because everyone returns home the same night, our entire vehicle interior is configured strictly for ",
+          },
+          ...italic("spacious passenger relaxation"),
+          { type: "text", text: ":" },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/gallery/adiyogi-day-trip-6-seater-ertiga-family-cab-bangalore.jpg",
+        alt: "Clean 6+1 seating interior of Lucky Travels Maruti Ertiga ready for an evening family day trip to Adiyogi",
+        caption:
+          "Configured for family relaxation: Full 6-passenger capacity with independent row AC vents and generous knee room.",
+        href: "/about",
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...boldUnderline("Accommodates 6 Adults with Ease: "),
+            {
+              type: "text",
+              text: "With flexible middle-row sliding adjustment and reclined third-row seats, up to 6 family members travel together without feeling cramped or crowded.",
+            },
+          ],
+          [
+            ...boldUnderline("Independent Roof-Mounted AC Vents: "),
+            {
+              type: "text",
+              text: "Passengers in the middle and rear rows enjoy customized cool airflow, preventing the stuffiness often experienced in compact sedans or hatchbacks during highway driving.",
+            },
+          ],
+          [
+            ...boldUnderline("No App Cancellation Shocks: "),
+            {
+              type: "text",
+              text: "Relying on ride-hailing apps for rural day trips frequently ends in disaster. Drivers often demand cash extortion for tolls, refuse to wait through the 7:00 PM laser show, or leave passengers stranded late at night in Chikkaballapura. With Lucky Travels, ",
+            },
+            ...bold("your assigned chauffeur remains stationed on-site throughout your stay"),
+            { type: "text", text: "." },
+          ],
+          [
+            ...boldUnderline("Direct Airport En-Route Pickups: "),
+            {
+              type: "text",
+              text: "Have visiting relatives landing at Kempegowda Airport? Our ",
+            },
+            ...link("/airport-taxi-bangalore", "BLR Airport taxi service"),
+            {
+              type: "text",
+              text: " can pick them up directly from Terminal 1 or Terminal 2 and drive straight to Adiyogi (a short 45-minute highway trip) before continuing to your city residence.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text("4. Essential Visitor Tips for Sadhguru Sannidhi, Avalagurki"),
+      },
+      {
+        type: "ol",
+        items: [
+          [
+            ...bold("Footwear Guidelines: "),
+            {
+              type: "text",
+              text: "All footwear must be deposited at the free organized counter before entering the premises. Wearing thick, clean cotton socks is strongly recommended so elders and children can walk across the wide stone pathways comfortably.",
+            },
+          ],
+          [
+            ...bold("Breezy Evening Climate: "),
+            {
+              type: "text",
+              text: "Nestled beside the Nandi mountain range, Avalagurki experiences brisk, cool evening breezes as darkness falls. Carrying a light sweater, shawl, or jacket ensures total comfort during the open-air seating for the 7:00 PM laser show.",
+            },
+          ],
+          [
+            ...bold("Senior Citizen & Mobility Assistance: "),
+            {
+              type: "text",
+              text: "The foundation provides wheelchair ramps and support facilities for persons with reduced mobility. Simply notify your driver so they can pull up near the entrance gateway for passenger boarding prior to parking.",
+            },
+          ],
+          [
+            ...bold("Satvic Refreshments & Highway Plazas: "),
+            {
+              type: "text",
+              text: "The center features satvic cafeterias providing pure vegetarian snacks, herbal teas, and regional meals. In addition, the NH 44 corridor offers popular family restaurants like Paakashala, Nandi Upachar, and Indian Paratha Company for post-darshan dinner.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Book Your Adiyogi Ertiga Day Tour with Lucky Travels"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Travel with absolute peace of mind, punctuality, and verified owner-driver care with ",
+          },
+          ...bold("Go Bengaluru by Lucky Travels"),
+          {
+            type: "text",
+            text: ". Our all-inclusive round-trip packages transparently cover vehicle hire, professional chauffeur service, fuel, toll expressways, and on-site parking waiting time—",
+          },
+          ...boldUnderline("with zero surge pricing multipliers"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "To check date availability and reserve your spotless 6+1 Premium Ertiga (" },
+          ...bold("KA 03 AP 8285"),
+          { type: "text", text: ") for your Adiyogi visit, call " },
+          {
+            type: "link",
+            href: "tel:9886814344",
+            text: "9886814344",
+            children: text("9886814344"),
+          },
+          { type: "text", text: ", message directly on " },
+          ...link(
+            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20an%20Ertiga%20cab%20package%20for%20Adiyogi%20Chikkaballapur.%0ADate%3A%0APassengers%3A%0APickup%20locality%3A",
+            "WhatsApp",
+          ),
+          { type: "text", text: ", or review our complete collection of " },
+          ...link("/services/outstation-packages", "outstation taxi packages across Karnataka"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Follow " },
+          ...bold("@gobengaluruwithlucky"),
+          { type: "text", text: " on " },
+          ...link("https://www.instagram.com/gobengaluruwithlucky/", "Instagram"),
+          { type: "text", text: " and " },
+          ...link("https://www.facebook.com/gobengaluruwithlucky/", "Facebook"),
+          {
+            type: "text",
+            text: " for Bengaluru weekend getaway guides, route updates, and genuine highway travel tips.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Authored by Bharath K S, Founder and owner-driver of Lucky Travels. Specializing in reliable 6+1 Premium Ertiga airport transfers, outstation pilgrimages, and family day excursions across Bengaluru.",
+        ),
+      },
+    ],
+  },
   {
     slug: "bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis",
     title: "Bengaluru Airport Cab Guide: Timing, Luggage & Why We Beat App Taxis",
@@ -56,7 +474,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Book your Bengaluru airport cab with Go Bengaluru by Lucky Travels. Transparent pricing, spotless 6+1 Maruti Ertiga cabs, and zero surge shocks for BLR T1 & T2.",
     date: "2026-09-11",
-    dateModified: "2026-09-11",
+    dateModified: "2026-09-14",
     image: "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
@@ -1391,7 +1809,7 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "The pickup point depends on the terminal and current airport operating rules. As checked in August 2026, commercial vehicles are directed to designated parking zones: P3/P4 for Terminal 1 and P2 for Terminal 2. Reconfirm on the travel day because airport procedures can change.",
+            text: "The pickup point depends on the terminal and current airport operating rules. As checked in August 2026, guidance published for BLR Airport directs commercial vehicles serving Terminal 1 to the P3 and P4 parking zones and vehicles serving Terminal 2 to P2. Reconfirm on the travel day because airport procedures can change.",
           },
         ],
       },

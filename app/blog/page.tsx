@@ -57,8 +57,12 @@ export default function BlogListingPage() {
       description: post.seoDescription || post.excerpt,
       datePublished: post.date,
       dateModified: post.dateModified || post.date,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${SITE.url}/blog/${post.slug}`,
+      },
       url: `${SITE.url}/blog/${post.slug}`,
-      image: `${SITE.url}${post.image}`,
+      image: post.image.startsWith("http") ? post.image : `${SITE.url}${post.image}`,
       author: {
         "@type": post.authorType || "Person",
         name: post.author || "Bharath K S",
@@ -93,7 +97,11 @@ export default function BlogListingPage() {
                 key={post.slug}
                 className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               >
-                <Link href={`/blog/${post.slug}`} className="block aspect-[16/10] overflow-hidden bg-slate-100">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  aria-label={post.title}
+                  className="block aspect-[16/10] overflow-hidden bg-slate-100"
+                >
                   <Image
                     src={post.image}
                     alt={post.imageAlt}
@@ -130,6 +138,7 @@ export default function BlogListingPage() {
                   <div className="mt-6 border-t border-slate-100 pt-4">
                     <Link
                       href={`/blog/${post.slug}`}
+                      aria-label={`Read guide: ${post.title}`}
                       className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-700 hover:text-purple-900"
                     >
                       Read Guide <ArrowRight size={15} />
