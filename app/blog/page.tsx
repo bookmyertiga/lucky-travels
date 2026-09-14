@@ -167,8 +167,23 @@ export default async function BlogPostPage({
     <SiteShell>
       <JsonLd data={faqSchema ? [blogPostingSchema, breadcrumbSchema, faqSchema] : [blogPostingSchema, breadcrumbSchema]} />
 
+      {/* Global strict justify style targeting all copy containers */}
+      <style>{`
+        .force-justify p,
+        .force-justify .justify-block,
+        .force-justify li > div {
+          text-align: justify !important;
+          text-justify: inter-word !important;
+          -webkit-hyphens: auto;
+          -moz-hyphens: auto;
+          -ms-hyphens: auto;
+          hyphens: auto;
+          word-spacing: normal;
+        }
+      `}</style>
+
       <main className="min-h-screen bg-slate-50 py-8 sm:py-12">
-        <article className="mx-auto max-w-3xl px-4 sm:px-6">
+        <article className="mx-auto max-w-3xl px-4 sm:px-6 force-justify">
           {/* Back button */}
           <nav aria-label="Breadcrumb navigation" className="mb-5">
             <Link
@@ -195,14 +210,11 @@ export default async function BlogPostPage({
               </span>
             </div>
 
-            <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#090f2f] sm:text-3xl lg:text-4xl">
+            <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#090f2f] sm:text-3xl lg:text-4xl text-left">
               {post.title}
             </h1>
 
-            <p
-              style={{ textAlign: "justify", textJustify: "inter-word" }}
-              className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg"
-            >
+            <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg justify-block">
               {post.excerpt}
             </p>
 
@@ -228,8 +240,7 @@ export default async function BlogPostPage({
                     return (
                       <p
                         key={idx}
-                        style={{ textAlign: "justify", textJustify: "inter-word" }}
-                        className="text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-700"
+                        className="text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-700 justify-block"
                       >
                         {renderRichText(block.content)}
                       </p>
@@ -238,7 +249,7 @@ export default async function BlogPostPage({
                     return (
                       <h2
                         key={idx}
-                        className="pt-6 text-xl sm:text-2xl font-black tracking-tight text-[#090f2f] border-t border-slate-100 leading-snug"
+                        className="pt-6 text-xl sm:text-2xl font-black tracking-tight text-[#090f2f] border-t border-slate-100 leading-snug text-left"
                       >
                         {renderRichText(block.content)}
                       </h2>
@@ -247,7 +258,7 @@ export default async function BlogPostPage({
                     return (
                       <h3
                         key={idx}
-                        className="pt-2 text-lg sm:text-xl font-black tracking-tight text-[#090f2f] leading-snug"
+                        className="pt-2 text-lg sm:text-xl font-black tracking-tight text-[#090f2f] leading-snug text-left"
                       >
                         {renderRichText(block.content)}
                       </h3>
@@ -258,10 +269,7 @@ export default async function BlogPostPage({
                         {block.items.map((item, i) => (
                           <li key={i} className="flex items-start gap-3">
                             <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-purple-600" />
-                            <div
-                              style={{ textAlign: "justify", textJustify: "inter-word" }}
-                              className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700"
-                            >
+                            <div className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700 justify-block">
                               {renderRichText(item)}
                             </div>
                           </li>
@@ -276,10 +284,7 @@ export default async function BlogPostPage({
                             <span className="shrink-0 font-black text-purple-700 text-base sm:text-[17px] min-w-[20px]">
                               {i + 1}.
                             </span>
-                            <div
-                              style={{ textAlign: "justify", textJustify: "inter-word" }}
-                              className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700"
-                            >
+                            <div className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700 justify-block">
                               {renderRichText(item)}
                             </div>
                           </li>
@@ -290,8 +295,7 @@ export default async function BlogPostPage({
                     return (
                       <blockquote
                         key={idx}
-                        style={{ textAlign: "justify", textJustify: "inter-word" }}
-                        className="my-5 rounded-2xl border-l-4 border-amber-400 bg-amber-50/70 p-4 sm:p-5 italic text-slate-800 shadow-sm text-base"
+                        className="my-5 rounded-2xl border-l-4 border-amber-400 bg-amber-50/70 p-4 sm:p-5 italic text-slate-800 shadow-sm text-base justify-block"
                       >
                         {renderRichText(block.content)}
                       </blockquote>
@@ -339,17 +343,14 @@ export default async function BlogPostPage({
             {/* On-Page FAQs */}
             {post.faqs && post.faqs.length > 0 && (
               <section className="mt-10 border-t border-slate-200 pt-6" aria-labelledby="faq-title">
-                <h2 id="faq-title" className="text-xl sm:text-2xl font-black text-[#090f2f]">
+                <h2 id="faq-title" className="text-xl sm:text-2xl font-black text-[#090f2f] text-left">
                   Frequently Asked Questions
                 </h2>
                 <div className="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-slate-50/50 px-4 sm:px-5">
                   {post.faqs.map((faq, index) => (
                     <article key={index} className="py-4">
-                      <h3 className="text-base sm:text-lg font-black text-[#090f2f]">{faq.question}</h3>
-                      <p
-                        style={{ textAlign: "justify", textJustify: "inter-word" }}
-                        className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600"
-                      >
+                      <h3 className="text-base sm:text-lg font-black text-[#090f2f] text-left">{faq.question}</h3>
+                      <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600 justify-block">
                         {faq.answer}
                       </p>
                     </article>
@@ -363,13 +364,10 @@ export default async function BlogPostPage({
               <span className="text-xs font-black uppercase tracking-widest text-amber-400">
                 DIRECT OWNER-DRIVER BOOKING
               </span>
-              <h3 className="mt-2 text-xl sm:text-2xl font-black">
+              <h3 className="mt-2 text-xl sm:text-2xl font-black text-left">
                 Ready for Your Adiyogi Day Trip?
               </h3>
-              <p
-                style={{ textAlign: "justify", textJustify: "inter-word" }}
-                className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300"
-              >
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300 justify-block">
                 Reserve your dedicated 6+1 Premium Ertiga. Enjoy upfront pricing, sanitized vehicles, polite owner-driver service, and guaranteed on-site waiting throughout the 7:00 PM laser show.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
