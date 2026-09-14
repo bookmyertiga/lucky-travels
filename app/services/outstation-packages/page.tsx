@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, ArrowRight, MessageCircle, Phone, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -63,7 +63,62 @@ export default function OutstationPackagesPage() {
       <div className="absolute bottom-0 left-1/2 z-20 hidden -translate-x-1/2 translate-y-1/2 lg:flex"><a href="#featured-corridors" className="service-scroll-prompt flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-4 py-2.5 text-sm font-black text-purple-800 shadow-premium sm:px-5">Explore All Outstation Routes &amp; Packages Below <ArrowDown size={17} className="service-scroll-arrow" /></a></div>
     </section>
 
-    <section id="featured-corridors" className="bg-white px-5 py-12 sm:py-16"><div className="page-shell"><SectionHeading id="featured-corridors-heading" eyebrow="FEATURED OUTSTATION CORRIDORS">Choose Your Bangalore Route</SectionHeading><p className="mt-6 max-w-3xl leading-8 text-slate-700">Explore route-specific timings, highway considerations, destination access and booking guidance for the five high-demand journeys below.</p><div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{corridors.map((corridor) => { const customWhatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Lucky Travels, I would like to plan a custom outstation/multi-day trip in an Ertiga.")}`; return <article key={corridor.name} className={`flex flex-col rounded-2xl border p-6 shadow-soft ${corridor.custom ? "border-indigo-200 bg-indigo-50" : "border-slate-200 bg-slate-50"}`}><h3 className="text-xl font-black text-[#090f2f]">{corridor.name}</h3><p className={`mt-3 font-black ${corridor.custom ? "text-indigo-700" : "text-purple-700"}`}>{corridor.details}</p><p className="mt-3 flex-1 leading-7 text-slate-600">{corridor.note}</p>{corridor.custom ? <a href={customWhatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center justify-center rounded-xl bg-indigo-700 px-4 py-3 text-center font-black text-white">Enquire Custom Trip →</a> : <Link href={corridor.href} className="mt-5 inline-flex items-center justify-center rounded-xl bg-[#090f2f] px-4 py-3 text-center font-black text-white">View Route &amp; Details →</Link>}</article>; })}</div></div></section>
+    <section id="featured-corridors" className="bg-white px-5 py-12 sm:py-16">
+      <div className="page-shell">
+        <SectionHeading id="featured-corridors-heading" eyebrow="FEATURED OUTSTATION CORRIDORS">Choose Your Bangalore Route</SectionHeading>
+        <p className="mt-6 max-w-3xl leading-8 text-slate-700">Explore route-specific timings, highway considerations, destination access and booking guidance for the five high-demand journeys below.</p>
+        
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {corridors.map((corridor) => { 
+            const customWhatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Lucky Travels, I would like to plan a custom outstation/multi-day trip in an Ertiga.")}`; 
+            return <article key={corridor.name} className={`flex flex-col rounded-2xl border p-6 shadow-soft ${corridor.custom ? "border-indigo-200 bg-indigo-50" : "border-slate-200 bg-slate-50"}`}>
+              <h3 className="text-xl font-black text-[#090f2f]">{corridor.name}</h3>
+              <p className={`mt-3 font-black ${corridor.custom ? "text-indigo-700" : "text-purple-700"}`}>{corridor.details}</p>
+              <p className="mt-3 flex-1 leading-7 text-slate-600">{corridor.note}</p>
+              {corridor.custom ? (
+                <a href={customWhatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center justify-center rounded-xl bg-indigo-700 px-4 py-3 text-center font-black text-white">Enquire Custom Trip →</a>
+              ) : (
+                <Link href={corridor.href} className="mt-5 inline-flex items-center justify-center rounded-xl bg-[#090f2f] px-4 py-3 text-center font-black text-white">View Route &amp; Details →</Link>
+              )}
+            </article>; 
+          })}
+        </div>
+
+        {/* Reciprocal Internal Link to Adiyogi Blog Guide */}
+        <aside aria-label="Featured Pilgrimage Day Tour" className="mt-10 overflow-hidden rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 via-white to-amber-50/50 p-6 shadow-soft sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl space-y-2.5">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-purple-100 px-3 py-1 text-xs font-black uppercase tracking-wider text-purple-900">
+                <Sparkles size={13} className="text-purple-700" />
+                Featured Evening Day Trip
+              </div>
+              <h3 className="text-2xl font-black text-[#090f2f]">
+                Bangalore to Adiyogi (Sadhguru Sannidhi, Chikkaballapura)
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+                Planning an evening pilgrimage to the 112-foot Adiyogi statue? Read our dedicated travel guide covering NH 44 highway timings, the 7:00 PM Divya Darshanam 3D laser projection show, zero-luggage 6+1 family Ertiga comfort, and transparent return fares.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-wrap items-center gap-3">
+              <Link
+                href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide"
+                className="inline-flex items-center gap-2 rounded-xl bg-purple-800 px-5 py-3 text-sm font-black text-white shadow-soft transition hover:bg-purple-900"
+              >
+                Read Complete Adiyogi Guide <ArrowRight size={16} />
+              </Link>
+              <a
+                href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Lucky Travels, I would like to book a 6+1 Premium Ertiga package for Adiyogi Chikkaballapura evening tour.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-black text-slate-800 transition hover:bg-slate-50"
+              >
+                <MessageCircle size={16} className="text-green-600" /> Quick Quote
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
     <section className="page-shell py-12 sm:py-16" aria-labelledby="fleet-heading"><SectionHeading id="fleet-heading" eyebrow="ONE DEDICATED VEHICLE CATEGORY">Comfortable, Direct Outstation Transport</SectionHeading><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"><h3 className="text-xl font-black">{SITE.specialisationSlogan}</h3><p className="mt-3 leading-7 text-slate-700">Every confirmed journey uses a dedicated, chauffeur-driven 6+1 Maruti Suzuki Ertiga only. We do not operate hatchbacks or sedans. Drivers monitor live Google Maps traffic at departure to pick the fastest highway exits and bypasses across the Bangalore-Mysore Expressway, NICE Road and NH-75.</p></article><article className="rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-6"><h3 className="text-xl font-black">Luggage guidance</h3><p className="mt-3 leading-7 text-slate-700">The ideal arrangement is 4-5 passengers with up to 4 large trolley suitcases when the 3rd row is folded, or 6 passengers with compact cabin bags. Share bag sizes before confirmation.</p><p className="mt-3 leading-7 text-slate-700">This is pure door-to-door transport to your chosen hotel, homestay or landmark. We do not provide packaged tours or stay bookings.</p></article></div></section>
 
