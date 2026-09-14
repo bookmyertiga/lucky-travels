@@ -169,7 +169,7 @@ export default async function BlogPostPage({
 
       <main className="min-h-screen bg-slate-50 py-8 sm:py-12">
         <article className="mx-auto max-w-3xl px-4 sm:px-6">
-          {/* Back link */}
+          {/* Back button */}
           <nav aria-label="Breadcrumb navigation" className="mb-5">
             <Link
               href="/blog"
@@ -179,7 +179,7 @@ export default async function BlogPostPage({
             </Link>
           </nav>
 
-          {/* Article Header */}
+          {/* Header */}
           <header className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft sm:p-8">
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-slate-500">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-100 px-3 py-1 text-purple-800">
@@ -199,9 +199,12 @@ export default async function BlogPostPage({
               {post.title}
             </h1>
 
-            <div className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg text-justify [text-align:justify] [text-justify:inter-word]">
+            <p
+              style={{ textAlign: "justify", textJustify: "inter-word" }}
+              className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg"
+            >
               {post.excerpt}
-            </div>
+            </p>
 
             <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
               <Image
@@ -216,7 +219,7 @@ export default async function BlogPostPage({
             </div>
           </header>
 
-          {/* Body Content */}
+          {/* Article Body Content */}
           <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-soft sm:p-8">
             <div className="space-y-6 text-slate-700">
               {post.content.map((block, idx) => {
@@ -225,7 +228,8 @@ export default async function BlogPostPage({
                     return (
                       <p
                         key={idx}
-                        className="text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-700 text-justify [text-align:justify] [text-justify:inter-word]"
+                        style={{ textAlign: "justify", textJustify: "inter-word" }}
+                        className="text-base sm:text-lg leading-relaxed sm:leading-8 text-slate-700"
                       >
                         {renderRichText(block.content)}
                       </p>
@@ -250,13 +254,14 @@ export default async function BlogPostPage({
                     );
                   case "ul":
                     return (
-                      <ul key={idx} className="my-4 space-y-3 pl-1 sm:pl-2">
+                      <ul key={idx} className="my-4 space-y-3.5 pl-1 sm:pl-2">
                         {block.items.map((item, i) => (
-                          <li
-                            key={i}
-                            className="relative pl-5 sm:pl-6 text-base sm:text-[17px] leading-relaxed text-slate-700 before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-purple-600"
-                          >
-                            <div className="w-full text-justify [text-align:justify] [text-justify:inter-word]">
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-purple-600" />
+                            <div
+                              style={{ textAlign: "justify", textJustify: "inter-word" }}
+                              className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700"
+                            >
                               {renderRichText(item)}
                             </div>
                           </li>
@@ -265,10 +270,16 @@ export default async function BlogPostPage({
                     );
                   case "ol":
                     return (
-                      <ol key={idx} className="my-4 list-decimal space-y-3 pl-6 text-base sm:text-[17px] text-slate-700">
+                      <ol key={idx} className="my-4 space-y-3.5 pl-1 sm:pl-2">
                         {block.items.map((item, i) => (
-                          <li key={i} className="pl-1 leading-relaxed">
-                            <div className="w-full text-justify [text-align:justify] [text-justify:inter-word]">
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="shrink-0 font-black text-purple-700 text-base sm:text-[17px] min-w-[20px]">
+                              {i + 1}.
+                            </span>
+                            <div
+                              style={{ textAlign: "justify", textJustify: "inter-word" }}
+                              className="w-full text-base sm:text-[17px] leading-relaxed text-slate-700"
+                            >
                               {renderRichText(item)}
                             </div>
                           </li>
@@ -279,7 +290,8 @@ export default async function BlogPostPage({
                     return (
                       <blockquote
                         key={idx}
-                        className="my-5 rounded-2xl border-l-4 border-amber-400 bg-amber-50/70 p-4 sm:p-5 italic text-slate-800 shadow-sm text-justify [text-align:justify] [text-justify:inter-word] text-base"
+                        style={{ textAlign: "justify", textJustify: "inter-word" }}
+                        className="my-5 rounded-2xl border-l-4 border-amber-400 bg-amber-50/70 p-4 sm:p-5 italic text-slate-800 shadow-sm text-base"
                       >
                         {renderRichText(block.content)}
                       </blockquote>
@@ -334,7 +346,10 @@ export default async function BlogPostPage({
                   {post.faqs.map((faq, index) => (
                     <article key={index} className="py-4">
                       <h3 className="text-base sm:text-lg font-black text-[#090f2f]">{faq.question}</h3>
-                      <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600 text-justify [text-align:justify] [text-justify:inter-word]">
+                      <p
+                        style={{ textAlign: "justify", textJustify: "inter-word" }}
+                        className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600"
+                      >
                         {faq.answer}
                       </p>
                     </article>
@@ -351,7 +366,10 @@ export default async function BlogPostPage({
               <h3 className="mt-2 text-xl sm:text-2xl font-black">
                 Ready for Your Adiyogi Day Trip?
               </h3>
-              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300 text-justify [text-align:justify] [text-justify:inter-word]">
+              <p
+                style={{ textAlign: "justify", textJustify: "inter-word" }}
+                className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300"
+              >
                 Reserve your dedicated 6+1 Premium Ertiga. Enjoy upfront pricing, sanitized vehicles, polite owner-driver service, and guaranteed on-site waiting throughout the 7:00 PM laser show.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
