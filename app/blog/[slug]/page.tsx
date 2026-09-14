@@ -181,9 +181,9 @@ export default async function BlogPostPage({
         }
       `}</style>
 
-      {/* Main Reading Surface: Full-bleed clean background, natural margins */}
+      {/* Main Full-Width Reading Surface (max-w-6xl matches the main layout container) */}
       <main className="min-h-screen bg-white py-6 sm:py-10">
-        <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 force-justify">
+        <article className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 force-justify">
           
           {/* Back to Blog Navigation */}
           <nav aria-label="Breadcrumb navigation" className="mb-6">
@@ -195,7 +195,7 @@ export default async function BlogPostPage({
             </Link>
           </nav>
 
-          {/* Article Header (Open, Non-Card Layout) */}
+          {/* Article Header */}
           <header className="border-b border-slate-100 pb-8">
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-slate-500">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-100 px-3 py-1 text-purple-800">
@@ -227,12 +227,12 @@ export default async function BlogPostPage({
                 height={post.imageHeight || 1024}
                 priority
                 className="h-auto w-full object-cover"
-                sizes="(max-width: 1024px) 100vw, 896px"
+                sizes="(max-width: 1200px) 100vw, 1152px"
               />
             </div>
           </header>
 
-          {/* Article Body Content (Natural flow without nested floating cards) */}
+          {/* Article Body Content */}
           <div className="pt-8 space-y-6 text-slate-700">
             {post.content.map((block, idx) => {
               switch (block.type) {
