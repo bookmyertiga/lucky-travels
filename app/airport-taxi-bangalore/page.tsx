@@ -181,14 +181,31 @@ export default function AirportTaxiBangalorePage() {
     areaServed: [
       {
         "@type": "City",
-        name: "Bangalore",
+        name: "Bengaluru",
         containedInPlace: { "@type": "State", name: "Karnataka" },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 12.9716,
+          longitude: 77.5946,
+        },
       },
       {
         "@type": "Place",
         name: "Kempegowda International Airport Bengaluru (BLR)",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 13.1986,
+          longitude: 77.7066,
+        },
       },
     ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "86",
+      bestRating: "5",
+      worstRating: "1",
+    },
     url: routeUrl,
     image: `${SITE.url}/images/services/airport.jpg`,
     description:

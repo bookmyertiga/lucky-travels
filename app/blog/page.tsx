@@ -1,84 +1,146 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import FloatingWhatsApp from "@/components/shared/FloatingWhatsApp";
-import { blogPosts } from "@/data/blog";
+import { ArrowRight, Calendar, User } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import { blogPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Bengaluru Travel Blog",
+  title: "Go Bengaluru Travel Blog | Airport Guides, Route Tips & Fleet News",
   description:
-    "Useful guides for Bengaluru airport travel, Premium Ertiga planning, city-rental tips and outstation journeys.",
-  alternates: { canonical: `${SITE.url}/blog` },
-  openGraph: {
-    title: "Bengaluru Travel Blog",
-    description:
-      "Useful guides for Bengaluru airport travel, Premium Ertiga planning, city-rental tips and outstation journeys.",
-    url: "/blog",
-    type: "website",
+    "Practical Bengaluru airport travel tips, Ertiga luggage capacity guides, route bypass advice, and owner-driver updates from Lucky Travels.",
+  alternates: {
+    canonical: `${SITE.url}/blog`,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bengaluru Travel Blog",
+  openGraph: {
+    title: "Go Bengaluru Travel Blog | Lucky Travels",
     description:
-      "Useful guides for Bengaluru airport travel, Premium Ertiga planning, city-rental tips and outstation journeys.",
+      "Honest airport transit advice, Kempegowda Airport luggage guides, and local route tips for Bengaluru travelers.",
+    url: `${SITE.url}/blog`,
+    type: "website",
   },
 };
 
-export default function Blog() {
+export default function BlogListingPage() {
+  // Breadcrumb Structured Data
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE.url}/blog` },
+    ],
+  };
+
+  // Blog Collection Structured Data
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Go Bengaluru by Lucky Travels Blog",
+    description:
+      "Practical travel guides, airport transit planning, and fleet insights across Bengaluru.",
+    url: `${SITE.url}/blog`,
+    publisher: {
+      "@type": "Organization",
+      name: "Lucky Travels",
+      url: SITE.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE.url}/images/services/airport.jpg`,
+      },
+    },
+    blogPost: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.seoDescription || post.excerpt,
+      datePublished: post.date,
+      dateModified: post.dateModified || post.date,
+      url: `${SITE.url}/blog/${post.slug}`,
+      image: `${SITE.url}${post.image}`,
+      author: {
+        "@type": post.authorType || "Person",
+        name: post.author || "Bharath K S",
+      },
+    })),
+  };
+
   return (
-    <>
-      <BreadcrumbJsonLd name="Bengaluru Travel Blog" path="/blog" />
-    <>
-      <Navbar />
-      <main className="page-shell py-12">
-        <p className="text-xs font-black text-amber-500">
-          GO BENGALURU JOURNAL
-        </p>
-        <h1 className="mt-2 text-4xl font-black">Travel guides and updates</h1>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Useful Bengaluru airport, Premium Ertiga, city-rental and outstation
-          guides for smoother planning before your next journey.
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Link
-              href={`/blog/${post.slug}`}
-              key={post.slug}
-              className="overflow-hidden rounded-xl border bg-white shadow-premium"
-            >
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <p className="text-xs font-bold text-purple-700">
-                  {new Date(post.date).toLocaleDateString("en-IN", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h2 className="mt-2 text-xl font-black">{post.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {post.excerpt}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+    <SiteShell>
+      <JsonLd data={[breadcrumbSchema, blogSchema]} />
+      <main className="min-h-screen bg-slate-50 text-slate-900">
+        {/* Hero Header */}
+        <section className="bg-[#080d2b] py-12 text-white sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <span className="text-xs font-black uppercase tracking-widest text-amber-400">
+              INSIGHTS FROM THE ROAD
+            </span>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+              Go Bengaluru Travel Blog
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              Practical guides on <strong className="text-white">Bengaluru Airport transfers</strong>, luggage and seating advice, highway routes, and honest owner-driver travel tips.
+            </p>
+          </div>
+        </section>
+
+        {/* Blog Post Grid */}
+        <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <Link href={`/blog/${post.slug}`} className="block aspect-[16/10] overflow-hidden bg-slate-100">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt}
+                    width={post.imageWidth || 800}
+                    height={post.imageHeight || 500}
+                    className="h-full w-full object-cover transition duration-300 hover:scale-105"
+                  />
+                </Link>
+
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <div className="flex items-center gap-4 text-xs text-slate-500">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={13} />
+                        {post.dateModified ? `Updated ${post.dateModified}` : post.date}
+                      </span>
+                      {post.author && (
+                        <span className="flex items-center gap-1">
+                          <User size={13} />
+                          {post.author}
+                        </span>
+                      )}
+                    </div>
+
+                    <h2 className="mt-3 text-xl font-bold leading-snug text-slate-900 transition hover:text-purple-700">
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h2>
+
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 border-t border-slate-100 pt-4">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-700 hover:text-purple-900"
+                    >
+                      Read Guide <ArrowRight size={15} />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </>
-    </>
+    </SiteShell>
   );
 }
