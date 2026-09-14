@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone, ArrowRight, Sparkles } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -194,7 +194,7 @@ export default function AirportTaxiBangalorePage() {
         "@type": "ListItem",
         position: 2,
         name: "Airport Transfers",
-        item: `${SITE.url}/services/airport-transfers`,
+        item: routeUrl,
       },
       {
         "@type": "ListItem",
@@ -260,8 +260,7 @@ export default function AirportTaxiBangalorePage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-xl bg-green-600 px-4 py-3 font-black text-white lg:text-sm"
                 >
-                  <MessageCircle size={19} /> Request an Airport Quote on
-                  WhatsApp
+                  <MessageCircle size={19} /> Request an Airport Quote on WhatsApp
                 </a>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -358,7 +357,16 @@ export default function AirportTaxiBangalorePage() {
               <p className="mt-3 leading-7 text-slate-700">Real-time flight tracking lets the driver adjust the pickup time automatically for delayed landings. Keep your booking phone reachable and message after collecting baggage.</p>
             </article>
           </div>
-          <p className="mt-6 leading-8 text-slate-700">Share the flight number, confirmed terminal, passenger count and full destination before travel. Read the <Link href="/blog/premium-ertiga-for-bengaluru-airport-transfer" className="font-bold text-purple-700 underline">Bengaluru Airport cab pre-booking guide</Link> for a detailed checklist.</p>
+          <p className="mt-6 leading-8 text-slate-700">
+            Share the flight number, confirmed terminal, passenger count and full destination before travel. Read our comprehensive{" "}
+            <Link
+              href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
+              className="font-bold text-purple-700 underline"
+            >
+              Bengaluru Airport Cab Guide (Timing, Luggage &amp; Terminal Rules)
+            </Link>{" "}
+            for full transit advice.
+          </p>
         </section>
 
         <section
@@ -482,7 +490,7 @@ export default function AirportTaxiBangalorePage() {
               height={1024}
             />
             <RouteImage
-              href="/blog/premium-ertiga-for-bengaluru-airport-transfer"
+              href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
               src="/images/vehicle/boot-space.jpg"
               alt="Premium Ertiga boot area used to assess airport luggage suitability"
               caption="Bag count, bag sizes and occupied seats determine the suitable luggage arrangement."
@@ -603,6 +611,7 @@ export default function AirportTaxiBangalorePage() {
           </div>
         </section>
 
+        {/* Popular Routes Section with Whitefield Featured Card */}
         <section
           className="bg-white px-5 py-12 sm:py-16"
           aria-labelledby="popular-routes-heading"
@@ -619,9 +628,34 @@ export default function AirportTaxiBangalorePage() {
               pickup timing, terminal planning, luggage guidance and direct
               trip-specific quotes.
             </p>
+
+            {/* Featured High-Demand Whitefield Corridor Callout */}
+            <div className="mt-8 rounded-3xl border-2 border-purple-200 bg-gradient-to-r from-purple-50 via-white to-amber-50/50 p-6 sm:p-8 shadow-sm">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div className="max-w-2xl">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-700/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-purple-800">
+                    <Sparkles size={14} className="text-amber-500" /> High Demand Tech Corridor
+                  </span>
+                  <h3 className="mt-3 text-xl font-black text-[#090f2f] sm:text-2xl">
+                    Whitefield to Bangalore Airport (BLR) Transfers
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Pre-booked <strong>6+1 Premium Ertiga</strong> airport drops via the <em>Budigere Cross / SH-104 bypass route</em>. Punctual 3:00 AM – 6:00 AM departures with full boot space for up to 4 international suitcases.
+                  </p>
+                </div>
+                <Link
+                  href="/airport-taxi-whitefield"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-purple-700 px-6 py-3.5 text-sm font-black text-white shadow transition hover:bg-purple-800"
+                >
+                  View Whitefield Route &amp; Rates <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Grid of Other Hubs */}
             <nav
               aria-label="Popular airport routes"
-              className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+              className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
             >
               {[
                 ["Whitefield to Bangalore Airport Taxi", "Via SH-104 & Budigere Cross bypass", "/airport-taxi-whitefield"],
@@ -663,26 +697,26 @@ export default function AirportTaxiBangalorePage() {
             className="mt-7 grid gap-3 sm:grid-cols-2"
           >
             <Link
-              href="/blog/premium-ertiga-for-bengaluru-airport-transfer"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              href="/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
-              Bengaluru Airport cab pre-booking guide
+              Bengaluru Airport Cab Guide (Timing, Luggage &amp; Terminals)
             </Link>
             <Link
               href="/blog/why-lucky-travels-specialises-in-premium-ertiga"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
               Why Lucky Travels specialises only in Premium Ertiga
             </Link>
             <Link
               href="/about"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
               Learn about Lucky Travels
             </Link>
             <Link
               href="/services/outstation-packages"
-              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft"
+              className="rounded-xl bg-white p-4 font-bold text-purple-700 shadow-soft transition hover:bg-purple-50"
             >
               Explore outstation packages
             </Link>
