@@ -1,67 +1,127 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone, ArrowRight, ShieldCheck, MapPin } from "lucide-react";
+import {
+  Phone,
+  MessageCircle,
+  Clock,
+  MapPin,
+  ShieldCheck,
+  CheckCircle2,
+  CalendarCheck,
+  Luggage,
+  Calendar,
+  User,
+  Sparkles,
+  HelpCircle,
+  Compass,
+  ArrowLeft,
+  Plane,
+} from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
 
 export type AirportCorridor = {
   slug: string;
+  suburb: string;
   pageName: string;
   title: string;
   description: string;
   eyebrow: string;
   intro: string;
-  distance: string;
+  heroCaption: string;
+  heroImage?: string;
+  distanceTime: string;
   route: string;
-  nonPeak: string;
-  peak: string;
-  areas: string;
-  terminalGuide: string;
+  tollNote: string;
+  routeDetails: string;
+  pickupDropNotes: string;
+  earlyMorningGuidance: string;
   emailSubject: string;
   faqs: { question: string; answer: string }[];
 };
 
-// Only link to active, working routes to preserve crawl budget and prevent 404s
-const activeAirportRoutes = [
-  { href: "/airport-taxi-whitefield", label: "Whitefield to Airport Cab", tag: "ITPL & Kadugodi" },
-  { href: "/airport-taxi-electronic-city", label: "Electronic City to Airport Cab", tag: "Phase 1 & 2 via Tollway" },
-  { href: "/airport-taxi-sarjapur-road", label: "Sarjapur Road to Airport Cab", tag: "Bellandur & Carmelaram" },
-  { href: "/airport-taxi-hsr-layout", label: "HSR Layout to Airport Cab", tag: "Sectors 1-7 & Agara" },
+export const airportRoutes = [
+  {
+    href: "/airport-taxi-whitefield",
+    label: "Whitefield to Airport Taxi",
+    desc: "42 km | 60–80 mins via SH-104 / Budigere",
+    tag: "TECH CORRIDOR",
+    cta: "Explore Whitefield Route Guide →",
+    cardClass: "border-sky-200 bg-sky-50/70 hover:border-sky-400 text-sky-900",
+    badgeClass: "bg-sky-100 text-sky-800 border-sky-200",
+  },
+  {
+    href: "/airport-taxi-electronic-city",
+    label: "Electronic City to Airport Taxi",
+    desc: "53 km | 75–95 mins via Elevated Tollway & Hebbal",
+    tag: "SOUTH BANGALORE",
+    cta: "Explore E-City Expressway Route →",
+    cardClass: "border-indigo-200 bg-indigo-50/70 hover:border-indigo-400 text-indigo-900",
+    badgeClass: "bg-indigo-100 text-indigo-800 border-indigo-200",
+  },
+  {
+    href: "/airport-taxi-indiranagar",
+    label: "Indiranagar to Airport Taxi",
+    desc: "38 km | 50–70 mins via Old Madras Rd & Bellary Rd",
+    tag: "CENTRAL RESIDENTIAL",
+    cta: "Explore Indiranagar Route Guide →",
+    cardClass: "border-purple-200 bg-purple-50/70 hover:border-purple-400 text-purple-900",
+    badgeClass: "bg-purple-100 text-purple-800 border-purple-200",
+  },
+  {
+    href: "/airport-taxi-hsr-layout",
+    label: "HSR Layout to Airport Taxi",
+    desc: "48 km | 65–85 mins via Outer Ring Road",
+    tag: "STARTUP HUB",
+    cta: "Explore HSR Corridor Guide →",
+    cardClass: "border-emerald-200 bg-emerald-50/70 hover:border-emerald-400 text-emerald-900",
+    badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  },
 ] as const;
 
 export function PopularAirportCorridors({ currentSlug }: { currentSlug?: string }) {
   return (
-    <section className="bg-slate-50 px-5 py-12 sm:py-16 border-t border-slate-200" aria-labelledby="popular-routes-heading">
-      <div className="page-shell max-w-6xl mx-auto">
-        <p className="section-kicker text-xs font-black tracking-widest text-purple-700 uppercase">POPULAR BANGALORE AIRPORT TAXI CORRIDORS</p>
-        <h2 id="popular-routes-heading" className="mt-3 text-2xl font-black tracking-tight text-[#090f2f] sm:text-3xl">
-          Direct 6+1 Ertiga Airport Transfers Across Bengaluru
+    <section className="bg-slate-50 border-t border-slate-200 px-5 py-12 sm:py-16" aria-labelledby="popular-airport-corridors-heading">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-xs font-black uppercase tracking-[.18em] text-purple-700">BANGALORE AIRPORT TRANSFER CORRIDORS</p>
+        <h2 id="popular-airport-corridors-heading" className="mt-2 text-2xl font-black tracking-tight text-[#090f2f] sm:text-3xl">
+          Other Popular Suburb to BLR Airport Routes
         </h2>
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          Compare realistic route timings, toll ways, luggage suitability and pre-scheduled early morning booking details across key tech hubs.
+        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-slate-600">
+          Compare transit times, optimal departure buffers, and route directions across Bengaluru&apos;s primary residential and tech hubs.
         </p>
-        <nav aria-label="Popular Bangalore airport taxi corridors" className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {activeAirportRoutes.map((route) => {
+
+        <nav aria-label="Airport routes from Bangalore" className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {airportRoutes.map((route) => {
             const isCurrent = currentSlug === route.href.replace("/", "");
+            if (isCurrent) {
+              return (
+                <div key={route.href} className="flex flex-col justify-between rounded-2xl border-2 border-purple-600 bg-white p-5 shadow-md">
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-purple-800 bg-purple-100 px-2 py-0.5 rounded-md border border-purple-200">
+                      <CheckCircle2 size={12} /> Active Route
+                    </span>
+                    <h3 className="mt-2 font-bold text-slate-900 text-base">{route.label}</h3>
+                    <p className="mt-1 text-xs text-slate-500">{route.desc}</p>
+                  </div>
+                </div>
+              );
+            }
             return (
               <Link
                 key={route.href}
                 href={route.href}
-                className={`rounded-2xl p-5 transition-all border ${
-                  isCurrent
-                    ? "bg-purple-900 text-white border-purple-900 shadow-md pointer-events-none"
-                    : "bg-white text-slate-900 border-slate-200 hover:border-purple-400 hover:shadow-soft"
-                }`}
+                className={`group flex flex-col justify-between rounded-2xl border p-5 shadow-sm transition hover:shadow-md ${route.cardClass}`}
               >
-                <span className={`text-[11px] font-bold uppercase tracking-wider block mb-1 ${isCurrent ? "text-amber-300" : "text-purple-600"}`}>
-                  {route.tag}
-                </span>
-                <strong className="block text-base font-extrabold">{route.label}</strong>
-                <span className={`mt-2 flex items-center gap-1 text-xs font-semibold ${isCurrent ? "text-purple-200" : "text-slate-500"}`}>
-                  {isCurrent ? "Current route" : "View route timings & booking"}
-                  {!isCurrent && <ArrowRight size={14} className="ml-1" />}
-                </span>
+                <div>
+                  <span className={`inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md border ${route.badgeClass}`}>
+                    <Plane size={11} /> {route.tag}
+                  </span>
+                  <h3 className="mt-2 font-bold text-slate-900 text-base group-hover:text-purple-950">{route.label}</h3>
+                  <p className="mt-1 text-xs text-slate-600">{route.desc}</p>
+                </div>
+                <span className="mt-4 text-xs font-black group-hover:underline">{route.cta}</span>
               </Link>
             );
           })}
@@ -71,49 +131,46 @@ export function PopularAirportCorridors({ currentSlug }: { currentSlug?: string 
   );
 }
 
-function SectionHeading({ eyebrow, children, id }: { eyebrow: string; children: React.ReactNode; id: string }) {
-  return (
-    <>
-      <p className="section-kicker text-xs font-black uppercase tracking-wider text-purple-700">{eyebrow}</p>
-      <h2 id={id} className="mt-2 text-2xl font-black tracking-tight text-[#090f2f] sm:text-3xl lg:text-4xl">{children}</h2>
-    </>
-  );
-}
-
 export default function AirportCorridorPage({ corridor }: { corridor: AirportCorridor }) {
   const routeUrl = `${SITE.url}/${corridor.slug}`;
-  const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(`Hello Lucky Travels, I need a ${corridor.pageName}.
-Date:
-Pickup time:
-Terminal (T1/T2):
-Pickup address:
-Passengers and luggage:`)}`;
+  const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+    `Hello Lucky Travels, I need a Kempegowda Airport Taxi pickup/drop for ${corridor.suburb}.
+Flight Date:
+Pickup Location:
+Pickup Time / Flight Departure Time:
+Terminal (T1 or T2):
+Passengers & Luggage count:`
+  )}`;
   const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(corridor.emailSubject)}`;
+  const heroImg = corridor.heroImage || "/images/services/airport-transfer.jpg";
 
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
-    name: `${corridor.pageName} in a 6+1 Ertiga`,
-    serviceType: `${corridor.pageName} transfer`,
+    "@type": ["TaxiService", "Service"],
+    name: `${corridor.pageName} in a 6+1 Premium Ertiga`,
+    serviceType: "Airport Taxi Service",
     provider: {
-      "@type": "LocalBusiness",
+      "@type": "TaxiService",
       name: SITE.name,
-      telephone: `+91${SITE.phone}`,
+      brand: { "@type": "Brand", name: SITE.brand },
       url: SITE.url,
+      telephone: `+91${SITE.phone}`,
       email: SITE.email,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Bengaluru",
-        addressRegion: "Karnataka",
-        addressCountry: "IN",
-      },
     },
-    areaServed: [
-      { "@type": "Place", name: corridor.areas },
-      { "@type": "Place", name: "Kempegowda International Airport Bengaluru (BLR)" },
-    ],
+    areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: corridor.suburb }],
     url: routeUrl,
-    image: `${SITE.url}/images/services/airport.jpg`,
+    image: `${SITE.url}${heroImg}`,
+    logo: `${SITE.url}/images/logo/favicon.png`,
+    priceRange: "₹₹",
+    telephone: `+91${SITE.phone}`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Konena Agrahara, HAL",
+      addressLocality: "Bengaluru",
+      postalCode: "560017",
+      addressRegion: "Karnataka",
+      addressCountry: "IN",
+    },
     description: corridor.description,
   };
 
@@ -122,7 +179,7 @@ Passengers and luggage:`)}`;
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      { "@type": "ListItem", position: 2, name: "Airport Transfers", item: `${SITE.url}#airport-services` },
+      { "@type": "ListItem", position: 2, name: "Airport Taxi Bangalore", item: `${SITE.url}/airport-taxi-bangalore` },
       { "@type": "ListItem", position: 3, name: corridor.pageName, item: routeUrl },
     ],
   };
@@ -141,164 +198,234 @@ Passengers and luggage:`)}`;
   return (
     <SiteShell>
       <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
-      <main className="overflow-x-hidden">
-        {/* Hero Section */}
-        <section aria-labelledby="corridor-heading" className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-10 text-white">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.2fr_.8fr]">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[.18em] text-amber-400 sm:text-sm">{corridor.eyebrow}</p>
-              <h1 id="corridor-heading" className="mt-2 text-3xl font-black leading-tight sm:text-4xl lg:text-4xl">{corridor.title}</h1>
-              <p className="mt-3 text-sm leading-6 text-white/90 sm:text-base sm:leading-7">{corridor.intro}</p>
-              <p className="mt-2 text-sm font-bold text-amber-300">{SITE.specialisationSlogan}</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <a href={`tel:+91${SITE.phone}`} className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-extrabold text-purple-900 shadow-md hover:bg-slate-100 transition-colors">
-                  <Phone size={18} /> Call +91 {SITE.phone}
-                </a>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-extrabold text-white shadow-md hover:bg-emerald-500 transition-colors">
-                  <MessageCircle size={18} /> WhatsApp for Quote
-                </a>
+
+      <main className="min-h-screen bg-[#fafaf9] py-8 sm:py-12">
+        <article className="mx-auto max-w-4xl px-4 sm:px-6">
+          
+          {/* BREADCRUMB NAVIGATION */}
+          <div className="mb-6">
+            <Link
+              href="/airport-taxi-bangalore"
+              className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-purple-700 hover:underline"
+            >
+              <ArrowLeft size={14} /> Back to Airport Transfers Hub
+            </Link>
+          </div>
+
+          {/* TRIPLE CAPSULE BADGES */}
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-sky-800">
+              <Calendar size={13} className="text-sky-700" /> UPDATED 2026-09-25
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-slate-700 border border-slate-200">
+              <User size={13} className="text-slate-600" /> BHARATH K S
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-amber-900 border border-amber-200">
+              <Sparkles size={13} className="text-amber-700" /> VERIFIED AIRPORT CHAUFFEUR
+            </span>
+          </div>
+
+          {/* MAIN ARTICLE HEADLINE */}
+          <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            {corridor.title}
+          </h1>
+
+          {/* INTRO WITH ORGANIC KEYWORD TARGETING */}
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 text-justify">
+            {corridor.intro}
+          </p>
+
+          {/* HERO IMAGE SHOWCASE WITH ZOOM-ON-HOVER */}
+          <figure className="group my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
+            <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
+              <Image
+                src={heroImg}
+                alt={corridor.heroCaption}
+                fill
+                priority
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 896px"
+              />
+            </div>
+            <figcaption className="p-4 text-xs sm:text-sm leading-relaxed text-slate-600 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-1">
+              <span><strong>Airport Terminal Transfer:</strong> {corridor.heroCaption}</span>
+              <span className="text-sky-700 font-semibold shrink-0">Commercially Certified 6+1 White Ertiga Fleet</span>
+            </figcaption>
+          </figure>
+
+          {/* QUICK METRICS GRID */}
+          <section className="my-8">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
+                  <Compass size={15} /> Driving Distance &amp; Time
+                </span>
+                <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">{corridor.distanceTime}</p>
+                <p className="mt-1 text-xs text-slate-500">Doorstep pickup to BLR T1 / T2</p>
               </div>
-              <p className="mt-3 text-xs text-white/70">
-                Punctual 24/7 airport drops & pickups. Minimum 6-hour advance booking ensures guaranteed vehicle assignment.
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
+                  <MapPin size={15} /> Primary Route
+                </span>
+                <p className="mt-2 text-base sm:text-lg font-black text-slate-900">{corridor.route}</p>
+                <p className="mt-1 text-xs text-slate-500">{corridor.tollNote}</p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
+                  <ShieldCheck size={15} /> Guaranteed Vehicle
+                </span>
+                <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">6+1 Premium Ertiga</p>
+                <p className="mt-1 text-xs text-slate-500">Commercial yellow plate • Spotless AC</p>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION: ROUTE INSIGHTS & ROAD QUALITY */}
+          <section className="mt-10">
+            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
+              Route Quality &amp; Expressway Traffic Insights
+            </h2>
+            <p className="mt-4 text-slate-700 leading-8 text-justify">
+              {corridor.routeDetails}
+            </p>
+
+            {/* CALLOUT BOX: FLIGHT BUFFER TIMING */}
+            <div className="my-8 rounded-2xl border-l-4 border-amber-500 bg-amber-50/70 p-6 text-slate-800 shadow-sm">
+              <div className="flex items-center gap-2 text-amber-900 font-bold">
+                <AlertCircle size={20} className="text-amber-600" />
+                <span>Chauffeur Departure Guidance for {corridor.suburb}</span>
+              </div>
+              <p className="mt-3 text-sm sm:text-base leading-relaxed text-amber-950 text-justify">
+                {corridor.earlyMorningGuidance}
               </p>
             </div>
-            <figure className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-2xl">
-              <Image src="/images/services/airport.jpg" alt={`Dedicated 6+1 Ertiga for ${corridor.pageName}`} width={1672} height={941} priority className="w-full h-auto object-cover max-h-[260px]" sizes="(max-width: 1024px) 100vw, 42vw" />
-              <figcaption className="p-4 text-xs text-white/80 bg-black/40">
-                Chauffeur-driven 6+1 Ertiga: Clean cabin, dual air-conditioning & ample check-in luggage space.
-              </figcaption>
-            </figure>
-          </div>
-          <a href="#route-details" className="service-scroll-prompt absolute bottom-0 left-1/2 z-30 flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-purple-200 bg-white px-5 py-2.5 text-xs font-black text-purple-900 shadow-xl">
-            View Route, Timings & Luggage Guide <ArrowDown size={14} className="service-scroll-arrow" />
-          </a>
-        </section>
+          </section>
 
-        {/* Distance & Time Breakdown */}
-        <section id="route-details" className="bg-white px-5 pt-16 pb-12" aria-labelledby="route-heading">
-          <div className="page-shell max-w-6xl mx-auto">
-            <SectionHeading id="route-heading" eyebrow="ROUTE AND TRAVEL DURATION BREAKDOWN">
-              {corridor.pageName}: Distance and Time
-            </SectionHeading>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {[
-                ["Approximate distance", corridor.distance, "Calculated based on optimal highway routes to BLR Terminal 1 & 2."],
-                ["Non-peak travel", corridor.nonPeak, `Smooth travel window via ${corridor.route}.`],
-                ["Peak traffic travel", corridor.peak, "Recommended buffer for office peak hours, weather, and toll plaza lines."],
-              ].map(([title, value, text]) => (
-                <article key={title} className="rounded-2xl border border-slate-200 p-6 bg-slate-50/50">
-                  <p className="text-xs font-black uppercase tracking-wider text-purple-700">{title}</p>
-                  <h3 className="mt-2 text-2xl font-black text-[#090f2f]">{value}</h3>
-                  <p className="mt-2 text-xs leading-5 text-slate-600">{text}</p>
-                </article>
-              ))}
-            </div>
-            <p className="mt-6 text-sm leading-6 text-slate-700">
-              Coverage areas include: <strong>{corridor.areas}</strong>. Our chauffeurs monitor live Google Maps traffic before dispatch to choose between Elevated Corridors and Outer Ring Road flyovers.
+          {/* SECTION: TERMINAL 1 & TERMINAL 2 PICKUP/DROP GUIDELINES */}
+          <section className="mt-10">
+            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
+              Kempegowda International Airport (T1 &amp; T2) Pickup &amp; Drop Rules
+            </h2>
+            <p className="mt-4 text-slate-700 leading-8 text-justify">
+              {corridor.pickupDropNotes}
             </p>
-          </div>
-        </section>
+            <p className="mt-3 text-slate-700 leading-8 text-justify">
+              Planning to head directly out of town after landing? You can book our direct <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">outstation cab service</Link>, including the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati package</Link>[cite: 1], the scenic <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg tour</Link>, or the evening light show trip to <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="font-bold text-purple-700 underline">Adiyogi Chikkaballapura</Link>.
+            </p>
+          </section>
 
-        {/* Terminal Guide */}
-        <section className="bg-slate-50 px-5 py-12 sm:py-16 border-y border-slate-200" aria-labelledby="terminal-heading">
-          <div className="page-shell max-w-6xl mx-auto">
-            <SectionHeading id="terminal-heading" eyebrow="BLR TERMINAL 1 & TERMINAL 2 GUIDE">
-              Direct Curbside Drops for T1 and T2 Flights
-            </SectionHeading>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <p className="text-xs font-black uppercase tracking-wider text-purple-700">Terminal 1 (T1)</p>
-                <h3 className="mt-2 text-xl font-bold text-slate-900">Domestic Departures & Arrivals</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Direct curbside drop at BLR Terminal 1 departure gates. Ideal for IndiGo, Akasa, and SpiceJet domestic flights.
-                </p>
-              </article>
-              <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <p className="text-xs font-black uppercase tracking-wider text-purple-700">Terminal 2 (T2)</p>
-                <h3 className="mt-2 text-xl font-bold text-slate-900">Garden Terminal: Domestic & International</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Curbside access for Air India, Vistara, and international flights. We advise allowing an extra 15 minutes for T2 check-in walking corridors.
-                </p>
-              </article>
+          {/* HIGH-CONVERSION MID-POST CTA CARD */}
+          <section className="my-12 rounded-3xl bg-[#080d2b] p-7 sm:p-10 text-white shadow-xl">
+            <span className="text-xs font-black uppercase tracking-[.18em] text-amber-400">
+              PUNCTUAL OWNER-OPERATED AIRPORT TRANSFERS
+            </span>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight">
+              Reserve Your {corridor.suburb} to Airport Cab
+            </h2>
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-white/80 text-justify">
+              Skip app cancellations and surge pricing. Chauffeur Bharath K S arrives at your gate 15 minutes before your scheduled pickup with a clean, fully fueled 6+1 Maruti Suzuki Ertiga. Need local errands or corporate hourly travel? Review our <Link href="/car-rental-bangalore" className="font-bold text-amber-300 underline">hourly car rental packages in Bangalore</Link>.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href={`tel:+91${SITE.phone}`}
+                className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 font-black text-[#080d2b] shadow-md transition hover:bg-slate-100 text-sm"
+              >
+                <Phone size={18} /> Call +91 {SITE.phone}
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3 font-black text-white shadow-md transition hover:bg-green-700 text-sm"
+              >
+                <MessageCircle size={18} /> WhatsApp Airport Flight Details
+              </a>
+              <a
+                href={emailUrl}
+                className="rounded-xl border border-white/20 px-5 py-3 text-center text-xs font-bold text-white transition hover:bg-white/10"
+              >
+                Email Booking Details
+              </a>
             </div>
-            <p className="mt-6 text-sm text-slate-600">{corridor.terminalGuide}</p>
-          </div>
-        </section>
+            <p className="mt-3 text-xs text-white/60">
+              *Early morning pickups (1:00 AM – 5:00 AM) confirmed with guaranteed vehicle dispatch.
+            </p>
+          </section>
 
-        {/* Luggage Guide */}
-        <section className="bg-white px-5 py-12 sm:py-16" aria-labelledby="luggage-heading">
-          <div className="page-shell max-w-6xl mx-auto">
-            <SectionHeading id="luggage-heading" eyebrow="FLEET AND LUGGAGE PLANNING">
-              Travel in Comfort: 6+1 Maruti Suzuki Ertiga
-            </SectionHeading>
-            <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_360px]">
-              <div className="space-y-4 text-slate-700 text-sm leading-6">
-                <p>
-                  Lucky Travels operates exclusively dedicated 6+1 Maruti Suzuki Ertigas. We do not dispatch hatchbacks or compact sedans, ensuring you never face vehicle downgrade surprises.
-                </p>
-                <div className="grid gap-3 sm:grid-cols-2 pt-2">
-                  <div className="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                    <strong className="block text-slate-900 font-bold">4 Passengers + Full Luggage:</strong>
-                    <p className="text-xs text-slate-600 mt-1">3rd-row seats fold flat to accommodate 3 to 4 large suitcases plus cabin bags.</p>
-                  </div>
-                  <div className="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                    <strong className="block text-slate-900 font-bold">5 to 6 Passengers:</strong>
-                    <p className="text-xs text-slate-600 mt-1">Accommodates 2 to 3 standard cabin suitcases and soft bags behind the 3rd row.</p>
-                  </div>
+          {/* SECTION: FLEET & LUGGAGE GUIDANCE */}
+          <section className="mt-12">
+            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
+              6+1 Maruti Suzuki Ertiga: Airport Luggage &amp; Passenger Capacity
+            </h2>
+            <p className="mt-3 text-slate-700 leading-8 text-justify">
+              {SITE.specialisationSlogan} We never send small hatchbacks or cramped sedans for airport runs. Here is how your flight bags travel:
+            </p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <Luggage size={24} className="shrink-0 text-purple-700 mt-1" />
+                <div>
+                  <h3 className="font-black text-slate-900 text-base">3 to 4 Passengers (International Flights)</h3>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
+                    With the 3rd-row split seats folded flat, the cargo bay easily swallows 3 to 4 full-size 28-inch check-in suitcases plus cabin bags.
+                  </p>
                 </div>
               </div>
-              <aside className="rounded-2xl border-l-4 border-amber-400 bg-amber-50/80 p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900">Guaranteed Dispatch Policy</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-700">
-                  Pre-booking at least 6 hours in advance reserves your vehicle and assigned chauffeur, preventing late-night and 3:00 AM ride cancellations.
-                </p>
-              </aside>
-            </div>
-          </div>
-        </section>
 
-        {/* FAQs */}
-        <section className="bg-slate-50 px-5 py-12 sm:py-16 border-t border-slate-200" aria-labelledby="faq-heading">
-          <div className="page-shell max-w-6xl mx-auto">
-            <SectionHeading id="faq-heading" eyebrow="AIRPORT TRANSFER FAQ">
-              Common Questions Before Booking
-            </SectionHeading>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {corridor.faqs.map((faq) => (
-                <article key={faq.question} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <h3 className="text-base font-bold text-[#090f2f]">{faq.question}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{faq.answer}</p>
-                </article>
+              <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <Luggage size={24} className="shrink-0 text-purple-700 mt-1" />
+                <div>
+                  <h3 className="font-black text-slate-900 text-base">5 to 6 Passengers (Domestic Flight Setup)</h3>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
+                    All seating rows upright with full legroom. Boot easily stores 2 to 3 compact cabin trolley bags and laptop backpacks.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <CheckCircle2 size={24} className="shrink-0 text-green-600 mt-1" />
+                <div>
+                  <h3 className="font-black text-slate-900 text-base">Dual Independent Roof AC</h3>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
+                    High-output rear cooling blowers ensure cool cabin comfort even during intense afternoon heat along the elevated Bellary expressway.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <CalendarCheck size={24} className="shrink-0 text-green-600 mt-1" />
+                <div>
+                  <h3 className="font-black text-slate-900 text-base">Zero App Cancellation Anxiety</h3>
+                  <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
+                    Direct booking with owner-operator Bharath K S eliminates last-minute driver cancellations before urgent early-morning flights.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION: FREQUENTLY ASKED QUESTIONS */}
+          <section className="mt-12 border-t border-slate-200 pt-10">
+            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight flex items-center gap-2">
+              <HelpCircle className="text-purple-700" /> Frequently Asked Questions
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {corridor.faqs.map((faq, index) => (
+                <div key={index} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base sm:text-lg font-black text-slate-900">{faq.question}</h3>
+                  <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600 text-justify">{faq.answer}</p>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
+        </article>
 
-        {/* Popular Corridors Cross-Links (4-card balanced grid) */}
+        {/* BOTTOM CROSS-LINKING NAVIGATION FOR AIRPORT ROUTES */}
         <PopularAirportCorridors currentSlug={corridor.slug} />
-
-        {/* Global Hub Interlinks */}
-        <section className="bg-white px-5 py-12 sm:py-16 border-t border-slate-200" aria-labelledby="related-heading">
-          <div className="page-shell max-w-6xl mx-auto">
-            <SectionHeading id="related-heading" eyebrow="CONNECTED TRAVEL SERVICES">
-              Explore More Journeys with Lucky Travels
-            </SectionHeading>
-            <nav aria-label="Related travel resources" className="mt-6 grid gap-4 sm:grid-cols-3">
-              <Link href="/outstation-cabs-bangalore" className="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-purple-400 hover:shadow-soft transition-all block">
-                <strong className="block text-slate-900 text-sm font-bold">Outstation Cabs from Bangalore</strong>
-                <p className="text-xs text-slate-600 mt-1">Mysore, Coorg, Ooty & Tirupati family round-trips in our 6+1 Ertiga.</p>
-              </Link>
-              <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-purple-400 hover:shadow-soft transition-all block">
-                <strong className="block text-slate-900 text-sm font-bold">Adiyogi Chikkaballapura Guide</strong>
-                <p className="text-xs text-slate-600 mt-1">Evening 7 PM laser show guide with guaranteed chauffeur parking & return ride.</p>
-              </Link>
-              <Link href="/corporate-car-rental-bangalore" className="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-purple-400 hover:shadow-soft transition-all block">
-                <strong className="block text-slate-900 text-sm font-bold">Corporate Car Rental</strong>
-                <p className="text-xs text-slate-600 mt-1">Executive tech-park transit, full-day disposal & GST tax billing.</p>
-              </Link>
-            </nav>
-          </div>
-        </section>
       </main>
     </SiteShell>
   );
