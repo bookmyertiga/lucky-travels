@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, MessageCircle, Phone } from "lucide-react";
+import { ArrowDown, MessageCircle, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
@@ -23,30 +23,73 @@ export type OutstationCorridor = {
 };
 
 const outstationRoutes = [
-  ["/bangalore-to-mysore-cab", "Bangalore to Mysore cab"],
-  ["/bangalore-to-coorg-cab", "Bangalore to Coorg cab"],
-  ["/bangalore-to-ooty-cab", "Bangalore to Ooty cab"],
-  ["/bangalore-to-chikmagalur-cab", "Bangalore to Chikmagalur cab"],
-  ["/bangalore-to-tirupati-cab", "Bangalore to Tirupati cab"],
+  { href: "/bangalore-to-mysore-cab", label: "Bangalore to Mysore Cab", desc: "145 km | 2.5 hrs via NH-275 Expressway" },
+  { href: "/bangalore-to-tirupati-cab", label: "Bangalore to Tirupati Cab", desc: "250 km | 5 hrs via NH-75 & AP Border" },
+  { href: "/bangalore-to-coorg-cab", label: "Bangalore to Coorg Cab", desc: "260 km | 5.5 hrs via Kushalnagar" },
+  { href: "/bangalore-to-ooty-cab", label: "Bangalore to Ooty Cab", desc: "280 km | 6.5 hrs via Bandipur & Nilgiris" },
+  { href: "/bangalore-to-chikmagalur-cab", label: "Bangalore to Chikmagalur Cab", desc: "245 km | 4.5 hrs via Hassan NH-75" },
 ] as const;
 
-export function PopularOutstationRoutes() {
+export function PopularOutstationRoutes({ currentSlug }: { currentSlug?: string }) {
   return (
-    <section className="bg-white px-5 py-12 sm:py-16" aria-labelledby="popular-outstation-routes-heading">
-      <div className="page-shell">
-        <p className="section-kicker">POPULAR OUTSTATION ROUTES FROM BANGALORE</p>
-        <h2 id="popular-outstation-routes-heading" className="mt-3 text-3xl font-black tracking-tight text-[#090f2f] sm:text-4xl">
-          Plan Your Next Premium Ertiga Journey
+    <section className="bg-slate-50 border-t border-slate-200 px-5 py-12 sm:py-16" aria-labelledby="popular-outstation-routes-heading">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-xs font-black uppercase tracking-[.18em] text-purple-700">POPULAR OUTSTATION ROUTES FROM BANGALORE</p>
+        <h2 id="popular-outstation-routes-heading" className="mt-2 text-2xl font-black tracking-tight text-[#090f2f] sm:text-3xl">
+          Explore Other Premium Ertiga Outstation Corridors
         </h2>
-        <p className="mt-6 max-w-3xl leading-8 text-slate-700">
-          Compare route distance, timing, highway planning, luggage guidance and transparent trip-specific quote details for popular destinations from Bangalore.
+        <p className="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-slate-600">
+          Compare route distance, highway expressway planning, luggage guidance, and transparent trip-specific quotes for popular weekend destinations from Bengaluru.
         </p>
-        <nav aria-label="Popular outstation routes from Bangalore" className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {outstationRoutes.map(([href, label]) => (
-            <Link key={href} href={href} className="rounded-xl bg-slate-100 p-4 font-bold text-purple-700 shadow-soft">
-              {label}
-            </Link>
-          ))}
+
+        <nav aria-label="Popular outstation routes from Bangalore" className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {outstationRoutes.map((route) => {
+            const isCurrent = currentSlug === route.href.replace("/", "");
+            if (isCurrent) {
+              return (
+                <div key={route.href} className="flex flex-col justify-between rounded-2xl border-2 border-purple-500 bg-white p-5 shadow-sm">
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-purple-700">
+                      <CheckCircle2 size={13} /> Current Route
+                    </span>
+                    <h3 className="mt-1 font-bold text-slate-900 text-lg">{route.label}</h3>
+                    <p className="mt-1 text-xs text-slate-500">{route.desc}</p>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <Link
+                key={route.href}
+                href={route.href}
+                className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-purple-300 hover:shadow-md"
+              >
+                <div>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 group-hover:text-purple-600">
+                    <MapPin size={13} /> Outstation Taxi
+                  </span>
+                  <h3 className="mt-1 font-bold text-slate-900 text-lg group-hover:text-purple-700">{route.label}</h3>
+                  <p className="mt-1 text-xs text-slate-500">{route.desc}</p>
+                </div>
+                <span className="mt-4 text-xs font-black text-purple-700 group-hover:underline">View Route Details &amp; Pricing →</span>
+              </Link>
+            );
+          })}
+
+          {/* Contextual Link to Adiyogi Cornerstone Guide */}
+          <Link
+            href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide"
+            className="group flex flex-col justify-between rounded-2xl border border-amber-200 bg-amber-50/60 p-5 shadow-sm transition hover:border-amber-300 hover:shadow-md"
+          >
+            <div>
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                <MapPin size={13} /> Day Trip Special
+              </span>
+              <h3 className="mt-1 font-bold text-slate-900 text-lg group-hover:text-purple-700">Bangalore to Adiyogi Cab Guide</h3>
+              <p className="mt-1 text-xs text-slate-600">65 km | 7:00 PM Laser Show &amp; Chikkaballapura Route</p>
+            </div>
+            <span className="mt-4 text-xs font-black text-amber-800 group-hover:underline">Read Darshan Timings &amp; Guide →</span>
+          </Link>
         </nav>
       </div>
     </section>
@@ -71,12 +114,20 @@ One-way, return or multi-day:
 Passengers and luggage:
 Destination hotel, homestay or landmark:`)}`;
   const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(corridor.emailSubject)}`;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": ["TaxiService", "Service"],
     name: `${corridor.pageName} in a Premium Ertiga`,
     serviceType: `${corridor.pageName} outstation taxi service`,
-    provider: { "@type": "TaxiService", name: SITE.name, brand: { "@type": "Brand", name: SITE.brand }, url: SITE.url, telephone: `+91${SITE.phone}`, email: SITE.email },
+    provider: {
+      "@type": "TaxiService",
+      name: SITE.name,
+      brand: { "@type": "Brand", name: SITE.brand },
+      url: SITE.url,
+      telephone: `+91${SITE.phone}`,
+      email: SITE.email,
+    },
     areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: corridor.pageName }],
     url: routeUrl,
     image: `${SITE.url}/images/services/outstation.jpg`,
@@ -93,20 +144,26 @@ Destination hotel, homestay or landmark:`)}`;
     },
     description: corridor.description,
   };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      { "@type": "ListItem", position: 2, name: "Outstation Packages", item: `${SITE.url}/services/outstation-packages` },
+      { "@type": "ListItem", position: 2, name: "Outstation Cabs", item: `${SITE.url}/outstation-cabs-bangalore` },
       { "@type": "ListItem", position: 3, name: corridor.pageName, item: routeUrl },
     ],
   };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${routeUrl}#faq`,
-    mainEntity: corridor.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
+    mainEntity: corridor.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
   };
 
   return (
@@ -135,20 +192,98 @@ Destination hotel, homestay or landmark:`)}`;
         </section>
 
         <section id="route-details" className="bg-white px-5 py-10" aria-labelledby="route-heading">
-          <div className="page-shell"><SectionHeading id="route-heading" eyebrow="ROUTE, DISTANCE AND DURATION">{corridor.pageName}: Route Planning</SectionHeading>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3"><article className="rounded-2xl border border-slate-200 p-5"><p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Approximate journey</p><h3 className="mt-3 text-2xl font-black text-[#090f2f]">{corridor.distanceTime}</h3><p className="mt-2 leading-7 text-slate-600">Actual time varies with pickup address, breaks, weather and destination access.</p></article><article className="rounded-2xl border border-slate-200 p-5"><p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Main route</p><h3 className="mt-3 text-xl font-black text-[#090f2f]">{corridor.route}</h3><p className="mt-2 leading-7 text-slate-600">The route is confirmed around the actual itinerary and vehicle availability.</p></article><article className="rounded-2xl border border-slate-200 p-5"><p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Direct destination</p><h3 className="mt-3 text-xl font-black text-[#090f2f]">Door to door</h3><p className="mt-2 leading-7 text-slate-600">Drop at the customer-chosen hotel, homestay or landmark.</p></article></div>
-            <p className="mt-7 max-w-4xl leading-8 text-slate-700">{corridor.routeDetails} Chauffeurs monitor live Google Maps traffic at departure to select the fastest highway exits and bypasses. Share the complete address and preferred timing before confirmation. For local hourly requirements, see our <Link href="/services/rental-packages" className="font-bold text-purple-700 underline">rental packages</Link>; businesses can also review <Link href="/corporate-car-rental-bangalore" className="font-bold text-purple-700 underline">corporate transport solutions</Link>.</p>
+          <div className="page-shell">
+            <SectionHeading id="route-heading" eyebrow="ROUTE, DISTANCE AND DURATION">{corridor.pageName}: Route Planning</SectionHeading>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <article className="rounded-2xl border border-slate-200 p-5">
+                <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Approximate journey</p>
+                <h3 className="mt-3 text-2xl font-black text-[#090f2f]">{corridor.distanceTime}</h3>
+                <p className="mt-2 leading-7 text-slate-600">Actual time varies with pickup address, breaks, weather and destination access.</p>
+              </article>
+              <article className="rounded-2xl border border-slate-200 p-5">
+                <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Main route</p>
+                <h3 className="mt-3 text-xl font-black text-[#090f2f]">{corridor.route}</h3>
+                <p className="mt-2 leading-7 text-slate-600">The route is confirmed around the actual itinerary and vehicle availability.</p>
+              </article>
+              <article className="rounded-2xl border border-slate-200 p-5">
+                <p className="text-sm font-black uppercase tracking-[.12em] text-purple-700">Direct destination</p>
+                <h3 className="mt-3 text-xl font-black text-[#090f2f]">Door to door</h3>
+                <p className="mt-2 leading-7 text-slate-600">Drop at the customer-chosen hotel, homestay or landmark.</p>
+              </article>
+            </div>
+            <p className="mt-7 max-w-4xl leading-8 text-slate-700">
+              {corridor.routeDetails} Chauffeurs monitor live Google Maps traffic at departure to select the fastest highway exits and bypasses. Need a pickup directly after landing? Book our dedicated <Link href="/airport-taxi-bangalore" className="font-bold text-purple-700 underline">BLR Airport taxi service</Link>. For local multi-stop city errands, review our <Link href="/car-rental-bangalore" className="font-bold text-purple-700 underline">hourly car rental packages</Link>, or explore <Link href="/corporate-car-rental-bangalore" className="font-bold text-purple-700 underline">corporate transport solutions</Link>.
+            </p>
           </div>
         </section>
 
-        <section className="page-shell py-12 sm:py-16" aria-labelledby="destination-heading"><SectionHeading id="destination-heading" eyebrow="DIRECT TRANSPORT TO YOUR CHOSEN DESTINATION">Plan the Arrival and Drop</SectionHeading><div className="mt-8 grid gap-5 md:grid-cols-2"><article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"><h3 className="text-2xl font-black">Door-to-door service</h3><p className="mt-3 leading-7 text-slate-700">{corridor.destinationDetails}</p></article><article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft"><h3 className="text-2xl font-black">Transport only</h3><p className="mt-3 leading-7 text-slate-700">Lucky Travels provides direct transport to the customer-chosen hotel, homestay or landmark. We do not provide packaged tours, sightseeing packages or stay bookings.</p>{corridor.permitDetails && <p className="mt-4 leading-7 text-slate-700">{corridor.permitDetails}</p>}</article></div></section>
+        <section className="page-shell py-12 sm:py-16" aria-labelledby="destination-heading">
+          <SectionHeading id="destination-heading" eyebrow="DIRECT TRANSPORT TO YOUR CHOSEN DESTINATION">Plan the Arrival and Drop</SectionHeading>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <h3 className="text-2xl font-black">Door-to-door service</h3>
+              <p className="mt-3 leading-7 text-slate-700">{corridor.destinationDetails}</p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+              <h3 className="text-2xl font-black">Dedicated vehicle &amp; driver</h3>
+              <p className="mt-3 leading-7 text-slate-700">
+                Lucky Travels provides private, personalized transport to your chosen hotel, resort, or family residence. You enjoy complete privacy without vehicle sharing or rigid group itineraries.
+              </p>
+              {corridor.permitDetails && <p className="mt-4 leading-7 text-slate-700">{corridor.permitDetails}</p>}
+            </article>
+          </div>
+        </section>
 
-        <section className="bg-slate-100 px-5 py-12 sm:py-16" aria-labelledby="fleet-heading"><div className="page-shell"><SectionHeading id="fleet-heading" eyebrow="EXCLUSIVE FLEET AND COMFORT">One Vehicle Category, Clearly Confirmed</SectionHeading><p className="mt-6 max-w-4xl leading-8 text-slate-700">{SITE.specialisationSlogan} Lucky Travels operates dedicated chauffeur-driven 6+1 Maruti Suzuki Ertiga vehicles only. We do not operate hatchbacks or sedans.</p><ul className="mt-7 grid gap-3 md:grid-cols-2"><li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Ideal for 4 to 5 passengers with up to 4 large trolley suitcases when the 3rd row is folded.</li><li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">For 6 passengers, compact cabin bags provide the practical luggage arrangement.</li><li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Share bag sizes, children, elderly assistance and unusual items before confirmation.</li><li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Minimum 6 to 12 hours advance booking supports chauffeur allocation and vehicle preparation.</li></ul></div></section>
+        <section className="bg-slate-100 px-5 py-12 sm:py-16" aria-labelledby="fleet-heading">
+          <div className="page-shell">
+            <SectionHeading id="fleet-heading" eyebrow="EXCLUSIVE FLEET AND COMFORT">One Vehicle Category, Clearly Confirmed</SectionHeading>
+            <p className="mt-6 max-w-4xl leading-8 text-slate-700">
+              {SITE.specialisationSlogan} Lucky Travels operates dedicated chauffeur-driven 6+1 Maruti Suzuki Ertiga vehicles only. We do not operate cramped hatchbacks or sedans.
+            </p>
+            <ul className="mt-7 grid gap-3 md:grid-cols-2">
+              <li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Ideal for 4 to 5 passengers with up to 4 large trolley suitcases when the 3rd row is folded.</li>
+              <li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">For 6 passengers, compact cabin bags provide the practical luggage arrangement.</li>
+              <li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Share bag sizes, children, elderly assistance and unusual items before confirmation.</li>
+              <li className="rounded-xl border border-slate-200 bg-white p-4 leading-7 text-slate-700">Minimum 6 to 12 hours advance booking supports chauffeur allocation and vehicle preparation.</li>
+            </ul>
+          </div>
+        </section>
 
-        <section className="page-shell py-12 sm:py-16" aria-labelledby="quote-heading"><SectionHeading id="quote-heading" eyebrow="TRANSPARENT TRIP-SPECIFIC QUOTE">Book Your {corridor.pageName}</SectionHeading><div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(340px,.9fr)]"><div className="space-y-5 leading-8 text-slate-700"><p>Send the pickup address, travel date, departure time, journey type, passenger count, luggage and exact hotel, homestay or landmark destination. A one-way, return or multi-day transport plan can then be reviewed.</p><p>There are zero fixed prices on this page. The transparent quote is specific to the route and itinerary and explains applicable tollway fares, permits, parking, waiting, driver allowance and other trip terms before confirmation.</p><p>Book 6 to 12 hours ahead for chauffeur allocation and vehicle preparation. Longer notice is recommended for weekends, holidays, forest corridors and timed visits.</p></div><aside className="rounded-2xl bg-[#080d2b] p-6 text-white shadow-soft"><h3 className="text-xl font-black">Request a direct quote</h3><p className="mt-3 leading-7 text-white/75">Share the full destination and luggage plan for an accurate response.</p><div className="mt-6 grid gap-3"><a href={`tel:+91${SITE.phone}`} className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#080d2b]"><Phone size={18} /> Call +91 {SITE.phone}</a><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"><MessageCircle size={18} /> WhatsApp for a Quote</a><a href={emailUrl} className="rounded-xl border border-white/25 px-5 py-3.5 text-center font-black text-white">Email {SITE.email}</a></div></aside></div></section>
+        <section className="page-shell py-12 sm:py-16" aria-labelledby="quote-heading">
+          <SectionHeading id="quote-heading" eyebrow="TRANSPARENT TRIP-SPECIFIC QUOTE">Book Your {corridor.pageName}</SectionHeading>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(340px,.9fr)]">
+            <div className="space-y-5 leading-8 text-slate-700">
+              <p>Send the pickup address, travel date, departure time, journey type, passenger count, luggage and exact hotel, homestay or landmark destination. A one-way, return or multi-day transport plan can then be reviewed.</p>
+              <p>There are zero fixed prices on this page. The transparent quote is specific to the route and itinerary and explains applicable tollway fares, permits, parking, waiting, driver allowance and other trip terms before confirmation.</p>
+              <p>Book 6 to 12 hours ahead for chauffeur allocation and vehicle preparation. Longer notice is recommended for weekends, holidays, forest corridors and timed visits.</p>
+            </div>
+            <aside className="rounded-2xl bg-[#080d2b] p-6 text-white shadow-soft">
+              <h3 className="text-xl font-black">Request a direct quote</h3>
+              <p className="mt-3 leading-7 text-white/75">Share the full destination and luggage plan for an accurate response.</p>
+              <div className="mt-6 grid gap-3">
+                <a href={`tel:+91${SITE.phone}`} className="flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 font-black text-[#080d2b]"><Phone size={18} /> Call +91 {SITE.phone}</a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3.5 font-black text-white"><MessageCircle size={18} /> WhatsApp for a Quote</a>
+                <a href={emailUrl} className="rounded-xl border border-white/25 px-5 py-3.5 text-center font-black text-white">Email {SITE.email}</a>
+              </div>
+            </aside>
+          </div>
+        </section>
 
-        <section className="bg-white px-5 py-12 sm:py-16" aria-labelledby="faq-heading"><div className="page-shell"><SectionHeading id="faq-heading" eyebrow="OUTSTATION TRAVEL FAQ">Common Questions Before Booking</SectionHeading><div className="mt-8 grid gap-4 md:grid-cols-2">{corridor.faqs.map((faq) => <article key={faq.question} className="rounded-2xl border border-slate-200 p-6"><h3 className="text-lg font-black text-[#090f2f]">{faq.question}</h3><p className="mt-3 leading-7 text-slate-700">{faq.answer}</p></article>)}</div></div></section>
-        <PopularOutstationRoutes />
+        <section className="bg-white px-5 py-12 sm:py-16" aria-labelledby="faq-heading">
+          <div className="page-shell">
+            <SectionHeading id="faq-heading" eyebrow="OUTSTATION TRAVEL FAQ">Common Questions Before Booking</SectionHeading>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {corridor.faqs.map((faq) => (
+                <article key={faq.question} className="rounded-2xl border border-slate-200 p-6">
+                  <h3 className="text-lg font-black text-[#090f2f]">{faq.question}</h3>
+                  <p className="mt-3 leading-7 text-slate-700">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <PopularOutstationRoutes currentSlug={corridor.slug} />
       </main>
     </SiteShell>
   );
