@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Book an evening cab from Bangalore to Adiyogi Chikkaballapur. Complete route guide via NH 44, 7 PM Divya Darshanam light show timings, and 6+1 Ertiga family taxi fares with Lucky Travels.",
     date: "2026-09-14",
-    dateModified: "2026-09-14",
+    dateModified: "2026-09-25",
     image: "/images/gallery/adiyogi-chikkaballapura-sadhguru-sannidhi-ertiga-cab-drop.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
             type: "text",
             text: "—allowing parents, seniors, and children to travel together seamlessly. Below is your definitive travel guide covering highway routes, ideal schedules, temple protocols, and how to reserve our dedicated ",
           },
-          ...link("/services/outstation-packages", "6+1 Premium Ertiga outstation package"),
+          ...link("/outstation-cabs-bangalore", "6+1 Premium Ertiga outstation package"),
           { type: "text", text: "." },
         ],
       },
@@ -166,7 +166,7 @@ export const blogPosts: BlogPost[] = [
         alt: "Go Bengaluru white Maruti Suzuki Ertiga parked at Adiyogi Sadhguru Sannidhi Chikkaballapura",
         caption:
           "Doorstep-to-destination family day trip at Sadhguru Sannidhi, Adiyogi Chikkaballapura in our spotless 6+1 Premium Ertiga.",
-        href: "/services/outstation-packages",
+        href: "/outstation-cabs-bangalore",
       },
       {
         type: "h2",
@@ -213,15 +213,19 @@ export const blogPosts: BlogPost[] = [
             { type: "text", text: " for route navigation specifics." },
           ],
           [
-            ...boldUnderline("South Bengaluru Connectivity (NICE Road & Elevated Highway): "),
+            ...boldUnderline("South & East Bengaluru Connectivity (NICE Road & Elevated Highway): "),
             {
               type: "text",
-              text: "For guests originating in Electronic City, BTM Layout, Bannerghatta Road, or JP Nagar, taking the ",
+              text: "For guests originating in ",
             },
-            ...italic("NICE Road expressway or the Hosur Road Elevated Highway"),
+            ...link("/airport-taxi-electronic-city", "Electronic City"),
+            { type: "text", text: ", " },
+            ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur"),
+            { type: "text", text: ", or " },
+            ...link("/airport-taxi-hsr-layout", "HSR Layout"),
             {
               type: "text",
-              text: " connects into the airport corridor with minimal city surface gridlock.",
+              text: ", taking the NICE Road expressway or the Hosur Road Elevated Highway connects smoothly into the airport corridor with minimal city surface gridlock.",
             },
           ],
         ],
@@ -232,7 +236,7 @@ export const blogPosts: BlogPost[] = [
         alt: "Lucky Travels white Maruti Ertiga taxi travelling smoothly on NH-44 highway towards Chikkaballapura",
         caption:
           "Cruising smoothly along the 6-lane NH-44 expressway toward the scenic Nandi Hills mountain range.",
-        href: "/services/outstation-packages",
+        href: "/outstation-cabs-bangalore",
       },
       {
         type: "h2",
@@ -437,7 +441,7 @@ export const blogPosts: BlogPost[] = [
             "WhatsApp",
           ),
           { type: "text", text: ", or review our complete collection of " },
-          ...link("/services/outstation-packages", "outstation taxi packages across Karnataka"),
+          ...link("/outstation-cabs-bangalore", "outstation taxi packages across Karnataka"),
           { type: "text", text: "." },
         ],
       },
@@ -472,7 +476,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Book your Bengaluru airport cab with Go Bengaluru by Lucky Travels. Transparent pricing, spotless 6+1 Maruti Ertiga cabs, and zero surge shocks for BLR T1 & T2.",
     date: "2026-09-11",
-    dateModified: "2026-09-14",
+    dateModified: "2026-09-25",
     image: "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
@@ -598,15 +602,18 @@ export const blogPosts: BlogPost[] = [
             ...bold("We Come to You: "),
             {
               type: "text",
-              text: "Even if our operating base in Konena Agrahara (HAL) is 15–20 km away from your pickup point in Whitefield, Electronic City, Sarjapur, or HSR Layout, we come to your doorstep on time at no extra pickup charge. For travelers in East Bengaluru, check our specialized ",
+              text: "Even if our operating base in Konena Agrahara (HAL) is 15–20 km away from your pickup point in ",
             },
-            ...link(
-              "/airport-taxi-whitefield",
-              "Whitefield to Bangalore Airport taxi route",
-            ),
+            ...link("/airport-taxi-whitefield", "Whitefield"),
+            { type: "text", text: ", " },
+            ...link("/airport-taxi-electronic-city", "Electronic City"),
+            { type: "text", text: ", " },
+            ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur"),
+            { type: "text", text: ", or " },
+            ...link("/airport-taxi-hsr-layout", "HSR Layout"),
             {
               type: "text",
-              text: " for direct bypass timings.",
+              text: ", we come to your doorstep on time at no extra pickup charge. For route and timing details across tech corridors, review our dedicated airport guides.",
             },
           ],
           [
@@ -710,7 +717,7 @@ export const blogPosts: BlogPost[] = [
         alt: "Lucky Travels Go Bengaluru Ertiga cab travelling smoothly on Bengaluru highway for outstation and airport transfer",
         caption:
           "Punctual, smooth rides across Bengaluru highways and outstation routes.",
-        href: "/services/outstation-packages",
+        href: "/outstation-cabs-bangalore",
       },
       {
         type: "h2",
@@ -778,13 +785,16 @@ export const blogPosts: BlogPost[] = [
           ...link("/airport-taxi-bangalore", "Bangalore Airport taxi service"),
           {
             type: "text",
-            text: ", book our dedicated ",
+            text: ", or book your specific corridor: ",
           },
-          ...link("/airport-taxi-whitefield", "Whitefield airport cab"),
-          {
-            type: "text",
-            text: ", call ",
-          },
+          ...link("/airport-taxi-whitefield", "Whitefield"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-electronic-city", "Electronic City"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-sarjapur-road", "Sarjapur Road"),
+          { type: "text", text: ", or " },
+          ...link("/airport-taxi-hsr-layout", "HSR Layout"),
+          { type: "text", text: ". Call " },
           {
             type: "link",
             href: "tel:9886814344",
@@ -1132,7 +1142,7 @@ export const blogPosts: BlogPost[] = [
             "Corporate guest movement and planned meetings",
           ),
           link(
-            "/services/outstation-packages",
+            "/outstation-cabs-bangalore",
             "Outstation journeys from Bengaluru",
           ),
         ],
@@ -1319,7 +1329,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Plan a smooth Bengaluru airport cab pickup or drop. Learn what to share, where to meet, luggage tips and how to pre-book a Premium Ertiga.",
     date: "2026-08-22",
-    dateModified: "2026-09-14",
+    dateModified: "2026-09-25",
     image: "/images/services/airport.jpg",
     imageWidth: 1672,
     imageHeight: 941,
@@ -1361,7 +1371,23 @@ export const blogPosts: BlogPost[] = [
           ),
           {
             type: "text",
-            text: " via the Budigere Cross bypass road. Bengaluru traffic also changes throughout the day, so a little planning can make a meaningful difference.",
+            text: ", ",
+          },
+          ...link(
+            "/airport-taxi-electronic-city",
+            "Electronic City airport transfers",
+          ),
+          {
+            type: "text",
+            text: ", and ",
+          },
+          ...link(
+            "/airport-taxi-sarjapur-road",
+            "Sarjapur Road / Bellandur airport cabs",
+          ),
+          {
+            type: "text",
+            text: ". Bengaluru traffic also changes throughout the day, so a little planning can make a meaningful difference.",
           },
         ],
       },
@@ -1719,7 +1745,7 @@ export const blogPosts: BlogPost[] = [
             text: " may be more suitable than arranging several separate journeys. For travel beyond the city, review the ",
           },
           ...link(
-            "/services/outstation-packages",
+            "/outstation-cabs-bangalore",
             "outstation Ertiga taxi options from Bengaluru",
           ),
           { type: "text", text: "." },

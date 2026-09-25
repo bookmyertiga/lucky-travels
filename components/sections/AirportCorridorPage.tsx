@@ -27,6 +27,7 @@ const activeAirportRoutes = [
   { href: "/airport-taxi-whitefield", label: "Whitefield to Airport Cab", tag: "ITPL & Kadugodi" },
   { href: "/airport-taxi-electronic-city", label: "Electronic City to Airport Cab", tag: "Phase 1 & 2 via Tollway" },
   { href: "/airport-taxi-sarjapur-road", label: "Sarjapur Road to Airport Cab", tag: "Bellandur & Carmelaram" },
+  { href: "/airport-taxi-hsr-layout", label: "HSR Layout to Airport Cab", tag: "Sectors 1-7 & Agara" },
 ] as const;
 
 export function PopularAirportCorridors({ currentSlug }: { currentSlug?: string }) {
@@ -40,7 +41,7 @@ export function PopularAirportCorridors({ currentSlug }: { currentSlug?: string 
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
           Compare realistic route timings, toll ways, luggage suitability and pre-scheduled early morning booking details across key tech hubs.
         </p>
-        <nav aria-label="Popular Bangalore airport taxi corridors" className="mt-6 grid gap-4 sm:grid-cols-3">
+        <nav aria-label="Popular Bangalore airport taxi corridors" className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {activeAirportRoutes.map((route) => {
             const isCurrent = currentSlug === route.href.replace("/", "");
             return (
@@ -273,7 +274,7 @@ Passengers and luggage:`)}`;
           </div>
         </section>
 
-        {/* Popular Corridors Cross-Links */}
+        {/* Popular Corridors Cross-Links (4-card balanced grid) */}
         <PopularAirportCorridors currentSlug={corridor.slug} />
 
         {/* Global Hub Interlinks */}
