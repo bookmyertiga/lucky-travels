@@ -169,6 +169,34 @@ export const blogPosts: BlogPost[] = [
         href: "/outstation-cabs-bangalore",
       },
       {
+        type: "blockquote",
+        content: [
+          ...bold("⚡ Planning Tonight or This Weekend's Laser Show? "),
+          {
+            type: "text",
+            text: "Reserve your dedicated 6+1 Ertiga with confirmed on-site waiting throughout the 7:00 PM Divya Darshanam show. Direct WhatsApp booking: ",
+          },
+          ...link(
+            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20want%20to%20book%20an%20Ertiga%20for%20the%20Adiyogi%20Laser%20Show.%0ADate%3A%0APickup%20Area%3A%0APassengers%3A",
+            "Click here to check date availability on WhatsApp",
+          ),
+          {
+            type: "text",
+            text: " or call ",
+          },
+          {
+            type: "link",
+            href: "tel:9886814344",
+            text: "+91 98868 14344",
+            children: text("+91 98868 14344"),
+          },
+          {
+            type: "text",
+            text: ".",
+          },
+        ],
+      },
+      {
         type: "h2",
         content: text("1. Distance, Highway Routes & Real-Time Driving Estimates"),
       },
@@ -1247,14 +1275,13 @@ export const blogPosts: BlogPost[] = [
             text: "9886814344",
             children: text("9886814344"),
           },
+          { type: "text", text: ", send the completed trip details through " },
           {
-            type: "text",
-            text: ", send the complete journey details through ",
+            type: "link",
+            href: "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Premium%20Ertiga.%20Please%20check%20availability.",
+            text: "WhatsApp",
+            children: text("WhatsApp"),
           },
-          ...link(
-            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Premium%20Ertiga.%20Please%20check%20availability.",
-            "WhatsApp",
-          ),
           { type: "text", text: ", or email " },
           ...link("mailto:bookmyertiga@gmail.com", "bookmyertiga@gmail.com"),
           {
