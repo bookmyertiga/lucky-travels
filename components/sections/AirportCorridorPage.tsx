@@ -15,6 +15,7 @@ import {
   Compass,
   ArrowLeft,
   Plane,
+  AlertCircle,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
@@ -30,7 +31,6 @@ export type AirportCorridor = {
   intro: string;
   heroCaption?: string;
   heroImage?: string;
-  // Support both unified distanceTime and split distance/nonPeak/peak
   distanceTime?: string;
   distance?: string;
   nonPeak?: string;
@@ -150,7 +150,6 @@ Passengers & Luggage count:`
   const heroImg = corridor.heroImage || "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg";
   const heroCaption = corridor.heroCaption || `Airport pickup and drop service for ${corridor.suburb}`;
   
-  // Format distance & time seamlessly regardless of prop structure
   const displayDistanceTime = corridor.distanceTime || 
     (corridor.distance ? `${corridor.distance} | Non-peak: ${corridor.nonPeak || "60-80m"}, Peak: ${corridor.peak || "90-120m"}` : "45-55 km | 60-90 mins");
 
@@ -211,8 +210,6 @@ Passengers & Luggage count:`
 
       <main className="min-h-screen bg-[#fafaf9] py-8 sm:py-12">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
-          
-          {/* BREADCRUMB NAVIGATION */}
           <div className="mb-6">
             <Link
               href="/airport-taxi-bangalore"
@@ -222,7 +219,6 @@ Passengers & Luggage count:`
             </Link>
           </div>
 
-          {/* TRIPLE CAPSULE BADGES */}
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-sky-800">
               <Calendar size={13} className="text-sky-700" /> UPDATED 2026-09-25
@@ -235,17 +231,14 @@ Passengers & Luggage count:`
             </span>
           </div>
 
-          {/* MAIN ARTICLE HEADLINE */}
           <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
             {corridor.title}
           </h1>
 
-          {/* INTRO */}
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 text-justify">
             {corridor.intro}
           </p>
 
-          {/* HERO IMAGE SHOWCASE WITH ZOOM-ON-HOVER */}
           <figure className="group my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
               <Image
@@ -263,7 +256,6 @@ Passengers & Luggage count:`
             </figcaption>
           </figure>
 
-          {/* QUICK METRICS GRID */}
           <section className="my-8">
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -292,7 +284,6 @@ Passengers & Luggage count:`
             </div>
           </section>
 
-          {/* SECTION: ROUTE INSIGHTS & ROAD QUALITY */}
           {corridor.routeDetails && (
             <section className="mt-10">
               <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
@@ -304,7 +295,6 @@ Passengers & Luggage count:`
             </section>
           )}
 
-          {/* CALLOUT BOX: FLIGHT BUFFER TIMING */}
           {corridor.earlyMorningGuidance && (
             <div className="my-8 rounded-2xl border-l-4 border-amber-500 bg-amber-50/70 p-6 text-slate-800 shadow-sm">
               <div className="flex items-center gap-2 text-amber-900 font-bold">
@@ -317,7 +307,6 @@ Passengers & Luggage count:`
             </div>
           )}
 
-          {/* SECTION: TERMINAL 1 & TERMINAL 2 PICKUP/DROP GUIDELINES */}
           {corridor.pickupDropNotes && (
             <section className="mt-10">
               <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
@@ -332,7 +321,6 @@ Passengers & Luggage count:`
             </section>
           )}
 
-          {/* HIGH-CONVERSION MID-POST CTA CARD */}
           <section className="my-12 rounded-3xl bg-[#080d2b] p-7 sm:p-10 text-white shadow-xl">
             <span className="text-xs font-black uppercase tracking-[.18em] text-amber-400">
               PUNCTUAL OWNER-OPERATED AIRPORT TRANSFERS
@@ -366,12 +354,8 @@ Passengers & Luggage count:`
                 Email Booking Details
               </a>
             </div>
-            <p className="mt-3 text-xs text-white/60">
-              *Early morning pickups (1:00 AM – 5:00 AM) confirmed with guaranteed vehicle dispatch.
-            </p>
           </section>
 
-          {/* SECTION: FLEET & LUGGAGE GUIDANCE */}
           <section className="mt-12">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
               6+1 Maruti Suzuki Ertiga: Airport Luggage &amp; Passenger Capacity
@@ -423,7 +407,6 @@ Passengers & Luggage count:`
             </div>
           </section>
 
-          {/* SECTION: FREQUENTLY ASKED QUESTIONS */}
           <section className="mt-12 border-t border-slate-200 pt-10">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight flex items-center gap-2">
               <HelpCircle className="text-purple-700" /> Frequently Asked Questions
@@ -440,7 +423,6 @@ Passengers & Luggage count:`
           </section>
         </article>
 
-        {/* BOTTOM CROSS-LINKING NAVIGATION FOR AIRPORT ROUTES */}
         <PopularAirportCorridors currentSlug={corridor.slug} />
       </main>
     </SiteShell>
