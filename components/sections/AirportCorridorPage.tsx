@@ -23,7 +23,7 @@ import { SITE } from "@/constants/site";
 
 export type AirportCorridor = {
   slug: string;
-  suburb: string;
+  suburb?: string;
   pageName: string;
   title: string;
   description: string;
@@ -35,13 +35,16 @@ export type AirportCorridor = {
   distance?: string;
   nonPeak?: string;
   peak?: string;
-  route: string;
+  route?: string;
   tollNote?: string;
   routeDetails?: string;
   pickupDropNotes?: string;
   earlyMorningGuidance?: string;
   emailSubject?: string;
+  areas?: string;
+  terminalGuide?: string;
   faqs: { question: string; answer: string }[];
+  [key: string]: any;
 };
 
 export const airportRoutes = [
@@ -135,9 +138,10 @@ export function PopularAirportCorridors({ currentSlug }: { currentSlug?: string 
 }
 
 export default function AirportCorridorPage({ corridor }: { corridor: AirportCorridor }) {
+  const suburbName = corridor.suburb || corridor.pageName.replace(" to Bangalore Airport Taxi", "").replace(" Airport Taxi", "");
   const routeUrl = `${SITE.url}/${corridor.slug}`;
   const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-    `Hello Lucky Travels, I need a Kempegowda Airport Taxi pickup/drop for ${corridor.suburb}.
+    `Hello Lucky Travels, I need a Kempegowda Airport Taxi pickup/drop for ${suburbName}.
 Flight Date:
 Pickup Location:
 Pickup Time / Flight Departure Time:
@@ -145,13 +149,16 @@ Terminal (T1 or T2):
 Passengers & Luggage count:`
   )}`;
   const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(
-    corridor.emailSubject || `Airport Taxi Booking - ${corridor.suburb}`
+    corridor.emailSubject || `Airport Taxi Booking - ${suburbName}`
   )}`;
   const heroImg = corridor.heroImage || "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg";
-  const heroCaption = corridor.heroCaption || `Airport pickup and drop service for ${corridor.suburb}`;
-  
-  const displayDistanceTime = corridor.distanceTime || 
-    (corridor.distance ? `${corridor.distance} | Non-peak: ${corridor.nonPeak || "60-80m"}, Peak: ${corridor.peak || "90-120m"}` : "45-55 km | 60-90 mins");
+  const heroCaption = corridor.heroCaption || `Airport pickup and drop service for ${suburbName}`;
+
+  const displayDistanceTime =
+    corridor.distanceTime ||
+    (corridor.distance
+      ? `${corridor.distance} | Non-peak: ${corridor.nonPeak || "60-80m"}, Peak: ${corridor.peak || "90-120m"}`
+      : "45-55 km | 60-90 mins");
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -166,7 +173,7 @@ Passengers & Luggage count:`
       telephone: `+91${SITE.phone}`,
       email: SITE.email,
     },
-    areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: corridor.suburb }],
+    areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: suburbName }],
     url: routeUrl,
     image: `${SITE.url}${heroImg}`,
     logo: `${SITE.url}/images/logo/favicon.png`,
@@ -210,6 +217,7 @@ Passengers & Luggage count:`
 
       <main className="min-h-screen bg-[#fafaf9] py-8 sm:py-12">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
+          {/* BREADCRUMB NAVIGATION */}
           <div className="mb-6">
             <Link
               href="/airport-taxi-bangalore"
@@ -219,6 +227,7 @@ Passengers & Luggage count:`
             </Link>
           </div>
 
+          {/* TRIPLE CAPSULE BADGES */}
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-sky-800">
               <Calendar size={13} className="text-sky-700" /> UPDATED 2026-09-25
@@ -231,14 +240,17 @@ Passengers & Luggage count:`
             </span>
           </div>
 
+          {/* MAIN ARTICLE HEADLINE */}
           <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
             {corridor.title}
           </h1>
 
+          {/* INTRO */}
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 text-justify">
             {corridor.intro}
           </p>
 
+          {/* HERO IMAGE SHOWCASE WITH ZOOM-ON-HOVER */}
           <figure className="group my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
               <Image
@@ -256,6 +268,7 @@ Passengers & Luggage count:`
             </figcaption>
           </figure>
 
+          {/* QUICK METRICS GRID */}
           <section className="my-8">
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -270,20 +283,19 @@ Passengers & Luggage count:`
                 <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
                   <MapPin size={15} /> Primary Route
                 </span>
-                <p className="mt-2 text-base sm:text-lg font-black text-slate-900">{corridor.route}</p>
+                <p className="mt-2 text-base sm:text-lg font-black text-slate-900">{corridor.route || "Expressway via Bellary Road (NH-44)"}</p>
                 <p className="mt-1 text-xs text-slate-500">{corridor.tollNote || "Toll plaza fastag enabled"}</p>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
-                  <ShieldCheck size={15} /> Guaranteed Vehicle
-                </span>
+                <ShieldCheck size={15} /> Guaranteed Vehicle
                 <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">6+1 Premium Ertiga</p>
                 <p className="mt-1 text-xs text-slate-500">Commercial yellow plate • Spotless AC</p>
               </div>
             </div>
           </section>
 
+          {/* SECTION: ROUTE INSIGHTS & ROAD QUALITY */}
           {corridor.routeDetails && (
             <section className="mt-10">
               <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
@@ -295,11 +307,12 @@ Passengers & Luggage count:`
             </section>
           )}
 
+          {/* CALLOUT BOX: FLIGHT BUFFER TIMING */}
           {corridor.earlyMorningGuidance && (
             <div className="my-8 rounded-2xl border-l-4 border-amber-500 bg-amber-50/70 p-6 text-slate-800 shadow-sm">
               <div className="flex items-center gap-2 text-amber-900 font-bold">
                 <AlertCircle size={20} className="text-amber-600" />
-                <span>Chauffeur Departure Guidance for {corridor.suburb}</span>
+                <span>Chauffeur Departure Guidance for {suburbName}</span>
               </div>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-amber-950 text-justify">
                 {corridor.earlyMorningGuidance}
@@ -307,6 +320,7 @@ Passengers & Luggage count:`
             </div>
           )}
 
+          {/* SECTION: TERMINAL 1 & TERMINAL 2 PICKUP/DROP GUIDELINES */}
           {corridor.pickupDropNotes && (
             <section className="mt-10">
               <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
@@ -316,20 +330,41 @@ Passengers & Luggage count:`
                 {corridor.pickupDropNotes}
               </p>
               <p className="mt-3 text-slate-700 leading-8 text-justify">
-                Planning to head directly out of town after landing? You can book our direct <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">outstation cab service</Link>, including the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati package</Link>, the scenic <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg tour</Link>, or the evening light show trip to <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="font-bold text-purple-700 underline">Adiyogi Chikkaballapura</Link>.
+                Planning to head directly out of town after landing? You can book our direct{" "}
+                <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">
+                  outstation cab service
+                </Link>
+                , including the sacred{" "}
+                <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">
+                  Bangalore to Tirupati package
+                </Link>
+                , the scenic{" "}
+                <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">
+                  Bangalore to Coorg tour
+                </Link>
+                , or the evening light show trip to{" "}
+                <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="font-bold text-purple-700 underline">
+                  Adiyogi Chikkaballapura
+                </Link>
+                .
               </p>
             </section>
           )}
 
+          {/* HIGH-CONVERSION MID-POST CTA CARD */}
           <section className="my-12 rounded-3xl bg-[#080d2b] p-7 sm:p-10 text-white shadow-xl">
             <span className="text-xs font-black uppercase tracking-[.18em] text-amber-400">
               PUNCTUAL OWNER-OPERATED AIRPORT TRANSFERS
             </span>
             <h2 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight">
-              Reserve Your {corridor.suburb} to Airport Cab
+              Reserve Your {suburbName} to Airport Cab
             </h2>
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-white/80 text-justify">
-              Skip app cancellations and surge pricing. Chauffeur Bharath K S arrives at your gate 15 minutes before your scheduled pickup with a clean, fully fueled 6+1 Maruti Suzuki Ertiga. Need local errands or corporate hourly travel? Review our <Link href="/car-rental-bangalore" className="font-bold text-amber-300 underline">hourly car rental packages in Bangalore</Link>.
+              Skip app cancellations and surge pricing. Chauffeur Bharath K S arrives at your gate 15 minutes before your scheduled pickup with a clean, fully fueled 6+1 Maruti Suzuki Ertiga. Need local errands or corporate hourly travel? Review our{" "}
+              <Link href="/car-rental-bangalore" className="font-bold text-amber-300 underline">
+                hourly car rental packages in Bangalore
+              </Link>
+              .
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -356,6 +391,7 @@ Passengers & Luggage count:`
             </div>
           </section>
 
+          {/* SECTION: FLEET & LUGGAGE GUIDANCE */}
           <section className="mt-12">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
               6+1 Maruti Suzuki Ertiga: Airport Luggage &amp; Passenger Capacity
@@ -407,6 +443,7 @@ Passengers & Luggage count:`
             </div>
           </section>
 
+          {/* SECTION: FREQUENTLY ASKED QUESTIONS */}
           <section className="mt-12 border-t border-slate-200 pt-10">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight flex items-center gap-2">
               <HelpCircle className="text-purple-700" /> Frequently Asked Questions
