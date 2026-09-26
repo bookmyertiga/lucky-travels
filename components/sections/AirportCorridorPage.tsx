@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   Phone,
   MessageCircle,
-  Clock,
   MapPin,
   ShieldCheck,
   CheckCircle2,
@@ -27,17 +26,21 @@ export type AirportCorridor = {
   pageName: string;
   title: string;
   description: string;
-  eyebrow: string;
+  eyebrow?: string;
   intro: string;
-  heroCaption: string;
+  heroCaption?: string;
   heroImage?: string;
-  distanceTime: string;
+  // Support both unified distanceTime and split distance/nonPeak/peak
+  distanceTime?: string;
+  distance?: string;
+  nonPeak?: string;
+  peak?: string;
   route: string;
-  tollNote: string;
-  routeDetails: string;
-  pickupDropNotes: string;
-  earlyMorningGuidance: string;
-  emailSubject: string;
+  tollNote?: string;
+  routeDetails?: string;
+  pickupDropNotes?: string;
+  earlyMorningGuidance?: string;
+  emailSubject?: string;
   faqs: { question: string; answer: string }[];
 };
 
@@ -141,8 +144,15 @@ Pickup Time / Flight Departure Time:
 Terminal (T1 or T2):
 Passengers & Luggage count:`
   )}`;
-  const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(corridor.emailSubject)}`;
-  const heroImg = corridor.heroImage || "/images/services/airport-transfer.jpg";
+  const emailUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(
+    corridor.emailSubject || `Airport Taxi Booking - ${corridor.suburb}`
+  )}`;
+  const heroImg = corridor.heroImage || "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg";
+  const heroCaption = corridor.heroCaption || `Airport pickup and drop service for ${corridor.suburb}`;
+  
+  // Format distance & time seamlessly regardless of prop structure
+  const displayDistanceTime = corridor.distanceTime || 
+    (corridor.distance ? `${corridor.distance} | Non-peak: ${corridor.nonPeak || "60-80m"}, Peak: ${corridor.peak || "90-120m"}` : "45-55 km | 60-90 mins");
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -230,7 +240,7 @@ Passengers & Luggage count:`
             {corridor.title}
           </h1>
 
-          {/* INTRO WITH ORGANIC KEYWORD TARGETING */}
+          {/* INTRO */}
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 text-justify">
             {corridor.intro}
           </p>
@@ -240,7 +250,7 @@ Passengers & Luggage count:`
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
               <Image
                 src={heroImg}
-                alt={corridor.heroCaption}
+                alt={heroCaption}
                 fill
                 priority
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
@@ -248,7 +258,7 @@ Passengers & Luggage count:`
               />
             </div>
             <figcaption className="p-4 text-xs sm:text-sm leading-relaxed text-slate-600 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-1">
-              <span><strong>Airport Terminal Transfer:</strong> {corridor.heroCaption}</span>
+              <span><strong>Airport Terminal Transfer:</strong> {heroCaption}</span>
               <span className="text-sky-700 font-semibold shrink-0">Commercially Certified 6+1 White Ertiga Fleet</span>
             </figcaption>
           </figure>
@@ -260,7 +270,7 @@ Passengers & Luggage count:`
                 <span className="flex items-center gap-1.5 text-xs font-black uppercase text-purple-700 tracking-wider">
                   <Compass size={15} /> Driving Distance &amp; Time
                 </span>
-                <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">{corridor.distanceTime}</p>
+                <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">{displayDistanceTime}</p>
                 <p className="mt-1 text-xs text-slate-500">Doorstep pickup to BLR T1 / T2</p>
               </div>
 
@@ -269,7 +279,7 @@ Passengers & Luggage count:`
                   <MapPin size={15} /> Primary Route
                 </span>
                 <p className="mt-2 text-base sm:text-lg font-black text-slate-900">{corridor.route}</p>
-                <p className="mt-1 text-xs text-slate-500">{corridor.tollNote}</p>
+                <p className="mt-1 text-xs text-slate-500">{corridor.tollNote || "Toll plaza fastag enabled"}</p>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -283,15 +293,19 @@ Passengers & Luggage count:`
           </section>
 
           {/* SECTION: ROUTE INSIGHTS & ROAD QUALITY */}
-          <section className="mt-10">
-            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
-              Route Quality &amp; Expressway Traffic Insights
-            </h2>
-            <p className="mt-4 text-slate-700 leading-8 text-justify">
-              {corridor.routeDetails}
-            </p>
+          {corridor.routeDetails && (
+            <section className="mt-10">
+              <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
+                Route Quality &amp; Expressway Traffic Insights
+              </h2>
+              <p className="mt-4 text-slate-700 leading-8 text-justify">
+                {corridor.routeDetails}
+              </p>
+            </section>
+          )}
 
-            {/* CALLOUT BOX: FLIGHT BUFFER TIMING */}
+          {/* CALLOUT BOX: FLIGHT BUFFER TIMING */}
+          {corridor.earlyMorningGuidance && (
             <div className="my-8 rounded-2xl border-l-4 border-amber-500 bg-amber-50/70 p-6 text-slate-800 shadow-sm">
               <div className="flex items-center gap-2 text-amber-900 font-bold">
                 <AlertCircle size={20} className="text-amber-600" />
@@ -301,20 +315,22 @@ Passengers & Luggage count:`
                 {corridor.earlyMorningGuidance}
               </p>
             </div>
-          </section>
+          )}
 
           {/* SECTION: TERMINAL 1 & TERMINAL 2 PICKUP/DROP GUIDELINES */}
-          <section className="mt-10">
-            <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
-              Kempegowda International Airport (T1 &amp; T2) Pickup &amp; Drop Rules
-            </h2>
-            <p className="mt-4 text-slate-700 leading-8 text-justify">
-              {corridor.pickupDropNotes}
-            </p>
-            <p className="mt-3 text-slate-700 leading-8 text-justify">
-              Planning to head directly out of town after landing? You can book our direct <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">outstation cab service</Link>, including the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati package</Link>[cite: 1], the scenic <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg tour</Link>, or the evening light show trip to <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="font-bold text-purple-700 underline">Adiyogi Chikkaballapura</Link>.
-            </p>
-          </section>
+          {corridor.pickupDropNotes && (
+            <section className="mt-10">
+              <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
+                Kempegowda International Airport (T1 &amp; T2) Pickup &amp; Drop Rules
+              </h2>
+              <p className="mt-4 text-slate-700 leading-8 text-justify">
+                {corridor.pickupDropNotes}
+              </p>
+              <p className="mt-3 text-slate-700 leading-8 text-justify">
+                Planning to head directly out of town after landing? You can book our direct <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">outstation cab service</Link>, including the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati package</Link>, the scenic <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg tour</Link>, or the evening light show trip to <Link href="/blog/bangalore-to-adiyogi-chikkaballapur-cab-route-timings-ertiga-guide" className="font-bold text-purple-700 underline">Adiyogi Chikkaballapura</Link>.
+              </p>
+            </section>
+          )}
 
           {/* HIGH-CONVERSION MID-POST CTA CARD */}
           <section className="my-12 rounded-3xl bg-[#080d2b] p-7 sm:p-10 text-white shadow-xl">
