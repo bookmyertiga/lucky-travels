@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import JsonLd from "@/components/seo/JsonLd";
 import ConversionTracking from "@/components/shared/ConversionTracking";
 import { SITE } from "@/constants/site";
@@ -29,9 +29,6 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
-  verification: {
-    google: "FrACdrT19WDCqP1P-X0u74hH5Xf-Yv2H8L5x_EXAMPLE", // Ensure this matches your full Search Console verification code string
-  },
 };
 
 export const viewport: Viewport = {
@@ -81,11 +78,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en-IN">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-949QT2V3KW"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-949QT2V3KW');
+          `}
+        </Script>
+      </head>
       <body>
         <JsonLd data={businessSchema} />
         <ConversionTracking />
         {children}
-        <GoogleAnalytics gaId="G-949QT2V3KW" />
       </body>
     </html>
   );
