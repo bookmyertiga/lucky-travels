@@ -4,6 +4,7 @@ import { blogPosts } from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-09-03T00:00:00+05:30");
+  const seasonalModified = new Date("2026-09-27T00:00:00+05:30");
 
   return [
     { url: SITE.url, lastModified, changeFrequency: "weekly", priority: 1 },
@@ -13,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/services/rental-packages`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE.url}/services/outstation-packages`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE.url}/outstation-cabs-bangalore`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    {
+      url: `${SITE.url}/bangalore-to-srirangapatna-pitru-paksha-cab`,
+      lastModified: seasonalModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     ...[
       "airport-taxi-whitefield",
       "airport-taxi-electronic-city",
