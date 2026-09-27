@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "FrACdrT19WDCqP1PLMsrygetsfy0yrgsOj6pTx94AcQ",
+  },
 };
 
 export const viewport: Viewport = {
