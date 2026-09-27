@@ -17,6 +17,7 @@ import {
   Calendar,
   User,
   Sparkles,
+  Flame,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
@@ -195,7 +196,7 @@ Passengers & Luggage Count:`
               The driving distance from central Bengaluru to the heart of Mysore is approximately <strong>145 kilometers</strong>, with the dedicated highway section covered in just <strong>2 to 2.5 hours</strong> via the access-controlled <strong>NH-275 Expressway</strong>. Exiting Bengaluru via Kengeri or NICE Road, the expressway bypasses earlier congestion hotspots like Bidadi, Ramanagara, Channapatna, Maddur, and Mandya. With smooth asphalt, clearly marked grade separators, and strict lane discipline, the corridor provides an exceptionally relaxed highway cruise.
             </p>
             <p className="mt-3 text-slate-700 leading-8 text-justify">
-              Arriving in Bengaluru from outside the state? Book our direct <Link href="/airport-taxi-bangalore" className="font-bold text-purple-700 underline">Kempegowda International Airport taxi pickup</Link> to connect directly onto the expressway. Looking to extend your journey into Karnataka&apos;s mountain corridors? Explore our <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg coffee estate tour</Link>, the wildlife safari route on our <Link href="/bangalore-to-ooty-cab" className="font-bold text-purple-700 underline">Bangalore to Ooty cab package</Link>, or the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati Balaji darshan cab</Link>[cite: 1].
+              Arriving in Bengaluru from outside the state? Book our direct <Link href="/airport-taxi-bangalore" className="font-bold text-purple-700 underline">Kempegowda International Airport taxi pickup</Link> to connect directly onto the expressway. Looking to extend your journey into Karnataka&apos;s mountain corridors? Explore our <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">Bangalore to Coorg coffee estate tour</Link>, the wildlife safari route on our <Link href="/bangalore-to-ooty-cab" className="font-bold text-purple-700 underline">Bangalore to Ooty cab package</Link>, or the sacred <Link href="/bangalore-to-tirupati-cab" className="font-bold text-purple-700 underline">Bangalore to Tirupati Balaji darshan cab</Link>.
             </p>
 
             {/* QUICK STATS METRICS GRID */}
@@ -278,7 +279,7 @@ Passengers & Luggage Count:`
                 <div>
                   <h3 className="font-black text-slate-900 text-lg">Srirangapatna Heritage Detour</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Visit the historic Sri Ranganathaswamy Temple on the Cauvery river island, followed by a quick stop at Tipu Sultan&apos;s Summer Palace (Daria Daulat Bagh).
+                    Visit the historic Sri Ranganathaswamy Temple on the Cauvery river island, followed by a quick stop at Tipu Sultan&apos;s Summer Palace (Daria Daulat Bagh). Travelling during Mahalaya Paksha? Check our dedicated <Link href="/bangalore-to-srirangapatna-pitru-paksha-cab" className="font-bold text-purple-700 underline">Pitru Paksha &amp; Paschima Vahini Tarpana Cab Package</Link> with 4:30 AM early pickups.
                   </p>
                 </div>
               </div>
@@ -348,6 +349,28 @@ Passengers & Luggage Count:`
               <strong>Royal Heritage Circuit:</strong> Our dedicated 6+1 Ertiga cab stationed near the majestic Mysore Palace during a family day tour.
             </figcaption>
           </figure>
+
+          {/* SEASONAL SPECIAL PILGRIMAGE CALLOUT */}
+          <section className="my-10 rounded-2xl border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-200/80 px-2.5 py-0.5 text-xs font-black uppercase tracking-wider text-amber-900">
+                <Flame size={12} className="text-amber-800" /> Seasonal Pilgrimage Special
+              </span>
+            </div>
+            <h3 className="mt-3 text-lg font-black text-slate-900">
+              Planning Srirangapatna Ancestral Rites &amp; Pinda Daana?
+            </h3>
+            <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-700 text-justify">
+              Visiting the Cauvery ghats for Mahalaya Amavasya or Pitru Paksha? Book our specialized{" "}
+              <Link
+                href="/bangalore-to-srirangapatna-pitru-paksha-cab"
+                className="font-bold text-purple-700 underline hover:text-purple-900"
+              >
+                Bangalore to Srirangapatna Pitru Paksha Cab Package
+              </Link>
+              . Includes guaranteed 4:30 AM early morning pickup, dedicated driver standby at Paschima Vahini and Triveni Sangama ghats, secure luggage handling with our CNG boot setup, and optional temple visits to Sri Ranganathaswamy and Nimishamba before returning.
+            </p>
+          </section>
 
           {/* SECTION: HIGHWAY FOOD STOPS */}
           <section className="mt-12">

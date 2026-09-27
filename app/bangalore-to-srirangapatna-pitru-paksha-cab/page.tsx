@@ -17,6 +17,7 @@ import {
   Flame,
   BookOpen,
   Info,
+  MapPin,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
@@ -151,6 +152,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
 
       <main className="min-h-screen bg-[#fafaf9] py-8 sm:py-12">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
+          {/* Breadcrumb Navigation */}
           <div className="mb-6">
             <Link
               href="/outstation-cabs-bangalore"
@@ -160,9 +162,10 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
             </Link>
           </div>
 
+          {/* Header Badges */}
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-amber-900 border border-amber-200">
-              <Flame size={13} className="text-amber-700" /> PITRU PAKSHA &amp; PINDA DAANA GUIDE
+              <Flame size={13} className="text-amber-700" /> <strong>PITRU PAKSHA &amp; PINDA DAANA GUIDE</strong>
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-sky-800">
               <Calendar size={13} className="text-sky-700" /> SEASONAL PILGRIMAGE 2026
@@ -177,9 +180,14 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
           </h1>
 
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 text-justify">
-            Pitru Paksha (Mahalaya Paksha) is the sacred 16-day lunar period dedicated to expressing gratitude to departed ancestors through *Tila Tarpana*, *Pinda Daana*, and *Sraddha*. For families residing in Bengaluru, travelling to a sacred riverbank where holy waters flow toward the setting sun is considered vital for ancestral peace (*Pitri Trupti*). Explore the most revered ritual spots en-route to Mysore, spiritual guidelines, and book a dedicated, stress-free same-day 6+1 Maruti Suzuki Ertiga cab with doorstep pickup.
+            <strong>Pitru Paksha (Mahalaya Paksha)</strong> is the sacred 16-day lunar period dedicated to honoring departed ancestors through <em>Tila Tarpana</em>, <em>Pinda Daana</em>, and <em>Sraddha</em>. For families residing in Bengaluru, travelling to a sacred riverbank where holy waters flow toward the setting sun is considered vital for ancestral peace (<em>Pitri Trupti</em>). Explore the most revered ritual spots along the{" "}
+            <Link href="/bangalore-to-mysore-cab" className="font-bold text-purple-700 underline">
+              Bangalore to Mysore highway corridor
+            </Link>
+            , learn essential ritual guidelines, and book a dedicated <strong>same-day 6+1 Maruti Suzuki Ertiga cab</strong> with guaranteed early-morning doorstep pickup.
           </p>
 
+          {/* Hero Image Showcase */}
           <figure className="group my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
               <Image
@@ -192,11 +200,12 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
               />
             </div>
             <figcaption className="p-4 text-xs sm:text-sm leading-relaxed text-slate-600 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-1">
-              <span><strong>Sacred Rites:</strong> Ancestral Tila Tarpana at Paschima Vahini, Cauvery River</span>
-              <span className="text-sky-700 font-semibold shrink-0">Dakshina Gaya Pilgrimage</span>
+              <span><strong>Sacred Rites:</strong> Ancestral <em>Tila Tarpana</em> at <strong>Paschima Vahini</strong>, Cauvery River</span>
+              <span className="text-sky-700 font-semibold shrink-0"><strong>Dakshina Gaya Pilgrimage</strong></span>
             </figcaption>
           </figure>
 
+          {/* Quick Metrics */}
           <section className="my-8">
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -204,7 +213,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                   <Compass size={15} /> Travel Distance &amp; Time
                 </span>
                 <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">125 km | 2.5 Hrs</p>
-                <p className="mt-1 text-xs text-slate-500">Via 10-Lane Bengaluru–Mysuru Expressway</p>
+                <p className="mt-1 text-xs text-slate-500">Via <strong>10-Lane Bengaluru–Mysuru Expressway (NH-275)</strong></p>
               </div>
 
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -220,50 +229,52 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                   <ShieldCheck size={15} /> Dedicated Vehicle
                 </span>
                 <p className="mt-2 text-xl sm:text-2xl font-black text-slate-900">6+1 AC Ertiga</p>
-                <p className="mt-1 text-xs text-slate-500">KA03AP8285 • Commercial yellow plate</p>
+                <p className="mt-1 text-xs text-slate-500"><strong>KA03AP8285</strong> • Commercial yellow plate</p>
               </div>
             </div>
           </section>
 
+          {/* INFORMATIONAL GUIDE SECTION: SACRED PLACES EN-ROUTE */}
           <section className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
               <BookOpen className="text-purple-700" /> Sacred Places for Pinda Daana En-Route to Mysore
             </h2>
             <p className="mt-3 text-slate-700 leading-relaxed text-justify">
-              When planning ancestral rites from Bangalore, families have several revered riverbank destinations. Here is how the primary Cauvery river shrines compare:
+              When planning ancestral rites from Bangalore, devotees consider several holy riverbank destinations along the Cauvery. Here is an overview of the primary <strong>Cauvery river shrines</strong>:
             </p>
 
             <div className="mt-6 space-y-6">
               <div className="border-l-4 border-purple-600 pl-4">
                 <h3 className="text-lg font-bold text-slate-900">1. Paschima Vahini (Srirangapatna) – The Foremost Choice</h3>
                 <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                  Located just before Mysore on NH-275, this is where the Cauvery river shifts from east to west. In Hindu cosmology, performing tarpana at a westward river (*Paschima Vahini*) grants salvation to ancestors who may not have attained peace. Clean granite steps, designated purohit mandapas, and easy vehicle access make it the primary hub for Bangalore devotees.
+                  Located right on the approach to Srirangapatna via <strong>NH-275</strong>, this is where the sacred Cauvery river takes a rare turn from east to west. In Vedic tradition, offering tarpana at a westward river (<em>Paschima Vahini</em>) delivers liberation (<em>Moksha</em>) to departed souls. With clean granite bathing steps, pre-arranged purohit mandapas, and easy parking, it is the <strong>primary destination for Bangalore families</strong>.
                 </p>
               </div>
 
               <div className="border-l-4 border-sky-500 pl-4">
                 <h3 className="text-lg font-bold text-slate-900">2. Triveni Sangama (Srirangapatna)</h3>
                 <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                  Situated 3 km from Srirangapatna town, this is the holy confluence of three rivers: the Cauvery, Kabini (Kapila), and the subterranean Lokapavani. Devotees perform *Sankalpa Snana* (holy bath) followed by *Pinda Pradana*. The serene bamboo groves and wide riverfront provide an unhurried setting for families.
+                  Situated 3 km from Srirangapatna town, this is the holy confluence of three sacred waters: the <strong>Cauvery</strong>, <strong>Kabini (Kapila)</strong>, and the subterranean <strong>Lokapavani</strong>. Pilgrims perform <em>Sankalpa Snana</em> (holy bath) followed by <em>Pinda Pradana</em>. The tranquil tree canopy and wide riverfront make it ideal for unhurried ancestral ceremonies.
                 </p>
               </div>
 
               <div className="border-l-4 border-amber-500 pl-4">
                 <h3 className="text-lg font-bold text-slate-900">3. Gosai Ghat &amp; Nimishamba Riverbanks (Ganjam)</h3>
                 <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                  A quieter alternative upstream in Ganjam, Srirangapatna. Gosai Ghat features ancient stone pavilions built by Goswami saints. The adjoining river steps at Sri Nimishamba temple allow devotees to seek the goddess’s blessings immediately following ancestral water offerings.
+                  A peaceful alternative located upstream in Ganjam. <strong>Gosai Ghat</strong> features ancient stone pavilions constructed by Goswami saints. Right nearby, the riverside steps at <strong>Sri Nimishamba Temple</strong> allow families to seek the goddess’s blessings immediately following their riverbank water offerings.
                 </p>
               </div>
 
               <div className="border-l-4 border-slate-400 pl-4">
                 <h3 className="text-lg font-bold text-slate-900">4. Shivanasamudra &amp; Muthathi (Malavalli Corridor)</h3>
                 <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                  For devotees seeking alternative routes via Kanakapura Road (NH-948), the Cauvery riverbanks at Muthathi and the island temple of Sri Ranganathaswamy at Shivanasamudra (Madhya Ranga) offer traditional river ghats for *tila tarpana*.
+                  Devotees opting for alternative routes via Kanakapura Road (NH-948) can visit the Cauvery riverbanks at <strong>Muthathi</strong> and the island temple of Sri Ranganathaswamy at <strong>Shivanasamudra (Madhya Ranga)</strong> for traditional river ghat ceremonies.
                 </p>
               </div>
             </div>
           </section>
 
+          {/* RITUAL PROTOCOL & CUSTOMS EXPLAINED */}
           <section className="mt-10 rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-8">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
               <Info className="text-purple-700" /> Ritual Guidelines: Who Performs and What to Carry
@@ -273,42 +284,43 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
               <div className="rounded-2xl bg-white p-5 border border-slate-200 shadow-sm">
                 <h3 className="font-bold text-slate-900 text-base mb-2">The Role of the Karta</h3>
                 <p className="leading-relaxed text-justify">
-                  Only the person whose parents or forebears have passed away (typically the eldest son or karta) actively sits for *Pinda Daana* and *Tila Tarpana* with the Vedic priest. He wears a cotton dhoti (*panche*) and sacred thread (*janivara* worn over the right shoulder - *Pracheenaveeti*).
+                  <strong>Only the eldest son or designated <em>karta</em></strong> (whose parents or forebears have passed away) actively sits for <em>Pinda Daana</em> and <em>Tila Tarpana</em> with the Vedic priest. He wears a traditional cotton dhoti (<em>panche</em>) and sacred thread (<em>janivara</em> worn over the right shoulder - <em>Pracheenaveeti</em>).
                 </p>
               </div>
 
               <div className="rounded-2xl bg-white p-5 border border-slate-200 shadow-sm">
                 <h3 className="font-bold text-slate-900 text-base mb-2">Role of Accompanying Family</h3>
                 <p className="leading-relaxed text-justify">
-                  Spouses and family members do not offer water directly. They accompany the karta to offer moral support, witness the ceremony from the steps with folded hands, and participate in final prayer offerings (*pradakshina*) and priest dakshina.
+                  Spouses and family members <strong>do not offer water directly</strong>. They accompany the karta to offer moral support, witness the ceremony respectfully from the stone steps with folded hands, and participate in final prayer offerings (<em>pradakshina</em>) and priest dakshina.
                 </p>
               </div>
 
               <div className="rounded-2xl bg-white p-5 border border-slate-200 shadow-sm">
                 <h3 className="font-bold text-slate-900 text-base mb-2">Essential Items Checklist</h3>
                 <ul className="space-y-1.5 list-disc list-inside text-slate-600">
-                  <li>2 pairs of traditional clothes (1 wet for snana, 1 dry for temple)</li>
+                  <li><strong>2 pairs of traditional clothes:</strong> 1 wet for river snana, 1 fresh dry pair for temple darshan</li>
                   <li>Cotton towels and cloth bags for wet garments</li>
-                  <li>Traditional brass sompu (lota) or kamandalu</li>
-                  <li>Family gotra, pravara, and ancestral names note</li>
+                  <li>Traditional <strong>brass sompu</strong> (lota) or kamandalu</li>
+                  <li>Family gotra, pravara, and ancestral names list</li>
                 </ul>
               </div>
 
               <div className="rounded-2xl bg-white p-5 border border-slate-200 shadow-sm">
                 <h3 className="font-bold text-slate-900 text-base mb-2">Priest &amp; Samagri on Site</h3>
                 <p className="leading-relaxed text-justify">
-                  Certified Vedic purohits (versed in Kannada, Telugu, Tamil, and North Indian traditions) are stationed on the ghats. They arrange the black sesame (*til*), darbha grass, cooked rice pinda, and banana leaves.
+                  Certified Vedic purohits (versed in <strong>Kannada, Telugu, Tamil, and North Indian traditions</strong>) are stationed on the ghats. They arrange the black sesame (<em>til</em>), darbha grass, cooked rice pinda, and banana leaves directly.
                 </p>
               </div>
             </div>
           </section>
 
+          {/* Detailed Day-Trip Itinerary */}
           <section className="mt-10">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
-              Same-Day Pilgrimage Itinerary &amp; Timing
+              Curated Same-Day Pilgrimage Itinerary &amp; Timing
             </h2>
             <p className="mt-3 text-slate-700 leading-8 text-justify">
-              Ancestral rituals require quiet composure and adherence to Vedic time windows. Our thoughtfully timed round-trip itinerary ensures elders avoid highway rush, complete the rites comfortably, and return home refreshed:
+              Ancestral rituals require quiet composure and adherence to Vedic time windows (<em>Sangava / Aparahna kaala</em>). Our thoughtfully timed round-trip itinerary ensures elders avoid highway rush, complete the rites comfortably, and return home refreshed:
             </p>
 
             <div className="mt-6 space-y-4">
@@ -319,7 +331,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Doorstep Pickup across Bangalore</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Chauffeur Bharath K S arrives 15 minutes ahead of schedule with a clean, fully fueled Ertiga. Early departure bypasses city bottlenecks and expressway toll congestion.
+                    Chauffeur <strong>Bharath K S</strong> arrives 15 minutes ahead of schedule with a clean, sanitized Ertiga. Early departure bypasses Bengaluru city exit signals and expressway toll congestion.
                   </p>
                 </div>
               </div>
@@ -331,7 +343,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Arrival at Paschima Vahini / Triveni Sangama</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Direct drop at the riverbank approach. Family conducts holy river ablutions (snana) and transitions to traditional attire. The karta sits with the Vedic priest for Pinda Daana and Tila Tarpana while family members witness with reverence.
+                    Direct drop at the riverbank approach. Family conducts holy river bath (<em>Sankalpa Snana</em>) and transitions to traditional attire. The karta sits with the Vedic priest for <em>Pinda Daana</em> and <em>Tila Tarpana</em> while family members witness with reverence.
                   </p>
                 </div>
               </div>
@@ -343,7 +355,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Sri Ranganathaswamy Temple Darshan</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    After completing river rituals and changing into fresh dry clothes, the cab moves to the historic temple complex for peaceful sanctum darshan of Lord Ranganatha.
+                    After completing river rituals and changing into fresh dry clothes, the cab moves to the historic temple complex for peaceful sanctum darshan of <strong>Lord Sri Ranganathaswamy (Adi Ranga)</strong>.
                   </p>
                 </div>
               </div>
@@ -355,7 +367,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Sri Nimishamba Temple &amp; Cauvery River Shrine</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    A brief, serene 10-minute drive to Ganjam to offer prayers at Sri Nimishamba Temple directly adjoining the picturesque rocky banks of the Cauvery.
+                    A brief, serene 10-minute drive to Ganjam to offer prayers at <strong>Sri Nimishamba Temple</strong> directly adjoining the picturesque rocky banks of the Cauvery.
                   </p>
                 </div>
               </div>
@@ -367,13 +379,14 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Sattvic Lunch &amp; Smooth Return Journey</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Stop at a clean vegetarian restaurant on the highway for a relaxed meal. Rejoin the 10-lane expressway for a fatigue-free drive back to Bangalore by 4:30 PM.
+                    Stop at a clean vegetarian restaurant on the highway for a relaxed meal. Rejoin the <strong>10-lane expressway</strong> for a fatigue-free drive back to Bangalore by 4:30 PM.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
+          {/* Two-Image Showcase: Sangama & Belongings Standby */}
           <div className="my-10 grid gap-6 sm:grid-cols-2">
             <figure className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -401,17 +414,18 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 />
               </div>
               <figcaption className="p-3 text-xs leading-relaxed text-slate-600 border-t border-slate-100">
-                <strong>Luggage Security:</strong> Valuables, dry clothes, and puja gear kept safe on standby.
+                <strong>Luggage Security:</strong> Valuables, dry clothes, and brass puja sompu kept safely on standby.
               </figcaption>
             </figure>
           </div>
 
+          {/* Luggage, CNG & Fleet Specifications */}
           <section className="my-10">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight">
               Vehicle Comfort, CNG Configuration &amp; Luggage Handling
             </h2>
             <p className="mt-3 text-slate-700 leading-8 text-justify">
-              Our commercially registered 6+1 Maruti Suzuki Ertiga is optimized for day-trip family pilgrimages. Here is how your travel comfort is maintained:
+              Our commercially registered <strong>6+1 Maruti Suzuki Ertiga (KA03AP8285)</strong> is optimized specifically for day-trip family pilgrimages. Here is how your travel comfort is maintained:
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -420,7 +434,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Boot Space with Factory-Fitted CNG</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Our vehicle features an integrated factory CNG cylinder at the base. Because same-day pilgrimage journeys require only light day-bags (folded dry panche, sarees, towels, and brass sompu vessels), the vertical boot space easily accommodates 3 to 4 soft backpacks and duffel bags without cluttering seat legroom.
+                    Our vehicle features an integrated <strong>factory CNG cylinder</strong> at the base. Because same-day pilgrimage journeys require only light day-bags (folded dry panche, sarees, towels, and brass sompu vessels), the vertical boot space easily accommodates <strong>3 to 4 soft backpacks and duffel bags</strong> without cluttering seat legroom.
                   </p>
                 </div>
               </div>
@@ -430,7 +444,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Clean Roofline — No Rooftop Carrier</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    We deliberately do not mount noisy external roof carriers. This preserves vehicle stability along the expressway, reduces aerodynamic cabin rumble, and allows easy navigation under ancient temple entrance archways and tree-lined river approach gates.
+                    We deliberately do not mount noisy external roof carriers. This preserves vehicle stability along the expressway, eliminates aerodynamic cabin rumble, and allows easy navigation under ancient temple entrance archways and tree-lined river approach gates.
                   </p>
                 </div>
               </div>
@@ -440,7 +454,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Dual Independent Roof AC</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    High-capacity rear blowers keep all three seating rows cool, ensuring elderly family members who may be fasting stay completely relaxed after outdoor riverbank rites.
+                    High-capacity rear blowers keep all three seating rows cool, ensuring <strong>elderly family members who may be fasting</strong> stay completely relaxed after outdoor riverbank rites.
                   </p>
                 </div>
               </div>
@@ -450,13 +464,14 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 <div>
                   <h3 className="font-black text-slate-900 text-base">Direct Owner-Operated Reliability</h3>
                   <p className="mt-1 text-sm text-slate-600 leading-relaxed text-justify">
-                    Book directly with Bharath K S. You are never subject to aggregator driver cancellations, surge pricing, or unfamiliar substitute drivers on an auspicious day.
+                    Book directly with <strong>Bharath K S</strong>. You are never subject to aggregator driver cancellations, surge pricing, or unfamiliar substitute drivers on an auspicious day.
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
+          {/* Two-Image Showcase: Temples Darshan */}
           <div className="my-10 grid gap-6 sm:grid-cols-2">
             <figure className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -469,7 +484,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
                 />
               </div>
               <figcaption className="p-3 text-xs leading-relaxed text-slate-600 border-t border-slate-100">
-                <strong>Sri Ranganathaswamy Temple:</strong> Post-ritual darshan in dry traditional clothing.
+                <strong>Sri Ranganathaswamy Temple:</strong> Post-ritual darshan in fresh traditional clothing.
               </figcaption>
             </figure>
 
@@ -489,6 +504,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
             </figure>
           </div>
 
+          {/* High-Conversion Mid-Page CTA Card */}
           <section className="my-12 rounded-3xl bg-[#080d2b] p-7 sm:p-10 text-white shadow-xl">
             <span className="text-xs font-black uppercase tracking-[.18em] text-amber-400">
               RESERVE YOUR PITRU PAKSHA PILGRIMAGE CAB
@@ -497,7 +513,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
               Book Your Bangalore to Srirangapatna Same-Day Ertiga
             </h2>
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-white/80 text-justify">
-              Dates during Mahalaya Paksha fill up quickly. Secure your early morning 4:30 AM pickup with owner-chauffeur Bharath K S. Transparent fixed pricing, Fastag expressway tolls accounted for, and zero last-minute cancellations.
+              Dates during <strong>Mahalaya Paksha</strong> fill up quickly. Secure your early morning <strong>4:30 AM pickup</strong> with owner-chauffeur Bharath K S. Transparent fixed pricing, Fastag expressway tolls accounted for, and zero last-minute cancellations.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -521,6 +537,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
             </p>
           </section>
 
+          {/* Return Journey Feature Image */}
           <figure className="group my-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
               <Image
@@ -533,10 +550,11 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
             </div>
             <figcaption className="p-4 text-xs sm:text-sm leading-relaxed text-slate-600 border-t border-slate-100 flex flex-col sm:flex-row justify-between gap-1">
               <span><strong>Smooth Highway Return:</strong> Cruising the 10-lane expressway back to Bengaluru</span>
-              <span className="text-purple-700 font-bold shrink-0">Registration: KA03AP8285</span>
+              <span className="text-purple-700 font-bold shrink-0">Registration: <strong>KA03AP8285</strong></span>
             </figcaption>
           </figure>
 
+          {/* Frequently Asked Questions */}
           <section className="mt-12 border-t border-slate-200 pt-10">
             <h2 className="text-xl font-black text-slate-900 sm:text-2xl tracking-tight flex items-center gap-2">
               <HelpCircle className="text-purple-700" /> Frequently Asked Questions
@@ -552,6 +570,7 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
             </div>
           </section>
 
+          {/* Internal Cross-Linking */}
           <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600">
             <h3 className="font-bold text-slate-900 mb-2">Explore Related Outstation &amp; Pilgrimage Corridors</h3>
             <p className="leading-relaxed">
@@ -567,7 +586,11 @@ Destination: Paschima Vahini / Triveni Sangama / Sri Ranganathaswamy Temple`
               <Link href="/bangalore-to-coorg-cab" className="font-bold text-purple-700 underline">
                 Bangalore to Coorg Cab
               </Link>
-              , or review our full fleet on the{" "}
+              , reliable{" "}
+              <Link href="/airport-taxi-bangalore" className="font-bold text-purple-700 underline">
+                Bangalore Airport Taxi
+              </Link>
+              , or review our entire fleet on the{" "}
               <Link href="/outstation-cabs-bangalore" className="font-bold text-purple-700 underline">
                 Bangalore Outstation Cabs hub
               </Link>
