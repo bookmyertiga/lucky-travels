@@ -1,82 +1,79 @@
-import {
-  Clock3,
-  HeartHandshake,
-  Luggage,
-  MessageCircle,
-  Route,
-  UserRoundCheck,
-} from "lucide-react";
+interface FeatureItem {
+  icon: string;
+  title: string;
+  description: string;
+}
 
-const valuePillars = [
+const FEATURES: FeatureItem[] = [
   {
-    icon: Clock3,
-    title: "Punctual pickup planning",
-    text: "Pickup times are planned around the confirmed route, itinerary and expected Bangalore traffic, with direct updates if conditions change.",
+    icon: "⏱️",
+    title: "Punctual Pickup Planning",
+    description: "Route & timing planned around Bangalore traffic with live updates.",
   },
   {
-    icon: Luggage,
-    title: "Practical luggage planning",
-    text: "Passenger count, required seats, large bags, cabin bags and special items are discussed before a journey is accepted.",
+    icon: "🧳",
+    title: "Practical Luggage Guidance",
+    description: "Passenger count, boot space, and bag sizes confirmed before booking.",
   },
   {
-    icon: UserRoundCheck,
-    title: "Professional owner-driver-led service",
-    text: "Bharath K S drives when available and may coordinate one of four trusted owner-driver friends using the same vehicle category for additional confirmed bookings.",
+    icon: "👨‍✈️",
+    title: "Owner-Chauffeur Led",
+    description: "Bharath K S and trusted fellow owner-drivers using identical 2026 Ertigas.",
   },
   {
-    icon: MessageCircle,
-    title: "Direct communication",
-    text: "Vehicle, assigned driver, route, timing and trip terms are discussed directly before the customer confirms the journey.",
+    icon: "💬",
+    title: "Direct Communication",
+    description: "Assigned vehicle, route, and fixed quote coordinated directly on WhatsApp.",
   },
   {
-    icon: HeartHandshake,
-    title: "Family and elderly assistance",
-    text: "Journey preparation may include a cleaned vehicle, luggage help and thoughtful assistance for families and elderly travellers.",
+    icon: "🧓",
+    title: "Elderly & Family Care",
+    description: "Spotless vehicle, thoughtful luggage help, and gentle step-in assistance.",
   },
   {
-    icon: Route,
-    title: "24/7 enquiries",
-    text: "You can enquire at any time, while every journey remains subject to vehicle and driver availability and direct confirmation.",
+    icon: "🛡️",
+    title: "Transparent & 24/7 Enquiries",
+    description: "Fixed locked fares with zero sudden driver bata or unexpected extras.",
   },
-] as const;
+];
 
 export default function FeatureStrip() {
   return (
-    <section
-      aria-labelledby="value-heading"
-      className="border-y border-slate-200 bg-white py-11 sm:py-12"
-    >
-      <div className="page-shell">
-        <div className="max-w-3xl">
-          <p className="section-kicker">What the Lucky Travels promise means</p>
-          <h2
-            id="value-heading"
-            className="mt-2 text-3xl font-black tracking-[-0.035em] sm:text-4xl"
-          >
-            Direct, Carefully Planned Cab Service
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-            A focused service built around clear coordination, realistic space
-            guidance and respectful support from enquiry to drop-off.
+    <section className="page-shell px-4 sm:px-6 py-4 sm:py-6" aria-labelledby="promise-heading">
+      <div className="rounded-2xl bg-white p-5 sm:p-7 shadow-soft border border-slate-100">
+        
+        {/* Compact Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-5">
+          <div>
+            <span className="text-[11px] font-black uppercase tracking-wider text-purple-700">
+              THE LUCKY TRAVELS PROMISE
+            </span>
+            <h2 id="promise-heading" className="text-xl sm:text-2xl font-black text-[#090f2f] tracking-tight">
+              Direct, Carefully Planned Cab Service
+            </h2>
+          </div>
+          <p className="text-xs text-slate-500 max-w-sm">
+            Realistic space guidance, transparent coordination, and respectful chauffeur care.
           </p>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {valuePillars.map(({ icon: Icon, title, text }) => (
-            <article
-              key={title}
-              className="rounded-2xl border border-slate-200 bg-[#f8f8fc] p-5"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-purple-100 text-purple-700">
-                <Icon size={21} />
-              </span>
-              <h3 className="mt-4 text-base font-black text-[#090f2f]">
-                {title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-            </article>
+        {/* 6-Item Compact Grid (Icon-Left) */}
+        <div className="grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 rounded-xl bg-slate-50/70 p-3.5 border border-slate-200/70 hover:border-purple-200 transition">
+              <span className="text-xl flex-shrink-0 mt-0.5">{item.icon}</span>
+              <div>
+                <h3 className="text-sm font-bold text-[#090f2f] leading-snug">
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-xs text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );
