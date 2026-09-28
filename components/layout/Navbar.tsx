@@ -11,7 +11,7 @@ const links = [
   ["Airport Transfers", "/airport-taxi-bangalore"],
   ["Rental Packages", "/car-rental-bangalore"],
   ["Corporate Packages", "/corporate-car-rental-bangalore"],
-  ["Outstation Packages", "/services/outstation-packages"],
+  ["Outstation Packages", "/outstation-cabs-bangalore"],
   ["Blog", "/blog"],
   ["About", "/about"],
   ["Contact", "/contact"],

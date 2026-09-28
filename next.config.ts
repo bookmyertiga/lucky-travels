@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: "/car-rental-bangalore",
         permanent: true,
       },
+      {
+        source: "/services/outstation-packages",
+        destination: "/outstation-cabs-bangalore",
+        permanent: true,
+      },
     ];
   },
 };
