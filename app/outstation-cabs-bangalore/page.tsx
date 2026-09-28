@@ -137,6 +137,8 @@ function RouteImage({
   src,
   alt,
   caption,
+  width = 1536,
+  height = 1024,
   loading = "lazy",
   featured = false,
 }: {
@@ -144,6 +146,8 @@ function RouteImage({
   src: string;
   alt: string;
   caption: string;
+  width?: number;
+  height?: number;
   loading?: "eager" | "lazy";
   featured?: boolean;
 }) {
@@ -153,8 +157,8 @@ function RouteImage({
         <Image
           src={src}
           alt={alt}
-          width={1536}
-          height={1024}
+          width={width}
+          height={height}
           loading={loading}
           className={
             featured
@@ -323,8 +327,6 @@ export default function OutstationCabsBangalorePage() {
               src="/images/services/outstation.jpg"
               alt="Go Bengaluru Premium Ertiga for outstation cabs from Bangalore"
               caption="Spotless 2026 factory-fitted CNG Ertiga dedicated to your outstation highway itinerary."
-              width={1536}
-              height={1024}
               loading="eager"
               featured
             />
