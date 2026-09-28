@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/airport-taxi-bangalore",
         permanent: true,
       },
+      {
+        source: "/services/rental-packages",
+        destination: "/car-rental-bangalore",
+        permanent: true,
+      },
     ];
   },
 };
