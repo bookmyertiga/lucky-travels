@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Book an evening cab from Bangalore to Adiyogi Chikkaballapur. Complete route guide via NH 44, 7 PM Divya Darshanam light show timings, and 6+1 Ertiga family taxi fares with Lucky Travels.",
     date: "2026-09-14",
-    dateModified: "2026-09-25",
+    dateModified: "2026-09-28",
     image: "/images/gallery/adiyogi-chikkaballapura-sadhguru-sannidhi-ertiga-cab-drop.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
@@ -504,7 +504,7 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Book your Bengaluru airport cab with Go Bengaluru by Lucky Travels. Transparent pricing, spotless 6+1 Maruti Ertiga cabs, and zero surge shocks for BLR T1 & T2.",
     date: "2026-09-11",
-    dateModified: "2026-09-25",
+    dateModified: "2026-09-28",
     image: "/images/gallery/bengaluru-airport-ertiga-cab-drop.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
@@ -516,33 +516,41 @@ export const blogPosts: BlogPost[] = [
     authorUrl: "/about",
     authorType: "Person",
     authorRole: "Founder and owner-driver",
+    faqs: [
+      {
+        question: "How do I avoid surge pricing when booking a Bengaluru airport cab?",
+        answer:
+          "Pre-book a dedicated 6+1 Ertiga with Go Bengaluru by Lucky Travels. What is quoted on WhatsApp remains strictly locked—even during heavy rains, flight delays, or peak-hour Outer Ring Road bottlenecks.",
+      },
+      {
+        question: "Where do we meet our chauffeur at BLR Airport Terminal 1 and Terminal 2?",
+        answer:
+          "At Terminal 1, our chauffeur meets you at the designated P3/P4 pickup bays. At Terminal 2, we receive guests directly at the P2 parking facility with complete luggage assistance.",
+      },
+      {
+        question: "Can an Ertiga hold 4 international suitcases and 4 passengers?",
+        answer:
+          "Yes. By folding down the 3rd row, the Ertiga provides a flat, expansive cargo area that comfortably holds 4 large 28-inch check-in suitcases plus cabin bags without encroaching on passenger seats.",
+      },
+    ],
     content: [
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "Heading to ",
-          },
+          { type: "text", text: "Heading to " },
           ...bold("Kempegowda International Airport Bengaluru (BLR)"),
           {
             type: "text",
             text: " shouldn’t feel like an unpredictable gamble. Whether you are catching an early-morning domestic flight from Terminal 1 or an international connection from Terminal 2, a smooth trip across Bengaluru demands two essentials: absolute punctuality and a ",
           },
           ...bold("clean, comfortable vehicle"),
-          {
-            type: "text",
-            text: ".",
-          },
+          { type: "text", text: "." },
         ],
       },
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "At ",
-          },
+          { type: "text", text: "At " },
           ...bold("Go Bengaluru by Lucky Travels"),
           {
             type: "text",
@@ -563,15 +571,9 @@ export const blogPosts: BlogPost[] = [
             text: "If an app estimates ₹1,800 and our dedicated service is ₹2,000, that modest difference represents two completely different travel experiences. Here is why discerning travellers choose ",
           },
           ...bold("Go Bengaluru by Lucky Travels"),
-          {
-            type: "text",
-            text: " for their ",
-          },
+          { type: "text", text: " for their " },
           ...link("/airport-taxi-bangalore", "Kempegowda International Airport transfers"),
-          {
-            type: "text",
-            text: ".",
-          },
+          { type: "text", text: "." },
         ],
       },
       {
@@ -613,9 +615,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "h2",
-        content: text(
-          "2. Dedicated Doorstep Service (No Hidden Distance Surcharges)",
-        ),
+        content: text("2. Dedicated Doorstep Service (No Hidden Distance Surcharges)"),
       },
       {
         type: "paragraph",
@@ -663,9 +663,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "h2",
-        content: text(
-          "3. Traffic & Weather Route Protection: Zero Surge Pricing Surprises",
-        ),
+        content: text("3. Traffic & Weather Route Protection: Zero Surge Pricing Surprises"),
       },
       {
         type: "paragraph",
@@ -701,7 +699,7 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "One of the most common airport travel frustrations in Bengaluru is having a small hatchback or compact sedan show up with a bulky CNG cylinder consuming the entire boot, forcing luggage onto passengers' laps. Through ",
+            text: "One of the most common airport travel frustrations in Bengaluru is having a small hatchback or compact sedan show up with a bulky aftermarket CNG cylinder consuming the entire boot, forcing luggage onto passengers' laps. Through ",
           },
           ...bold("Go Bengaluru"),
           {
@@ -754,15 +752,9 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "To ensure a stress-free departure at ",
-          },
+          { type: "text", text: "To ensure a stress-free departure at " },
           ...bold("Kempegowda International Airport"),
-          {
-            type: "text",
-            text: ":",
-          },
+          { type: "text", text: ":" },
         ],
       },
       {
@@ -793,9 +785,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "h2",
-        content: text(
-          "Experience Personalised Travel: Book Go Bengaluru by Lucky Travels",
-        ),
+        content: text("Experience Personalised Travel: Book Go Bengaluru by Lucky Travels"),
       },
       {
         type: "paragraph",
@@ -806,15 +796,9 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "To reserve your Kempegowda Airport transfer, view our ",
-          },
+          { type: "text", text: "To reserve your Kempegowda Airport transfer, view our " },
           ...link("/airport-taxi-bangalore", "Bangalore Airport taxi service"),
-          {
-            type: "text",
-            text: ", or book your specific corridor: ",
-          },
+          { type: "text", text: ", or book your specific corridor: " },
           ...link("/airport-taxi-whitefield", "Whitefield"),
           { type: "text", text: ", " },
           ...link("/airport-taxi-electronic-city", "Electronic City"),
@@ -845,10 +829,7 @@ export const blogPosts: BlogPost[] = [
           { type: "text", text: "Follow " },
           ...bold("@gobengaluruwithlucky"),
           { type: "text", text: " on " },
-          ...link(
-            "https://www.instagram.com/gobengaluruwithlucky/",
-            "Instagram",
-          ),
+          ...link("https://www.instagram.com/gobengaluruwithlucky/", "Instagram"),
           { type: "text", text: " and " },
           ...link("https://www.facebook.com/gobengaluruwithlucky/", "Facebook"),
           {
@@ -870,21 +851,38 @@ export const blogPosts: BlogPost[] = [
     title:
       "Why I Started Lucky Travels—and Why We Specialise Only in Premium Ertiga",
     excerpt:
-      "The founder’s story behind Lucky Travels, its Premium Ertiga-only approach and a promise to make every direct booking personal and comfortable.",
+      "The founder’s story behind Lucky Travels, its Premium Ertiga-only approach and a promise to make every direct booking personal, transparent, and comfortable.",
     seoDescription:
-      "Read why Bharath K S started Lucky Travels and chose a Premium Ertiga-only service built around comfort, direct communication and personal care.",
+      "Read why Bharath K S started Lucky Travels and chose a 100% factory S-CNG Premium Ertiga fleet built around comfort, direct communication, and WhatsApp Price-Locks.",
     date: "2026-08-23",
-    dateModified: "2026-08-23",
+    dateModified: "2026-09-28",
     image: "/images/services/hourly.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
     imageAlt:
       "Lucky Travels Premium Ertiga representing Bharath K S’s owner-driver service in Bengaluru",
-    seoTitle: "Why Lucky Travels Specialises in Premium Ertiga",
+    seoTitle: "Why Lucky Travels Specialises in Premium Ertiga | Founder's Story",
     author: "Bharath K S",
     authorUrl: "/about",
     authorType: "Person",
     authorRole: "Founder and owner-driver",
+    faqs: [
+      {
+        question: "Why does Lucky Travels only operate the Maruti Suzuki Ertiga?",
+        answer:
+          "By specialising 100% in brand-new factory-fitted S-CNG Ertigas, we guarantee every customer receives Innova-like 3-row comfort, 4-suitcase luggage flexibility, and knee-level console AC without the risk of random vehicle downsizing.",
+      },
+      {
+        question: "Is your fleet factory CNG or aftermarket?",
+        answer:
+          "Our entire fleet is 100% original Maruti Suzuki factory-fitted S-CNG. They are leak-proof, whisper-quiet, and feature factory-tuned progressive suspension for highway stability.",
+      },
+      {
+        question: "How does Lucky Travels handle pricing?",
+        answer:
+          "We offer a strict WhatsApp Price-Lock Guarantee. Every quote given on WhatsApp is all-inclusive with zero surprise driver bata or midnight meter surges.",
+      },
+    ],
     content: [
       {
         type: "paragraph",
@@ -910,7 +908,7 @@ export const blogPosts: BlogPost[] = [
           ...link("/", "Lucky Travels"),
           {
             type: "text",
-            text: " began—and why I chose to specialise only in the Premium Maruti Suzuki Ertiga.",
+            text: " began—and why I chose to specialise only in the brand-new 2026 factory S-CNG Maruti Suzuki Ertiga.",
           },
         ],
       },
@@ -927,19 +925,13 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: text(
-          "I could try to advertise every available category—hatchbacks, sedans, SUVs, premium SUVs, tempo travellers and buses. Instead, I prefer to concentrate only on the Premium Ertiga. A narrower service allows me to understand the vehicle properly, explain its seating and luggage limits honestly, maintain a consistent standard and give each customer a more dedicated experience. I would rather become dependable in one category than appear to offer everything without the same personal involvement.",
+          "I could try to advertise every available category—hatchbacks, sedans, SUVs, tempo travellers and buses. Instead, I prefer to concentrate only on the Premium Ertiga. A narrower service allows me to understand the vehicle properly, explain its seating and luggage limits honestly, maintain a consistent standard and give each customer a more dedicated experience. I would rather become dependable in one category than appear to offer everything without the same personal involvement.",
         ),
       },
       {
         type: "paragraph",
         content: text(
           "I decided to build expertise around one category instead of trying to offer everything from the first day. By working only with the Premium Ertiga, I can be clearer about the vehicle a customer is requesting. I can discuss the passenger count, luggage and journey before accepting the booking, rather than promising a category and leaving the final assignment uncertain.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "This focused beginning is not a compromise. It is the identity of Lucky Travels.",
         ),
       },
       {
@@ -964,41 +956,31 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: text(
-          "This is one reason I chose the Ertiga. It offers flexible seating, an air-conditioned cabin and a practical balance between passenger comfort and journey cost. I respect vehicles such as the Innova for the comfort and space associated with them, but they can be outside the budget that some travellers want to spend. I do not claim that an Ertiga and an Innova are identical. My belief is simply that the Ertiga offers a comfortable and sensible alternative for customers who want more flexibility than a compact sedan at a more accessible price than many larger premium vehicles.",
+          "This is one reason I chose the Ertiga. It offers flexible seating, an air-conditioned cabin with updated knee-level console AC vents, and a practical balance between passenger comfort and journey cost. I respect vehicles such as the Innova for the comfort and space associated with them, but they can be outside the budget that some travellers want to spend. The Ertiga provides Innova-grade 3-row comfort for barely a fraction more than basic sedan cab rates.",
         ),
-      },
-      {
-        type: "paragraph",
-        content: text("For me, that balance is worth specialising in."),
       },
       {
         type: "image",
         src: "/images/vehicle/middle-row.jpg",
         alt: "Premium Ertiga middle-row seating used by Lucky Travels for comfortable Bengaluru journeys",
         caption:
-          "The Premium Ertiga’s flexible middle-row seating is one reason Lucky Travels chose to specialise in this vehicle category.",
+          "The Premium Ertiga’s flexible middle-row seating and knee-level console AC ensure draft-free cooling.",
         href: "/blog/why-lucky-travels-specialises-in-premium-ertiga",
       },
       {
         type: "h2",
-        content: text("An honest conversation about CNG and luggage space"),
+        content: text("An honest conversation about Factory S-CNG and luggage space"),
       },
       {
         type: "paragraph",
         content: text(
-          "Many customers are concerned about luggage space, particularly when travelling to or from the airport. Some taxi vehicles use CNG equipment that occupies part of the boot, but CNG itself should not be discussed as though it is automatically a problem. The important question is whether the available space matches the actual passenger and luggage combination.",
+          "Many customers are concerned about luggage space, particularly when travelling to or from the airport. Some aggregator cabs use aftermarket CNG kits that choke the trunk, but our brand-new Ertigas use original Maruti Suzuki factory-fitted S-CNG with deep modular boot architecture.",
         ),
       },
       {
         type: "paragraph",
         content: text(
-          "My own Ertiga runs on petrol and CNG. That is why I prefer an honest conversation before confirming a trip. I ask how many adults and children are travelling, how many large suitcases they have, whether they are carrying cabin bags, and whether every passenger seat will be needed.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "I will not tell a customer that every possible combination will fit. Six passengers with several large suitcases have different requirements from a couple carrying two bags. Clear information allows us to plan the seating and luggage properly—or to say honestly when the arrangement may not be suitable.",
+          "When the 3rd row is folded flat, up to 4 large check-in suitcases fit flat. That is why I prefer an honest conversation before confirming a trip. I ask how many adults and children are travelling, how many large suitcases they have, and whether every passenger seat will be needed.",
         ),
       },
       {
@@ -1006,7 +988,7 @@ export const blogPosts: BlogPost[] = [
         src: "/images/vehicle/boot-space.jpg",
         alt: "Premium Ertiga luggage area shown for advance passenger and baggage planning",
         caption:
-          "Sharing the passenger and luggage details before confirmation helps Lucky Travels assess the available space honestly.",
+          "Sharing passenger and luggage details before confirmation helps us assess available space honestly.",
         href: "/",
       },
       {
@@ -1017,10 +999,7 @@ export const blogPosts: BlogPost[] = [
             "/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis",
             "Bengaluru Airport Cab Guide",
           ),
-          {
-            type: "text",
-            text: " as well as the practical ",
-          },
+          { type: "text", text: " as well as the practical " },
           ...link(
             "/blog/premium-ertiga-for-bengaluru-airport-transfer",
             "airport pre-booking checklist",
@@ -1042,144 +1021,33 @@ export const blogPosts: BlogPost[] = [
         ),
       },
       {
+        type: "ul",
+        items: [
+          text("Sanitizing and cleaning the vehicle thoroughly before every trip."),
+          text("Punctual doorstep arrival with realistic Google Maps traffic planning."),
+          text("Courteous luggage lifting and loading assistance."),
+          text("Gentle, patient boarding support for elderly parents and grandparents."),
+          text("Strict WhatsApp Price-Lock: what is quoted remains fixed with zero surprise driver bata."),
+        ],
+      },
+      {
+        type: "h2",
+        content: text("One vehicle, several types of journeys"),
+      },
+      {
         type: "paragraph",
         content: text(
-          "For every confirmed Lucky Travels journey, my service priorities include:",
+          "Specialising in one vehicle does not mean serving only one kind of trip. A Premium Ertiga can be reserved for:",
         ),
       },
       {
         type: "ul",
         items: [
-          text("Cleaning the vehicle before the trip."),
-          text(
-            "Reaching the pickup point punctually, with realistic planning for traffic.",
-          ),
-          text("Helping passengers with their luggage."),
-          text(
-            "Planning the route according to the itinerary and current road conditions.",
-          ),
-          text(
-            "Giving older passengers the time and assistance they need to board comfortably.",
-          ),
-          text("Maintaining a family-friendly environment."),
-          text("Communicating directly before and during the journey."),
+          link("/airport-taxi-bangalore", "Bengaluru Airport Pickups and Drops (BLR T1 & T2)"),
+          link("/car-rental-bangalore", "Hourly and Daily Bangalore Car Rental (8h/80km, 10h/100km, 12h)"),
+          link("/corporate-car-rental-bangalore", "Corporate Chauffeur-Driven Travel with GST Invoicing"),
+          link("/outstation-cabs-bangalore", "Outstation Road Trips & Temple Pilgrimages across Karnataka"),
         ],
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "These may appear to be small actions, but they are often what a traveller remembers. A clean seat, help with a heavy suitcase, a patient pickup for an elderly parent or a clear message before an early-morning journey can make the customer feel cared for.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "That feeling matters to me as much as reaching the destination.",
-        ),
-      },
-      {
-        type: "h2",
-        content: text("Direct booking creates a different relationship"),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "App-based taxi services are convenient and have an important place in everyday travel. A customer can request a nearby vehicle quickly, complete the journey and move on. However, each new booking may bring a different driver, and each driver may meet that customer only once.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "I wanted Lucky Travels to offer a more personal alternative for customers who value continuity. With a direct booking, the traveller knows whom they are speaking to. The trip can be discussed before confirmation, questions can be answered directly, and the same owner-driver can become a familiar contact for future journeys.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "I do not want to be remembered only as the person who drove a car from one point to another. I want a customer to feel comfortable calling me when their parents need an airport drop, when their family has a function, when a guest arrives in Bengaluru or when they are planning an outstation journey.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "When a customer returns, it means that trust has grown beyond one transaction.",
-        ),
-      },
-      {
-        type: "h2",
-        content: text("Direct bookings also help owner-drivers grow"),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "Choosing between an app and a direct driver is a personal decision. I do not believe customers should be made to feel guilty for using a service that is convenient for them. At the same time, a direct booking can have a meaningful effect on an independent owner-driver.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "It gives the driver an opportunity to build a reputation, earn repeat customers and grow a small local business through service rather than depending entirely on the next anonymous assignment. The customer also gains a direct contact who already understands their preferences and previous travel requirements.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "If you have had a good experience with an owner-driver, booking directly the next time is one practical way to support that person’s growth—provided the service, vehicle, price and terms are suitable for you.",
-        ),
-      },
-      { type: "h2", content: text("What happens when I am already booked?") },
-      {
-        type: "paragraph",
-        content: text(
-          "I personally own and drive my petrol-and-CNG Ertiga. However, there may be days when more than one customer requests the same date or time.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "To handle such situations responsibly, I have a trusted circle of four friends who own the same specified type of vehicle. If I am already committed and one of them is available, I can coordinate the enquiry instead of silently assigning an unknown category. The customer should still receive the driver’s details and vehicle information before the trip and can decide whether to confirm.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "This arrangement helps me serve more enquiries while keeping the Premium Ertiga-only promise. Every booking remains subject to availability and direct confirmation.",
-        ),
-      },
-      { type: "h2", content: text("One vehicle, several types of journeys") },
-      {
-        type: "paragraph",
-        content: text(
-          "Specialising in one vehicle does not mean serving only one kind of trip. A Premium Ertiga can be considered for:",
-        ),
-      },
-      {
-        type: "ul",
-        items: [
-          link(
-            "/airport-taxi-bangalore",
-            "Bengaluru airport pickups and drops",
-          ),
-          link(
-            "/services/rental-packages",
-            "Hourly and daily Bengaluru rentals",
-          ),
-          text("Family functions and local travel with multiple stops."),
-          link(
-            "/corporate-car-rental-bangalore",
-            "Corporate guest movement and planned meetings",
-          ),
-          link(
-            "/outstation-cabs-bangalore",
-            "Outstation journeys from Bengaluru",
-          ),
-        ],
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "The right arrangement still depends on passenger count, luggage, route, waiting time and availability. I prefer receiving the complete itinerary before quoting or confirming because a clear plan protects both the customer and the driver.",
-        ),
       },
       {
         type: "h2",
@@ -1188,122 +1056,13 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: text(
-          "Lucky Travels may not always be the cheapest option shown on a phone screen. My promise is not to win every enquiry only by quoting the lowest number.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "My promise is to make the value of a direct booking visible through a clean vehicle, personal communication, sensible planning, luggage assistance and respect for the people travelling with me.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "I want customers to remember my name when they need a cab again. More importantly, I want them to feel confident sharing my number with a family member or friend.",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "For a small owner-driver business, that recommendation is not merely another booking. It is proof that the dream has started earning trust.",
-        ),
-      },
-      { type: "h2", content: text("Frequently asked questions") },
-      { type: "h3", content: text("Who started Lucky Travels?") },
-      {
-        type: "paragraph",
-        content: text(
-          "Lucky Travels was started by Bharath K S on 3 August 2026. He personally owns and drives a petrol-and-CNG Premium Ertiga and handles direct customer communication.",
-        ),
-      },
-      {
-        type: "h3",
-        content: text(
-          "Why does Lucky Travels provide only Premium Ertiga vehicles?",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "Lucky Travels specialises in the Premium Ertiga because Bharath believes it provides a practical balance of flexible seating, comfort and accessible journey cost. The focused model also makes the requested vehicle category clearer before confirmation.",
-        ),
-      },
-      {
-        type: "h3",
-        content: text(
-          "Does Bharath personally drive every Lucky Travels booking?",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "Bharath personally handles and drives bookings when available. If two enquiries overlap, he may coordinate one of four trusted friends with the same specified vehicle type. The assigned driver and vehicle details should be shared before the customer confirms.",
-        ),
-      },
-      {
-        type: "h3",
-        content: text("Is the Lucky Travels Ertiga petrol or CNG?"),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "The vehicle can run on petrol and CNG. Customers should share the number of passengers and the approximate size and quantity of luggage before confirmation because the suitable arrangement depends on both seating and boot-space requirements.",
-        ),
-      },
-      {
-        type: "h3",
-        content: text("Is Lucky Travels cheaper than every app-based taxi?"),
-      },
-      {
-        type: "paragraph",
-        content: text(
-          "Not necessarily. Prices depend on the journey, timing, waiting, route and other confirmed terms. Lucky Travels focuses on direct communication, a known vehicle category and personal owner-driver service rather than claiming to be the cheapest option for every trip.",
-        ),
-      },
-      {
-        type: "h3",
-        content: text("How can I book a Premium Ertiga directly?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "Call " },
-          {
-            type: "link",
-            href: "tel:9886814344",
-            text: "9886814344",
-            children: text("9886814344"),
-          },
-          { type: "text", text: ", send the completed trip details through " },
-          {
-            type: "link",
-            href: "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Premium%20Ertiga.%20Please%20check%20availability.",
-            text: "WhatsApp",
-            children: text("WhatsApp"),
-          },
-          { type: "text", text: ", or email " },
-          ...link("mailto:bookmyertiga@gmail.com", "bookmyertiga@gmail.com"),
-          {
-            type: "text",
-            text: ". Include the date, pickup, destination, passengers, luggage, stops and required timing. Every journey is subject to availability and confirmation.",
-          },
-        ],
-      },
-      { type: "h2", content: text("Let us make your next journey personal") },
-      {
-        type: "paragraph",
-        content: text(
-          "Lucky Travels began as a delayed dream that I finally chose to act upon. I may have started with one vehicle category instead of a large fleet, but I started with a clear purpose: make comfortable travel personal, honest and accessible.",
+          "My promise is to make the value of a direct booking visible through a clean vehicle, personal communication, sensible planning, luggage assistance and respect for the people travelling with me. I want customers to feel confident saving my number and sharing it with family and friends.",
         ),
       },
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "To enquire about a Premium Ertiga in Bengaluru, visit ",
-          },
+          { type: "text", text: "To enquire about a Premium Ertiga in Bengaluru, visit " },
           ...link("/", "Go Bengaluru by Lucky Travels"),
           { type: "text", text: ", call " },
           {
@@ -1328,22 +1087,19 @@ export const blogPosts: BlogPost[] = [
           { type: "text", text: "Follow " },
           ...bold("@gobengaluruwithlucky"),
           { type: "text", text: " on " },
-          ...link(
-            "https://www.instagram.com/gobengaluruwithlucky/",
-            "Instagram",
-          ),
+          ...link("https://www.instagram.com/gobengaluruwithlucky/", "Instagram"),
           { type: "text", text: " and " },
           ...link("https://www.facebook.com/gobengaluruwithlucky/", "Facebook"),
           {
             type: "text",
-            text: " for Bengaluru travel updates, Premium Ertiga information and stories from the road.",
+            text: " for Bengaluru travel updates, fleet news, and stories from the road.",
           },
         ],
       },
       {
         type: "paragraph",
         content: text(
-          "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Lucky Travels was started on 3 August 2026 and specialises in Premium Ertiga journeys, subject to availability and direct confirmation.",
+          "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Specializing in 100% brand-new 2026 factory S-CNG Ertiga journeys across Bengaluru.",
         ),
       },
     ],
@@ -1354,19 +1110,36 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A practical guide to planning your Bengaluru airport cab, confirming the correct pickup point and choosing enough space for passengers and luggage.",
     seoDescription:
-      "Plan a smooth Bengaluru airport cab pickup or drop. Learn what to share, where to meet, luggage tips and how to pre-book a Premium Ertiga.",
+      "Plan a smooth Bengaluru airport cab pickup or drop. Learn what to share, where to meet, luggage tips and how to pre-book a 2026 Premium Ertiga.",
     date: "2026-08-22",
-    dateModified: "2026-09-25",
+    dateModified: "2026-09-28",
     image: "/images/services/airport.jpg",
     imageWidth: 1672,
     imageHeight: 941,
     imageAlt:
       "Lucky Travels Premium Ertiga prepared for a Bengaluru airport pickup",
-    seoTitle: "Bengaluru Airport Cab Guide: Pickup, Luggage & Booking",
+    seoTitle: "Bengaluru Airport Cab Guide: Pickup, Luggage & Pre-Booking Tips",
     author: "Bharath K S",
     authorUrl: "/about",
     authorType: "Person",
     authorRole: "Founder",
+    faqs: [
+      {
+        question: "Where do we meet our chauffeur at BLR Airport Terminal 1 & Terminal 2?",
+        answer:
+          "Commercial vehicles are directed to designated zones: P3/P4 for Terminal 1 and P2 for Terminal 2. Your chauffeur confirms the parking bay number via phone or WhatsApp upon landing.",
+      },
+      {
+        question: "How much luggage can a 2026 Ertiga hold on an airport run?",
+        answer:
+          "For airport transfers with 4 passengers, folding the 3rd row accommodates up to 4 large 28-inch check-in suitcases plus cabin backpacks. For 6 passengers, it accommodates compact cabin trolley bags.",
+      },
+      {
+        question: "What if my flight is delayed?",
+        answer:
+          "Because your booking is coordinated directly with owner-driver Bharath K S via WhatsApp, simply send us your flight number. We track flight arrival status in real-time to adjust curbside timing accordingly.",
+      },
+    ],
     content: [
       {
         type: "paragraph",
@@ -1382,39 +1155,16 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "Kempegowda International Airport Bengaluru (BLR) is approximately 40 kilometres from central Bengaluru, according to ",
+            text: "Kempegowda International Airport Bengaluru (BLR) is approximately 40 kilometres from central Bengaluru. The distance to your actual destination may be shorter or considerably longer, depending on whether you are travelling to Hebbal, Indiranagar, Whitefield, Electronic City or another part of the city. For tech corridor travelers, we also provide specialized ",
           },
-          ...link(
-            "https://www.airindia.com/in/en/travel-information/airport-information/bengaluru.html",
-            "Air India’s Bengaluru Airport guide",
-          ),
+          ...link("/airport-taxi-whitefield", "Whitefield to Bangalore Airport taxi service"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-electronic-city", "Electronic City airport transfers"),
+          { type: "text", text: ", and " },
+          ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur airport cabs"),
           {
             type: "text",
-            text: ". The distance to your actual destination may be shorter or considerably longer, depending on whether you are travelling to Hebbal, Indiranagar, Whitefield, Electronic City or another part of the city. For tech corridor travelers, we also provide a specialized ",
-          },
-          ...link(
-            "/airport-taxi-whitefield",
-            "Whitefield to Bangalore Airport taxi service",
-          ),
-          {
-            type: "text",
-            text: ", ",
-          },
-          ...link(
-            "/airport-taxi-electronic-city",
-            "Electronic City airport transfers",
-          ),
-          {
-            type: "text",
-            text: ", and ",
-          },
-          ...link(
-            "/airport-taxi-sarjapur-road",
-            "Sarjapur Road / Bellandur airport cabs",
-          ),
-          {
-            type: "text",
-            text: ". Bengaluru traffic also changes throughout the day, so a little planning can make a meaningful difference.",
+            text: ". Bengaluru traffic also changes throughout the day, so advance planning makes all the difference.",
           },
         ],
       },
@@ -1429,10 +1179,7 @@ export const blogPosts: BlogPost[] = [
             "/blog/bengaluru-airport-cab-guide-go-bengaluru-vs-app-taxis",
             "complete guide on why we beat app taxis",
           ),
-          {
-            type: "text",
-            text: ".",
-          },
+          { type: "text", text: "." },
         ],
       },
       {
@@ -1444,50 +1191,28 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "Pre-booking is not simply about reserving a vehicle. It gives both the traveller and the driver time to understand the journey before the flight arrives.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "When the important details are shared early, you can confirm:",
+            text: "Pre-booking is not simply about reserving a vehicle. It gives both the traveller and the driver time to understand the journey before the flight arrives. When important details are shared early, you confirm:",
           },
         ],
       },
       {
         type: "ul",
         items: [
-          text("The correct travel date and expected arrival time."),
+          text("The correct travel date and expected flight arrival time."),
           text("Whether the flight arrives at Terminal 1 or Terminal 2."),
-          text("The designated meeting or parking area."),
-          text("The number of passengers and approximate luggage."),
-          text("The complete Bengaluru destination."),
-          text(
-            "Any special requirements involving children, older travellers or multiple stops.",
-          ),
-          text("The fare terms and possible trip-related charges."),
+          text("The designated meeting or parking area (P3/P4 for T1, P2 for T2)."),
+          text("The number of passengers and approximate bag count."),
+          text("The complete Bengaluru drop destination with Google Maps location pin."),
+          text("Strict Price-Lock terms with zero surge multipliers or unexpected driver bata."),
         ],
       },
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "This is particularly useful for families, corporate guests, first-time visitors and travellers arriving late at night or early in the morning. It also provides one direct contact if the flight timing or pickup plan changes.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "" },
           ...link("/", "Lucky Travels"),
           {
             type: "text",
-            text: " handles bookings directly by phone and WhatsApp and provides only Premium Maruti Suzuki Ertiga vehicles. This means the vehicle category can be discussed before confirmation instead of being left uncertain until pickup.",
+            text: " handles bookings directly by phone and WhatsApp and provides brand-new 2026 factory S-CNG Premium Ertigas. This ensures your vehicle allocation is 100% locked without fear of sudden downsizing to a compact sedan.",
           },
         ],
       },
@@ -1496,102 +1221,14 @@ export const blogPosts: BlogPost[] = [
         content: text("Information to share when booking an airport pickup"),
       },
       {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "A clear booking message saves several follow-up calls. Before requesting a quote for a Kempegowda Airport pickup, keep the following information ready:",
-          },
-        ],
-      },
-      {
         type: "ol",
         items: [
-          text("Passenger name and contact number."),
-          text("Travel date."),
-          text("Flight number."),
-          text("Scheduled arrival time."),
-          text("Terminal, if it is already shown on the ticket."),
-          text("Domestic or international arrival."),
+          text("Passenger name and primary contact number."),
+          text("Travel date and flight number."),
+          text("Scheduled arrival time and arrival terminal (T1 or T2)."),
           text("Number of adults and children."),
-          text("Number and approximate size of bags."),
-          text("Complete drop address or a Google Maps location."),
-          text("Any planned stop between the airport and destination."),
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "The flight number is useful even when you already know the landing time. Flight schedules can change, and the same airline may use different terminals for different operations. Before travelling, verify the terminal through your airline’s current information.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "For an international arrival, allow for immigration, baggage collection and customs. Do not ask the driver to enter the designated parking area too early. A short WhatsApp update after collecting your luggage helps coordinate the final meeting more accurately.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        content: text("Understand the current BLR Airport pickup arrangement"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Pickup arrangements at busy airports can change as traffic systems are revised. As checked in August 2026, guidance published for BLR Airport directs commercial vehicles serving Terminal 1 to the P3 and P4 parking zones and vehicles serving Terminal 2 to P2. The airport has also introduced measures to reduce long waits and congestion near the arrival areas. You can read the ",
-          },
-          ...link(
-            "https://www.aci-asiapac.aero/media-centre/news/blr-airport-introduces-new-measures-to-ensure-safer-smoother-arrival-experience-for-passengers-from-december-8",
-            "published BLR Airport pickup guidance",
-          ),
-          { type: "text", text: "." },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Because these are operational rules, never rely only on an old blog post, screenshot or forwarded message. Reconfirm the exact pickup point on the day of travel and follow the current airport signage. The driver should also confirm the meeting area by phone or WhatsApp.",
-          },
-        ],
-      },
-      {
-        type: "ol",
-        items: [
-          text(
-            "Switch on your phone and check for any message from the driver.",
-          ),
-          text(
-            "Complete immigration, baggage collection and customs where applicable.",
-          ),
-          text(
-            "Confirm that all bags have arrived before walking to the pickup area.",
-          ),
-          text("Tell the driver when you are ready to leave the terminal."),
-          text(
-            "Follow airport signs to the confirmed parking or meeting zone.",
-          ),
-          text(
-            "Verify the driver’s name and vehicle registration before boarding.",
-          ),
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Do not agree to meet in an unauthorised stopping area. Designated pickup zones may involve a short walk or airport-provided transfer assistance, but using the correct area makes the meeting safer and reduces confusion.",
-          },
+          text("Number and approximate size of suitcases (large check-in vs cabin bags)."),
+          text("Complete drop address or Google Maps location pin."),
         ],
       },
       {
@@ -1603,41 +1240,8 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "Passenger count alone does not determine whether a vehicle is suitable. Luggage can use more space than expected, especially when several travellers carry large check-in suitcases, cabin bags, a stroller or bulky equipment.",
+            text: "Passenger count alone does not determine whether a vehicle is suitable. Luggage takes up substantial boot space, especially when travelling with 28-inch international bags. Unlike cramped sedans where small trunks force luggage onto passenger seats, our 2026 Ertigas feature flexible 3-row architecture.",
           },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "A Premium Ertiga can be a practical airport-transfer vehicle because it combines flexible seating, air-conditioned comfort and useful luggage space. However, the available boot space changes when every passenger seat is occupied. Six adults carrying several large suitcases may have different requirements from three adults carrying two medium bags.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "When requesting a " },
-          ...link(
-            "/airport-taxi-bangalore",
-            "Premium Ertiga airport transfer in Bengaluru",
-          ),
-          {
-            type: "text",
-            text: ", describe your luggage honestly. If possible, mention:",
-          },
-        ],
-      },
-      {
-        type: "ul",
-        items: [
-          text("Number of large check-in suitcases."),
-          text("Number of cabin bags or backpacks."),
-          text("Strollers, wheelchairs or mobility aids."),
-          text("Sports equipment or oversized items."),
-          text("Whether every passenger seat will be required."),
         ],
       },
       {
@@ -1645,293 +1249,24 @@ export const blogPosts: BlogPost[] = [
         src: "/images/vehicle/boot-space.jpg",
         alt: "Premium Ertiga boot space prepared for Bengaluru airport luggage",
         caption:
-          "Share the passenger count and luggage sizes before confirming an airport transfer.",
+          "Fold the 3rd row flat to fit up to 4 large check-in suitcases with zero passenger cabin squeeze.",
         href: "/",
       },
       {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "This allows the booking to be assessed before confirmation. It is much better to discuss space in advance than discover a mismatch at the terminal.",
-          },
-        ],
-      },
-      {
         type: "h2",
-        content: text("Plan a Bengaluru airport drop with enough time"),
+        content: text("Need local or outstation travel after the airport?"),
       },
       {
         type: "paragraph",
         content: [
           {
             type: "text",
-            text: "Airport drops require a different kind of planning. The pickup address, reporting time, terminal and expected traffic all matter.",
+            text: "Many travellers land in Bengaluru to attend day-long meetings, family functions, or continue onto highway destinations. For multi-stop city travel, explore our ",
           },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "When booking a Bengaluru airport drop:" },
-        ],
-      },
-      {
-        type: "ul",
-        items: [
-          text("Check the terminal on your latest airline communication."),
-          text("Share the exact pickup address and a location pin."),
-          text("Mention the number of passengers and bags."),
-          text(
-            "Tell the driver if another passenger must be collected on the way.",
-          ),
-          text("Follow your airline’s recommended airport reporting time."),
-          text("Add a sensible traffic buffer for your part of Bengaluru."),
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Do not estimate the journey only by distance. A route from Hebbal may behave very differently from a route starting in Whitefield, Koramangala or Electronic City. Rain, road work, peak-hour traffic and major events can also affect travel time. Your airline’s check-in requirement should remain the final reference when deciding when to leave.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        content: text(
-          "Confirm the complete trip terms—not only the headline fare",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "A useful airport cab quote should explain what the amount covers. Before confirming, ask whether any of the following are included or charged separately:",
-          },
-        ],
-      },
-      {
-        type: "ul",
-        items: [
-          text("Airport tolls."),
-          text("Airport parking."),
-          text("Waiting time."),
-          text("Early-morning or late-night service."),
-          text("Additional city stops."),
-          text("A destination outside the agreed service area."),
-          text("Cancellation or major rescheduling."),
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Clear terms protect both the customer and the driver. Keep the final confirmation in writing on WhatsApp so the date, flight, route, vehicle category and agreed charges can be checked easily.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Avoid choosing a cab only because one number appears lower at first glance. The more useful comparison is whether the quote covers the journey you actually need, provides enough space and gives you a reliable contact for coordination.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        content: text("Need the cab after the airport transfer?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Some visitors need more than a direct airport drop. A corporate traveller may need to check in at a hotel and attend several meetings. A family may want to visit relatives, shop or attend a function. A visitor may also be continuing to Mysuru, Coorg or another destination outside Bengaluru.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "For several Bengaluru stops with waiting time, an ",
-          },
-          ...link(
-            "/services/rental-packages",
-            "hourly or daily Ertiga rental package",
-          ),
-          {
-            type: "text",
-            text: " may be more suitable than arranging several separate journeys. For travel beyond the city, review the ",
-          },
-          ...link(
-            "/outstation-cabs-bangalore",
-            "outstation Ertiga taxi options from Bengaluru",
-          ),
+          ...link("/car-rental-bangalore", "hourly car rental packages in Bangalore (8h/80km, 10h/100km, 12h)"),
+          { type: "text", text: ". For long-distance road trips, review our " },
+          ...link("/outstation-cabs-bangalore", "outstation cabs from Bangalore"),
           { type: "text", text: "." },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Share the complete plan before booking. A clear itinerary helps determine whether you need an airport transfer, a city rental package or an outstation journey.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        content: text("A simple WhatsApp template for airport booking"),
-      },
-      {
-        type: "blockquote",
-        content: [
-          {
-            type: "text",
-            text: "Hello Lucky Travels, I need a Bengaluru airport pickup/drop.\nDate:\nFlight number:\nArrival/departure time:\nTerminal, if known:\nPickup location:\nDestination:\nPassengers:\nLarge bags:\nCabin bags:\nAdditional stop or special requirement:",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Sending a complete message makes it easier to check availability and provide accurate trip terms.",
-          },
-        ],
-      },
-      {
-        type: "h2",
-        content: text("Frequently asked questions"),
-      },
-      {
-        type: "h3",
-        content: text("Is Bengaluru Airport the same as Bangalore Airport?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Yes. Kempegowda International Airport Bengaluru, identified by the airport code BLR, is commonly called Bengaluru Airport, Bangalore Airport or Kempegowda Airport. The official city name is Bengaluru, but many travellers still use “Bangalore airport cab” when searching online.",
-          },
-        ],
-      },
-      {
-        type: "h3",
-        content: text(
-          "Does Lucky Travels provide both airport pickup and airport drop?",
-        ),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Yes. Subject to availability and confirmation, Lucky Travels provides Premium Ertiga pickups from BLR Airport and airport drops from Bengaluru localities.",
-          },
-        ],
-      },
-      { type: "h3", content: text("Which terminal will my flight use?") },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "BLR Airport operates Terminal 1 and Terminal 2. Terminal use depends on the airline and flight operation, so check the latest ticket, airline message or airline website. Share the flight number while booking.",
-          },
-        ],
-      },
-      {
-        type: "h3",
-        content: text("Where will a privately booked cab meet me?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "The pickup point depends on the terminal and current airport operating rules. As checked in August 2026, commercial vehicles are directed to designated parking zones: P3/P4 for Terminal 1 and P2 for Terminal 2. Reconfirm on the travel day because airport procedures can change.",
-          },
-        ],
-      },
-      { type: "h3", content: text("What happens if my flight is delayed?") },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Send an update as soon as you know about the delay. Sharing the flight number and keeping your phone reachable after landing helps the driver coordinate the revised pickup. Waiting and parking terms should be confirmed before the booking.",
-          },
-        ],
-      },
-      {
-        type: "h3",
-        content: text("Will an Ertiga hold all our airport luggage?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "It depends on the number of passengers and the size of the bags. Tell Lucky Travels how many large suitcases, cabin bags and special items you have before confirming. When all seats are occupied, luggage capacity becomes more limited.",
-          },
-        ],
-      },
-      {
-        type: "h3",
-        content: text("Can I book for a corporate guest or family member?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Yes. Provide the traveller’s name and reachable mobile number as well as your own contact details. Share the confirmed driver and vehicle information with the passenger before arrival.",
-          },
-        ],
-      },
-      {
-        type: "h3",
-        content: text("How do I book a Lucky Travels airport cab?"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "Call " },
-          {
-            type: "link",
-            href: "tel:9886814344",
-            text: "9886814344",
-            children: text("9886814344"),
-          },
-          { type: "text", text: ", send the completed trip details through " },
-          {
-            type: "link",
-            href: "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Bengaluru%20airport%20cab.",
-            text: "WhatsApp",
-            children: text("WhatsApp"),
-          },
-          { type: "text", text: ", or email " },
-          {
-            type: "link",
-            href: "mailto:bookmyertiga@gmail.com",
-            text: "bookmyertiga@gmail.com",
-            children: text("bookmyertiga@gmail.com"),
-          },
-          {
-            type: "text",
-            text: ". Include the flight, terminal, passenger, luggage and destination details from the checklist above.",
-          },
         ],
       },
       {
@@ -1941,16 +1276,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content: [
-          {
-            type: "text",
-            text: "Good airport travel begins with clear information. Confirm the terminal, share the flight number, describe the luggage, agree on the pickup point and keep the final trip terms in writing.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          { type: "text", text: "To enquire about a Bengaluru airport pickup or drop, visit our " },
+          { type: "text", text: "To reserve your Kempegowda Airport pickup or drop, visit our " },
           ...link("/airport-taxi-bangalore", "Bangalore Airport Taxi service"),
           { type: "text", text: ", call " },
           {
@@ -1959,186 +1285,505 @@ export const blogPosts: BlogPost[] = [
             text: "9886814344",
             children: text("9886814344"),
           },
-          { type: "text", text: ", send your trip details through " },
+          { type: "text", text: ", or send your trip details on " },
           ...link(
             "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20a%20Bengaluru%20airport%20cab.",
             "WhatsApp",
-          ),
-          { type: "text", text: ", or email " },
-          ...link("mailto:bookmyertiga@gmail.com", "bookmyertiga@gmail.com"),
-          { type: "text", text: ". You can also learn more " },
-          ...link(
-            "/about",
-            "about Lucky Travels and its Premium Ertiga-only approach",
           ),
           { type: "text", text: "." },
         ],
       },
       {
         type: "paragraph",
-        content: [
-          { type: "text", text: "Follow " },
-          ...bold("@gobengaluruwithlucky"),
-          { type: "text", text: " on " },
-          ...link(
-            "https://www.instagram.com/gobengaluruwithlucky/",
-            "Instagram",
-          ),
-          { type: "text", text: " and " },
-          ...link("https://www.facebook.com/gobengaluruwithlucky/", "Facebook"),
-          {
-            type: "text",
-            text: " for Bengaluru travel updates, cab industry information and practical journey tips.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Written by Bharath K S, Founder of Lucky Travels. Airport operating information was checked on 22 August 2026. Travellers should reconfirm terminal and pickup instructions before each journey because airport procedures may change.",
-          },
-        ],
+        content: text(
+          "Written by Bharath K S, Founder of Lucky Travels. Specializing in reliable 6+1 Premium Ertiga airport transfers across Bengaluru.",
+        ),
       },
     ],
   },
   {
     slug: "planning-an-outstation-trip-from-bengaluru",
-    title: "Planning a Comfortable Outstation Trip from Bengaluru",
+    title: "Planning a Comfortable Outstation Trip from Bengaluru: The 2026 Ertiga Highway Guide",
     excerpt:
-      "Plan a more comfortable Bengaluru outstation trip with practical guidance on routes, passengers, luggage, timing and trip-specific charges.",
+      "Plan a stress-free outstation road trip from Bangalore with expert guidance on highway routes, luggage planning, 2026 Ertiga comfort, and transparent WhatsApp Price-Locks.",
     seoDescription:
-      "Planning an outstation trip from Bengaluru? Review practical Premium Ertiga guidance for routes, luggage, timing and one-way or round-trip terms.",
+      "Planning an outstation cab from Bangalore? Explore expert tips on highway routes, 4-suitcase luggage room, 2026 factory CNG Ertiga comfort, and transparent WhatsApp quotes.",
     date: "2026-07-12",
+    dateModified: "2026-09-28",
     image: "/images/services/outstation.jpg",
     imageWidth: 1536,
     imageHeight: 1024,
     imageAlt:
       "Premium Ertiga vehicle ready for a comfortable outstation trip from Bengaluru",
-    seoTitle: "Outstation Trip Planning from Bengaluru",
-    author: "Lucky Travels",
+    seoTitle: "Outstation Cabs from Bangalore | Complete Road Trip & Ertiga Guide",
+    author: "Bharath K S",
     authorUrl: "/about",
-    authorType: "Organization",
-    content: [
+    authorType: "Person",
+    authorRole: "Founder and owner-driver",
+    faqs: [
       {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "A smoother outstation journey usually starts with a clear plan for the route, travel date, pickup time and passenger count. ",
-          },
-          ...link("/about", "Learn more about Lucky Travels"),
-          { type: "text", text: " before you confirm your trip." },
-        ],
+        question: "Why choose a 6+1 Ertiga over an outstation sedan cab from Bangalore?",
+        answer:
+          "Long 4- to 8-hour highway road trips in a standard 4-seater sedan (like a Dzire or Etios) quickly become exhausting due to cramped legroom and trunks packed with CNG cylinders. Our 2026 6+1 Ertiga provides Innova-grade 3-row comfort, knee-level console AC, and 4-suitcase luggage room for barely more than sedan cab rates.",
       },
       {
-        type: "h2",
-        content: text("What to confirm in advance"),
+        question: "Are outstation toll charges and interstate permits included in the quote?",
+        answer:
+          "Lucky Travels maintains a strict WhatsApp Price-Lock Guarantee. We clarify all toll charges, interstate permits (for Tamil Nadu, Kerala, or Andhra Pradesh), and driver allowances upfront in writing with zero hidden fees.",
       },
       {
-        type: "ul",
-        items: [
-          text("Route, pickup point and return timing if it is a round trip"),
-          text(
-            "Passenger count and luggage requirements for the family or group",
-          ),
-          text("Tolls, parking and any trip-specific charges that may apply"),
-        ],
-      },
-      {
-        type: "h3",
-        content: text("Comfort matters on longer roads"),
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "For longer journeys, practical seating, air conditioning and luggage space can make a meaningful difference. A ",
-          },
-          {
-            type: "bold",
-            children: [{ type: "text", text: "Premium Ertiga" }],
-          },
-          {
-            type: "text",
-            text: " works well for families and small groups that want comfort without needing a larger vehicle.",
-          },
-        ],
-      },
-      {
-        type: "ol",
-        items: [
-          text(
-            "Confirm the route and expected travel time before the booking is finalised",
-          ),
-          text(
-            "Ask about night driving, rest stops and flexible pickup windows",
-          ),
-          text(
-            "Review the trip-specific charges before the outstation estimate is accepted",
-          ),
-        ],
+        question: "Which outstation destinations do you frequently serve from Bangalore?",
+        answer:
+          "We operate dedicated outstation cabs to Mysore (via the 90-min Expressway), Srirangapatna (Pitru Paksha & temple rites), Coorg (Madikeri), Ooty, Wayanad, Chikmagalur, and Tirupati Balaji.",
       },
     ],
-  },
-  {
-    slug: "hourly-rental-for-city-travel",
-    title: "When an Hourly Ertiga Rental Makes Sense",
-    excerpt:
-      "See when an hourly or daily Premium Ertiga rental can suit Bengaluru meetings, shopping, family visits and several city stops.",
-    seoDescription:
-      "Learn when an hourly or daily Premium Ertiga rental suits Bengaluru meetings, shopping, family visits and multi-stop city travel.",
-    date: "2026-07-05",
-    image: "/images/services/hourly.jpg",
-    imageWidth: 1536,
-    imageHeight: 1024,
-    imageAlt:
-      "Premium Ertiga rental vehicle for hourly Bengaluru city travel and multiple stops",
-    seoTitle: "Hourly Ertiga Rental in Bengaluru",
-    author: "Lucky Travels",
-    authorUrl: "/about",
-    authorType: "Organization",
     content: [
       {
         type: "paragraph",
         content: [
           {
             type: "text",
-            text: "Hourly and daily packages are useful when a journey includes several stops and waiting time. If you are moving between meetings, shopping areas or family visits, a package can be more flexible than multiple point-to-point rides.",
+            text: "Planning an outstation road trip from ",
+          },
+          ...bold("Bengaluru and Bangalore"),
+          {
+            type: "text",
+            text: " is one of the most rewarding ways to explore South India. Whether you are driving down the expressway to ",
+          },
+          ...link("/bangalore-to-mysore-cab", "Mysore"),
+          { type: "text", text: ", embarking on sacred rites in " },
+          ...link("/bangalore-to-srirangapatna-pitru-paksha-cab", "Srirangapatna"),
+          { type: "text", text: ", heading into the coffee estates of " },
+          ...link("/bangalore-to-coorg-cab", "Coorg"),
+          { type: "text", text: " and " },
+          ...link("/bangalore-to-chikmagalur-cab", "Chikmagalur"),
+          { type: "text", text: ", or taking a spiritual pilgrimage to " },
+          ...link("/bangalore-to-tirupati-cab", "Tirupati Balaji"),
+          {
+            type: "text",
+            text: ", the vehicle you select determines whether your holiday is rejuvenating or completely exhausting.",
           },
         ],
-      },
-      {
-        type: "h2",
-        content: text("A flexible option for city schedules"),
       },
       {
         type: "paragraph",
         content: [
           {
             type: "text",
-            text: "Share your approximate schedule in advance so the most suitable package can be discussed. For business travel or city errands, the convenience of a dedicated vehicle often matters as much as the fare itself.",
+            text: "At ",
+          },
+          ...bold("Go Bengaluru by Lucky Travels"),
+          {
+            type: "text",
+            text: ", we focus exclusively on brand-new ",
+          },
+          ...bold("2026 factory-fitted S-CNG 6+1 Maruti Suzuki Ertigas"),
+          {
+            type: "text",
+            text: ". Here is how to plan your outstation journey with zero stress, optimal highway comfort, and transparent pricing.",
+          },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/services/outstation.jpg",
+        alt: "Go Bengaluru Premium Ertiga for outstation cabs from Bangalore",
+        caption:
+          "Spotless 2026 factory-fitted CNG Ertiga dedicated to your family outstation holiday.",
+        href: "/outstation-cabs-bangalore",
+      },
+      {
+        type: "h2",
+        content: text("1. The Outstation Dilemma: Why Sedan Cabs Fall Short on Highways"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Many travellers instinctively look for ",
+          },
+          ...bold("sedan cab hire in Bangalore"),
+          {
+            type: "text",
+            text: " (such as a Dzire or Etios) to keep costs low. However, on long 4- to 8-hour highway road trips, a 4-seater sedan presents severe limitations:",
           },
         ],
       },
       {
         type: "ul",
         items: [
-          text("Multiple city stops without needing to rebook at each point"),
-          text("Useful for family outings, guest pickups and business days"),
-          text("Air-conditioned travel with enough luggage space for the day"),
+          [
+            ...bold("Claustrophobic Rear Seating: "),
+            {
+              type: "text",
+              text: "Three adults seated in the back of a compact sedan suffer from shoulder rubbing, zero recline, and restricted legroom, leading to lower back and knee fatigue.",
+            },
+          ],
+          [
+            ...bold("Luggage Squeeze: "),
+            {
+              type: "text",
+              text: "Most aggregator cabs have retrofitted CNG tanks in the boot that eat up 80% of cargo room, forcing your suitcases onto passenger laps.",
+            },
+          ],
+          [
+            ...bold("Inadequate Climate Control: "),
+            {
+              type: "text",
+              text: "Front-dash AC vents struggle to cool rear passengers during sweltering highway afternoons, leading to stuffiness and motion sickness.",
+            },
+          ],
         ],
       },
       {
         type: "blockquote",
         content: [
+          ...bold("The Smart Upgrade: "),
           {
             type: "text",
-            text: "A Premium Ertiga can be a comfortable option for families, guests and business travel within Bengaluru, especially when timing and waiting time are part of the plan.",
+            text: "Our dedicated 6+1 Ertiga delivers Innova-like 3-row comfort, 4-suitcase luggage room, and dedicated 2nd-row console knee-level AC for just a minor increment over ordinary sedan rates.",
           },
         ],
+      },
+      {
+        type: "h2",
+        content: text("2. 2026 Factory S-CNG Fleet Specifications"),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "We operate only brand-new 2026 Maruti Suzuki Ertigas equipped with 100% factory-fitted S-CNG technology. This provides distinct engineering advantages for long-distance highway travel:",
+        ),
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("Whisper-Quiet Cruise: "),
+            {
+              type: "text",
+              text: "Factory-tuned dual-interdependent ECUs ensure smooth, silent highway cruising with zero engine vibration.",
+            },
+          ],
+          [
+            ...bold("Progressive Highway Suspension: "),
+            {
+              type: "text",
+              text: "Specially calibrated rear dampers absorb potholes and highway undulations, preventing body roll and motion sickness.",
+            },
+          ],
+          [
+            ...bold("Console Knee-Level AC: "),
+            {
+              type: "text",
+              text: "Unlike older vehicles with roof vents that blow cold air down onto passengers' heads, our console vents cool passengers gently from the knee level up.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/vehicle/middle-row.jpg",
+        alt: "Premium Ertiga middle-row seating for comfortable outstation travel",
+        caption:
+          "Middle-row ergonomic comfort with dedicated console knee-level AC vents.",
+        href: "/about",
+      },
+      {
+        type: "h2",
+        content: text("3. Transparent WhatsApp Price-Lock Guarantee"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "One of the greatest fears when booking outstation cabs is hidden post-trip billing—such as sudden night driving penalties, inflated driver bata, or exorbitant per-kilometre rate card jumps. At ",
+          },
+          ...bold("Lucky Travels"),
+          {
+            type: "text",
+            text: ", what we quote on WhatsApp remains ",
+          },
+          ...boldUnderline("strictly fixed and guaranteed"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          text("All-inclusive quotes covering vehicle hire, chauffeur service, fuel, and driver allowance."),
+          text("Tolls, expressway charges, and interstate permits clarified upfront in writing."),
+          text("Zero algorithmic surge pricing multipliers or midnight meter hikes."),
+        ],
+      },
+      {
+        type: "h2",
+        content: text("4. Popular Outstation Corridors Served"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Explore our dedicated outstation guides across Karnataka and neighboring states:",
+          },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          link("/bangalore-to-mysore-cab", "Bangalore to Mysore Expressway Cab (90-Minute Cruising)"),
+          link("/bangalore-to-srirangapatna-pitru-paksha-cab", "Bangalore to Srirangapatna Pilgrimage Cab (Paschima Vahini & Sangama)"),
+          link("/bangalore-to-coorg-cab", "Bangalore to Coorg Cab (Madikeri, Abbey Falls & Plantation Homestays)"),
+          link("/bangalore-to-ooty-cab", "Bangalore to Ooty Cab (Bandipur, Masinagudi & Nilgiri Ghats)"),
+          link("/bangalore-to-chikmagalur-cab", "Bangalore to Chikmagalur Cab (Mullayanagiri & Coffee Country)"),
+          link("/bangalore-to-tirupati-cab", "Bangalore to Tirupati Balaji Cab (Fatigue-Free Devotional Darshan)"),
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Book Your Next Outstation Journey Directly"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Ready to plan your family road trip? Visit our main ",
+          },
+          ...link("/outstation-cabs-bangalore", "Outstation Cabs from Bangalore portal"),
+          { type: "text", text: ", call " },
+          {
+            type: "link",
+            href: "tel:9886814344",
+            text: "+91 98868 14344",
+            children: text("+91 98868 14344"),
+          },
+          { type: "text", text: ", or send your travel details on " },
+          ...link(
+            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20an%20outstation%20cab%20from%20Bangalore.%0ADestination%3A%0ADate%3A%0APassengers%3A",
+            "WhatsApp",
+          ),
+          { type: "text", text: " for an immediate price-locked quote." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Specializing in reliable 6+1 Premium Ertiga outstation travel across South India.",
+        ),
+      },
+    ],
+  },
+  {
+    slug: "hourly-rental-for-city-travel",
+    title: "Hourly Car Rental in Bangalore with Driver: When It Makes Sense & How to Save",
+    excerpt:
+      "Discover when an 8h/80km, 10h/100km, or 12h/120km chauffeur-driven Ertiga rental in Bangalore beats repeated ride-hailing apps for weddings, meetings, and shopping.",
+    seoDescription:
+      "Book hourly car rental in Bangalore with driver. Transparent 8h/80km, 10h/100km & 12h packages in brand new 2026 Ertigas with zero surge pricing.",
+    date: "2026-07-05",
+    dateModified: "2026-09-28",
+    image: "/images/services/hourly.jpg",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt:
+      "Premium Ertiga rental vehicle for hourly Bengaluru city travel and multiple stops",
+    seoTitle: "Hourly Car Rental in Bangalore with Driver | 8h, 10h & 12h Ertiga Packages",
+    author: "Bharath K S",
+    authorUrl: "/about",
+    authorType: "Person",
+    authorRole: "Founder and owner-driver",
+    faqs: [
+      {
+        question: "What hourly rental packages are available in Bangalore?",
+        answer:
+          "Lucky Travels offers 8 Hours / 80 Kilometers (Standard Day), 10 Hours / 100 Kilometers (Extended City), and 12 Hours / 120 Kilometers (Full-Day Disposal) packages. A 4 Hours / 40 Kilometers option is conditionally available upon WhatsApp review.",
+      },
+      {
+        question: "Why is a dedicated hourly rental better than booking separate app cabs?",
+        answer:
+          "Booking repeated on-demand cabs in Bengaluru means waiting 15–20 minutes at each stop, facing driver cancellations, surging fares during rain or peak traffic, and moving luggage each time. A dedicated rental keeps your chauffeur and sanitized car waiting on-site with zero rebooking hassle.",
+      },
+      {
+        question: "Can I use an hourly rental for wedding shopping or multi-office client visits?",
+        answer:
+          "Yes! Hourly disposal packages are ideal for wedding shopping in Commercial Street and Jayanagar, temple darshans, and corporate client visits across Whitefield, Manyata, and Electronic City.",
+      },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Navigating Bengaluru for a busy day of multi-stop meetings, wedding shopping, or family functions can quickly turn into a logistical nightmare if you rely on repeated ride-hailing apps. Facing 20-minute waiting periods, sudden driver cancellations, peak-hour surge multipliers, and having to lug your bags in and out of different cars turns what should be a productive day into pure stress.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "This is where a dedicated ",
+          },
+          ...bold("hourly car rental in Bangalore with driver"),
+          {
+            type: "text",
+            text: " delivers immense value. Instead of gambling on individual point-to-point rides, you reserve a brand-new ",
+          },
+          ...bold("2026 factory S-CNG 6+1 Maruti Suzuki Ertiga"),
+          {
+            type: "text",
+            text: " that remains stationed exclusively at your disposal throughout the day.",
+          },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/services/hourly.jpg",
+        alt: "Go Bengaluru Premium Ertiga for hourly and daily car rental in Bangalore",
+        caption:
+          "Chauffeur-driven 6+1 Ertiga dedicated to your local Bangalore itinerary.",
+        href: "/car-rental-bangalore",
+      },
+      {
+        type: "h2",
+        content: text("1. Popular Bangalore Hourly Rental Packages"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Through our main ",
+          },
+          ...link("/car-rental-bangalore", "Car Rental in Bangalore portal"),
+          {
+            type: "text",
+            text: ", we offer structured packages designed around real Bengaluru transit patterns:",
+          },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            ...bold("8 Hours / 80 Kilometers (Standard Day Package): "),
+            {
+              type: "text",
+              text: "The gold standard for corporate client visits, family errands, and city shopping across MG Road, Indiranagar, and Koramangala.",
+            },
+          ],
+          [
+            ...bold("10 Hours / 100 Kilometers (Extended City Package): "),
+            {
+              type: "text",
+              text: "Perfect for cross-city corridors spanning from Whitefield to Electronic City or North Bangalore, covering extensive multi-point meetings.",
+            },
+          ],
+          [
+            ...bold("12 Hours / 120 Kilometers (Full-Day Disposal Package): "),
+            {
+              type: "text",
+              text: "Ideal for full-day weddings, VIP delegate hosting, family day outings, and multi-point temple darshans across Bengaluru.",
+            },
+          ],
+          [
+            ...bold("4 Hours / 40 Kilometers (Conditional Short Package): "),
+            {
+              type: "text",
+              text: "Available conditionally based on pickup locality, schedule, and route viability upon direct WhatsApp confirmation.",
+            },
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        content: text("2. The Smart Sedan Alternative: Innova Comfort at Sedan Rates"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Many people searching for ",
+          },
+          ...bold("sedan car rental in Bangalore"),
+          {
+            type: "text",
+            text: " assume a 7-seater is outside their budget. However, compact sedans (like Dzire or Etios) offer cramped rear seats and tiny trunks. Our brand-new 2026 Ertigas provide ",
+          },
+          ...bold("Innova-like 3-row comfort, 4-suitcase luggage room, and console knee-level AC for just a minor increment over ordinary sedan rates"),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "image",
+        src: "/images/vehicle/boot-space.jpg",
+        alt: "Premium Ertiga luggage area shown for advance passenger and baggage planning",
+        caption:
+          "Modular boot space stores shopping bags, presentation kits, and luggage comfortably.",
+        href: "/car-rental-bangalore",
+      },
+      {
+        type: "h2",
+        content: text("3. Real-Time Traffic Navigation & Punctuality"),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Bengaluru traffic is notorious around Silk Board, Tin Factory, Hebbal, and the Outer Ring Road. Our chauffeurs monitor live Google Maps traffic before departure and dynamically navigate interior bypass roads to ensure you reach meetings on time.",
+        ),
+      },
+      {
+        type: "h2",
+        content: text("4. Strict WhatsApp Price-Lock Guarantee"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "We don't believe in automated price gouging or surprise driver bata at the end of the day. Once you share your reporting time, pickup address, and planned itinerary on WhatsApp, you receive an all-inclusive transparent quote that remains strictly locked.",
+          },
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Book Your Hourly Bangalore Car Rental Today"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "Lock your quote with owner-driver Bharath K S by visiting our ",
+          },
+          ...link("/car-rental-bangalore", "Bangalore Car Rental service page"),
+          { type: "text", text: ", calling " },
+          {
+            type: "link",
+            href: "tel:9886814344",
+            text: "+91 98868 14344",
+            children: text("+91 98868 14344"),
+          },
+          { type: "text", text: ", or messaging directly on " },
+          ...link(
+            "https://wa.me/919886814344?text=Hello%20Lucky%20Travels%2C%20I%20need%20an%20hourly%20car%20rental%20in%20Bangalore.%0ADate%3A%0APackage%20(8h%2F10h%2F12h)%3A%0APickup%20Area%3A",
+            "WhatsApp",
+          ),
+          { type: "text", text: "." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Specializing in chauffeur-driven 6+1 Premium Ertiga rentals across Bangalore & Bengaluru.",
+        ),
       },
     ],
   },
