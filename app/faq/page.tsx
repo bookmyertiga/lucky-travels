@@ -94,7 +94,6 @@ const faqCategories: FaqCategory[] = [
       },
       {
         q: "Where do we meet our chauffeur at BLR Airport Terminal 1 and Terminal 2?",
-        a: "",
         schemaAnswer:
           "At Terminal 1, our chauffeur receives passengers at the designated commercial parking zones P3/P4. At Terminal 2 (Garden Terminal), we receive guests at the P2 parking area. Once you collect check-in bags, message or call your driver to coordinate the exact bay location.",
         renderAnswer: (

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import JsonLd from "@/components/seo/JsonLd";
 import ConversionTracking from "@/components/shared/ConversionTracking";
-import PilgrimageBanner from "@/components/shared/PilgrimageBanner";
 import { SITE } from "@/constants/site";
 import "./globals.css";
 
@@ -97,7 +96,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </Script>
       </head>
       <body>
-        <PilgrimageBanner />
         <JsonLd data={businessSchema} />
         <ConversionTracking />
         {children}
