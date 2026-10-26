@@ -6,6 +6,7 @@ import { PopularAirportCorridors } from "@/components/sections/AirportCorridorPa
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import { createAirportTaxiSeo } from "@/lib/airportTaxiSeo";
 
 const routeUrl = `${SITE.url}/airport-taxi-whitefield`;
 const whitefieldWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
@@ -125,77 +126,18 @@ function RouteImage() {
 }
 
 export default function WhitefieldAirportTaxiPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Whitefield to Bangalore Airport Taxi in a Dedicated 6+1 Ertiga",
-    serviceType: "Airport Chauffeur-Driven Taxi Transfer",
-    provider: {
-      "@type": "TaxiService",
-      name: "Go Bengaluru by Lucky Travels",
-      legalName: "Lucky Travels",
-      brand: { "@type": "Brand", name: "Go Bengaluru" },
-      url: SITE.url,
-      telephone: `+91${SITE.phone}`,
-      email: SITE.email,
-    },
-    areaServed: [
-      {
-        "@type": "AdministrativeArea",
-        name: "Whitefield",
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 12.9698,
-          longitude: 77.75,
-        },
-      },
-      {
-        "@type": "Place",
-        name: "Kempegowda International Airport Bengaluru",
-      },
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "58",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    url: routeUrl,
-    image: `${SITE.url}/images/services/airport.jpg`,
+  const { breadcrumbSchema, taxiServiceSchema, faqSchema, airportFaqs } = createAirportTaxiSeo({
+    pageName: "Whitefield to Bangalore Airport Taxi",
+    routeUrl,
     description:
-      "Punctual Whitefield to Kempegowda Airport (BLR T1 & T2) transfers in brand new 2026 factory CNG 6+1 Ertiga cabs with trip-locked WhatsApp pricing.",
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Bangalore Airport Taxi",
-        item: `${SITE.url}/airport-taxi-bangalore`,
-      },
-      { "@type": "ListItem", position: 3, name: "Whitefield Airport Taxi", item: routeUrl },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${routeUrl}#faq`,
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+      "Punctual Whitefield, ITPL and Kadugodi transfers to Kempegowda Airport (BLR T1 and T2) in factory S-CNG 6+1 Ertigas with Budigere Cross routing and WhatsApp Price-Lock.",
+    locality: "Whitefield, ITPL and Kadugodi",
+    faqs,
+  });
 
   return (
     <SiteShell>
-      <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, taxiServiceSchema, faqSchema]} />
       <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section
@@ -506,7 +448,7 @@ export default function WhitefieldAirportTaxiPage() {
               Common Questions Before You Travel
             </SectionHeading>
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {faqs.map((faq) => (
+              {airportFaqs.map((faq) => (
                 <article key={faq.question} className="rounded-2xl border border-slate-200 p-5 bg-slate-50/40">
                   <h3 className="text-base font-black text-[#090f2f]">{faq.question}</h3>
                   <p className="mt-2 text-xs sm:text-sm leading-6 text-slate-700">{faq.answer}</p>

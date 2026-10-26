@@ -20,6 +20,7 @@ import {
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import { createAirportTaxiSeo } from "@/lib/airportTaxiSeo";
 
 export type AirportCorridor = {
   slug: string;
@@ -44,7 +45,7 @@ export type AirportCorridor = {
   areas?: string;
   terminalGuide?: string;
   faqs: { question: string; answer: string }[];
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export const airportRoutes = [
@@ -160,60 +161,17 @@ Passengers & Luggage count:`
       ? `${corridor.distance} | Non-peak: ${corridor.nonPeak || "60-80m"}, Peak: ${corridor.peak || "90-120m"}`
       : "45-55 km | 60-90 mins");
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": ["TaxiService", "Service"],
-    name: `${corridor.pageName} in a 6+1 Premium Ertiga`,
-    serviceType: "Airport Taxi Service",
-    provider: {
-      "@type": "TaxiService",
-      name: SITE.name,
-      brand: { "@type": "Brand", name: SITE.brand },
-      url: SITE.url,
-      telephone: `+91${SITE.phone}`,
-      email: SITE.email,
-    },
-    areaServed: [{ "@type": "City", name: "Bangalore" }, { "@type": "Place", name: suburbName }],
-    url: routeUrl,
-    image: `${SITE.url}${heroImg}`,
-    logo: `${SITE.url}/images/logo/favicon.png`,
-    priceRange: "₹₹",
-    telephone: `+91${SITE.phone}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Konena Agrahara, HAL",
-      addressLocality: "Bengaluru",
-      postalCode: "560017",
-      addressRegion: "Karnataka",
-      addressCountry: "IN",
-    },
+  const { breadcrumbSchema, taxiServiceSchema, faqSchema, airportFaqs } = createAirportTaxiSeo({
+    pageName: corridor.pageName,
+    routeUrl,
     description: corridor.description,
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      { "@type": "ListItem", position: 2, name: "Airport Taxi Bangalore", item: `${SITE.url}/airport-taxi-bangalore` },
-      { "@type": "ListItem", position: 3, name: corridor.pageName, item: routeUrl },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${routeUrl}#faq`,
-    mainEntity: corridor.faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+    locality: suburbName,
+    faqs: corridor.faqs,
+  });
 
   return (
     <SiteShell>
-      <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, taxiServiceSchema, faqSchema]} />
 
       <main className="min-h-screen bg-[#fafaf9] py-8 sm:py-12">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -450,7 +408,7 @@ Passengers & Luggage count:`
             </h2>
 
             <div className="mt-6 space-y-4">
-              {corridor.faqs.map((faq, index) => (
+              {airportFaqs.map((faq, index) => (
                 <div key={index} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                   <h3 className="text-base sm:text-lg font-black text-slate-900">{faq.question}</h3>
                   <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-600 text-justify">{faq.answer}</p>

@@ -14,6 +14,7 @@ import {
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import { createAirportTaxiSeo } from "@/lib/airportTaxiSeo";
 
 const routeUrl = `${SITE.url}/airport-taxi-bangalore`;
 const airportWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
@@ -202,64 +203,18 @@ function SectionHeading({
 }
 
 export default function AirportTaxiBangalorePage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Bangalore Airport Taxi | Kempegowda Airport BLR T1 & T2 Cab",
-    alternateName: [
-      "Bangalore Airport Cab Service",
-      "Kempegowda International Airport Taxi",
-      "BLR Airport Taxi Transfers",
-      "Ertiga Airport Taxi Bangalore",
-      "Bengaluru Airport Drop and Pickup",
-    ],
-    serviceType: "Airport Taxi & Chauffeur Transfer Service in Bangalore",
-    provider: {
-      "@type": "TaxiService",
-      name: "Go Bengaluru by Lucky Travels",
-      alternateName: ["GoBengaluru", "Go Bangalore", "Lucky Travels"],
-      url: SITE.url,
-      telephone: `+91${SITE.phone}`,
-      email: SITE.email,
-    },
-    areaServed: [
-      { "@type": "City", name: "Bangalore" },
-      { "@type": "City", name: "Bengaluru" },
-      { "@type": "Place", name: "Kempegowda International Airport Bengaluru" },
-    ],
-    url: routeUrl,
-    image: `${SITE.url}/images/services/hourly.jpg`,
+  const { breadcrumbSchema, taxiServiceSchema, faqSchema, airportFaqs } = createAirportTaxiSeo({
+    pageName: "Bangalore Airport Taxi",
+    routeUrl,
     description: pageDescription,
-  };
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Bangalore Airport Taxi",
-        item: routeUrl,
-      },
-    ],
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${SITE.url}/airport-taxi-bangalore#faq`,
-    mainEntity: [
-      ...faqItems.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: { "@type": "Answer", text: item.answer },
-      })),
-    ],
-  };
+    locality: "Bengaluru",
+    faqs: faqItems,
+    isHub: true,
+  });
 
   return (
     <SiteShell>
-      <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, taxiServiceSchema, faqSchema]} />
       <main className="overflow-x-hidden">
 
         {/* 1. ORIGINAL HERO SECTION WITH WHITE ERTIGA IMAGE */}
@@ -726,7 +681,7 @@ export default function AirportTaxiBangalorePage() {
             Bangalore Airport Taxi FAQs
           </SectionHeading>
           <div className="mt-7 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-6">
-            {faqItems.map((item) => (
+            {airportFaqs.map((item) => (
               <article key={item.question} className="py-5 sm:py-6">
                 <h3 className="text-base sm:text-lg font-black text-[#090f2f]">
                   {item.question}

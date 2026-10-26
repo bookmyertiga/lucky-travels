@@ -17,6 +17,7 @@ import { PopularAirportCorridors } from "@/components/sections/AirportCorridorPa
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import { createAirportTaxiSeo } from "@/lib/airportTaxiSeo";
 
 const routeUrl = `${SITE.url}/airport-taxi-electronic-city`;
 const ecityWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
@@ -125,77 +126,18 @@ const faqs = [
 ];
 
 export default function ElectronicCityAirportTaxiPage() {
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Electronic City to Bangalore Airport Taxi (55km Highway Transfer)",
-    serviceType: "Airport Chauffeur-Driven Taxi Transfer",
-    provider: {
-      "@type": "TaxiService",
-      name: "Go Bengaluru by Lucky Travels",
-      legalName: "Lucky Travels",
-      brand: { "@type": "Brand", name: "Go Bengaluru" },
-      url: SITE.url,
-      telephone: `+91${SITE.phone}`,
-      email: SITE.email,
-    },
-    areaServed: [
-      {
-        "@type": "AdministrativeArea",
-        name: "Electronic City",
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 12.8452,
-          longitude: 77.6602,
-        },
-      },
-      {
-        "@type": "Place",
-        name: "Kempegowda International Airport Bengaluru",
-      },
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "52",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    url: routeUrl,
-    image: `${SITE.url}/images/services/airport.jpg`,
+  const { breadcrumbSchema, taxiServiceSchema, faqSchema, airportFaqs } = createAirportTaxiSeo({
+    pageName: "Electronic City to Bangalore Airport Taxi",
+    routeUrl,
     description:
-      "Punctual Electronic City Phase 1 & 2 to Kempegowda Airport (BLR T1 & T2) transfers in brand new 2026 factory CNG 6+1 Ertigas with trip-locked WhatsApp pricing.",
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Bangalore Airport Taxi",
-        item: `${SITE.url}/airport-taxi-bangalore`,
-      },
-      { "@type": "ListItem", position: 3, name: "Electronic City Airport Taxi", item: routeUrl },
-    ],
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${routeUrl}#faq`,
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+      "Punctual Electronic City Phase 1 and 2 to Kempegowda Airport (BLR T1 and T2) transfers in factory S-CNG 6+1 Ertigas with upfront WhatsApp pricing.",
+    locality: "Electronic City Phase 1 and 2",
+    faqs,
+  });
 
   return (
     <SiteShell>
-      <JsonLd data={[serviceSchema, breadcrumbSchema, faqSchema]} />
+      <JsonLd data={[breadcrumbSchema, taxiServiceSchema, faqSchema]} />
       <main className="overflow-x-hidden">
         {/* HERO SECTION: Tailored for 55km Highway Transfer */}
         <section
@@ -485,7 +427,7 @@ export default function ElectronicCityAirportTaxiPage() {
               Electronic City to Bangalore Airport Taxi FAQs
             </h2>
             <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {faqs.map((faq) => (
+              {airportFaqs.map((faq) => (
                 <article key={faq.question} className="rounded-2xl border border-slate-200 p-5 bg-slate-50/40">
                   <h3 className="text-base font-black text-[#090f2f]">{faq.question}</h3>
                   <p className="mt-2 text-xs sm:text-sm leading-6 text-slate-700">{faq.answer}</p>
