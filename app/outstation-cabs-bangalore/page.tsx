@@ -15,6 +15,7 @@ import { PopularOutstationRoutes } from "@/components/sections/OutstationCorrido
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
+import OutstationQuoteCalculator from "@/components/sections/OutstationQuoteCalculator";
 
 const routeUrl = `${SITE.url}/outstation-cabs-bangalore`;
 const outstationWhatsAppUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
@@ -108,17 +109,17 @@ const faqItems = [
   {
     question: "Why choose a 6+1 Ertiga over a standard sedan cab for outstation highway trips?",
     answer:
-      "A long 4- to 8-hour highway road trip in a standard 4-seater sedan (like a Dzire or Etios) quickly becomes exhausting and claustrophobic, especially with luggage eating into cabin space. Our 6+1 Ertiga provides Innova-grade 3-row comfort, generous legroom, second-row console knee-level AC vents, and a deep modular boot for barely a fraction more than basic sedan cab rates.",
+      "A long 4- to 8-hour road trip in a compact Dzire or Etios can leave little luggage space when an aftermarket CNG kit occupies the boot, pushing family suitcases into the passenger cabin. Small sedans can also struggle to maintain comfortable cooling on uphill ghat roads. Our exclusive 2024–2026 factory S-CNG 6+1 Ertiga fleet offers a flat modular boot, independent rear AC blowers with console controls, progressive rear shock absorbers and stable highway handling.",
   },
   {
     question: "How does the WhatsApp Price-Lock Guarantee work for outstation bookings?",
     answer:
-      "We avoid algorithmic surge pricing and confusing rate cards. Once you share your travel dates, pickup location, destination, and itinerary on WhatsApp, you receive an all-inclusive transparent quote. What is agreed upon on WhatsApp remains strictly locked with zero surprise driver bata or hidden fees.",
+      "We avoid algorithmic surge pricing and confusing rate cards. Your itemized WhatsApp quote states the per-kilometre base fare, day bata, overnight allowance where applicable, tolls, permits and parking. What is agreed on WhatsApp is your locked final quote, with no hidden toll surge or cancellation surprise.",
   },
   {
     question: "How much luggage can a 2026 Ertiga accommodate for outstation travel?",
     answer:
-      "For optimal highway comfort, we recommend 4 to 5 passengers with up to 4 large check-in suitcases and cabin bags when the 3rd row is folded flat, or 6 passengers with compact cabin trolley bags. Share your luggage count in advance so we can assess the arrangement honestly.",
+      "With the 50:50 third row folded flat, the Ertiga can accommodate up to 4 large 28-inch suitcases plus bags, depending on passenger count and bag shape. Share your luggage count so the final setup can be confirmed at pickup; the 60:40 second row can also be folded for a multi-week relocation by prior request for a nominal cargo reconfiguration fee.",
   },
   {
     question: "Can we add sightseeing, meal breaks or customized stops along the route?",
@@ -129,6 +130,31 @@ const faqItems = [
     question: "Are toll fees and state permits included in the outstation quote?",
     answer:
       "Highway tolls and interstate permits (for trips to Ooty in Tamil Nadu, Wayanad in Kerala, or Tirupati in Andhra Pradesh) are handled transparently. When we quote on WhatsApp, we clarify whether tolls and permits are bundled or billed at actual cost.",
+  },
+  {
+    question: "Can I book a pet-friendly outstation trip?",
+    answer:
+      "Request pet travel before booking. We confirm vehicle availability, safe restraint requirements, cleaning terms and accommodation rules for your specific route before accepting the booking.",
+  },
+  {
+    question: "What safety equipment is available for highway trips?",
+    answer:
+      "Fleet vehicles are Karnataka State Transport Department compliant and equipped with live government GPS tracking and active SOS Panic Buttons connected to emergency response infrastructure. Chauffeurs follow route-specific road and forest restrictions.",
+  },
+  {
+    question: "How are driver day bata and overnight allowances calculated?",
+    answer:
+      "Your written quote shows the per-kilometre base fare, driver day bata, any overnight allowance, tolls, permits and parking separately. Agree the trip duration and inclusions on WhatsApp before travel; no hidden surge or last-minute cancellation surprise is added.",
+  },
+  {
+    question: "What are the Bandipur forest crossing hours for Ooty trips?",
+    answer:
+      "The stated Bandipur Forest Checkpost closure is 9:00 PM to 6:00 AM. For Ooty, plan to leave Bengaluru before 1:00 PM to allow for traffic and stops, check current official notices and never attempt entry after closure.",
+  },
+  {
+    question: "How is hill driving handled on Coorg and Ooty trips?",
+    answer:
+      "Chauffeurs use appropriate gears, controlled speeds and smooth braking on climbs and descents, adapting to visibility, rain and road condition. Kalhatty's 36 hairpins require extra caution; route access and restrictions are checked before travel.",
   },
 ];
 
@@ -210,7 +236,7 @@ function SectionHeading({
 export default function OutstationCabsBangalorePage() {
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "TaxiService",
     name: "Outstation Cabs from Bangalore in a Dedicated 6+1 Ertiga",
     alternateName: [
       "Go Bengaluru Outstation Cabs",
@@ -225,8 +251,16 @@ export default function OutstationCabsBangalorePage() {
       name: "Go Bengaluru by Lucky Travels",
       alternateName: ["GoBengaluru", "Go Bangalore", "Lucky Travels"],
       url: SITE.url,
-      telephone: `+91${SITE.phone}`,
+      telephone: "+91-9886814344",
       email: SITE.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Konena Agrahara, HAL",
+        addressLocality: "Bengaluru",
+        addressRegion: "Karnataka",
+        postalCode: "560017",
+        addressCountry: "IN",
+      },
     },
     areaServed: [
       { "@type": "City", name: "Bangalore" },
@@ -276,12 +310,12 @@ export default function OutstationCabsBangalorePage() {
         {/* 1. HERO SECTION WITH WHITE ERTIGA SHOWCASE */}
         <section
           aria-labelledby="outstation-heading"
-          className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10"
+          className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-700 px-5 py-8 text-white sm:py-10"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.15fr_.85fr]">
             <div>
-              <p className="text-xs font-black uppercase leading-5 tracking-[.18em] text-amber-400 sm:text-sm">
-                CHAUFFEUR-DRIVEN HIGHWAY MOBILITY • BANGALORE &amp; BENGALURU
+              <p className="text-xs font-black uppercase leading-5 tracking-[.18em] text-slate-300 sm:text-sm">
+                EXECUTIVE NAVY / TITANIUM • CHAUFFEUR-DRIVEN HIGHWAY MOBILITY
               </p>
               <h1
                 id="outstation-heading"
@@ -292,7 +326,7 @@ export default function OutstationCabsBangalorePage() {
               <p className="mt-3 max-w-3xl text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
                 Plan a punctual one-way drop, same-day return, or multi-day family road trip from <strong>Bangalore and Bengaluru</strong>. Travel in a brand-new <strong>2026 factory-fitted CNG 6+1 Maruti Suzuki Ertiga</strong> and experience <em>Innova-class 3-row comfort and 4-suitcase luggage room for barely more than basic sedan cab rates</em>, with verified highway owner-drivers and trip-locked WhatsApp quotes.
               </p>
-              <p className="mt-2 text-sm font-black leading-5 text-amber-300 sm:text-base">
+              <p className="mt-2 text-sm font-black leading-5 text-slate-200 sm:text-base">
                 {SITE.specialisationSlogan}
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
@@ -460,6 +494,17 @@ export default function OutstationCabsBangalorePage() {
           </div>
         </section>
 
+        <section className="bg-slate-100 px-5 py-10 sm:py-14" aria-labelledby="outstation-calculator-heading">
+          <div className="page-shell">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-600">Executive navy / titanium • round-trip planning</p>
+            <h2 id="outstation-calculator-heading" className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">Transparent Outstation Price Breakdown Calculator</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Enter the actual kilometres, agreed rate and allowances from your trip plan or WhatsApp quote. No invented rates are prefilled; this calculator only adds the figures you provide.</p>
+            <div className="mt-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+              <OutstationQuoteCalculator />
+            </div>
+          </div>
+        </section>
+
         {/* 4. FLEET SPECIALIZATION SECTION WITH MIDDLE-ROW SEATING */}
         <section
           className="page-shell py-10 sm:py-14"
@@ -475,10 +520,10 @@ export default function OutstationCabsBangalorePage() {
               </SectionHeading>
               <div className="mt-5 space-y-4 text-sm leading-7 text-slate-700 sm:text-base sm:leading-8">
                 <p>
-                  A longer highway journey demands superior seating ergonomics, continuous climate control, and generous luggage planning that a cramped hatchback or compact sedan cannot deliver. Lucky Travels concentrates exclusively on brand-new, factory-fitted CNG 6+1 Maruti Suzuki Ertigas.
+                  We operate exclusively in the Premium Ertiga Category for passenger comfort and dignity; we do not operate hatchbacks or compact sedans. Our 2024–2026 factory S-CNG 6+1 Ertigas provide modular luggage space, independent rear AC blowers with console controls, progressive rear shock absorbers and stable highway handling.
                 </p>
                 <p>
-                  Specialising in one unified fleet category ensures that every outstation car dispatched is immaculate, odor-free, fully sanitized, and mechanically sound with verified highway tyres and smooth progressive suspension. You receive guaranteed vehicle allocation with zero risk of sudden downsizing.
+                  Compact sedan CNG kits can consume trunk room, forcing bags into the cabin on a four-to-eight-hour tour; small sedans may also struggle with AC on uphill ghat roads. Our Ertiga&apos;s 50:50 third row folds flat for up to 4 large 28-inch suitcases plus bags, subject to passenger count and pickup confirmation.
                 </p>
                 <p>
                   Our chauffeurs monitor real-time Google Maps highway traffic before departure and throughout the route, planning suitable restaurant halts, fuel breaks, and scenic detours comfortably.
@@ -498,7 +543,7 @@ export default function OutstationCabsBangalorePage() {
           <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6 lg:p-7">
             <h3 className="font-black text-amber-900">Practical Luggage &amp; Seating Guidance</h3>
             <p className="mt-2 text-sm leading-6 text-amber-800">
-              For optimal outstation comfort, we recommend <strong>4 to 5 passengers with up to 4 large check-in suitcases</strong> when the 3rd row is folded flat, or <strong>6 passengers with compact cabin trolley bags</strong>. Please share your passenger and baggage count when inquiring on WhatsApp so we can prepare the vehicle arrangement honestly.
+              The 50:50 third row folds flat to carry up to <strong>4 large 28-inch suitcases plus bags</strong> without placing luggage in passenger seats; the passenger count affects the layout, so confirm the final fit at pickup. For a multi-week homestay relocation, request the 60:40 second-row cargo fold in advance for a nominal reconfiguration fee. <Link href="/blog/ertiga-luggage-capacity-guide" className="font-bold underline">Read the full Ertiga luggage guide.</Link>
             </p>
           </div>
         </section>
@@ -539,6 +584,15 @@ export default function OutstationCabsBangalorePage() {
           </div>
         </section>
 
+        <section className="page-shell px-5 py-10 sm:py-14" aria-labelledby="outstation-ais-safety">
+          <div className="rounded-3xl border border-slate-700 bg-slate-950 p-6 text-white shadow-xl sm:p-8">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-300">Executive fleet compliance • highway safety</p>
+            <h2 id="outstation-ais-safety" className="mt-2 text-2xl font-black">Karnataka Government AIS-140 Certified Passenger Safety</h2>
+            <p className="mt-3 leading-7 text-white/80">Every fleet vehicle is fully compliant with Karnataka State Transport Department regulations, equipped with live Government-monitored GPS vehicle tracking and an active emergency SOS Panic Button directly connected to emergency response infrastructure—important safeguards on long highways and forest-reserve approaches.</p>
+            <p className="mt-3 leading-7 text-white/80">Book directly with an accountable owner-driver. Chauffeurs are vetted, the interiors are clean and non-smoking, and routes are driven with highway, night-travel and Western Ghats conditions in mind. No surge pricing or driver cancellations.</p>
+          </div>
+        </section>
+
         {/* 6. POPULAR DESTINATIONS & CORRIDOR DIRECTORY */}
         <section
           className="page-shell py-10 sm:py-14"
@@ -564,6 +618,15 @@ export default function OutstationCabsBangalorePage() {
                   <Link href="/bangalore-to-srirangapatna-pitru-paksha-cab" className="rounded-lg bg-white px-3 py-1.5 font-bold text-amber-900 border border-amber-200 hover:bg-amber-100 transition">
                     Bangalore to Srirangapatna (Pilgrimage Rites) →
                   </Link>
+                  <Link href="/bangalore-to-coorg-cab" className="rounded-lg bg-white px-3 py-1.5 font-bold text-emerald-900 border border-emerald-200 hover:bg-emerald-100 transition">
+                    Bangalore to Coorg Coffee Country →
+                  </Link>
+                  <Link href="/bangalore-to-ooty-cab" className="rounded-lg bg-white px-3 py-1.5 font-bold text-sky-900 border border-sky-200 hover:bg-sky-100 transition">
+                    Bangalore to Ooty &amp; Bandipur →
+                  </Link>
+                  <Link href="/blog/ertiga-luggage-capacity-guide" className="rounded-lg bg-white px-3 py-1.5 font-bold text-slate-900 border border-slate-200 hover:bg-slate-100 transition">
+                    Ertiga luggage capacity guide →
+                  </Link>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-slate-600">
@@ -576,6 +639,31 @@ export default function OutstationCabsBangalorePage() {
               alt="Premium Ertiga boot and luggage space for an outstation taxi from Bangalore"
               caption="Modular boot capacity easily fits 4 large international check-in suitcases when 3rd row is folded."
             />
+          </div>
+        </section>
+
+        <section className="bg-slate-100 px-5 py-10 sm:py-14" aria-labelledby="outstation-dispatch-matrix">
+          <div className="page-shell">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-600">Bengaluru city-wide pickup dispatch</p>
+            <h2 id="outstation-dispatch-matrix" className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">Airport and residential pickup corridor matrix</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Share your exact street, society gate or terminal so dispatch and city exit can be planned for your destination.</p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+              <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+                <thead className="bg-slate-900 text-white"><tr><th className="p-4">Pickup area</th><th className="p-4">Useful route notes</th><th className="p-4">Dispatch guide</th></tr></thead>
+                <tbody>
+                  {[
+                    { area: "North Bengaluru / BLR Airport", note: "Terminal access, Devanahalli and airport approach timing", href: "/airport-taxi-bangalore", label: "Airport taxi hub" },
+                    { area: "East Bengaluru / Whitefield", note: "SH-104, Budigere Cross and ORR traffic comparison", href: "/airport-taxi-whitefield", label: "Whitefield pickup" },
+                    { area: "South-east / Electronic City", note: "Elevated Tollway, NICE Road and south-city approach", href: "/airport-taxi-electronic-city", label: "Electronic City pickup" },
+                    { area: "Central / Indiranagar & HAL", note: "HAL, Domlur and Baiyappanahalli city-exit planning", href: "/airport-taxi-indiranagar", label: "Indiranagar pickup" },
+                    { area: "South Bengaluru / HSR & JP Nagar", note: "Sector / phase gates, Agara and metro diversion checks", href: "/airport-taxi-hsr-layout", label: "HSR corridor" },
+                    { area: "South Bengaluru / JP Nagar", note: "Phase-based pickup and Bannerghatta Road diversion checks", href: "/airport-taxi-jp-nagar", label: "JP Nagar pickup" },
+                    { area: "South-east / Sarjapur & Marathahalli", note: "Society entry, Carmelaram, bridge and ORR approaches", href: "/airport-taxi-sarjapur-road", label: "Sarjapur corridor" },
+                    { area: "ORR / Marathahalli", note: "Bridge merges, Spice Garden and service-lane staging", href: "/airport-taxi-marathahalli", label: "Marathahalli pickup" },
+                  ].map((row) => <tr key={row.area} className="border-t border-slate-200"><th scope="row" className="p-4 font-black text-slate-900">{row.area}</th><td className="p-4 text-slate-600">{row.note}</td><td className="p-4"><Link className="font-bold text-slate-800 underline" href={row.href}>{row.label}</Link></td></tr>)}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 

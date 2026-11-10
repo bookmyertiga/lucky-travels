@@ -14,7 +14,6 @@ import {
   Calendar,
   User,
   Sparkles,
-  HelpCircle,
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import SiteShell from "@/components/shared/SiteShell";
@@ -64,6 +63,15 @@ export type OutstationCorridor = {
 };
 
 const outstationRoutes = [
+  {
+    href: "/outstation-cabs-bangalore",
+    label: "Bangalore Outstation Cab Hub",
+    desc: "Compare one-way, same-day and multi-day Ertiga plans",
+    tag: "TRIP PLANNING",
+    cta: "Compare outstation packages →",
+    cardClass: "border-slate-300 bg-slate-100/70 hover:border-slate-500 text-slate-900",
+    badgeClass: "bg-slate-200 text-slate-800 border-slate-300",
+  },
   {
     href: "/bangalore-to-mysore-cab",
     label: "Bangalore to Mysore Cab",
