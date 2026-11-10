@@ -31,9 +31,11 @@ const categories = [
   { id: "rentals", name: "Hourly Rentals" },
   { id: "outstation", name: "Outstation Trips" },
   { id: "fleet", name: "Fleet & Founder" },
+  { id: "luggage", name: "Fleet & Luggage" },
 ];
 
 function getCategory(slug: string): string {
+  if (slug === "ertiga-luggage-capacity-guide") return "luggage";
   if (slug.includes("airport")) return "airport";
   if (slug.includes("hourly") || slug.includes("rental")) return "rentals";
   if (slug.includes("outstation")) return "outstation";
@@ -262,7 +264,7 @@ export default function BlogListingPage() {
                 <div className="p-6 pt-0 border-t border-slate-100 mt-4">
                   <div className="pt-3 flex items-center justify-between">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-purple-700">
-                      {getCategory(post.slug)}
+                      {post.category || categories.find((category) => category.id === getCategory(post.slug))?.name}
                     </span>
                     <Link
                       href={`/blog/${post.slug}`}

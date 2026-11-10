@@ -30,6 +30,7 @@ export type BlogBlock =
 export type BlogPost = {
   slug: string;
   title: string;
+  category?: string;
   excerpt: string;
   seoDescription?: string;
   date: string;
@@ -1609,6 +1610,136 @@ export const blogPosts: BlogPost[] = [
         content: text(
           "Written by Bharath K S, Founder and owner-driver of Lucky Travels. Specializing in reliable 6+1 Premium Ertiga outstation travel across South India.",
         ),
+      },
+    ],
+  },
+  {
+    slug: "ertiga-luggage-capacity-guide",
+    title: "Maruti Suzuki Ertiga Luggage Capacity Guide: Real Boot Space with Factory S-CNG",
+    category: "Fleet & Luggage",
+    excerpt:
+      "A practical guide to Ertiga boot space with factory S-CNG: third-row folding, realistic suitcase capacity, passenger-count tradeoffs and advance cargo reconfiguration.",
+    seoDescription:
+      "See how the factory S-CNG Ertiga's modular split seats make room for 3–4 large check-in suitcases plus cabin bags, with baggage setup confirmed for your passenger count.",
+    date: "2026-11-10",
+    dateModified: "2026-11-10",
+    image: "/images/vehicle/boot-space.jpg",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    imageAlt: "Maruti Suzuki Ertiga boot area prepared for airport suitcases",
+    seoTitle:
+      "Maruti Suzuki Ertiga Luggage Capacity Guide | Factory S-CNG Boot Space",
+    author: "Bharath K S",
+    authorUrl: "/about",
+    authorType: "Person",
+    authorRole: "Founder and owner-driver",
+    faqs: [
+      {
+        question: "How many large suitcases fit in an Ertiga with the third row folded?",
+        answer:
+          "With the 50:50 third-row seats folded flat, the load bay can accommodate 3–4 large 28-inch international check-in suitcases and about two cabin bags, depending on bag shape and passenger count. Confirm the final arrangement at pickup.",
+      },
+      {
+        question: "Does the factory S-CNG cylinder remove the Ertiga's luggage area?",
+        answer:
+          "The factory S-CNG cylinders sit securely in the floor compartment. The Ertiga is engineered with modular split seating, so folding the third row creates a flat load bay rather than relying on a conventional sedan-style trunk.",
+      },
+      {
+        question: "Can the second row be folded for oversized cargo?",
+        answer:
+          "Yes. With prior request, the 60:40 second-row seats can also be folded flat for ultra-heavy cargo or a home relocation. A nominal cargo reconfiguration fee applies, and the passenger seating plan must be agreed in advance.",
+      },
+    ],
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Airport baggage capacity depends on more than a boot's headline volume: passenger count, suitcase dimensions and seat arrangement all matter. The factory S-CNG Ertiga uses cylinders that sit securely in the floor compartment, and it is specifically engineered with " },
+          ...bold("modular split seating"),
+          { type: "text", text: " so the cabin can be configured around people and luggage rather than treating it like a small sedan trunk." },
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Standard airport setup: fold the 50:50 third row"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Folding the third-row seats creates a flat load bay for " },
+          ...bold("3–4 large 28-inch international check-in suitcases plus 2 cabin bags"),
+          { type: "text", text: ". In this standard setup, the baggage occupies the converted rear load space and does not intrude into passenger legroom. Suitcase shape, soft bags and passenger count affect the exact arrangement, so send the bag count when booking." },
+        ],
+      },
+      {
+        type: "blockquote",
+        content: [
+          ...bold("Plan the seats around the passengers: "),
+          { type: "text", text: "the 4-suitcase configuration uses the third row folded. If all seven seats are required, luggage capacity is different; confirm passenger numbers and bags together." },
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Dynamic on-pickup confirmation and second-row flexibility"),
+      },
+      {
+        type: "paragraph",
+        content: text(
+          "Final baggage arrangement can be confirmed right at pickup depending on passenger count, bag dimensions and the actual luggage. For ultra-heavy cargo, airport relocations, or couples traveling with massive excess baggage, an additional configuration is available on prior request:",
+        ),
+      },
+      {
+        type: "blockquote",
+        content: text(
+          "Traveling with extra oversized cargo or setting up a home? The 60:40 second-row seats can also be folded flat to convert the cabin into an executive cargo transporter (available on prior request for a nominal cargo reconfiguration fee).",
+        ),
+      },
+      {
+        type: "h2",
+        content: text("Why choose the Ertiga over a compact sedan airport cab?"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Searches for a Dzire airport taxi, Etios cab Bangalore airport or sedan airport cab commonly lead to compact vehicles with limited trunk space. Aftermarket CNG tanks can further reduce sedan boot capacity and force bags onto laps or passenger seats. A 2024–2026 factory S-CNG Ertiga combines a modular load bay with a higher cabin, " },
+          ...bold("rear knee-level console AC and a smooth suspension"),
+          { type: "text", text: " for a more comfortable airport or highway transfer." },
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          text("50:50 split third-row seats fold to create a flat luggage bay."),
+          text("The typical 3–4 large suitcase plus 2 cabin bag arrangement must be checked against passenger count."),
+          text("Keep passenger legroom clear by using the rear load bay rather than placing luggage on seats."),
+          text("Request second-row cargo reconfiguration in advance; a nominal fee applies."),
+        ],
+      },
+      {
+        type: "h2",
+        content: text("Airport and outstation routes"),
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "For airport trips, compare the citywide " },
+          ...link("/airport-taxi-bangalore", "Bangalore airport taxi hub"),
+          { type: "text", text: " with dedicated " },
+          ...link("/airport-taxi-whitefield", "Whitefield"),
+          { type: "text", text: " and " },
+          ...link("/airport-taxi-electronic-city", "Electronic City"),
+          { type: "text", text: " corridor guides. Share your flight timing, pickup point, passenger count and luggage before confirming." },
+        ],
+      },
+      {
+        type: "paragraph",
+        content: [
+          { type: "text", text: "Landing in Bengaluru and continuing by road? Review the " },
+          ...link("/bangalore-to-mysore-cab", "Bangalore to Mysore cab"),
+          { type: "text", text: " or the longer " },
+          ...link("/bangalore-to-coorg-cab", "Bangalore to Coorg cab"),
+          { type: "text", text: " options and book the appropriate vehicle configuration for the whole party." },
+        ],
       },
     ],
   },

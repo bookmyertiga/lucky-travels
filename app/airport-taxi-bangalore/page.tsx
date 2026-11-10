@@ -220,7 +220,7 @@ export default function AirportTaxiBangalorePage() {
         {/* 1. ORIGINAL HERO SECTION WITH WHITE ERTIGA IMAGE */}
         <section
           aria-labelledby="airport-taxi-heading"
-          className="relative bg-gradient-to-br from-[#080d2b] via-[#24105f] to-[#6817d4] px-5 py-8 text-white sm:py-10"
+          className="relative bg-gradient-to-br from-slate-950 via-blue-950 to-slate-800 px-5 py-8 text-white sm:py-10"
         >
           <div className="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1.15fr_.85fr]">
             <div>
@@ -347,6 +347,54 @@ export default function AirportTaxiBangalorePage() {
           </div>
         </section>
 
+        <section className="bg-slate-100 px-5 py-10 sm:py-14" aria-labelledby="expressway-comparison-heading">
+          <div className="page-shell">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-800">EXECUTIVE COBALT / SLATE ROUTE DESK</p>
+            <h2 id="expressway-comparison-heading" className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
+              Interactive Bangalore Airport Expressway Comparison
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+              Open a corridor row for its planning note and route guide. All drive times are estimates; the chauffeur checks live traffic and confirms the route for your pickup.
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-300 bg-white shadow-sm">
+              <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                <thead className="bg-slate-900 text-white">
+                  <tr>
+                    <th className="p-4 font-black">Pickup corridor</th>
+                    <th className="p-4 font-black">Indicative drive</th>
+                    <th className="p-4 font-black">Expressway comparison</th>
+                    <th className="p-4 font-black">Guide</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { name: "Whitefield", time: "60–80 min", routes: "SH-104 / Budigere Cross vs ORR–Hebbal", href: "/airport-taxi-whitefield", note: "Check Channasandra underpass conditions during heavy rain." },
+                    { name: "Electronic City", time: "75–95 min", routes: "9.98 km BETL vs NICE Road / Tumkur Road", href: "/airport-taxi-electronic-city", note: "Compare tollway and NICE Road based on peak traffic." },
+                    { name: "HSR Layout", time: "50–110 min buffer", routes: "Agara / Intermediate Ring Road vs ORR", href: "/airport-taxi-hsr-layout", note: "Plan about 50 minutes for 4–7 AM and 110 minutes for an 8 AM departure." },
+                    { name: "Sarjapur Road", time: "65–100 min", routes: "Carmelaram / Gunjur–Varthur vs ORR", href: "/airport-taxi-sarjapur-road", note: "Check railway gate and flyover status before selecting the local bypass." },
+                    { name: "Indiranagar", time: "45–100 min", routes: "Domlur flyover vs Baiyappanahalli exit", href: "/airport-taxi-indiranagar", note: "The HAL base is nearby; route around the Domlur loop when needed." },
+                    { name: "Marathahalli", time: "50–105 min", routes: "Budigere Cross vs ORR–Hebbal", href: "/airport-taxi-marathahalli", note: "Service-lane staging helps avoid Kalamandir merge queues." },
+                    { name: "JP Nagar", time: "65–125 min", routes: "Bannerghatta Road vs South End Circle / NICE Road", href: "/airport-taxi-jp-nagar", note: "Check current metro diversions and phase-specific exits." },
+                    { name: "Bengaluru central", time: "Traffic dependent", routes: "NH-44 / Bellary Road and live city approaches", href: "/airport-taxi-bangalore", note: "The central booking hub covers BLR T1, T2 and citywide transfers." },
+                  ].map((row) => (
+                    <tr key={row.href} className="border-t border-slate-200 align-top">
+                      <th scope="row" className="p-4 font-black text-slate-900">{row.name}<span className="mt-1 block font-normal text-slate-500">{row.time}</span></th>
+                      <td className="p-4 text-slate-700">{row.routes}</td>
+                      <td className="p-4">
+                        <details className="group">
+                          <summary className="cursor-pointer font-bold text-blue-800">Show route note</summary>
+                          <p className="mt-2 max-w-xs leading-6 text-slate-600">{row.note}</p>
+                        </details>
+                      </td>
+                      <td className="p-4"><Link className="font-bold text-blue-800 underline" href={row.href}>Open guide</Link></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         {/* 3. SEDAN BOOT UPGRADE COMPARISON */}
         <section className="bg-slate-50 px-5 pt-10 pb-8 sm:pt-14 sm:pb-10 border-b border-slate-200/80">
           <div className="page-shell">
@@ -358,7 +406,7 @@ export default function AirportTaxiBangalorePage() {
                 Searching for a Sedan Airport Taxi in Bangalore? Get Innova-Like Boot Room for Barely More
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Travelers searching for a <strong>sedan airport cab in Bangalore</strong> (like Dzire or Etios) frequently face trunk space shortages when carrying international check-in bags, forcing luggage onto seats. Our brand-new 2026 factory-fitted CNG 6+1 Ertiga fleet gives you <strong>Innova-grade 3-row comfort, 4-suitcase boot capacity, and console-level knee AC for just a minor increment over ordinary sedan rates</strong>.
+                We operate exclusively in the Premium Ertiga Category for passenger comfort and dignity; we do not operate hatchbacks or compact sedans. Travelers searching for a <strong>Dzire airport taxi, Etios cab Bangalore airport, or sedan airport cab</strong> often find that compact sedan CNG tanks eat into the trunk, forcing bags onto laps or passenger seats. Our 2024–2026 factory S-CNG Ertigas provide <strong>4-suitcase flat boot space, rear knee-level console AC, and smooth suspension</strong>.
               </p>
             </div>
 
@@ -367,7 +415,7 @@ export default function AirportTaxiBangalorePage() {
                 <span className="text-2xl mb-1.5 inline-block">🧳</span>
                 <h3 className="text-base font-bold text-[#090f2f]">4 Check-in Suitcase Space</h3>
                 <p className="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">
-                  Fold down the 3rd row to fit up to <strong>4 large international bags plus cabin trolleys</strong> with zero passenger cabin squeeze.
+                  Fold the 50:50 3rd row to fit <strong>3–4 large 28-inch check-in suitcases plus 2 cabin bags</strong> in a flat bay with zero intrusion into passenger legroom; confirm final arrangement at pickup based on passenger count.
                 </p>
               </div>
 
@@ -525,7 +573,7 @@ export default function AirportTaxiBangalorePage() {
           <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5 sm:p-6 lg:p-7">
             <h3 className="font-black text-amber-900">Airport Luggage &amp; Seating Guidance</h3>
             <p className="mt-2 text-sm leading-6 text-amber-800">
-              For optimal airport comfort, we recommend <strong>4 to 5 passengers with up to 4 large check-in suitcases</strong> when the 3rd row is folded flat, or <strong>6 passengers with compact cabin trolley bags</strong>. Please share your passenger and baggage count when inquiring on WhatsApp so we can prepare the vehicle accordingly.
+              Fold the 50:50 third row to create a flat bay for <strong>3–4 large 28-inch international check-in suitcases plus 2 cabin bags</strong> without intrusion into passenger legroom. The final arrangement depends on passenger count and can be confirmed at pickup. The 60:40 second-row seats can also be folded flat for ultra-heavy cargo or a home relocation, available on prior request for a nominal cargo reconfiguration fee. <Link href="/blog/ertiga-luggage-capacity-guide" className="font-bold underline">Read the full Ertiga luggage capacity guide.</Link>
             </p>
           </div>
         </section>
@@ -669,6 +717,31 @@ export default function AirportTaxiBangalorePage() {
               <p className="mt-1 break-all text-xs text-slate-700">{SITE.email}</p>
               <p className="mt-1 text-xs text-slate-500">Advance flight itineraries</p>
             </a>
+          </div>
+        </section>
+
+        <section className="page-shell px-5 py-10 sm:py-14" aria-labelledby="ais-safety-heading">
+          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6 sm:p-8">
+            <p className="text-xs font-black uppercase tracking-widest text-blue-800">Passenger protection & fleet compliance</p>
+            <h2 id="ais-safety-heading" className="mt-2 text-2xl font-black text-slate-950">Karnataka Government AIS-140 Certified Passenger Safety</h2>
+            <p className="mt-3 leading-7 text-slate-700">Every vehicle in our fleet is fully compliant with Karnataka State Transport Department regulations, equipped with live Government-monitored GPS vehicle tracking and an active emergency SOS Panic Button directly connected to emergency response infrastructure.</p>
+            <p className="mt-3 leading-7 text-slate-700">Our direct service emphasizes verified owner-driver ethics, background-checked chauffeurs and clean non-smoking interiors—with zero surge pricing and no driver cancellations, unlike a random app-aggregator match.</p>
+          </div>
+        </section>
+
+        <section className="bg-slate-950 px-5 py-10 text-white sm:py-12" aria-labelledby="flight-to-outstation-heading">
+          <div className="page-shell">
+            <h2 id="flight-to-outstation-heading" className="text-2xl font-black">Connect your BLR arrival to an outstation cab</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Book the right Ertiga and luggage configuration for your trip beyond Bengaluru.</p>
+            <nav aria-label="Airport and outstation trip links" className="mt-5 flex flex-wrap gap-3">
+              {[
+                { href: "/bangalore-to-mysore-cab", label: "Bangalore to Mysore" },
+                { href: "/bangalore-to-coorg-cab", label: "Bangalore to Coorg" },
+                { href: "/bangalore-to-ooty-cab", label: "Bangalore to Ooty" },
+                { href: "/outstation-cabs-bangalore", label: "Outstation cabs" },
+                { href: "/blog/ertiga-luggage-capacity-guide", label: "Ertiga luggage capacity guide" },
+              ].map((item) => <Link key={item.href} href={item.href} className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm font-bold hover:bg-white/10">{item.label} →</Link>)}
+            </nav>
           </div>
         </section>
 

@@ -50,6 +50,15 @@ export type AirportCorridor = {
 
 export const airportRoutes = [
   {
+    href: "/airport-taxi-bangalore",
+    label: "Bangalore Airport Taxi Hub",
+    desc: "BLR T1 & T2 | Citywide route planning and bookings",
+    tag: "CENTRAL HUB",
+    cta: "Compare airport route options →",
+    cardClass: "border-slate-300 bg-slate-100/80 hover:border-slate-500 text-slate-900",
+    badgeClass: "bg-slate-200 text-slate-800 border-slate-300",
+  },
+  {
     href: "/airport-taxi-whitefield",
     label: "Whitefield to Airport Taxi",
     desc: "42 km | 60–80 mins via SH-104 / Budigere",
@@ -84,6 +93,33 @@ export const airportRoutes = [
     cta: "Explore HSR Corridor Guide →",
     cardClass: "border-emerald-200 bg-emerald-50/70 hover:border-emerald-400 text-emerald-900",
     badgeClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  },
+  {
+    href: "/airport-taxi-sarjapur-road",
+    label: "Sarjapur Road to Airport Taxi",
+    desc: "Sarjapur, Bellandur and Carmelaram route planning",
+    tag: "EAST / SOUTH",
+    cta: "Explore society pickup guide →",
+    cardClass: "border-orange-200 bg-orange-50/70 hover:border-orange-400 text-orange-900",
+    badgeClass: "bg-orange-100 text-orange-900 border-orange-200",
+  },
+  {
+    href: "/airport-taxi-marathahalli",
+    label: "Marathahalli to Airport Taxi",
+    desc: "Bridge, Spice Garden and ORR dispatch guide",
+    tag: "ORR CORRIDOR",
+    cta: "Explore bridge route guide →",
+    cardClass: "border-rose-200 bg-rose-50/70 hover:border-rose-400 text-rose-900",
+    badgeClass: "bg-rose-100 text-rose-900 border-rose-200",
+  },
+  {
+    href: "/airport-taxi-jp-nagar",
+    label: "JP Nagar to Airport Taxi",
+    desc: "Phase-based South Bengaluru route planning",
+    tag: "SOUTH BENGALURU",
+    cta: "Explore JP Nagar route guide →",
+    cardClass: "border-green-200 bg-green-50/70 hover:border-green-400 text-green-900",
+    badgeClass: "bg-green-100 text-green-900 border-green-200",
   },
 ] as const;
 

@@ -8,6 +8,17 @@ import SiteShell from "@/components/shared/SiteShell";
 import { SITE } from "@/constants/site";
 import { blogPosts, RichTextNode } from "@/data/blog";
 
+const airportCorridorLinks = [
+  { href: "/airport-taxi-bangalore", label: "Bangalore airport taxi hub" },
+  { href: "/airport-taxi-whitefield", label: "Whitefield" },
+  { href: "/airport-taxi-electronic-city", label: "Electronic City" },
+  { href: "/airport-taxi-hsr-layout", label: "HSR Layout" },
+  { href: "/airport-taxi-sarjapur-road", label: "Sarjapur Road" },
+  { href: "/airport-taxi-indiranagar", label: "Indiranagar" },
+  { href: "/airport-taxi-marathahalli", label: "Marathahalli" },
+  { href: "/airport-taxi-jp-nagar", label: "JP Nagar" },
+];
+
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
@@ -209,6 +220,11 @@ export default async function BlogPostPage({
               <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-amber-900">
                 <Sparkles size={13} /> Verified Guide
               </span>
+              {post.category && (
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
+                  {post.category}
+                </span>
+              )}
             </div>
 
             <h1 className="mt-4 text-2xl font-black leading-tight tracking-tight text-[#090f2f] sm:text-3xl lg:text-4xl text-left">
@@ -358,6 +374,21 @@ export default async function BlogPostPage({
               </section>
             )}
 
+            <nav aria-label="Airport taxi corridor guides" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h2 className="text-lg font-black text-slate-900">Explore our Bangalore airport taxi corridors</h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {airportCorridorLinks.map((corridor) => (
+                  <Link
+                    key={corridor.href}
+                    href={corridor.href}
+                    className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-purple-800 hover:border-purple-300"
+                  >
+                    {corridor.label}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+
             {/* Direct Booking CTA Section */}
             <div className="mt-12 rounded-3xl bg-gradient-to-br from-[#080d2b] to-[#24105f] p-6 sm:p-8 text-white shadow-md">
               <span className="text-xs font-black uppercase tracking-widest text-amber-400">
@@ -377,8 +408,10 @@ export default async function BlogPostPage({
                   <Phone size={16} /> Call Now: +91 {SITE.phone}
                 </a>
                 <a
-                  href={`https://wa.me/919886814344?text=${encodeURIComponent(
-                    `Hello Lucky Travels, I read "${post.title}" and would like to enquire about an Ertiga booking.\nDate:\nPickup Locality:\nPassengers:`
+                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+                    post.slug === "ertiga-luggage-capacity-guide"
+                      ? "Hello Lucky Travels, I checked your Ertiga luggage capacity guide and want to book an airport/outstation cab."
+                      : `Hello Lucky Travels, I read "${post.title}" and would like to enquire about an Ertiga booking.\nDate:\nPickup Locality:\nPassengers:`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
