@@ -364,27 +364,27 @@ export default async function BlogPostPage({
                 DIRECT OWNER-DRIVER BOOKING
               </span>
               <h3 className="mt-2 text-xl sm:text-2xl font-black text-left">
-                Ready for Your Adiyogi Day Trip?
+                Planning a trip inspired by this guide?
               </h3>
               <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300 justify-block">
-                Reserve your dedicated 6+1 Premium Ertiga. Enjoy upfront pricing, sanitized vehicles, polite owner-driver service, and guaranteed on-site waiting throughout the 7:00 PM laser show.
+                Book directly with an owner-driver and travel in a 2024–2026 factory S-CNG Maruti Suzuki Ertiga. Get flat boot space for up to 4 check-in suitcases with console AC, plus zero surge pricing and our WhatsApp Price-Lock guarantee.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={`tel:+91${SITE.phone}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-xs sm:text-sm font-black text-purple-900 shadow hover:bg-slate-100 transition"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-xs sm:text-sm font-black text-purple-900 shadow hover:bg-slate-100 transition"
                 >
                   <Phone size={16} /> Call Now: +91 {SITE.phone}
                 </a>
                 <a
-                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-                    `Hello Lucky Travels, I want to book an Ertiga for Adiyogi Chikkaballapura.\nDate:\nPickup Locality:\nPassengers:`
+                  href={`https://wa.me/919886814344?text=${encodeURIComponent(
+                    `Hello Lucky Travels, I read "${post.title}" and would like to enquire about an Ertiga booking.\nDate:\nPickup Locality:\nPassengers:`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-xs sm:text-sm font-black text-white shadow hover:bg-green-700 transition"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-xs sm:text-sm font-black text-white shadow hover:bg-green-700 transition"
                 >
-                  <MessageCircle size={16} /> WhatsApp Enquiry
+                  <MessageCircle size={16} /> Book via WhatsApp
                 </a>
               </div>
             </div>

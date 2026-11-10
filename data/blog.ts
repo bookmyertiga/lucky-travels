@@ -248,6 +248,10 @@ export const blogPosts: BlogPost[] = [
             },
             ...link("/airport-taxi-electronic-city", "Electronic City"),
             { type: "text", text: ", " },
+            ...link("/airport-taxi-marathahalli", "Marathahalli"),
+            { type: "text", text: ", " },
+            ...link("/airport-taxi-indiranagar", "Indiranagar"),
+            { type: "text", text: ", " },
             ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur"),
             { type: "text", text: ", or " },
             ...link("/airport-taxi-hsr-layout", "HSR Layout"),
@@ -639,6 +643,10 @@ export const blogPosts: BlogPost[] = [
             ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur"),
             { type: "text", text: ", or " },
             ...link("/airport-taxi-hsr-layout", "HSR Layout"),
+            { type: "text", text: ", " },
+            ...link("/airport-taxi-marathahalli", "Marathahalli"),
+            { type: "text", text: ", or " },
+            ...link("/airport-taxi-indiranagar", "Indiranagar"),
             {
               type: "text",
               text: ", we come to your doorstep on time at no extra pickup charge. For route and timing details across tech corridors, review our dedicated airport guides.",
@@ -699,12 +707,12 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "One of the most common airport travel frustrations in Bengaluru is having a small hatchback or compact sedan show up with a bulky aftermarket CNG cylinder consuming the entire boot, forcing luggage onto passengers' laps. Through ",
+            text: "One of the most common airport travel frustrations in Bengaluru is having a small hatchback or compact sedan show up with a bulky aftermarket CNG cylinder consuming the entire boot, forcing luggage onto passengers' laps. Our ",
           },
-          ...bold("Go Bengaluru"),
+          ...link("/airport-taxi-bangalore", "dedicated 2024–2026 Ertiga fleet"),
           {
             type: "text",
-            text: ", Lucky Travels provides spacious 6+1 Maruti Suzuki Ertiga vehicles tailored to your exact load:",
+            text: " provides spacious 6+1 Maruti Suzuki Ertiga vehicles tailored to your exact load:",
           },
         ],
       },
@@ -715,8 +723,10 @@ export const blogPosts: BlogPost[] = [
             ...bold("3 to 4 Passengers + Heavy Flight Luggage: "),
             {
               type: "text",
-              text: "The 3rd-row seats fold down completely flat, creating a cavernous cargo deck that easily accommodates 3 to 4 large check-in trolley suitcases plus multiple cabin bags.",
+              text: "The 3rd-row seats fold down completely flat for ",
             },
+            ...link("/airport-taxi-bangalore", "flat 4-suitcase boot capacity"),
+            { type: "text", text: " plus multiple cabin bags." },
           ],
           [
             ...bold("5 to 6 Passengers + Cabin Bags: "),
@@ -802,6 +812,10 @@ export const blogPosts: BlogPost[] = [
           ...link("/airport-taxi-whitefield", "Whitefield"),
           { type: "text", text: ", " },
           ...link("/airport-taxi-electronic-city", "Electronic City"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-marathahalli", "Marathahalli"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-indiranagar", "Indiranagar"),
           { type: "text", text: ", " },
           ...link("/airport-taxi-sarjapur-road", "Sarjapur Road"),
           { type: "text", text: ", or " },
@@ -973,15 +987,28 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        content: text(
-          "Many customers are concerned about luggage space, particularly when travelling to or from the airport. Some aggregator cabs use aftermarket CNG kits that choke the trunk, but our brand-new Ertigas use original Maruti Suzuki factory-fitted S-CNG with deep modular boot architecture.",
-        ),
+        content: [
+          {
+            type: "text",
+            text: "Many customers are concerned about luggage space, particularly when travelling to or from the airport. Some aggregator cabs use aftermarket CNG kits that choke the trunk, but our ",
+          },
+          ...link("/airport-taxi-bangalore", "dedicated 2024–2026 Ertiga fleet"),
+          {
+            type: "text",
+            text: " uses original Maruti Suzuki factory-fitted S-CNG with deep modular boot architecture.",
+          },
+        ],
       },
       {
         type: "paragraph",
-        content: text(
-          "When the 3rd row is folded flat, up to 4 large check-in suitcases fit flat. That is why I prefer an honest conversation before confirming a trip. I ask how many adults and children are travelling, how many large suitcases they have, and whether every passenger seat will be needed.",
-        ),
+        content: [
+          { type: "text", text: "When the 3rd row is folded flat, our " },
+          ...link("/airport-taxi-bangalore", "flat 4-suitcase boot capacity"),
+          {
+            type: "text",
+            text: " accommodates up to 4 large check-in suitcases. That is why I prefer an honest conversation before confirming a trip. I ask how many adults and children are travelling, how many large suitcases they have, and whether every passenger seat will be needed.",
+          },
+        ],
       },
       {
         type: "image",
@@ -1161,6 +1188,10 @@ export const blogPosts: BlogPost[] = [
           { type: "text", text: ", " },
           ...link("/airport-taxi-electronic-city", "Electronic City airport transfers"),
           { type: "text", text: ", and " },
+          ...link("/airport-taxi-marathahalli", "Marathahalli airport pickups"),
+          { type: "text", text: ", " },
+          ...link("/airport-taxi-indiranagar", "Indiranagar airport pickups"),
+          { type: "text", text: ", and " },
           ...link("/airport-taxi-sarjapur-road", "Sarjapur Road / Bellandur airport cabs"),
           {
             type: "text",
@@ -1240,8 +1271,10 @@ export const blogPosts: BlogPost[] = [
         content: [
           {
             type: "text",
-            text: "Passenger count alone does not determine whether a vehicle is suitable. Luggage takes up substantial boot space, especially when travelling with 28-inch international bags. Unlike cramped sedans where small trunks force luggage onto passenger seats, our 2026 Ertigas feature flexible 3-row architecture.",
+            text: "Passenger count alone does not determine whether a vehicle is suitable. Luggage takes up substantial boot space, especially when travelling with 28-inch international bags. Unlike cramped sedans where small trunks force luggage onto passenger seats, our 2026 Ertigas offer ",
           },
+          ...link("/airport-taxi-bangalore", "flat 4-suitcase boot capacity"),
+          { type: "text", text: " with flexible 3-row architecture." },
         ],
       },
       {
@@ -1350,7 +1383,7 @@ export const blogPosts: BlogPost[] = [
             type: "text",
             text: " is one of the most rewarding ways to explore South India. Whether you are driving down the expressway to ",
           },
-          ...link("/bangalore-to-mysore-cab", "Mysore"),
+          ...link("/bangalore-to-mysore-cab", "Mysore on the Expressway"),
           { type: "text", text: ", embarking on sacred rites in " },
           ...link("/bangalore-to-srirangapatna-pitru-paksha-cab", "Srirangapatna"),
           { type: "text", text: ", heading into the coffee estates of " },
@@ -1361,8 +1394,10 @@ export const blogPosts: BlogPost[] = [
           ...link("/bangalore-to-tirupati-cab", "Tirupati Balaji"),
           {
             type: "text",
-            text: ", the vehicle you select determines whether your holiday is rejuvenating or completely exhausting.",
+            text: ", the vehicle you select determines whether your holiday is rejuvenating or completely exhausting. Compare routes and vehicle options in our ",
           },
+          ...link("/outstation-cabs-bangalore", "Bengaluru outstation cab guide"),
+          { type: "text", text: "." },
         ],
       },
       {
