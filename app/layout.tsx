@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const businessSchema = {
     "@context": "https://schema.org",
-    "@type": ["TaxiService", "LocalBusiness"],
+    "@type": "LocalBusiness",
     "@id": `${SITE.url}/#business`,
     name: "Go Bengaluru | Lucky Travels",
     url: SITE.url,

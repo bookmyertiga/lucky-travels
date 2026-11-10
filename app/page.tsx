@@ -225,8 +225,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "TaxiService"],
-        "@id": `${SITE.url}/#taxiservice`,
+        "@type": "LocalBusiness",
+        "@id": `${SITE.url}/#business`,
         name: "Go Bengaluru by Lucky Travels",
         legalName: "Lucky Travels",
         brand: { "@type": "Brand", name: "Go Bengaluru" },
@@ -234,11 +234,6 @@ export default function Home() {
         telephone: "+919886814344",
         email: "bookmyertiga@gmail.com",
         priceRange: "$$",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "5.0",
-          reviewCount: "11",
-        },
         serviceType: [
           "Bangalore Airport Taxi Transfers (BLR T1 & T2)",
           "Hourly and Daily Chauffeur-Driven Car Rental (4hr, 8hr, 12hr)",
@@ -269,7 +264,7 @@ export default function Home() {
         "@id": `${SITE.url}/#website`,
         url: `${SITE.url}/`,
         name: `${SITE.brand} by ${SITE.name}`,
-        publisher: { "@id": `${SITE.url}/#taxiservice` },
+        publisher: { "@id": `${SITE.url}/#business` },
         inLanguage: "en-IN",
       },
       {
